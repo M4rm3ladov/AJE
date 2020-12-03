@@ -29,10 +29,22 @@ Public Class frmStockReturnReport
             .DataSources.Clear()
             .DataSources.Add(New ReportDataSource("DataSet1", dt))
         End With
+
+        Dim rptParameter As ReportParameterCollection
+        rptParameter = New ReportParameterCollection
+        rptParameter.Add(New ReportParameter("BranchAddress", frmMain.lbl_branch_Address.Text))
+        rptParameter.Add(New ReportParameter("DateFrom", dtp_stock_return_From.Value.ToString("MM/dd/yy")))
+        rptParameter.Add(New ReportParameter("DateTill", dtp_stock_return_To.Value.ToString("MM/dd/yy")))
+        rv_stock_Return.LocalReport.SetParameters(rptParameter)
+
         rv_stock_Return.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout)
         rv_stock_Return.ZoomMode = ZoomMode.PageWidth
 
         rv_stock_Return.RefreshReport()
     End Sub
 
+    Private Sub frmStockReturnReport_Load(sender As Object, e As EventArgs) Handles Me.Load
+        dtp_stock_return_From.Value = DateTime.Now
+        dtp_stock_return_To.Value = DateTime.Now
+    End Sub
 End Class

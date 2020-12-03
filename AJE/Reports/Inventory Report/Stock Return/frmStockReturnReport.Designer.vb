@@ -23,7 +23,7 @@ Partial Class frmStockReturnReport
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmStockReturnReport))
-        Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.btn_Close = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -49,7 +49,7 @@ Partial Class frmStockReturnReport
         Me.Panel3.Location = New System.Drawing.Point(0, 0)
         Me.Panel3.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(1287, 55)
+        Me.Panel3.Size = New System.Drawing.Size(1262, 55)
         Me.Panel3.TabIndex = 25
         '
         'btn_Close
@@ -58,7 +58,7 @@ Partial Class frmStockReturnReport
         Me.btn_Close.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_Close.ForeColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(97, Byte), Integer))
         Me.btn_Close.Image = CType(resources.GetObject("btn_Close.Image"), System.Drawing.Image)
-        Me.btn_Close.Location = New System.Drawing.Point(1229, 0)
+        Me.btn_Close.Location = New System.Drawing.Point(1204, 0)
         Me.btn_Close.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btn_Close.Name = "btn_Close"
         Me.btn_Close.Size = New System.Drawing.Size(58, 55)
@@ -79,19 +79,19 @@ Partial Class frmStockReturnReport
         'rv_stock_Return
         '
         Me.rv_stock_Return.Dock = System.Windows.Forms.DockStyle.Fill
-        ReportDataSource2.Name = "DataSet1"
-        ReportDataSource2.Value = Nothing
-        Me.rv_stock_Return.LocalReport.DataSources.Add(ReportDataSource2)
+        ReportDataSource1.Name = "DataSet1"
+        ReportDataSource1.Value = Nothing
+        Me.rv_stock_Return.LocalReport.DataSources.Add(ReportDataSource1)
         Me.rv_stock_Return.LocalReport.ReportEmbeddedResource = "AJE.Report1.rdlc"
         Me.rv_stock_Return.Location = New System.Drawing.Point(0, 135)
         Me.rv_stock_Return.Name = "rv_stock_Return"
-        Me.rv_stock_Return.Size = New System.Drawing.Size(1271, 553)
+        Me.rv_stock_Return.Size = New System.Drawing.Size(1246, 553)
         Me.rv_stock_Return.TabIndex = 42
         '
         'pnl_transac_Right
         '
         Me.pnl_transac_Right.Dock = System.Windows.Forms.DockStyle.Right
-        Me.pnl_transac_Right.Location = New System.Drawing.Point(1271, 135)
+        Me.pnl_transac_Right.Location = New System.Drawing.Point(1246, 135)
         Me.pnl_transac_Right.Name = "pnl_transac_Right"
         Me.pnl_transac_Right.Size = New System.Drawing.Size(16, 553)
         Me.pnl_transac_Right.TabIndex = 41
@@ -102,7 +102,7 @@ Partial Class frmStockReturnReport
         Me.pnl_transac_Bottom.Location = New System.Drawing.Point(0, 688)
         Me.pnl_transac_Bottom.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.pnl_transac_Bottom.Name = "pnl_transac_Bottom"
-        Me.pnl_transac_Bottom.Size = New System.Drawing.Size(1287, 16)
+        Me.pnl_transac_Bottom.Size = New System.Drawing.Size(1262, 16)
         Me.pnl_transac_Bottom.TabIndex = 40
         '
         'pnl_transac_Top
@@ -116,7 +116,7 @@ Partial Class frmStockReturnReport
         Me.pnl_transac_Top.Location = New System.Drawing.Point(0, 55)
         Me.pnl_transac_Top.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.pnl_transac_Top.Name = "pnl_transac_Top"
-        Me.pnl_transac_Top.Size = New System.Drawing.Size(1287, 80)
+        Me.pnl_transac_Top.Size = New System.Drawing.Size(1262, 80)
         Me.pnl_transac_Top.TabIndex = 39
         '
         'Label2
@@ -179,7 +179,7 @@ Partial Class frmStockReturnReport
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1287, 704)
+        Me.ClientSize = New System.Drawing.Size(1262, 704)
         Me.Controls.Add(Me.rv_stock_Return)
         Me.Controls.Add(Me.pnl_transac_Right)
         Me.Controls.Add(Me.pnl_transac_Bottom)

@@ -666,7 +666,7 @@
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Height>0.5in</Height>
-        <Width>11.90722in</Width>
+        <Width>11.90723in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -753,7 +753,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Stock In</Value>
+                  <Value>Stock Out</Value>
                   <Style>
                     <FontSize>12pt</FontSize>
                     <FontWeight>Bold</FontWeight>
