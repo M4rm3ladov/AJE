@@ -10,6 +10,13 @@ Public Class frmCashierReport
                 .DataSources.Clear()
             End With
 
+            Dim rptParameter As ReportParameterCollection
+            rptParameter = New ReportParameterCollection
+            rptParameter.Add(New ReportParameter("BranchAddress", frmMain.lbl_branch_Address.Text))
+            rptParameter.Add(New ReportParameter("DateFrom", dtp_log_From.Value.ToString("MM/dd/yy")))
+            rptParameter.Add(New ReportParameter("DateTill", dtp_log_To.Value.ToString("MM/dd/yy")))
+            rv_Log.LocalReport.SetParameters(rptParameter)
+
             Dim ds As New DataSet1
             Dim da As New MySqlDataAdapter
 
@@ -50,6 +57,13 @@ Public Class frmCashierReport
                 .DataSources.Clear()
             End With
 
+            Dim rptParameter As ReportParameterCollection
+            rptParameter = New ReportParameterCollection
+            rptParameter.Add(New ReportParameter("BranchAddress", frmMain.lbl_branch_Address.Text))
+            rptParameter.Add(New ReportParameter("DateFrom", dtp_cash_in_From.Value.ToString("MM/dd/yy")))
+            rptParameter.Add(New ReportParameter("DateTill", dtp_cash_in_To.Value.ToString("MM/dd/yy")))
+            rv_cash_In.LocalReport.SetParameters(rptParameter)
+
             Dim ds As New DataSet1
             Dim da As New MySqlDataAdapter
 
@@ -76,6 +90,13 @@ Public Class frmCashierReport
                 .ReportPath = Application.StartupPath & "\Report\ReportCashOut.rdlc"
                 .DataSources.Clear()
             End With
+
+            Dim rptParameter As ReportParameterCollection
+            rptParameter = New ReportParameterCollection
+            rptParameter.Add(New ReportParameter("BranchAddress", frmMain.lbl_branch_Address.Text))
+            rptParameter.Add(New ReportParameter("DateFrom", dtp_cash_out_From.Value.ToString("MM/dd/yy")))
+            rptParameter.Add(New ReportParameter("DateTill", dtp_cash_out_To.Value.ToString("MM/dd/yy")))
+            rv_cash_Out.LocalReport.SetParameters(rptParameter)
 
             Dim ds As New DataSet1
             Dim da As New MySqlDataAdapter
