@@ -29,10 +29,22 @@ Public Class frmStockAdjustReport
             .DataSources.Clear()
             .DataSources.Add(New ReportDataSource("DataSet1", dt))
         End With
+
+        Dim rptParameter As ReportParameterCollection
+        rptParameter = New ReportParameterCollection
+        rptParameter.Add(New ReportParameter("BranchAddress", frmMain.lbl_branch_Address.Text))
+        rptParameter.Add(New ReportParameter("DateFrom", dtp_stock_adjust_From.Value.ToString("MM/dd/yy")))
+        rptParameter.Add(New ReportParameter("DateTill", dtp_stock_adjust_To.Value.ToString("MM/dd/yy")))
+        rv_stock_Adjust.LocalReport.SetParameters(rptParameter)
+
         rv_stock_Adjust.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout)
         rv_stock_Adjust.ZoomMode = ZoomMode.PageWidth
 
         rv_stock_Adjust.RefreshReport()
     End Sub
 
+    Private Sub frmStockAdjustReport_Load(sender As Object, e As EventArgs) Handles Me.Load
+        dtp_stock_adjust_From.Value = DateTime.Now
+        dtp_stock_adjust_To.Value = DateTime.Now
+    End Sub
 End Class

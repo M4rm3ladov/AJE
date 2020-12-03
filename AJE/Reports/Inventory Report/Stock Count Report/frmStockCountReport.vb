@@ -44,6 +44,6 @@ Public Class frmStockCountReport
 
     Private Sub frmStockCountReport_Load(sender As Object, e As EventArgs) Handles Me.Load
         dtp_stock_count_From.Value = DateTime.Now
-        dtp_stock_count_To.Value = DateTime.no
+        dtp_stock_count_To.Value = DateTime.Now
     End Sub
 End Class
