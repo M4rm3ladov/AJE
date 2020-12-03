@@ -1,0 +1,10 @@
+DELIMITER $$
+
+USE `aje_pos`$$
+
+DROP VIEW IF EXISTS `vw_cash_sales`$$
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_cash_sales` AS (
+SELECT `cash_payment`.`trans_date` AS `trans_date`,`cash_payment`.`receipt` AS `receipt`,CONCAT(`brand`.`brand_name`,' | ',`item`.`item_desc`,' | ',`item`.`item_add_desc`) AS `Description`,`order_item_dtls`.`price` AS `price`,`order_item_dtls`.`qty` AS `qty`,`order_item_dtls`.`line_total` AS `line_total`,CONCAT(`user_details`.`user_gname`,' ',`user_details`.`user_surname`,' ',`user_details`.`user_suffix`) AS `Cashiers`,`orders`.`branch_id` AS `branch_id` FROM (((((((`orders` JOIN `order_item_dtls` ON((`orders`.`order_id` = `order_item_dtls`.`order_id`))) JOIN `inventory` ON((`order_item_dtls`.`inventory_id` = `inventory`.`inventory_id`))) JOIN `item` ON((`inventory`.`item_id` = `item`.`item_id`))) JOIN `brand` ON((`item`.`brand_id` = `brand`.`brand_id`))) JOIN `cash_payment` ON((`orders`.`order_id` = `cash_payment`.`order_id`))) JOIN `cashier` ON((`cash_payment`.`cashier_id` = `cashier`.`cashier_id`))) JOIN `user_details` ON((`cashier`.`user_id` = `user_details`.`user_id`)))) vw_cash_sales (SELECT `cash_payment`.`trans_date` AS `trans_date`,`cash_payment`.`receipt` AS `receipt`,`service`.`service_desc` AS `Description`,`order_svc_dtls`.`price` AS `price`,`order_svc_dtls`.`qty` AS `qty`,`order_svc_dtls`.`line_total` AS `line_total`,CONCAT(`user_details`.`user_gname`,' ',`user_details`.`user_surname`,' ',`user_details`.`user_suffix`) AS `Cashiers`,`orders`.`branch_id` AS `branch_id` FROM (((((`orders` JOIN `order_svc_dtls` ON((`order_svc_dtls`.`order_id` = `orders`.`order_id`))) JOIN `service` ON((`service`.`service_id` = `order_svc_dtls`.`service_id`))) JOIN `cash_payment` ON((`orders`.`order_id` = `cash_payment`.`order_id`))) JOIN `cashier` ON((`cash_payment`.`cashier_id` = `cashier`.`cashier_id`))) JOIN `user_details` ON((`cashier`.`user_id` = `user_details`.`user_id`)))) ORDER BY `trans_date`,`receipt)$$
+
+DELIMITER ;

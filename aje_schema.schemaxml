@@ -1,0 +1,577 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemadesigner version="6.5">
+<source>
+<database charset="latin1" collation="latin1_swedish_ci">aje_pos</database>
+</source>
+<canvas zoom="100">
+<tables>
+<table name="branch" view="colnames">
+<left>3</left>
+<top>318</top>
+<width>137</width>
+<height>112</height>
+<sql_create_table>CREATE TABLE `branch` (
+  `branch_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `branch_address` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`branch_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4</sql_create_table>
+</table>
+<table name="user_details" view="colnames">
+<left>495</left>
+<top>46</top>
+<width>128</width>
+<height>163</height>
+<sql_create_table>CREATE TABLE `user_details` (
+  `user_id` bigint(20) DEFAULT NULL,
+  `user_surname` varchar(30) DEFAULT NULL,
+  `user_gname` varchar(30) DEFAULT NULL,
+  `user_mi` varchar(10) DEFAULT NULL,
+  `user_suffix` varchar(10) DEFAULT NULL,
+  KEY `user_id` (`user_id`),
+  CONSTRAINT `user_details_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4</sql_create_table>
+</table>
+<table name="item" view="colnames">
+<left>546</left>
+<top>252</top>
+<width>134</width>
+<height>231</height>
+<sql_create_table>CREATE TABLE `item` (
+  `item_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `item_code` varchar(20) DEFAULT NULL,
+  `item_desc` varchar(50) DEFAULT NULL,
+  `item_add_desc` varchar(50) DEFAULT NULL,
+  `brand_id` bigint(20) DEFAULT NULL,
+  `category_id` bigint(20) DEFAULT NULL,
+  `unit_id` bigint(20) DEFAULT NULL,
+  `item_unit_price` decimal(15,2) DEFAULT NULL,
+  `item_price_A` decimal(15,2) DEFAULT NULL,
+  `item_price_B` decimal(15,2) DEFAULT NULL,
+  PRIMARY KEY (`item_id`),
+  KEY `brand_id` (`brand_id`),
+  KEY `category_id` (`category_id`),
+  KEY `unit_id` (`unit_id`),
+  CONSTRAINT `item_ibfk_1` FOREIGN KEY (`brand_id`) REFERENCES `brand` (`brand_id`),
+  CONSTRAINT `item_ibfk_2` FOREIGN KEY (`category_id`) REFERENCES `category` (`category_id`),
+  CONSTRAINT `item_ibfk_3` FOREIGN KEY (`unit_id`) REFERENCES `unit` (`unit_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4</sql_create_table>
+</table>
+<table name="brand" view="colnames">
+<left>718</left>
+<top>235</top>
+<width>118</width>
+<height>112</height>
+<sql_create_table>CREATE TABLE `brand` (
+  `brand_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `brand_name` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`brand_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4</sql_create_table>
+</table>
+<table name="category" view="colnames">
+<left>856</left>
+<top>232</top>
+<width>135</width>
+<height>112</height>
+<sql_create_table>CREATE TABLE `category` (
+  `category_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `category_name` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`category_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4</sql_create_table>
+</table>
+<table name="supplier" view="colnames">
+<left>6</left>
+<top>499</top>
+<width>143</width>
+<height>129</height>
+<sql_create_table>CREATE TABLE `supplier` (
+  `supplier_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `supplier_name` varchar(50) DEFAULT NULL,
+  `supplier_address` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`supplier_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4</sql_create_table>
+</table>
+<table name="service" view="colnames">
+<left>371</left>
+<top>677</top>
+<width>127</width>
+<height>163</height>
+<sql_create_table>CREATE TABLE `service` (
+  `service_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `service_code` varchar(20) DEFAULT NULL,
+  `service_desc` varchar(50) DEFAULT NULL,
+  `service_fee_A` decimal(15,2) DEFAULT NULL,
+  `service_fee_B` decimal(15,2) DEFAULT NULL,
+  PRIMARY KEY (`service_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4</sql_create_table>
+</table>
+<table name="manager" view="colnames">
+<left>1259</left>
+<top>877</top>
+<width>117</width>
+<height>197</height>
+<sql_create_table>CREATE TABLE `manager` (
+  `manager_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `user_id` bigint(20) DEFAULT NULL,
+  `username` varbinary(30) DEFAULT NULL,
+  `password` varbinary(100) DEFAULT NULL,
+  `salt` varbinary(100) DEFAULT NULL,
+  `is_active` tinyint(1) DEFAULT NULL,
+  `is_logged_in` tinyint(1) DEFAULT '0',
+  PRIMARY KEY (`manager_id`),
+  KEY `user_id` (`user_id`),
+  CONSTRAINT `manager_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4</sql_create_table>
+</table>
+<table name="cashier" view="colnames">
+<left>1247</left>
+<top>606</top>
+<width>117</width>
+<height>197</height>
+<sql_create_table>CREATE TABLE `cashier` (
+  `cashier_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `user_id` bigint(20) DEFAULT NULL,
+  `username` varbinary(30) DEFAULT NULL,
+  `password` varbinary(100) DEFAULT NULL,
+  `salt` varbinary(100) DEFAULT NULL,
+  `is_active` tinyint(1) DEFAULT NULL,
+  `is_logged_in` tinyint(1) DEFAULT '0',
+  PRIMARY KEY (`cashier_id`),
+  KEY `user_id` (`user_id`),
+  CONSTRAINT `cashier_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4</sql_create_table>
+</table>
+<table name="customer_details" view="colnames">
+<left>1036</left>
+<top>251</top>
+<width>156</width>
+<height>163</height>
+<sql_create_table>CREATE TABLE `customer_details` (
+  `customer_id` bigint(20) DEFAULT NULL,
+  `customer_surname` varchar(30) DEFAULT NULL,
+  `customer_gname` varchar(30) DEFAULT NULL,
+  `customer_mi` varchar(10) DEFAULT NULL,
+  `customer_suffix` varchar(10) DEFAULT NULL,
+  KEY `customer_id` (`customer_id`),
+  CONSTRAINT `customer_details_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4</sql_create_table>
+</table>
+<table name="customer" view="colnames">
+<left>1243</left>
+<top>427</top>
+<width>133</width>
+<height>146</height>
+<sql_create_table>CREATE TABLE `customer` (
+  `customer_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `customer_code` varchar(30) DEFAULT NULL,
+  `credit_limit` decimal(15,2) DEFAULT '0.00',
+  `balance` decimal(15,2) DEFAULT '0.00',
+  PRIMARY KEY (`customer_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4</sql_create_table>
+</table>
+<table name="stock_in" view="colnames">
+<left>192</left>
+<top>355</top>
+<width>117</width>
+<height>214</height>
+<sql_create_table>CREATE TABLE `stock_in` (
+  `stock_in_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `inventory_id` bigint(20) DEFAULT NULL,
+  `branch_id` bigint(20) DEFAULT NULL,
+  `supplier_id` bigint(20) DEFAULT NULL,
+  `ref_no` bigint(10) DEFAULT NULL,
+  `qty` int(11) DEFAULT NULL,
+  `trans_date` date DEFAULT NULL,
+  `remarks` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`stock_in_id`),
+  KEY `branch_id` (`branch_id`),
+  KEY `supplier_id` (`supplier_id`),
+  KEY `inventory_id` (`inventory_id`),
+  CONSTRAINT `stock_in_ibfk_2` FOREIGN KEY (`branch_id`) REFERENCES `branch` (`branch_id`),
+  CONSTRAINT `stock_in_ibfk_3` FOREIGN KEY (`supplier_id`) REFERENCES `supplier` (`supplier_id`),
+  CONSTRAINT `stock_in_ibfk_4` FOREIGN KEY (`inventory_id`) REFERENCES `inventory` (`inventory_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4</sql_create_table>
+</table>
+<table name="stock_transfer" view="colnames">
+<left>190</left>
+<top>577</top>
+<width>136</width>
+<height>214</height>
+<sql_create_table>CREATE TABLE `stock_transfer` (
+  `stock_trans_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `inventory_id` bigint(20) DEFAULT NULL,
+  `branch_id_from` bigint(20) DEFAULT NULL,
+  `branch_id_to` bigint(20) DEFAULT NULL,
+  `ref_no` bigint(10) DEFAULT NULL,
+  `qty` int(11) DEFAULT NULL,
+  `trans_date` date DEFAULT NULL,
+  `remarks` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`stock_trans_id`),
+  KEY `branch_id_from` (`branch_id_from`),
+  KEY `branch_id_to` (`branch_id_to`),
+  KEY `inventory_id` (`inventory_id`),
+  CONSTRAINT `stock_transfer_ibfk_2` FOREIGN KEY (`branch_id_from`) REFERENCES `branch` (`branch_id`),
+  CONSTRAINT `stock_transfer_ibfk_3` FOREIGN KEY (`branch_id_to`) REFERENCES `branch` (`branch_id`),
+  CONSTRAINT `stock_transfer_ibfk_4` FOREIGN KEY (`inventory_id`) REFERENCES `inventory` (`inventory_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4</sql_create_table>
+</table>
+<table name="stock_return" view="colnames">
+<left>185</left>
+<top>127</top>
+<width>117</width>
+<height>214</height>
+<sql_create_table>CREATE TABLE `stock_return` (
+  `stock_ret_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `inventory_id` bigint(20) DEFAULT NULL,
+  `branch_id` bigint(20) DEFAULT NULL,
+  `supplier_id` bigint(20) DEFAULT NULL,
+  `ref_no` bigint(10) DEFAULT NULL,
+  `qty` int(11) DEFAULT NULL,
+  `trans_date` date DEFAULT NULL,
+  `remarks` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`stock_ret_id`),
+  KEY `branch_id` (`branch_id`),
+  KEY `supplier_id` (`supplier_id`),
+  KEY `inventory_id` (`inventory_id`),
+  CONSTRAINT `stock_return_ibfk_1` FOREIGN KEY (`branch_id`) REFERENCES `branch` (`branch_id`),
+  CONSTRAINT `stock_return_ibfk_2` FOREIGN KEY (`supplier_id`) REFERENCES `supplier` (`supplier_id`),
+  CONSTRAINT `stock_return_ibfk_3` FOREIGN KEY (`inventory_id`) REFERENCES `inventory` (`inventory_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4</sql_create_table>
+</table>
+<table name="stock_out" view="colnames">
+<left>10</left>
+<top>696</top>
+<width>118</width>
+<height>197</height>
+<sql_create_table>CREATE TABLE `stock_out` (
+  `stock_out_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `inventory_id` bigint(20) DEFAULT NULL,
+  `branch_id` bigint(20) DEFAULT NULL,
+  `ref_no` bigint(10) DEFAULT NULL,
+  `qty` int(11) DEFAULT NULL,
+  `trans_date` date DEFAULT NULL,
+  `remarks` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`stock_out_id`),
+  KEY `branch_id` (`branch_id`),
+  KEY `inventory_id` (`inventory_id`),
+  CONSTRAINT `stock_out_ibfk_2` FOREIGN KEY (`branch_id`) REFERENCES `branch` (`branch_id`),
+  CONSTRAINT `stock_out_ibfk_3` FOREIGN KEY (`inventory_id`) REFERENCES `inventory` (`inventory_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4</sql_create_table>
+</table>
+<table name="inventory" view="colnames">
+<left>376</left>
+<top>436</top>
+<width>117</width>
+<height>146</height>
+<sql_create_table>CREATE TABLE `inventory` (
+  `inventory_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `item_id` bigint(20) DEFAULT NULL,
+  `branch_id` bigint(20) DEFAULT NULL,
+  `qty` int(11) DEFAULT '0',
+  PRIMARY KEY (`inventory_id`),
+  KEY `item_id` (`item_id`),
+  KEY `branch_id` (`branch_id`),
+  CONSTRAINT `inventory_ibfk_1` FOREIGN KEY (`item_id`) REFERENCES `item` (`item_id`),
+  CONSTRAINT `inventory_ibfk_2` FOREIGN KEY (`branch_id`) REFERENCES `branch` (`branch_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4</sql_create_table>
+</table>
+<table name="inventory_period" view="colnames">
+<left>14</left>
+<top>918</top>
+<width>130</width>
+<height>129</height>
+<sql_create_table>CREATE TABLE `inventory_period` (
+  `inv_period_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `period_from` date DEFAULT NULL,
+  `period_to` date DEFAULT NULL,
+  PRIMARY KEY (`inv_period_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4</sql_create_table>
+</table>
+<table name="physical_count" view="colnames">
+<left>199</left>
+<top>797</top>
+<width>128</width>
+<height>197</height>
+<sql_create_table>CREATE TABLE `physical_count` (
+  `phys_count_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `inv_period_id` bigint(20) DEFAULT NULL,
+  `inventory_id` bigint(20) DEFAULT NULL,
+  `qty` int(11) DEFAULT '0',
+  `count_date` date DEFAULT NULL,
+  `ref_no` bigint(10) DEFAULT NULL,
+  `remarks` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`phys_count_id`),
+  KEY `inventory_id` (`inventory_id`),
+  KEY `inv_period_id` (`inv_period_id`),
+  CONSTRAINT `physical_count_ibfk_4` FOREIGN KEY (`inv_period_id`) REFERENCES `inventory_period` (`inv_period_id`),
+  CONSTRAINT `physical_count_ibfk_5` FOREIGN KEY (`inv_period_id`) REFERENCES `inventory` (`inventory_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4</sql_create_table>
+</table>
+<table name="orders" view="colnames">
+<left>876</left>
+<top>774</top>
+<width>127</width>
+<height>163</height>
+<sql_create_table>CREATE TABLE `orders` (
+  `order_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `trans_date` date DEFAULT NULL,
+  `gross_amount` decimal(15,2) DEFAULT NULL,
+  `trans_code` bigint(10) DEFAULT NULL,
+  `branch_id` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`order_id`),
+  KEY `branch_id` (`branch_id`),
+  CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`branch_id`) REFERENCES `branch` (`branch_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4</sql_create_table>
+</table>
+<table name="cash_payment" view="colnames">
+<left>1047</left>
+<top>573</top>
+<width>117</width>
+<height>180</height>
+<sql_create_table>CREATE TABLE `cash_payment` (
+  `cash_pay_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `order_id` bigint(20) DEFAULT NULL,
+  `cashier_id` bigint(20) DEFAULT NULL,
+  `trans_date` date DEFAULT NULL,
+  `pay_amount` decimal(15,2) DEFAULT NULL,
+  `receipt` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`cash_pay_id`),
+  KEY `cashier_id` (`cashier_id`),
+  KEY `order_id` (`order_id`),
+  CONSTRAINT `cash_payment_ibfk_1` FOREIGN KEY (`cashier_id`) REFERENCES `cashier` (`cashier_id`),
+  CONSTRAINT `cash_payment_ibfk_2` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4</sql_create_table>
+</table>
+<table name="order_item_dtls" view="colnames">
+<left>564</left>
+<top>679</top>
+<width>126</width>
+<height>180</height>
+<sql_create_table>CREATE TABLE `order_item_dtls` (
+  `order_item_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `order_id` bigint(20) DEFAULT NULL,
+  `inventory_id` bigint(20) DEFAULT NULL,
+  `qty` int(11) DEFAULT NULL,
+  `price` decimal(15,2) DEFAULT NULL,
+  `line_total` decimal(15,2) DEFAULT NULL,
+  PRIMARY KEY (`order_item_id`),
+  KEY `inventory_id` (`inventory_id`),
+  KEY `order_id` (`order_id`),
+  CONSTRAINT `order_item_dtls_ibfk_3` FOREIGN KEY (`inventory_id`) REFERENCES `inventory` (`inventory_id`),
+  CONSTRAINT `order_item_dtls_ibfk_4` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4</sql_create_table>
+</table>
+<table name="order_svc_dtls" view="colnames">
+<left>566</left>
+<top>1067</top>
+<width>130</width>
+<height>180</height>
+<sql_create_table>CREATE TABLE `order_svc_dtls` (
+  `order_svc_dtls` bigint(20) NOT NULL AUTO_INCREMENT,
+  `order_id` bigint(20) DEFAULT NULL,
+  `service_id` bigint(20) DEFAULT NULL,
+  `qty` int(11) DEFAULT NULL,
+  `price` decimal(15,2) DEFAULT NULL,
+  `line_total` decimal(15,2) DEFAULT NULL,
+  PRIMARY KEY (`order_svc_dtls`),
+  KEY `service_id` (`service_id`),
+  KEY `order_id` (`order_id`),
+  CONSTRAINT `order_svc_dtls_ibfk_1` FOREIGN KEY (`service_id`) REFERENCES `service` (`service_id`),
+  CONSTRAINT `order_svc_dtls_ibfk_2` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4</sql_create_table>
+</table>
+<table name="refund" view="colnames">
+<left>738</left>
+<top>568</top>
+<width>115</width>
+<height>178</height>
+<sql_create_table>CREATE TABLE `refund` (
+  `refund_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `order_id` bigint(20) DEFAULT NULL,
+  `cashier_id` bigint(20) DEFAULT NULL,
+  `manager_id` bigint(20) DEFAULT NULL,
+  `amount` decimal(15,2) DEFAULT NULL,
+  `trans_date` date DEFAULT NULL,
+  `remarks` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`refund_id`),
+  KEY `manager_id` (`manager_id`),
+  KEY `order_id` (`order_id`),
+  KEY `cashier_id` (`cashier_id`),
+  CONSTRAINT `refund_ibfk_2` FOREIGN KEY (`manager_id`) REFERENCES `manager` (`manager_id`),
+  CONSTRAINT `refund_ibfk_3` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`),
+  CONSTRAINT `refund_ibfk_4` FOREIGN KEY (`cashier_id`) REFERENCES `cashier` (`cashier_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4</sql_create_table>
+</table>
+<table name="refund_item_dtls" view="colnames">
+<left>561</left>
+<top>491</top>
+<width>132</width>
+<height>180</height>
+<sql_create_table>CREATE TABLE `refund_item_dtls` (
+  `refund_item_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `refund_id` bigint(20) DEFAULT NULL,
+  `inventory_id` bigint(20) DEFAULT NULL,
+  `qty` int(11) DEFAULT NULL,
+  `price` decimal(15,2) DEFAULT NULL,
+  `sub_total` decimal(15,2) DEFAULT NULL,
+  PRIMARY KEY (`refund_item_id`),
+  KEY `refund_id` (`refund_id`),
+  KEY `inventory_id` (`inventory_id`),
+  CONSTRAINT `refund_item_dtls_ibfk_1` FOREIGN KEY (`refund_id`) REFERENCES `refund` (`refund_id`),
+  CONSTRAINT `refund_item_dtls_ibfk_2` FOREIGN KEY (`inventory_id`) REFERENCES `inventory` (`inventory_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4</sql_create_table>
+</table>
+<table name="refund_svc_dtls" view="colnames">
+<left>566</left>
+<top>873</top>
+<width>126</width>
+<height>180</height>
+<sql_create_table>CREATE TABLE `refund_svc_dtls` (
+  `refund_svc_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `refund_id` bigint(20) DEFAULT NULL,
+  `service_id` bigint(20) DEFAULT NULL,
+  `qty` int(11) DEFAULT NULL,
+  `price` decimal(15,2) DEFAULT NULL,
+  `sub_total` decimal(15,2) DEFAULT NULL,
+  PRIMARY KEY (`refund_svc_id`),
+  KEY `service_id` (`service_id`),
+  KEY `refund_id` (`refund_id`),
+  CONSTRAINT `refund_svc_dtls_ibfk_1` FOREIGN KEY (`service_id`) REFERENCES `service` (`service_id`),
+  CONSTRAINT `refund_svc_dtls_ibfk_2` FOREIGN KEY (`refund_id`) REFERENCES `refund` (`refund_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4</sql_create_table>
+</table>
+<table name="credit_payment" view="colnames">
+<left>1059</left>
+<top>829</top>
+<width>123</width>
+<height>193</height>
+<sql_create_table>CREATE TABLE `credit_payment` (
+  `credit_pay_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `order_id` bigint(20) DEFAULT NULL,
+  `cashier_id` bigint(20) DEFAULT NULL,
+  `customer_id` bigint(20) DEFAULT NULL,
+  `trans_date` date DEFAULT NULL,
+  `pay_amount` decimal(15,2) DEFAULT NULL,
+  `invoice` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`credit_pay_id`),
+  KEY `cashier_id` (`cashier_id`),
+  KEY `customer_id` (`customer_id`),
+  KEY `order_id` (`order_id`),
+  CONSTRAINT `credit_payment_ibfk_1` FOREIGN KEY (`cashier_id`) REFERENCES `cashier` (`cashier_id`),
+  CONSTRAINT `credit_payment_ibfk_2` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`),
+  CONSTRAINT `credit_payment_ibfk_3` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4</sql_create_table>
+</table>
+<table name="credit_settle" view="colnames">
+<left>843</left>
+<top>1029</top>
+<width>133</width>
+<height>179</height>
+<sql_create_table>CREATE TABLE `credit_settle` (
+  `credit_settle_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `customer_id` bigint(20) DEFAULT NULL,
+  `cashier_id` bigint(20) DEFAULT NULL,
+  `manager_id` bigint(20) DEFAULT NULL,
+  `trans_date` date DEFAULT NULL,
+  `pay_amount` decimal(15,2) DEFAULT NULL,
+  `receipt` bigint(10) DEFAULT NULL,
+  PRIMARY KEY (`credit_settle_id`),
+  KEY `customer_id` (`customer_id`),
+  KEY `cashier_id` (`cashier_id`),
+  KEY `manager_id` (`manager_id`),
+  CONSTRAINT `credit_settle_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`),
+  CONSTRAINT `credit_settle_ibfk_2` FOREIGN KEY (`cashier_id`) REFERENCES `cashier` (`cashier_id`),
+  CONSTRAINT `credit_settle_ibfk_3` FOREIGN KEY (`manager_id`) REFERENCES `manager` (`manager_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4</sql_create_table>
+</table>
+<table name="cash_in" view="colnames">
+<left>1457</left>
+<top>417</top>
+<width>114</width>
+<height>180</height>
+<sql_create_table>CREATE TABLE `cash_in` (
+  `cash_in_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `cashier_id` bigint(20) DEFAULT NULL,
+  `manager_id` bigint(20) DEFAULT NULL,
+  `trans_date` date DEFAULT NULL,
+  `amount` decimal(15,2) DEFAULT NULL,
+  `remarks` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`cash_in_id`),
+  KEY `manager_id` (`manager_id`),
+  KEY `cashier_id` (`cashier_id`),
+  CONSTRAINT `cash_in_ibfk_2` FOREIGN KEY (`manager_id`) REFERENCES `manager` (`manager_id`),
+  CONSTRAINT `cash_in_ibfk_3` FOREIGN KEY (`cashier_id`) REFERENCES `cashier` (`cashier_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4</sql_create_table>
+</table>
+<table name="cash_out" view="colnames">
+<left>1460</left>
+<top>849</top>
+<width>114</width>
+<height>180</height>
+<sql_create_table>CREATE TABLE `cash_out` (
+  `cash_out_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `cashier_id` bigint(20) DEFAULT NULL,
+  `manager_id` bigint(20) DEFAULT NULL,
+  `trans_date` date DEFAULT NULL,
+  `amount` decimal(15,2) DEFAULT NULL,
+  `remarks` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`cash_out_id`),
+  KEY `manager_id` (`manager_id`),
+  KEY `cashier_id` (`cashier_id`),
+  CONSTRAINT `cash_out_ibfk_2` FOREIGN KEY (`manager_id`) REFERENCES `manager` (`manager_id`),
+  CONSTRAINT `cash_out_ibfk_3` FOREIGN KEY (`cashier_id`) REFERENCES `cashier` (`cashier_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4</sql_create_table>
+</table>
+<table name="cashier_log" view="colnames">
+<left>1459</left>
+<top>616</top>
+<width>130</width>
+<height>214</height>
+<sql_create_table>CREATE TABLE `cashier_log` (
+  `cashier_log_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `cashier_id` bigint(20) DEFAULT NULL,
+  `manager_id` bigint(20) DEFAULT NULL,
+  `log_date` date DEFAULT NULL,
+  `time_from` time DEFAULT NULL,
+  `time_to` time DEFAULT NULL,
+  `begin_bal` decimal(15,2) DEFAULT NULL,
+  `end_bal` decimal(15,2) DEFAULT '0.00',
+  PRIMARY KEY (`cashier_log_id`),
+  KEY `manager_id` (`manager_id`),
+  KEY `cashier_id` (`cashier_id`),
+  CONSTRAINT `cashier_log_ibfk_2` FOREIGN KEY (`manager_id`) REFERENCES `manager` (`manager_id`),
+  CONSTRAINT `cashier_log_ibfk_3` FOREIGN KEY (`cashier_id`) REFERENCES `cashier` (`cashier_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=137 DEFAULT CHARSET=utf8mb4</sql_create_table>
+</table>
+<table name="users" view="colnames">
+<left>345</left>
+<top>10</top>
+<width>117</width>
+<height>214</height>
+<sql_create_table>CREATE TABLE `users` (
+  `user_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `branch_id` bigint(20) DEFAULT NULL,
+  `username` varbinary(30) DEFAULT NULL,
+  `password` varbinary(100) DEFAULT NULL,
+  `salt` varbinary(100) DEFAULT NULL,
+  `user_type` varchar(10) DEFAULT NULL,
+  `is_active` tinyint(1) DEFAULT NULL,
+  `is_logged_in` tinyint(1) DEFAULT '0',
+  PRIMARY KEY (`user_id`),
+  KEY `branch_id` (`branch_id`),
+  CONSTRAINT `users_ibfk_1` FOREIGN KEY (`branch_id`) REFERENCES `branch` (`branch_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4</sql_create_table>
+</table>
+<table name="unit" view="colnames">
+<left>822</left>
+<top>388</top>
+<width>106</width>
+<height>112</height>
+<sql_create_table>CREATE TABLE `unit` (
+  `unit_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `unit_name` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`unit_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4</sql_create_table>
+</table>
+</tables>
+</canvas>
+</schemadesigner>

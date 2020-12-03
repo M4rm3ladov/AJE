@@ -1,0 +1,10 @@
+save- 39, 174, 96
+update- 241, 196, 15
+delete- 192, 57, 43
+topbar- 191, 77, 97
+darkbutton- 46, 62, 70
+add button- 64, 115, 158
+gray- 127, 140, 141
+secondary bar -93, 107, 132
+
+button size - 125, 64
