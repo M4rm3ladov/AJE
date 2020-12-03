@@ -22,6 +22,14 @@ Public Class frmStockCountReport
             .DataSources.Clear()
             .DataSources.Add(New ReportDataSource("DataSet1", dt))
         End With
+
+        Dim rptParameter As ReportParameterCollection
+        rptParameter = New ReportParameterCollection
+        rptParameter.Add(New ReportParameter("BranchAddress", frmMain.lbl_branch_Address.Text))
+        rptParameter.Add(New ReportParameter("DateFrom", dtp_stock_count_From.Value.ToString("MM/dd/yy")))
+        rptParameter.Add(New ReportParameter("DateTill", dtp_stock_count_To.Value.ToString("MM/dd/yy")))
+        rv_stock_Count.LocalReport.SetParameters(rptParameter)
+
         rv_stock_Count.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout)
         rv_stock_Count.ZoomMode = ZoomMode.PageWidth
 
@@ -32,5 +40,10 @@ Public Class frmStockCountReport
     Private Sub btn_Close_Click(sender As Object, e As EventArgs) Handles btn_Close.Click
         rv_stock_Count.Reset()
         Me.Close()
+    End Sub
+
+    Private Sub frmStockCountReport_Load(sender As Object, e As EventArgs) Handles Me.Load
+        dtp_stock_count_From.Value = DateTime.Now
+        dtp_stock_count_To.Value = DateTime.no
     End Sub
 End Class

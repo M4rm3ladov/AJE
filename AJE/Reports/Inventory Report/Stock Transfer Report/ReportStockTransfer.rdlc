@@ -734,7 +734,7 @@
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Height>0.5in</Height>
-        <Width>12.94667in</Width>
+        <Width>12.94666in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1028,7 +1028,7 @@
       </Style>
     </PageFooter>
     <PageHeight>8.5in</PageHeight>
-    <PageWidth>11in</PageWidth>
+    <PageWidth>14in</PageWidth>
     <LeftMargin>0.5in</LeftMargin>
     <TopMargin>0.5in</TopMargin>
     <BottomMargin>0.5in</BottomMargin>
