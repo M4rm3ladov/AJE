@@ -198,8 +198,8 @@
                 MsgBox("Unit Price should be less than price A and price B.", vbExclamation)
                 Exit Sub
             End If
-            If Convert.ToDecimal(tb_price_A.Text) <= Convert.ToDecimal(tb_price_B.Text) Then
-                MsgBox("Price A should be Greater than Price B.", vbExclamation)
+            If Convert.ToDecimal(tb_price_A.Text) < Convert.ToDecimal(tb_price_B.Text) Then
+                MsgBox("Price A should be Greater than or equal Price B.", vbExclamation)
                 Exit Sub
             End If
             item.SetCategory(CInt(lbl_category_Id.Text))
@@ -258,8 +258,8 @@
                 MsgBox("Unit Price should be less than price A and price B.", vbExclamation)
                 Exit Sub
             End If
-            If Convert.ToDecimal(tb_price_A.Text) <= Convert.ToDecimal(tb_price_B.Text) Then
-                MsgBox("Price A should be Greater than price B.", vbExclamation)
+            If Convert.ToDecimal(tb_price_A.Text) < Convert.ToDecimal(tb_price_B.Text) Then
+                MsgBox("Price A should be Greater than or equal price B.", vbExclamation)
                 Exit Sub
             End If
             item.SetCategory(CInt(lbl_category_Id.Text))
