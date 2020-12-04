@@ -24,11 +24,11 @@ CREATE TABLE `branch` (
   `branch_id` bigint(20) NOT NULL AUTO_INCREMENT,
   `branch_address` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`branch_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `branch` */
 
-insert  into `branch`(`branch_id`,`branch_address`) values (1,'Putik'),(2,'Hawaii'),(3,'Tetuan'),(5,'GUIWAN'),(6,'San Ramon'),(7,'Gotham'),(8,'Disney');
+insert  into `branch`(`branch_id`,`branch_address`) values (1,'Putik'),(2,'Hawaii'),(3,'Tetuan'),(5,'GUIWAN'),(6,'San Ramon'),(7,'Gotham'),(8,'Disneys');
 
 /*Table structure for table `brand` */
 
@@ -38,11 +38,11 @@ CREATE TABLE `brand` (
   `brand_id` bigint(20) NOT NULL AUTO_INCREMENT,
   `brand_name` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`brand_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `brand` */
 
-insert  into `brand`(`brand_id`,`brand_name`) values (1,'FEDERAL'),(2,'EVERGREEN'),(3,'GOTYRE'),(4,'DURUN'),(5,'CEAT'),(6,'XCEED'),(7,'MEGA'),(8,'COMFORSER'),(9,'RADAR'),(10,'GAJAH TUNGAL'),(11,'GOODYEAR'),(12,'HANKOOK'),(13,'COCA COLA'),(15,'FANTA'),(16,'TANDUAY'),(17,'SAN MIGUEL'),(18,'RED HORSE');
+insert  into `brand`(`brand_id`,`brand_name`) values (1,'FEDERAL'),(2,'EVERGREEN'),(3,'GOTYRE'),(4,'DURUN'),(5,'CEAT'),(6,'XCEED'),(7,'MEGA'),(8,'COMFORSER'),(9,'RADAR'),(11,'GOODYEAR'),(12,'HANKOOK'),(13,'COCA COLA'),(15,'FANTA'),(16,'TANDUAY'),(17,'SAN MIGUEL'),(18,'RED HORSE');
 
 /*Table structure for table `cash_in` */
 
@@ -60,9 +60,11 @@ CREATE TABLE `cash_in` (
   KEY `cashier_id` (`cashier_id`),
   CONSTRAINT `cash_in_ibfk_2` FOREIGN KEY (`manager_id`) REFERENCES `manager` (`manager_id`),
   CONSTRAINT `cash_in_ibfk_3` FOREIGN KEY (`cashier_id`) REFERENCES `cashier` (`cashier_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `cash_in` */
+
+insert  into `cash_in`(`cash_in_id`,`cashier_id`,`manager_id`,`trans_date`,`amount`,`remarks`) values (1,2,1,'2020-11-18','300.00','test');
 
 /*Table structure for table `cash_out` */
 
@@ -125,7 +127,7 @@ CREATE TABLE `cashier` (
 
 /*Data for the table `cashier` */
 
-insert  into `cashier`(`cashier_id`,`user_id`,`username`,`password`,`salt`,`is_active`,`is_logged_in`) values (1,1,'antonio123','FC0mMV3Ym0dHzkrCDSfPyeRNzwEdrBZ1M3wPT0CMKBo=','j50mMYhR+NqDEsvL8tc4ud0g/mVvk7qNACzmR0vilw4=',1,0),(2,4,'renier1234','EV0xZf+XtQmppLIEoJADJb9QwRdYOFGP5mrUF51ZPkU=','hDLxLCltP+KbVa73iJguzZsgspj/qDvZwfcETu84Bjs=',1,1),(4,8,'B0n1fac10','H1VNKW5Uh0SVdFLccu7jCw9emGkYFGgvU3Flo4Qfxh0=','xhuQwdGK05E44UXhtGbAFZyKBzAp3EVv06VHGtI6nLY=',1,0),(5,7,'Louise123','6Hp/mP6sqJKyVb27xwEPOpIAIAc10BLKUcAMFCySSAo=','2y2y8LTz0BayCWghNOYpM01VIKhuHSAbp/BKYuF4Itc=',1,0),(6,11,'Hellow','Kn8eB0Lp1I1PpvKc+XxgXuzqjDt5cxFnTbk1HrwdFz8=','QrNvzcTgeFVoc8As2ptD5s8NRkueEXVvHbCYWZZPsZA=',1,0),(7,12,'Mary123','7kxHlPgi+1whYcfOPkxmJEiftMKBMWRZcTDhNzq4qpo=','QCsQzPDirPngYM5dugADV7T9/nSxTv7uAF8qzipUniQ=',1,0),(8,14,'Betty123','1F4xWTa2Pbm3XTRFJh/QImsfAeX/R9GJt0Qx8y9ir6Q=','q6BuDOypWpplcFtP17wLh+ziUJA4rxJ2ULjNXW4rlyI=',1,0);
+insert  into `cashier`(`cashier_id`,`user_id`,`username`,`password`,`salt`,`is_active`,`is_logged_in`) values (1,1,'antonio123','FC0mMV3Ym0dHzkrCDSfPyeRNzwEdrBZ1M3wPT0CMKBo=','j50mMYhR+NqDEsvL8tc4ud0g/mVvk7qNACzmR0vilw4=',1,0),(2,4,'renier1234','sFGIEb+5zi5T4fv29adw7qUa6AcKptFg87piMi9BKd4=','iG6TeyKBuXW53aTG/cco7dNVF6TgMxAQxxjf1WiqWi0=',1,0),(4,8,'B0n1fac10','H1VNKW5Uh0SVdFLccu7jCw9emGkYFGgvU3Flo4Qfxh0=','xhuQwdGK05E44UXhtGbAFZyKBzAp3EVv06VHGtI6nLY=',1,0),(5,7,'Louise123','6Hp/mP6sqJKyVb27xwEPOpIAIAc10BLKUcAMFCySSAo=','2y2y8LTz0BayCWghNOYpM01VIKhuHSAbp/BKYuF4Itc=',1,0),(6,11,'Hellow','Kn8eB0Lp1I1PpvKc+XxgXuzqjDt5cxFnTbk1HrwdFz8=','QrNvzcTgeFVoc8As2ptD5s8NRkueEXVvHbCYWZZPsZA=',1,0),(7,12,'Mary123','7kxHlPgi+1whYcfOPkxmJEiftMKBMWRZcTDhNzq4qpo=','QCsQzPDirPngYM5dugADV7T9/nSxTv7uAF8qzipUniQ=',1,0),(8,14,'Betty123','1F4xWTa2Pbm3XTRFJh/QImsfAeX/R9GJt0Qx8y9ir6Q=','q6BuDOypWpplcFtP17wLh+ziUJA4rxJ2ULjNXW4rlyI=',1,0);
 
 /*Table structure for table `cashier_log` */
 
@@ -145,11 +147,11 @@ CREATE TABLE `cashier_log` (
   KEY `cashier_id` (`cashier_id`),
   CONSTRAINT `cashier_log_ibfk_2` FOREIGN KEY (`manager_id`) REFERENCES `manager` (`manager_id`),
   CONSTRAINT `cashier_log_ibfk_3` FOREIGN KEY (`cashier_id`) REFERENCES `cashier` (`cashier_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=105 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=140 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `cashier_log` */
 
-insert  into `cashier_log`(`cashier_log_id`,`cashier_id`,`manager_id`,`log_date`,`time_from`,`time_to`,`begin_bal`,`end_bal`) values (1,1,2,'2020-04-17','12:58:02',NULL,'2850.00','0.00'),(2,1,2,'2020-04-17','13:06:32',NULL,'200.00','0.00'),(3,2,2,'2020-04-17','13:23:57','00:05:31','500.00','500.00'),(4,1,2,'2020-04-17','13:34:12',NULL,'5002.00','0.00'),(5,1,2,'2020-04-17','13:40:39',NULL,'5020.00','0.00'),(6,1,2,'2020-04-17','13:45:33',NULL,'600.00','0.00'),(7,1,2,'2020-04-17','18:44:45',NULL,'200.00','0.00'),(8,2,2,'2020-04-17','18:48:33','00:05:31','2100.00','500.00'),(9,1,2,'2020-04-17','19:19:39',NULL,'200.00','0.00'),(10,2,2,'2020-04-17','19:20:05','00:05:31','5000.00','500.00'),(11,1,2,'2020-04-18','14:50:43',NULL,'3000.00','0.00'),(12,2,2,'2020-04-18','14:53:40','00:05:31','200.00','500.00'),(13,1,2,'2020-04-18','14:54:30',NULL,'2003.04','0.00'),(14,2,2,'2020-04-18','14:58:19','00:05:31','2500.00','500.00'),(15,1,2,'2020-04-18','15:13:30',NULL,'2000.00','0.00'),(16,1,2,'2020-04-18','15:22:41',NULL,'250.00','0.00'),(17,1,2,'2020-04-22','11:50:25',NULL,'1200.00','0.00'),(18,1,2,'2020-04-22','13:57:11',NULL,'2000.00','0.00'),(19,2,2,'2020-04-22','14:04:06','00:05:31','1250.00','500.00'),(20,1,2,'2020-04-22','14:07:18',NULL,'5200.00','0.00'),(21,2,2,'2020-04-22','14:08:22','00:05:31','3000.00','500.00'),(22,1,2,'2020-04-23','13:17:23',NULL,'20.00','0.00'),(23,1,2,'2020-04-23','13:19:28',NULL,'4050.00','0.00'),(24,1,2,'2020-04-25','16:21:04',NULL,'2000.00','0.00'),(25,1,2,'2020-04-25','16:27:11',NULL,'2500.00','0.00'),(26,2,2,'2020-05-02','22:55:31','00:05:31','5000.00','500.00'),(27,1,2,'2020-05-05','14:20:06',NULL,'5400.00','0.00'),(28,1,2,'2020-05-09','14:08:21',NULL,'2500.00','0.00'),(29,1,2,'2020-05-09','14:14:24',NULL,'2500.00','0.00'),(30,1,2,'2020-05-09','14:25:47',NULL,'2500.00','0.00'),(31,2,2,'2020-05-09','14:28:48','00:05:31','5600.00','500.00'),(32,2,2,'2020-05-09','14:32:06','00:05:31','5000.00','500.00'),(33,2,2,'2020-05-09','14:33:27','00:05:31','2500.00','500.00'),(34,2,2,'2020-05-09','14:47:12','00:05:31','2500.00','500.00'),(35,2,2,'2020-05-09','14:50:04','00:05:31','250.00','500.00'),(36,2,2,'2020-05-09','14:52:43','00:05:31','250.00','500.00'),(37,2,2,'2020-05-09','14:59:49','00:05:31','2500.00','500.00'),(38,2,2,'2020-05-15','15:44:22','00:05:31','3400.00','500.00'),(39,2,2,'2020-05-15','15:54:37','00:05:31','2500.00','500.00'),(40,2,2,'2020-05-15','16:03:19','00:05:31','2500.00','500.00'),(41,2,2,'2020-05-15','16:06:41','00:05:31','2500.00','500.00'),(42,2,2,'2020-05-15','16:09:53','00:05:31','2500.00','500.00'),(43,2,2,'2020-05-15','16:15:11','00:05:31','250.00','500.00'),(44,2,2,'2020-05-15','16:18:25','00:05:31','2500.00','500.00'),(45,2,2,'2020-05-15','16:22:14','00:05:31','2500.00','500.00'),(46,2,2,'2020-05-15','16:23:45','00:05:31','250.00','500.00'),(47,2,2,'2020-05-15','17:11:23','00:05:31','2500.00','500.00'),(48,2,2,'2020-05-15','17:15:43','00:05:31','3500.00','500.00'),(49,2,2,'2020-05-15','17:22:34','00:05:31','2500.00','500.00'),(50,2,2,'2020-05-15','17:25:53','00:05:31','2500.00','500.00'),(51,2,2,'2020-05-15','17:26:56','00:05:31','2500.00','500.00'),(52,2,2,'2020-05-15','17:28:45','00:05:31','25000.00','500.00'),(53,2,2,'2020-05-15','17:31:48','00:05:31','2500.00','500.00'),(54,2,2,'2020-05-15','17:34:39','00:05:31','0.00','500.00'),(55,2,2,'2020-05-15','19:28:20','00:05:31','2500.00','500.00'),(56,2,2,'2020-05-15','19:33:52','00:05:31','5300.00','500.00'),(57,1,2,'2020-05-17','13:27:13',NULL,'2500.00','0.00'),(58,1,2,'2020-05-17','13:51:38',NULL,'5000.00','0.00'),(59,2,2,'2020-06-02','16:09:45','00:05:31','2500.00','500.00'),(60,1,2,'2020-06-02','16:57:27',NULL,'2300.00','0.00'),(61,2,2,'2020-06-02','16:58:28','00:05:31','2344.44','500.00'),(62,2,2,'2020-06-02','17:17:38','00:05:31','2000.00','500.00'),(63,2,1,'2020-06-02','23:35:26','00:05:31','2500.00','500.00'),(64,2,1,'2020-06-03','15:52:17','00:05:31','5000.00','500.00'),(65,2,1,'2020-06-03','17:20:39','00:05:31','5000.00','500.00'),(66,2,2,'2020-06-03','17:28:16','00:05:31','2000.00','500.00'),(67,2,1,'2020-06-03','18:52:17','00:05:31','2000.00','500.00'),(68,6,1,'2020-06-03','20:19:04',NULL,'2000.00','0.00'),(69,6,3,'2020-06-03','20:26:07',NULL,'5000.00','0.00'),(70,6,1,'2020-06-04','20:49:02',NULL,'2000.00','0.00'),(71,6,1,'2020-06-04','20:57:27',NULL,'2000.00','0.00'),(72,2,1,'2020-06-07','17:02:46','00:05:31','2000.00','500.00'),(73,2,1,'2020-06-07','17:09:28','00:05:31','300.00','500.00'),(74,2,1,'2020-06-07','17:11:59','00:05:31','210.00','500.00'),(75,2,2,'2020-06-07','17:13:48','00:05:31','210.00','500.00'),(76,2,2,'2020-06-07','17:16:38','00:05:31','2100.00','500.00'),(77,2,1,'2020-06-23','20:05:42','00:05:31','4000.00','500.00'),(78,2,1,'2020-06-23','21:59:06','00:05:31','4000.00','500.00'),(79,2,2,'2020-06-23','22:00:14','00:05:31','4000.00','500.00'),(80,2,2,'2020-06-23','22:02:18','00:05:31','200.00','500.00'),(81,2,2,'2020-06-23','22:06:35','00:05:31','540.00','500.00'),(82,2,2,'2020-06-23','22:10:46','00:05:31','430.00','500.00'),(83,2,2,'2020-06-23','22:13:31','00:05:31','520.00','500.00'),(84,2,2,'2020-06-23','22:58:48','00:05:31','2000.00','500.00'),(85,2,2,'2020-06-23','23:30:58','00:05:31','3000.00','500.00'),(86,2,2,'2020-06-23','23:57:12','00:05:31','200.00','500.00'),(87,2,2,'2020-06-23','23:58:07','00:05:31','200.05','500.00'),(88,2,2,'2020-06-23','23:59:21','00:05:31','5000.00','500.00'),(89,2,2,'2020-06-24','00:05:29','00:05:31','2500.00','500.00'),(90,2,2,'2020-06-24','00:14:16',NULL,'1000.00','0.00'),(91,2,2,'2020-06-24','00:22:11',NULL,'9000.00','0.00'),(92,2,2,'2020-06-24','00:38:50',NULL,'600.50','0.00'),(93,2,2,'2020-06-24','00:39:57',NULL,'230.00','0.00'),(94,2,2,'2020-06-24','00:40:54',NULL,'53.20','0.00'),(95,2,2,'2020-06-24','00:42:01',NULL,'230.00','0.00'),(96,2,2,'2020-06-24','00:42:58',NULL,'43.00','0.00'),(97,2,2,'2020-06-24','00:44:07','00:44:12','53.00','0.00'),(98,2,2,'2020-06-24','00:55:48','00:55:54','39.99','39.99'),(99,2,2,'2020-06-24','15:40:02',NULL,'2300.00','0.00'),(100,7,2,'2020-06-24','15:50:17','15:51:39','400.00','400.00'),(101,7,2,'2020-06-24','17:15:50','17:17:51','250.00','250.00'),(102,8,2,'2020-06-24','17:59:47',NULL,'2300.00','0.00'),(103,8,2,'2020-06-24','18:34:25','19:54:32','220.00','220.00'),(104,8,2,'2020-06-24','19:58:14','20:32:47','200.05','170.05');
+insert  into `cashier_log`(`cashier_log_id`,`cashier_id`,`manager_id`,`log_date`,`time_from`,`time_to`,`begin_bal`,`end_bal`) values (1,1,2,'2020-04-17','12:58:02',NULL,'2850.00','0.00'),(2,1,2,'2020-04-17','13:06:32',NULL,'200.00','0.00'),(3,2,2,'2020-04-17','13:23:57','11:26:03','500.00','500.00'),(4,1,2,'2020-04-17','13:34:12',NULL,'5002.00','0.00'),(5,1,2,'2020-04-17','13:40:39',NULL,'5020.00','0.00'),(6,1,2,'2020-04-17','13:45:33',NULL,'600.00','0.00'),(7,1,2,'2020-04-17','18:44:45',NULL,'200.00','0.00'),(8,2,2,'2020-04-17','18:48:33','00:05:31','2100.00','500.00'),(9,1,2,'2020-04-17','19:19:39',NULL,'200.00','0.00'),(10,2,2,'2020-04-17','19:20:05','00:05:31','5000.00','500.00'),(11,1,2,'2020-04-18','14:50:43',NULL,'3000.00','0.00'),(12,2,2,'2020-04-18','14:53:40','00:05:31','200.00','500.00'),(13,1,2,'2020-04-18','14:54:30',NULL,'2003.04','0.00'),(14,2,2,'2020-04-18','14:58:19','00:05:31','2500.00','500.00'),(15,1,2,'2020-04-18','15:13:30',NULL,'2000.00','0.00'),(16,1,2,'2020-04-18','15:22:41',NULL,'250.00','0.00'),(17,1,2,'2020-04-22','11:50:25',NULL,'1200.00','0.00'),(18,1,2,'2020-04-22','13:57:11',NULL,'2000.00','0.00'),(19,2,2,'2020-04-22','14:04:06','00:05:31','1250.00','500.00'),(20,1,2,'2020-04-22','14:07:18',NULL,'5200.00','0.00'),(21,2,2,'2020-04-22','14:08:22','00:05:31','3000.00','500.00'),(22,1,2,'2020-04-23','13:17:23',NULL,'20.00','0.00'),(23,1,2,'2020-04-23','13:19:28',NULL,'4050.00','0.00'),(24,1,2,'2020-04-25','16:21:04',NULL,'2000.00','0.00'),(25,1,2,'2020-04-25','16:27:11',NULL,'2500.00','0.00'),(26,2,2,'2020-05-02','22:55:31','00:05:31','5000.00','500.00'),(27,1,2,'2020-05-05','14:20:06',NULL,'5400.00','0.00'),(28,1,2,'2020-05-09','14:08:21',NULL,'2500.00','0.00'),(29,1,2,'2020-05-09','14:14:24',NULL,'2500.00','0.00'),(30,1,2,'2020-05-09','14:25:47',NULL,'2500.00','0.00'),(31,2,2,'2020-05-09','14:28:48','00:05:31','5600.00','500.00'),(32,2,2,'2020-05-09','14:32:06','00:05:31','5000.00','500.00'),(33,2,2,'2020-05-09','14:33:27','00:05:31','2500.00','500.00'),(34,2,2,'2020-05-09','14:47:12','00:05:31','2500.00','500.00'),(35,2,2,'2020-05-09','14:50:04','00:05:31','250.00','500.00'),(36,2,2,'2020-05-09','14:52:43','00:05:31','250.00','500.00'),(37,2,2,'2020-05-09','14:59:49','00:05:31','2500.00','500.00'),(38,2,2,'2020-05-15','15:44:22','00:05:31','3400.00','500.00'),(39,2,2,'2020-05-15','15:54:37','00:05:31','2500.00','500.00'),(40,2,2,'2020-05-15','16:03:19','00:05:31','2500.00','500.00'),(41,2,2,'2020-05-15','16:06:41','00:05:31','2500.00','500.00'),(42,2,2,'2020-05-15','16:09:53','00:05:31','2500.00','500.00'),(43,2,2,'2020-05-15','16:15:11','00:05:31','250.00','500.00'),(44,2,2,'2020-05-15','16:18:25','00:05:31','2500.00','500.00'),(45,2,2,'2020-05-15','16:22:14','00:05:31','2500.00','500.00'),(46,2,2,'2020-05-15','16:23:45','00:05:31','250.00','500.00'),(47,2,2,'2020-05-15','17:11:23','00:05:31','2500.00','500.00'),(48,2,2,'2020-05-15','17:15:43','00:05:31','3500.00','500.00'),(49,2,2,'2020-05-15','17:22:34','00:05:31','2500.00','500.00'),(50,2,2,'2020-05-15','17:25:53','00:05:31','2500.00','500.00'),(51,2,2,'2020-05-15','17:26:56','00:05:31','2500.00','500.00'),(52,2,2,'2020-05-15','17:28:45','00:05:31','25000.00','500.00'),(53,2,2,'2020-05-15','17:31:48','00:05:31','2500.00','500.00'),(54,2,2,'2020-05-15','17:34:39','00:05:31','0.00','500.00'),(55,2,2,'2020-05-15','19:28:20','00:05:31','2500.00','500.00'),(56,2,2,'2020-05-15','19:33:52','00:05:31','5300.00','500.00'),(57,1,2,'2020-05-17','13:27:13',NULL,'2500.00','0.00'),(58,1,2,'2020-05-17','13:51:38',NULL,'5000.00','0.00'),(59,2,2,'2020-06-02','16:09:45','00:05:31','2500.00','500.00'),(60,1,2,'2020-06-02','16:57:27',NULL,'2300.00','0.00'),(61,2,2,'2020-06-02','16:58:28','00:05:31','2344.44','500.00'),(62,2,2,'2020-06-02','17:17:38','00:05:31','2000.00','500.00'),(63,2,1,'2020-06-02','23:35:26','00:05:31','2500.00','500.00'),(64,2,1,'2020-06-03','15:52:17','00:05:31','5000.00','500.00'),(65,2,1,'2020-06-03','17:20:39','00:05:31','5000.00','500.00'),(66,2,2,'2020-06-03','17:28:16','00:05:31','2000.00','500.00'),(67,2,1,'2020-06-03','18:52:17','00:05:31','2000.00','500.00'),(68,6,1,'2020-06-03','20:19:04',NULL,'2000.00','0.00'),(69,6,3,'2020-06-03','20:26:07',NULL,'5000.00','0.00'),(70,6,1,'2020-06-04','20:49:02',NULL,'2000.00','0.00'),(71,6,1,'2020-06-04','20:57:27',NULL,'2000.00','0.00'),(72,2,1,'2020-06-07','17:02:46','00:05:31','2000.00','500.00'),(73,2,1,'2020-06-07','17:09:28','00:05:31','300.00','500.00'),(74,2,1,'2020-06-07','17:11:59','00:05:31','210.00','500.00'),(75,2,2,'2020-06-07','17:13:48','00:05:31','210.00','500.00'),(76,2,2,'2020-06-07','17:16:38','00:05:31','2100.00','500.00'),(77,2,1,'2020-06-23','20:05:42','00:05:31','4000.00','500.00'),(78,2,1,'2020-06-23','21:59:06','00:05:31','4000.00','500.00'),(79,2,2,'2020-06-23','22:00:14','00:05:31','4000.00','500.00'),(80,2,2,'2020-06-23','22:02:18','00:05:31','200.00','500.00'),(81,2,2,'2020-06-23','22:06:35','00:05:31','540.00','500.00'),(82,2,2,'2020-06-23','22:10:46','00:05:31','430.00','500.00'),(83,2,2,'2020-06-23','22:13:31','00:05:31','520.00','500.00'),(84,2,2,'2020-06-23','22:58:48','00:05:31','2000.00','500.00'),(85,2,2,'2020-06-23','23:30:58','00:05:31','3000.00','500.00'),(86,2,2,'2020-06-23','23:57:12','00:05:31','200.00','500.00'),(87,2,2,'2020-06-23','23:58:07','00:05:31','200.05','500.00'),(88,2,2,'2020-06-23','23:59:21','00:05:31','5000.00','500.00'),(89,2,2,'2020-06-24','00:05:29','00:05:31','2500.00','500.00'),(90,2,2,'2020-06-24','00:14:16',NULL,'1000.00','0.00'),(91,2,2,'2020-06-24','00:22:11',NULL,'9000.00','0.00'),(92,2,2,'2020-06-24','00:38:50',NULL,'600.50','0.00'),(93,2,2,'2020-06-24','00:39:57',NULL,'230.00','0.00'),(94,2,2,'2020-06-24','00:40:54',NULL,'53.20','0.00'),(95,2,2,'2020-06-24','00:42:01',NULL,'230.00','0.00'),(96,2,2,'2020-06-24','00:42:58',NULL,'43.00','0.00'),(97,2,2,'2020-06-24','00:44:07','00:44:12','53.00','0.00'),(98,2,2,'2020-06-24','00:55:48','00:55:54','39.99','39.99'),(99,2,2,'2020-06-24','15:40:02',NULL,'2300.00','0.00'),(100,7,2,'2020-06-24','15:50:17','15:51:39','400.00','400.00'),(101,7,2,'2020-06-24','17:15:50','17:17:51','250.00','250.00'),(102,8,2,'2020-06-24','17:59:47',NULL,'2300.00','0.00'),(103,8,2,'2020-06-24','18:34:25','19:54:32','220.00','220.00'),(104,8,2,'2020-06-24','19:58:14','20:32:47','200.05','170.05'),(105,2,1,'2020-11-18','11:15:16','11:16:38','520.00','520.00'),(106,2,1,'2020-11-18','11:20:08','11:20:36','320.00','320.00'),(107,2,1,'2020-11-18','11:21:26','11:22:52','69.69','69.69'),(108,2,1,'2020-11-18','11:26:41','11:26:53','201.00','201.00'),(109,2,1,'2020-11-18','11:27:56','11:28:18','89.87','89.87'),(110,2,1,'2020-11-18','11:34:02','11:34:45','200.00','200.00'),(111,2,1,'2020-11-18','11:44:08',NULL,'300.00','0.00'),(112,2,1,'2020-11-18','11:45:44','11:46:12','21.00','21.00'),(113,2,1,'2020-11-18','11:48:14','11:48:26','928.80','928.80'),(114,2,1,'2020-11-18','12:03:56','12:04:03','320.10','320.10'),(115,2,1,'2020-11-18','12:08:38','12:08:55','189.91','189.91'),(116,2,1,'2020-11-18','12:17:19','12:17:57','187.88','187.88'),(117,2,1,'2020-11-18','12:19:57','12:20:15','2010.10','2010.10'),(118,2,1,'2020-11-18','12:28:36','12:29:14','0.20','0.20'),(119,2,1,'2020-11-18','12:32:02','12:32:08','929.00','929.00'),(120,2,1,'2020-11-18','12:34:45','12:34:56','20.00','20.00'),(121,2,1,'2020-11-18','12:37:10','12:37:42','420.00','420.00'),(122,2,1,'2020-11-18','12:52:40','12:52:57','300.00','300.00'),(123,2,1,'2020-11-18','12:54:06','12:54:14','302.00','302.00'),(124,2,1,'2020-11-18','12:57:03','12:57:46','98.91','98.91'),(125,2,1,'2020-11-18','14:37:51','14:45:55','230.00','230.00'),(126,2,1,'2020-11-18','14:47:47','15:21:54','380.00','680.00'),(127,2,1,'2020-11-18','18:18:56','18:19:11','200.00','500.00'),(128,2,1,'2020-11-18','18:21:37','18:22:09','301.09','601.09'),(129,2,1,'2020-11-18','18:22:38','18:22:45','20.50','320.50'),(130,2,1,'2020-11-18','18:24:41','18:24:54','98.98','398.98'),(131,2,1,'2020-11-22','17:03:05','17:05:54','23.00','23.00'),(132,2,1,'2020-11-22','17:08:49','17:15:41','421.00','421.00'),(133,2,1,'2020-11-22','17:34:33','17:37:09','89.88','89.88'),(134,2,1,'2020-11-22','17:40:38','17:41:18','898.89','898.89'),(135,2,1,'2020-11-24','19:05:33','03:12:48','89.99','89.99'),(136,2,1,'2020-11-27','11:23:37','11:26:18','68.98','68.98'),(137,2,1,'2020-12-03','21:22:03','21:22:51','111.11','111.11'),(138,2,1,'2020-12-03','21:23:53','21:26:38','222.22','222.22'),(139,2,1,'2020-12-03','21:28:02','21:28:18','2020.20','2020.20');
 
 /*Table structure for table `category` */
 
@@ -159,11 +161,11 @@ CREATE TABLE `category` (
   `category_id` bigint(20) NOT NULL AUTO_INCREMENT,
   `category_name` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`category_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `category` */
 
-insert  into `category`(`category_id`,`category_name`) values (2,'BRAND NEW WHEEL'),(3,'USED WHEEL'),(6,'SOFT DRINKS'),(7,'OIL'),(8,'BOLT'),(9,'ALCOHOLIC DRINK');
+insert  into `category`(`category_id`,`category_name`) values (2,'BRAND NEW WHEEL'),(3,'USED WHEEL'),(6,'SOFT DRINKS'),(7,'OIL'),(9,'ALCOHOLIC DRINK');
 
 /*Table structure for table `credit_payment` */
 
@@ -225,11 +227,11 @@ CREATE TABLE `customer` (
   `credit_limit` decimal(15,2) DEFAULT '0.00',
   `balance` decimal(15,2) DEFAULT '0.00',
   PRIMARY KEY (`customer_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `customer` */
 
-insert  into `customer`(`customer_id`,`customer_code`,`credit_limit`,`balance`) values (1,'CUST-001','100.00','0.00'),(2,'CUST-002','3000.00','2700.00'),(3,'CUST-003','5000.00','0.00'),(4,'CUST-004','50000.00','0.00'),(5,'CUST-005','10000.00','300.00'),(6,'CUST-006','10000.00','0.00'),(7,'CUST-007','20000.00','9530.00');
+insert  into `customer`(`customer_id`,`customer_code`,`credit_limit`,`balance`) values (1,'CUST-001','100.00','0.00'),(2,'CUST-002','3000.00','2700.00'),(3,'CUST-003','5000.00','0.00'),(4,'CUST-004','50000.00','0.00'),(5,'CUST-005','10000.00','300.00'),(6,'CUST-006','10000.00','0.00'),(7,'CUST-007','20000.00','9530.00'),(8,'CUST- 005','2000.00','0.00');
 
 /*Table structure for table `customer_details` */
 
@@ -247,7 +249,7 @@ CREATE TABLE `customer_details` (
 
 /*Data for the table `customer_details` */
 
-insert  into `customer_details`(`customer_id`,`customer_surname`,`customer_gname`,`customer_mi`,`customer_suffix`) values (1,'Antonio','Renier','',''),(2,'Antonio','Zoren','F.',''),(3,'KREME','KRISPY','',''),(4,'Stark','Tony','',''),(5,'Panther','Tchalla','',''),(6,'Wayne','Bruce','',''),(7,'Parker','Peter','','');
+insert  into `customer_details`(`customer_id`,`customer_surname`,`customer_gname`,`customer_mi`,`customer_suffix`) values (1,'Antonio','Renier','',''),(2,'Antonio','Zoren','F.',''),(3,'KREME','KRISPY','',''),(4,'Stark','Tony','',''),(5,'Panther','Tchalla','',''),(6,'Wayne','Bruce','',''),(7,'Parker','Peter','',''),(8,'vicente','rosey','','');
 
 /*Table structure for table `inventory` */
 
@@ -304,11 +306,11 @@ CREATE TABLE `item` (
   CONSTRAINT `item_ibfk_1` FOREIGN KEY (`brand_id`) REFERENCES `brand` (`brand_id`),
   CONSTRAINT `item_ibfk_2` FOREIGN KEY (`category_id`) REFERENCES `category` (`category_id`),
   CONSTRAINT `item_ibfk_3` FOREIGN KEY (`unit_id`) REFERENCES `unit` (`unit_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `item` */
 
-insert  into `item`(`item_id`,`item_code`,`item_desc`,`item_add_desc`,`brand_id`,`category_id`,`unit_id`,`item_unit_price`,`item_price_A`,`item_price_B`) values (1,'ITEM-001','ECOVAN','1554 12LT 8PR',1,2,1,'2700.00','2900.00','2600.00'),(2,'ITEM-002','ES88','155R 12LT 6PR',2,3,1,'2300.00','2500.00','2400.00'),(3,'ITEM-003','LRP158','155R 12LT 8PR',3,2,1,'1850.00','2100.00','1900.00'),(4,'ITEM-004','C212','155R 12LT 8PR',4,2,1,'2300.00','2600.00','2400.00'),(5,'ITEM-005','MIXLUG','500X12 10PR',4,2,1,'2800.00','2900.00','2700.00'),(6,'ITEM-006','MILER/RIB','500X12 8PR',3,3,1,'2200.00','2300.00','2100.00'),(7,'ITEM-007','MILAZE','165/65R13',5,2,1,'2500.00','2600.00','2400.00'),(8,'ITEM-008','EH22','165/65R13',2,2,1,'2450.00','2500.00','2400.00'),(9,'ITEM-009','MILAZE','165/65R13',5,3,1,'2500.00','2600.00','2400.00'),(10,'ITEM-010','EH22','165/65R13',2,3,1,'2450.00','2500.00','2400.00'),(11,'ITEM-011','CF610','165/65R13',8,3,1,'2300.00','2400.00','2200.00'),(12,'ITEM-012','RPX900','165 65R13',9,2,1,'2500.00','2600.00','2400.00'),(13,'ITEM-013','T90A','165/65R13',4,2,1,'2500.00','2600.00','2400.00'),(14,'ITEM-014','RPX9001','165 65R13',9,2,1,'2500.00','2600.00','2400.00'),(15,'ITEM-14321','AFASDFA','ASFASDF',13,2,2,'2600.00','2700.00','2500.00'),(17,'ITEM-13212','MARCH','ARPIL',1,3,1,'2500.00','3000.00','2000.00'),(22,'ITEM-123','ECO/VAN','1554 12LT 8PR',1,2,1,'2600.00','2900.00','2700.00'),(23,'ITEM-10321','CEET','BLAZE',4,3,1,'2000.00','2500.00','1900.00'),(24,'ITEM-52121','GOTX','LB 119',4,2,1,'2500.00','3000.00','1900.00'),(25,'ITEM-023140','ICE','BLUE',16,9,2,'25.00','30.00','20.00'),(26,'ITEM-012301','ICE','PINK',16,9,2,'25.00','30.00','20.00'),(27,'ITEM-19129','LIGHT','ORIGINAL',17,9,1,'45.00','50.00','40.00'),(28,'ITEM-39491','LIGHT','APPLE',17,9,1,'45.00','50.00','40.00'),(29,'ITEM-2191','ORIG.','12 Oz.',18,9,1,'80.00','90.00','75.00');
+insert  into `item`(`item_id`,`item_code`,`item_desc`,`item_add_desc`,`brand_id`,`category_id`,`unit_id`,`item_unit_price`,`item_price_A`,`item_price_B`) values (1,'ITEM-001','ECOVAN','1554 12LT 8PR',1,2,1,'2600.00','2900.00','2700.00'),(2,'ITEM-002','ES88','155R 12LT 6PR',2,3,1,'2300.00','2500.00','2400.00'),(3,'ITEM-003','LRP158','155R 12LT 8PR',3,2,1,'1850.00','2100.00','1900.00'),(4,'ITEM-004','C212','155R 12LT 8PR',4,2,1,'2300.00','2600.00','2400.00'),(5,'ITEM-005','MIXLUG','500X12 10PR',4,2,1,'2800.00','2900.00','2700.00'),(6,'ITEM-006','MILER/RIB','500X12 8PR',3,3,1,'2200.00','2300.00','2100.00'),(7,'ITEM-007','MILAZE','165/65R13',5,2,1,'2500.00','2600.00','2400.00'),(8,'ITEM-008','EH22','165/65R13',2,2,1,'2450.00','2500.00','2400.00'),(9,'ITEM-009','MILAZE','165/65R13',5,3,1,'2500.00','2600.00','2400.00'),(10,'ITEM-010','EH22','165/65R13',2,3,1,'2450.00','2500.00','2400.00'),(11,'ITEM-011','CF610','165/65R13',8,3,1,'2300.00','2400.00','2200.00'),(12,'ITEM-012','RPX900','165 65R13',9,2,1,'2500.00','2600.00','2400.00'),(13,'ITEM-013','T90A','165/65R13',4,2,1,'2500.00','2600.00','2400.00'),(14,'ITEM-014','RPX9001','165 65R13',9,2,1,'2500.00','2600.00','2400.00'),(15,'ITEM-14321','AFASDFA','ASFASDF',13,2,2,'2600.00','2700.00','2500.00'),(17,'ITEM-13212','MARCH','ARPIL',1,3,1,'2500.00','3000.00','2000.00'),(22,'ITEM-123','ECO/VAN','1554 12LT 8PR',1,2,1,'2600.00','2900.00','2700.00'),(23,'ITEM-10321','CEET','BLAZE',4,3,1,'2000.00','2500.00','1900.00'),(24,'ITEM-52121','GOTX','LB 119',4,2,1,'2500.00','3000.00','1900.00'),(25,'ITEM-023140','ICE','BLUE',16,9,2,'25.00','30.00','20.00'),(26,'ITEM-012301','ICE','PINK',16,9,2,'25.00','30.00','20.00'),(27,'ITEM-19129','LIGHT','ORIGINAL',17,9,1,'45.00','50.00','40.00'),(28,'ITEM-39491','LIGHT','APPLE',17,9,1,'45.00','50.00','40.00'),(29,'ITEM-2191','ORIG.','12 Oz.',18,9,1,'80.00','90.00','75.00');
 
 /*Table structure for table `manager` */
 
@@ -325,7 +327,7 @@ CREATE TABLE `manager` (
   PRIMARY KEY (`manager_id`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `manager_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `manager` */
 
@@ -603,11 +605,11 @@ CREATE TABLE `supplier` (
   `supplier_name` varchar(50) DEFAULT NULL,
   `supplier_address` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`supplier_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `supplier` */
 
-insert  into `supplier`(`supplier_id`,`supplier_name`,`supplier_address`) values (2,'DOST','Petit Barracks'),(3,'Tetuan Branch','Tetuan'),(4,'Putik Branch','Putik'),(5,'SM','talon-talon');
+insert  into `supplier`(`supplier_id`,`supplier_name`,`supplier_address`) values (2,'DOST','Petit Barracks Z.C.'),(3,'Tetuan Branch','Tetuan'),(5,'SM','Petit Baracks'),(6,'ASUS','divisoria');
 
 /*Table structure for table `unit` */
 
@@ -617,7 +619,7 @@ CREATE TABLE `unit` (
   `unit_id` bigint(20) NOT NULL AUTO_INCREMENT,
   `unit_name` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`unit_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `unit` */
 
@@ -658,7 +660,7 @@ CREATE TABLE `user_details` (
 
 /*Data for the table `user_details` */
 
-insert  into `user_details`(`user_id`,`user_surname`,`user_gname`,`user_mi`,`user_suffix`) values (1,'Antonio','Renier','',''),(2,'Tsuki','Ame','',''),(3,'Pedro','Juan','',''),(4,'Doe','John','',''),(6,'Wilson','Wade','D.',''),(7,'Rizal','Jose','P.',''),(8,'Bonifacio','Andres','',''),(9,'Hampaslupa','Agapito','H.',''),(10,'Wayne','Bruce','',''),(11,'Kitty','Hello','',''),(12,'Poppins','Mary','',''),(13,'Stark','Tony','',''),(14,'Boop','Betty','',''),(15,'George','Peppa','','');
+insert  into `user_details`(`user_id`,`user_surname`,`user_gname`,`user_mi`,`user_suffix`) values (1,'Antonio','Renier','',''),(2,'Tsuki','Ame','',''),(3,'Pedro','Juan','',''),(4,'Doe','John','',''),(6,'Wilson','Wade','D.',''),(7,'Rizal','Jose','P.',''),(8,'Bonifacio','Andres','',''),(9,'Hampaslupa','Agapito','H.',''),(10,'Wayne','Bruce','',''),(11,'Kitty','Hello','',''),(12,'Poppins','Mary','',''),(13,'Stark','Tony','',''),(14,'Boop','Betty','','');
 
 /*Table structure for table `users` */
 
@@ -680,7 +682,130 @@ CREATE TABLE `users` (
 
 /*Data for the table `users` */
 
-insert  into `users`(`user_id`,`branch_id`,`username`,`password`,`salt`,`user_type`,`is_active`,`is_logged_in`) values (1,1,'Admin123','6JwtKFYJubYRVT7Q7Ib68211QJ4tuAbCu4sGQK4GmfA=','PNE7+tlSXkvQ0ltJIKmtaoyujhYIy1X1Ubtcx0NdaW8=','Admin',1,1),(2,2,'ren1234','t2EYinLOSpJ6ScK84+0cFpGF+c5o68SxzTuS2Lp9V80=','CTvbvtwkhu+ScSt0f3GIo016Ei6gLxdXdSrq8WYXizc=','Cashier',1,0),(3,3,'JuanP3dro','MUMrxDAgohbv8ZwFWawIhTR9JOSIouweju+YNosvh2k=','hPsALsSE3NyR8f0VWmutOjhWb6sUtvlvRGpWj5yjqVs=','Cashier',0,0),(4,3,'Jhon12345','H22EDWR8j7sRtt8BX9F9Y6egZnmF5gWQ+f60zXl+w98=','QXRw9/c7CvP7DFsGz+Y8bwl4FEaZflMnHy6OECQKq1E=','Manager',1,0),(6,2,'W4d3yyy','XuBFNaaJum59+xW6iX3BaVRvGiswXFtlux5CheZdWRU=','WPTrAcbqEhS/8CQiri87dAojTEyyhTbAbLDR1l0jdcY=','Manager',1,0),(7,6,'P3p3ng','yIsKWPnyNJplOhkOZqOxeQIDz6IFv6hsZDJlUAz4Fp8=','SCeMW51oZ8RBymc+tsFMJOc60FvKrK6esMRaIDKnvw4=','Cashier',1,0),(8,5,'D4k1lang_','EohOYsihvuKvFb04l3r6Dynh16weGfRArQufGlXXPjM=','eGWNVczm4VOGEFeIikdY8R1P8PYPaFgM+miKM/LZVhw=','Manager',1,0),(9,1,'asdf','V/3zOn0QytiCl2Sc3fakpwZYrBkVcvBH/ShvuSA9Cjs=','PNlQSp+KTk74L7iLKUB+A/pSJzU9iE1Tq8fDEZWb/Rw=','Cashier',1,0),(10,6,'BruceBruce','xSYLDkg2nuAXn6XjXYTj3REXVNzbPhhH0FWoGQDGPzE=','DVGmNZHVngvhVCU7UYszg7gyuLz8z7K312U+B4P6F+k=','Manager',1,0),(11,6,'Hello','KiwoMkcltqPg1pHVKPDojLgrxIzHCey4qWfWI+uZRKY=','KHQmZp1oRSGDej3AsFPvGjfC+ZeFfAncigvNW/nZ+Pg=','Cashier',1,0),(12,7,'Mary123','YZSWvBpEW889MqkbVW3bIfVz2pQ6naIQ/2fJOlRWmiw=','nFxqa4GpxJj97hTZPnr4rlbmZ9HSJG974Fi5GUBkE5Y=','Cashier',1,0),(13,7,'Tony123','jw2M2zUr92woOGHyN6YejxiPNpQHkEAibiIxzM4EAxY=','LOhQ2gX/yWuJvG50TEZKBPEgcg3ezYYEuL78YEdP0Gc=','Manager',1,0),(14,8,'Betty123','6Q0ycOmbNN6i47XJjJVZPKkOyo4Yh6A1FOrRx6s6qvY=','NB3z05dtbQ/q31wpSg5rn+5XBPUjekWPVIJKyONf9yg=','Cashier',1,0),(15,8,'Peppa123','it6xmU1tn8UvyJdSM8MBM2m7foZxT6x5fXgVz3oneeg=','iZ/2g94XKH4rn4Zom3qa7WUq/+89nqVNGSkicGfhSDU=','Manager',1,0);
+insert  into `users`(`user_id`,`branch_id`,`username`,`password`,`salt`,`user_type`,`is_active`,`is_logged_in`) values (1,1,'Admin123','6JwtKFYJubYRVT7Q7Ib68211QJ4tuAbCu4sGQK4GmfA=','PNE7+tlSXkvQ0ltJIKmtaoyujhYIy1X1Ubtcx0NdaW8=','Admin',1,0),(2,2,'ren1234','IXfJK7A6GN6OEKZXUIh6Cc/LRb9CXLHkCmEpMPeMRa8=','Fd7iD/SuFqdig45d5XZxt6wKyNVd9EjF6Ro4mcWQVo4=','Cashier',1,0),(3,3,'JuanP3dro','MUMrxDAgohbv8ZwFWawIhTR9JOSIouweju+YNosvh2k=','hPsALsSE3NyR8f0VWmutOjhWb6sUtvlvRGpWj5yjqVs=','Cashier',0,0),(4,3,'Jhon12345','H22EDWR8j7sRtt8BX9F9Y6egZnmF5gWQ+f60zXl+w98=','QXRw9/c7CvP7DFsGz+Y8bwl4FEaZflMnHy6OECQKq1E=','Manager',1,0),(6,2,'W4d3yyy','XuBFNaaJum59+xW6iX3BaVRvGiswXFtlux5CheZdWRU=','WPTrAcbqEhS/8CQiri87dAojTEyyhTbAbLDR1l0jdcY=','Manager',1,0),(7,6,'P3p3ng','yIsKWPnyNJplOhkOZqOxeQIDz6IFv6hsZDJlUAz4Fp8=','SCeMW51oZ8RBymc+tsFMJOc60FvKrK6esMRaIDKnvw4=','Cashier',1,0),(8,5,'D4k1lang_','EohOYsihvuKvFb04l3r6Dynh16weGfRArQufGlXXPjM=','eGWNVczm4VOGEFeIikdY8R1P8PYPaFgM+miKM/LZVhw=','Manager',1,0),(9,1,'asdf','V/3zOn0QytiCl2Sc3fakpwZYrBkVcvBH/ShvuSA9Cjs=','PNlQSp+KTk74L7iLKUB+A/pSJzU9iE1Tq8fDEZWb/Rw=','Cashier',1,0),(10,6,'BruceBruce','xSYLDkg2nuAXn6XjXYTj3REXVNzbPhhH0FWoGQDGPzE=','DVGmNZHVngvhVCU7UYszg7gyuLz8z7K312U+B4P6F+k=','Manager',1,0),(11,6,'Hello','KiwoMkcltqPg1pHVKPDojLgrxIzHCey4qWfWI+uZRKY=','KHQmZp1oRSGDej3AsFPvGjfC+ZeFfAncigvNW/nZ+Pg=','Cashier',1,0),(12,7,'Mary123','YZSWvBpEW889MqkbVW3bIfVz2pQ6naIQ/2fJOlRWmiw=','nFxqa4GpxJj97hTZPnr4rlbmZ9HSJG974Fi5GUBkE5Y=','Cashier',1,0),(13,7,'Tony123','jw2M2zUr92woOGHyN6YejxiPNpQHkEAibiIxzM4EAxY=','LOhQ2gX/yWuJvG50TEZKBPEgcg3ezYYEuL78YEdP0Gc=','Manager',1,0),(14,8,'Betty123','6Q0ycOmbNN6i47XJjJVZPKkOyo4Yh6A1FOrRx6s6qvY=','NB3z05dtbQ/q31wpSg5rn+5XBPUjekWPVIJKyONf9yg=','Cashier',1,0);
+
+/*Table structure for table `vw_cash_in` */
+
+DROP TABLE IF EXISTS `vw_cash_in`;
+
+/*!50001 DROP VIEW IF EXISTS `vw_cash_in` */;
+/*!50001 DROP TABLE IF EXISTS `vw_cash_in` */;
+
+/*!50001 CREATE TABLE  `vw_cash_in`(
+ `branch_id` bigint(20) ,
+ `trans_date` date ,
+ `Cashiers` varchar(61) ,
+ `Managers` varchar(61) ,
+ `amount` decimal(15,2) ,
+ `remarks` varchar(255) 
+)*/;
+
+/*Table structure for table `vw_cash_out` */
+
+DROP TABLE IF EXISTS `vw_cash_out`;
+
+/*!50001 DROP VIEW IF EXISTS `vw_cash_out` */;
+/*!50001 DROP TABLE IF EXISTS `vw_cash_out` */;
+
+/*!50001 CREATE TABLE  `vw_cash_out`(
+ `branch_id` bigint(20) ,
+ `trans_date` date ,
+ `Cashiers` varchar(61) ,
+ `Managers` varchar(61) ,
+ `amount` decimal(15,2) ,
+ `remarks` varchar(255) 
+)*/;
+
+/*Table structure for table `vw_cash_sales` */
+
+DROP TABLE IF EXISTS `vw_cash_sales`;
+
+/*!50001 DROP VIEW IF EXISTS `vw_cash_sales` */;
+/*!50001 DROP TABLE IF EXISTS `vw_cash_sales` */;
+
+/*!50001 CREATE TABLE  `vw_cash_sales`(
+ `trans_date` date ,
+ `receipt` varchar(50) ,
+ `Description` varchar(156) ,
+ `price` decimal(15,2) ,
+ `qty` int(11) ,
+ `line_total` decimal(15,2) ,
+ `Cashiers` varchar(72) ,
+ `branch_id` bigint(20) 
+)*/;
+
+/*Table structure for table `vw_cashier_log` */
+
+DROP TABLE IF EXISTS `vw_cashier_log`;
+
+/*!50001 DROP VIEW IF EXISTS `vw_cashier_log` */;
+/*!50001 DROP TABLE IF EXISTS `vw_cashier_log` */;
+
+/*!50001 CREATE TABLE  `vw_cashier_log`(
+ `branch_id` bigint(20) ,
+ `log_date` date ,
+ `Cashiers` varchar(61) ,
+ `Managers` varchar(61) ,
+ `time_from` time ,
+ `time_to` time ,
+ `begin_bal` decimal(15,2) ,
+ `end_bal` decimal(15,2) 
+)*/;
+
+/*Table structure for table `vw_credit_sales` */
+
+DROP TABLE IF EXISTS `vw_credit_sales`;
+
+/*!50001 DROP VIEW IF EXISTS `vw_credit_sales` */;
+/*!50001 DROP TABLE IF EXISTS `vw_credit_sales` */;
+
+/*!50001 CREATE TABLE  `vw_credit_sales`(
+ `trans_date` date ,
+ `Customers` varchar(72) ,
+ `invoice` varchar(50) ,
+ `Description` varchar(156) ,
+ `price` decimal(15,2) ,
+ `qty` int(11) ,
+ `line_total` decimal(15,2) ,
+ `Cashiers` varchar(72) ,
+ `branch_id` bigint(20) 
+)*/;
+
+/*Table structure for table `vw_customer_payments` */
+
+DROP TABLE IF EXISTS `vw_customer_payments`;
+
+/*!50001 DROP VIEW IF EXISTS `vw_customer_payments` */;
+/*!50001 DROP TABLE IF EXISTS `vw_customer_payments` */;
+
+/*!50001 CREATE TABLE  `vw_customer_payments`(
+ `trans_date` date ,
+ `receipt` bigint(10) ,
+ `Customers` varchar(61) ,
+ `pay_amount` decimal(15,2) ,
+ `Cashiers` varchar(61) ,
+ `Managers` varchar(61) 
+)*/;
+
+/*Table structure for table `vw_customer_transactions` */
+
+DROP TABLE IF EXISTS `vw_customer_transactions`;
+
+/*!50001 DROP VIEW IF EXISTS `vw_customer_transactions` */;
+/*!50001 DROP TABLE IF EXISTS `vw_customer_transactions` */;
+
+/*!50001 CREATE TABLE  `vw_customer_transactions`(
+ `Customers` varchar(72) ,
+ `customer_id` bigint(20) ,
+ `trans_date` date ,
+ `invoice` varchar(50) ,
+ `Description` varchar(156) ,
+ `price` decimal(15,2) ,
+ `qty` int(11) ,
+ `line_total` decimal(15,2) ,
+ `Cashiers` varchar(72) ,
+ `branch_id` bigint(20) 
+)*/;
 
 /*Table structure for table `vw_stock_adjust_history` */
 
@@ -810,6 +935,55 @@ DROP TABLE IF EXISTS `vw_stock_trans_history`;
  `qty` int(11) ,
  `remarks` varchar(255) 
 )*/;
+
+/*View structure for view vw_cash_in */
+
+/*!50001 DROP TABLE IF EXISTS `vw_cash_in` */;
+/*!50001 DROP VIEW IF EXISTS `vw_cash_in` */;
+
+/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_cash_in` AS select `users`.`branch_id` AS `branch_id`,`cash_in`.`trans_date` AS `trans_date`,concat(`c`.`user_gname`,' ',`c`.`user_surname`) AS `Cashiers`,concat(`m`.`user_gname`,' ',`m`.`user_surname`) AS `Managers`,`cash_in`.`amount` AS `amount`,`cash_in`.`remarks` AS `remarks` from ((((((`cash_in` join `cashier` on((`cashier`.`cashier_id` = `cash_in`.`cashier_id`))) join `manager` on((`manager`.`manager_id` = `cash_in`.`manager_id`))) join `users` on((`users`.`user_id` = `cashier`.`user_id`))) join `user_details` `m` on((`m`.`user_id` = `manager`.`user_id`))) join `user_details` `c` on((`c`.`user_id` = `cashier`.`user_id`))) join `branch` on((`branch`.`branch_id` = `users`.`branch_id`))) */;
+
+/*View structure for view vw_cash_out */
+
+/*!50001 DROP TABLE IF EXISTS `vw_cash_out` */;
+/*!50001 DROP VIEW IF EXISTS `vw_cash_out` */;
+
+/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_cash_out` AS select `users`.`branch_id` AS `branch_id`,`cash_out`.`trans_date` AS `trans_date`,concat(`c`.`user_gname`,' ',`c`.`user_surname`) AS `Cashiers`,concat(`m`.`user_gname`,' ',`m`.`user_surname`) AS `Managers`,`cash_out`.`amount` AS `amount`,`cash_out`.`remarks` AS `remarks` from ((((((`cash_out` join `cashier` on((`cashier`.`cashier_id` = `cash_out`.`cashier_id`))) join `manager` on((`manager`.`manager_id` = `cash_out`.`manager_id`))) join `users` on((`users`.`user_id` = `cashier`.`user_id`))) join `user_details` `m` on((`m`.`user_id` = `manager`.`user_id`))) join `user_details` `c` on((`c`.`user_id` = `cashier`.`user_id`))) join `branch` on((`branch`.`branch_id` = `users`.`branch_id`))) */;
+
+/*View structure for view vw_cash_sales */
+
+/*!50001 DROP TABLE IF EXISTS `vw_cash_sales` */;
+/*!50001 DROP VIEW IF EXISTS `vw_cash_sales` */;
+
+/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_cash_sales` AS (select `cash_payment`.`trans_date` AS `trans_date`,`cash_payment`.`receipt` AS `receipt`,concat(`brand`.`brand_name`,' | ',`item`.`item_desc`,' | ',`item`.`item_add_desc`) AS `Description`,`order_item_dtls`.`price` AS `price`,`order_item_dtls`.`qty` AS `qty`,`order_item_dtls`.`line_total` AS `line_total`,concat(`user_details`.`user_gname`,' ',`user_details`.`user_surname`,' ',`user_details`.`user_suffix`) AS `Cashiers`,`orders`.`branch_id` AS `branch_id` from (((((((`orders` join `order_item_dtls` on((`orders`.`order_id` = `order_item_dtls`.`order_id`))) join `inventory` on((`order_item_dtls`.`inventory_id` = `inventory`.`inventory_id`))) join `item` on((`inventory`.`item_id` = `item`.`item_id`))) join `brand` on((`item`.`brand_id` = `brand`.`brand_id`))) join `cash_payment` on((`orders`.`order_id` = `cash_payment`.`order_id`))) join `cashier` on((`cash_payment`.`cashier_id` = `cashier`.`cashier_id`))) join `user_details` on((`cashier`.`user_id` = `user_details`.`user_id`)))) union (select `cash_payment`.`trans_date` AS `trans_date`,`cash_payment`.`receipt` AS `receipt`,`service`.`service_desc` AS `Description`,`order_svc_dtls`.`price` AS `price`,`order_svc_dtls`.`qty` AS `qty`,`order_svc_dtls`.`line_total` AS `line_total`,concat(`user_details`.`user_gname`,' ',`user_details`.`user_surname`,' ',`user_details`.`user_suffix`) AS `Cashiers`,`orders`.`branch_id` AS `branch_id` from (((((`orders` join `order_svc_dtls` on((`order_svc_dtls`.`order_id` = `orders`.`order_id`))) join `service` on((`service`.`service_id` = `order_svc_dtls`.`service_id`))) join `cash_payment` on((`orders`.`order_id` = `cash_payment`.`order_id`))) join `cashier` on((`cash_payment`.`cashier_id` = `cashier`.`cashier_id`))) join `user_details` on((`cashier`.`user_id` = `user_details`.`user_id`)))) order by `trans_date`,`receipt` */;
+
+/*View structure for view vw_cashier_log */
+
+/*!50001 DROP TABLE IF EXISTS `vw_cashier_log` */;
+/*!50001 DROP VIEW IF EXISTS `vw_cashier_log` */;
+
+/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_cashier_log` AS select `users`.`branch_id` AS `branch_id`,`cashier_log`.`log_date` AS `log_date`,concat(`c`.`user_gname`,' ',`c`.`user_surname`) AS `Cashiers`,concat(`m`.`user_gname`,' ',`m`.`user_surname`) AS `Managers`,`cashier_log`.`time_from` AS `time_from`,`cashier_log`.`time_to` AS `time_to`,`cashier_log`.`begin_bal` AS `begin_bal`,`cashier_log`.`end_bal` AS `end_bal` from (((((`cashier_log` join `cashier` on((`cashier`.`cashier_id` = `cashier_log`.`cashier_id`))) join `manager` on((`manager`.`manager_id` = `cashier_log`.`manager_id`))) join `users` on((`users`.`user_id` = `cashier`.`user_id`))) join `user_details` `c` on((`c`.`user_id` = `cashier`.`user_id`))) join `user_details` `m` on((`m`.`user_id` = `manager`.`user_id`))) order by `cashier_log`.`log_date`,`cashier_log`.`cashier_id` */;
+
+/*View structure for view vw_credit_sales */
+
+/*!50001 DROP TABLE IF EXISTS `vw_credit_sales` */;
+/*!50001 DROP VIEW IF EXISTS `vw_credit_sales` */;
+
+/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_credit_sales` AS (select `credit_payment`.`trans_date` AS `trans_date`,concat(`customer_details`.`customer_gname`,' ',`customer_details`.`customer_surname`,' ',`customer_details`.`customer_suffix`) AS `Customers`,`credit_payment`.`invoice` AS `invoice`,concat(`brand`.`brand_name`,' | ',`item`.`item_desc`,' | ',`item`.`item_add_desc`) AS `Description`,`order_item_dtls`.`price` AS `price`,`order_item_dtls`.`qty` AS `qty`,`order_item_dtls`.`line_total` AS `line_total`,concat(`user_details`.`user_gname`,' ',`user_details`.`user_surname`,' ',`user_details`.`user_suffix`) AS `Cashiers`,`orders`.`branch_id` AS `branch_id` from ((((((((`orders` join `order_item_dtls` on((`order_item_dtls`.`order_id` = `orders`.`order_id`))) join `inventory` on((`inventory`.`inventory_id` = `order_item_dtls`.`inventory_id`))) join `item` on((`item`.`item_id` = `inventory`.`item_id`))) join `brand` on((`brand`.`brand_id` = `item`.`brand_id`))) join `credit_payment` on((`credit_payment`.`order_id` = `orders`.`order_id`))) join `cashier` on((`cashier`.`cashier_id` = `credit_payment`.`cashier_id`))) join `user_details` on((`user_details`.`user_id` = `cashier`.`user_id`))) join `customer_details` on((`customer_details`.`customer_id` = `credit_payment`.`customer_id`)))) union (select `credit_payment`.`trans_date` AS `trans_date`,concat(`customer_details`.`customer_gname`,' ',`customer_details`.`customer_surname`,' ',`customer_details`.`customer_suffix`) AS `Customers`,`credit_payment`.`invoice` AS `invoice`,`service`.`service_desc` AS `Description`,`order_svc_dtls`.`price` AS `price`,`order_svc_dtls`.`qty` AS `qty`,`order_svc_dtls`.`line_total` AS `line_total`,concat(`user_details`.`user_gname`,' ',`user_details`.`user_surname`,' ',`user_details`.`user_suffix`) AS `Cashiers`,`orders`.`branch_id` AS `branch_id` from ((((((`orders` join `order_svc_dtls` on((`order_svc_dtls`.`order_id` = `orders`.`order_id`))) join `service` on((`service`.`service_id` = `order_svc_dtls`.`service_id`))) join `credit_payment` on((`credit_payment`.`order_id` = `orders`.`order_id`))) join `cashier` on((`cashier`.`cashier_id` = `credit_payment`.`cashier_id`))) join `user_details` on((`user_details`.`user_id` = `cashier`.`user_id`))) join `customer_details` on((`customer_details`.`customer_id` = `credit_payment`.`customer_id`)))) order by `trans_date`,`invoice` */;
+
+/*View structure for view vw_customer_payments */
+
+/*!50001 DROP TABLE IF EXISTS `vw_customer_payments` */;
+/*!50001 DROP VIEW IF EXISTS `vw_customer_payments` */;
+
+/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_customer_payments` AS select `credit_settle`.`trans_date` AS `trans_date`,`credit_settle`.`receipt` AS `receipt`,concat(`customer_details`.`customer_gname`,' ',`customer_details`.`customer_surname`) AS `Customers`,`credit_settle`.`pay_amount` AS `pay_amount`,concat(`c`.`user_gname`,' ',`c`.`user_surname`) AS `Cashiers`,concat(`m`.`user_gname`,' ',`m`.`user_surname`) AS `Managers` from (((((`credit_settle` join `manager` on((`manager`.`manager_id` = `credit_settle`.`manager_id`))) join `cashier` on((`cashier`.`cashier_id` = `credit_settle`.`cashier_id`))) join `customer_details` on((`customer_details`.`customer_id` = `credit_settle`.`customer_id`))) join `user_details` `c` on((`c`.`user_id` = `cashier`.`user_id`))) join `user_details` `m` on((`m`.`user_id` = `manager`.`user_id`))) order by `credit_settle`.`trans_date`,`credit_settle`.`receipt` */;
+
+/*View structure for view vw_customer_transactions */
+
+/*!50001 DROP TABLE IF EXISTS `vw_customer_transactions` */;
+/*!50001 DROP VIEW IF EXISTS `vw_customer_transactions` */;
+
+/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_customer_transactions` AS (select concat(`customer_details`.`customer_gname`,' ',`customer_details`.`customer_surname`,' ',`customer_details`.`customer_suffix`) AS `Customers`,`customer`.`customer_id` AS `customer_id`,`credit_payment`.`trans_date` AS `trans_date`,`credit_payment`.`invoice` AS `invoice`,concat(`brand`.`brand_name`,' | ',`item`.`item_desc`,' | ',`item`.`item_add_desc`) AS `Description`,`order_item_dtls`.`price` AS `price`,`order_item_dtls`.`qty` AS `qty`,`order_item_dtls`.`line_total` AS `line_total`,concat(`user_details`.`user_gname`,' ',`user_details`.`user_surname`,' ',`user_details`.`user_suffix`) AS `Cashiers`,`orders`.`branch_id` AS `branch_id` from (((((((((`orders` join `credit_payment` on((`credit_payment`.`order_id` = `orders`.`order_id`))) join `order_item_dtls` on((`order_item_dtls`.`order_id` = `orders`.`order_id`))) join `inventory` on((`inventory`.`inventory_id` = `order_item_dtls`.`inventory_id`))) join `item` on((`item`.`item_id` = `inventory`.`item_id`))) join `cashier` on((`credit_payment`.`cashier_id` = `cashier`.`cashier_id`))) join `user_details` on((`user_details`.`user_id` = `cashier`.`user_id`))) join `brand` on((`brand`.`brand_id` = `item`.`brand_id`))) join `customer` on((`customer`.`customer_id` = `credit_payment`.`customer_id`))) join `customer_details` on((`customer_details`.`customer_id` = `credit_payment`.`customer_id`)))) union (select concat(`customer_details`.`customer_gname`,' ',`customer_details`.`customer_surname`,' ',`customer_details`.`customer_suffix`) AS `Customers`,`customer`.`customer_id` AS `customer_id`,`credit_payment`.`trans_date` AS `trans_date`,`credit_payment`.`invoice` AS `invoice`,`service`.`service_desc` AS `Description`,`order_svc_dtls`.`price` AS `price`,`order_svc_dtls`.`qty` AS `qty`,`order_svc_dtls`.`line_total` AS `line_total`,concat(`user_details`.`user_gname`,' ',`user_details`.`user_surname`,' ',`user_details`.`user_suffix`) AS `Cashiers`,`orders`.`branch_id` AS `branch_id` from (((((((`orders` join `credit_payment` on((`credit_payment`.`order_id` = `orders`.`order_id`))) join `order_svc_dtls` on((`order_svc_dtls`.`order_id` = `orders`.`order_id`))) join `service` on((`service`.`service_id` = `order_svc_dtls`.`service_id`))) join `cashier` on((`credit_payment`.`cashier_id` = `cashier`.`cashier_id`))) join `user_details` on((`user_details`.`user_id` = `cashier`.`user_id`))) join `customer` on((`customer`.`customer_id` = `credit_payment`.`customer_id`))) join `customer_details` on((`customer_details`.`customer_id` = `credit_payment`.`customer_id`)))) order by `trans_date`,`invoice` */;
 
 /*View structure for view vw_stock_adjust_history */
 

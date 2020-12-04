@@ -529,7 +529,7 @@
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Height>0.5in</Height>
-        <Width>9.26473in</Width>
+        <Width>9.26472in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -825,8 +825,8 @@
     <PageHeight>8.5in</PageHeight>
     <PageWidth>14in</PageWidth>
     <LeftMargin>0.5in</LeftMargin>
-    <RightMargin>0.5in</RightMargin>
     <TopMargin>0.5in</TopMargin>
+    <BottomMargin>0.5in</BottomMargin>
     <Style />
   </Page>
   <AutoRefresh>0</AutoRefresh>

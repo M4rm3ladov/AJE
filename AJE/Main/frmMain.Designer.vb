@@ -23,6 +23,7 @@ Partial Class frmMain
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.pnlHeader = New System.Windows.Forms.Panel()
+        Me.lbl_branch_Address = New System.Windows.Forms.Label()
         Me.tblPnlNameUser = New System.Windows.Forms.TableLayoutPanel()
         Me.pnlUser = New System.Windows.Forms.Panel()
         Me.lbl_Type = New System.Windows.Forms.Label()
@@ -43,7 +44,6 @@ Partial Class frmMain
         Me.btn_Help = New System.Windows.Forms.Button()
         Me.pnlMid = New System.Windows.Forms.Panel()
         Me.pbFiller = New System.Windows.Forms.PictureBox()
-        Me.lbl_branch_Address = New System.Windows.Forms.Label()
         Me.pnlHeader.SuspendLayout()
         Me.tblPnlNameUser.SuspendLayout()
         Me.pnlUser.SuspendLayout()
@@ -67,6 +67,17 @@ Partial Class frmMain
         Me.pnlHeader.Name = "pnlHeader"
         Me.pnlHeader.Size = New System.Drawing.Size(1924, 60)
         Me.pnlHeader.TabIndex = 1
+        '
+        'lbl_branch_Address
+        '
+        Me.lbl_branch_Address.AutoSize = True
+        Me.lbl_branch_Address.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_branch_Address.ForeColor = System.Drawing.Color.White
+        Me.lbl_branch_Address.Location = New System.Drawing.Point(589, 17)
+        Me.lbl_branch_Address.Name = "lbl_branch_Address"
+        Me.lbl_branch_Address.Size = New System.Drawing.Size(28, 26)
+        Me.lbl_branch_Address.TabIndex = 17
+        Me.lbl_branch_Address.Text = "()"
         '
         'tblPnlNameUser
         '
@@ -355,17 +366,6 @@ Partial Class frmMain
         Me.pbFiller.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.pbFiller.TabIndex = 4
         Me.pbFiller.TabStop = False
-        '
-        'lbl_branch_Address
-        '
-        Me.lbl_branch_Address.AutoSize = True
-        Me.lbl_branch_Address.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_branch_Address.ForeColor = System.Drawing.Color.White
-        Me.lbl_branch_Address.Location = New System.Drawing.Point(589, 17)
-        Me.lbl_branch_Address.Name = "lbl_branch_Address"
-        Me.lbl_branch_Address.Size = New System.Drawing.Size(28, 26)
-        Me.lbl_branch_Address.TabIndex = 17
-        Me.lbl_branch_Address.Text = "()"
         '
         'frmMain
         '
