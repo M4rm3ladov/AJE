@@ -17,7 +17,7 @@
                 Dim result = MsgBox("Are you sure you want to save this record?", vbYesNo + vbQuestion)
                 category.SetCategoryName(Trim(Me.tb_brand_Cat.Text))
                 If category.checkCategoryDuplicate = True Then
-                    MsgBox("Branch name is already existing.", vbInformation)
+                    MsgBox("Category name is already existing.", vbInformation)
                     Exit Sub
                 End If
                 If result = vbYes Then
@@ -38,7 +38,7 @@
                 Dim result = MsgBox("Are you sure you want to save this record?", vbYesNo + vbQuestion)
                 brand.SetBrandName(Trim(Me.tb_brand_Cat.Text))
                 If brand.checkBrandDuplicate = True Then
-                    MsgBox("Branch name is already existing.", vbInformation)
+                    MsgBox("Brand name is already existing.", vbInformation)
                     Exit Sub
                 End If
                 If result = vbYes Then
@@ -65,7 +65,7 @@
                 category.SetCategoryName(Trim(tb_brand_Cat.Text))
                 category.SetCategoryId(lbl_brand_Cat.Text)
                 If category.checkCategoryDuplicate = True Then
-                    MsgBox("Branch name is already existing.", vbInformation)
+                    MsgBox("Category name is already existing.", vbInformation)
                     Exit Sub
                 End If
                 If result = vbYes Then
