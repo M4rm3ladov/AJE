@@ -47,7 +47,21 @@
         unit.loadAutosuggest()
     End Sub
 
-    Private Sub dg_Items_SelectionChanged(sender As Object, e As EventArgs) Handles dg_Items.SelectionChanged
+    'Private Sub dg_Items_SelectionChanged(sender As Object, e As EventArgs) Handles dg_Items.SelectionChanged
+    '    Dim i As Integer = dg_Items.CurrentRow.Index
+    '    _id = dg_Items.Item(0, i).Value
+    '    _code = dg_Items.Item(2, i).Value
+    '    _brand = dg_Items.Item(3, i).Value
+    '    _desc = dg_Items.Item(4, i).Value
+    '    _add_Desc = dg_Items.Item(5, i).Value
+    '    _category = dg_Items.Item(6, i).Value
+    '    _unit = dg_Items.Item(7, i).Value
+    '    _unit_Price = dg_Items.Item(8, i).Value
+    '    _price_A = dg_Items.Item(9, i).Value
+    '    _price_B = dg_Items.Item(10, i).Value
+    'End Sub
+
+    Private Sub dg_Items_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dg_Items.CellContentClick
         Dim i As Integer = dg_Items.CurrentRow.Index
         _id = dg_Items.Item(0, i).Value
         _code = dg_Items.Item(2, i).Value
@@ -59,9 +73,7 @@
         _unit_Price = dg_Items.Item(8, i).Value
         _price_A = dg_Items.Item(9, i).Value
         _price_B = dg_Items.Item(10, i).Value
-    End Sub
 
-    Private Sub dg_Items_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dg_Items.CellContentClick
         Dim colName As String = dg_Items.Columns(e.ColumnIndex).Name
         If colName = "col_Edit" Then
             With frmItemEntry
@@ -96,15 +108,20 @@
 
         End If
     End Sub
-    Private Sub Dg_Category_SelectionChanged(sender As Object, e As EventArgs) Handles dg_Category.SelectionChanged
-        Dim i As Integer = dg_Category.CurrentRow.Index
-        _id = dg_Category.Item(0, i).Value
-        _category = dg_Category.Item(2, i).Value
-    End Sub
+    'Private Sub Dg_Category_SelectionChanged(sender As Object, e As EventArgs) Handles dg_Category.SelectionChanged
+    '    Dim i As Integer = dg_Category.CurrentRow.Index
+    '    _id = dg_Category.Item(0, i).Value
+    '    _category = dg_Category.Item(2, i).Value
+    'End Sub
 
 
     Private Sub Dg_Category_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dg_Category.CellContentClick
         frmBrandCat.lbl_Header.Text = "Category"
+
+        Dim i As Integer = dg_Category.CurrentRow.Index
+        _id = dg_Category.Item(0, i).Value
+        _category = dg_Category.Item(2, i).Value
+
         Dim colName As String = dg_Category.Columns(e.ColumnIndex).Name
         If colName = "col_edit_Category" Then
             With frmBrandCat
@@ -129,14 +146,19 @@
             End If
         End If
     End Sub
-    Private Sub Dg_Brand_SelectionChanged(sender As Object, e As EventArgs) Handles dg_Brand.SelectionChanged
-        Dim i As Integer = dg_Brand.CurrentRow.Index
-        _id = dg_Brand.Item(0, i).Value
-        _brand = dg_Brand.Item(2, i).Value
-    End Sub
+    'Private Sub Dg_Brand_SelectionChanged(sender As Object, e As EventArgs) Handles dg_Brand.SelectionChanged
+    '    Dim i As Integer = dg_Brand.CurrentRow.Index
+    '    _id = dg_Brand.Item(0, i).Value
+    '    _brand = dg_Brand.Item(2, i).Value
+    'End Sub
 
     Private Sub Dg_Brand_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dg_Brand.CellContentClick
         frmBrandCat.lbl_Header.Text = "Brand"
+
+        Dim i As Integer = dg_Brand.CurrentRow.Index
+        _id = dg_Brand.Item(0, i).Value
+        _brand = dg_Brand.Item(2, i).Value
+
         Dim colName As String = dg_Brand.Columns(e.ColumnIndex).Name
         If colName = "col_edit_Brand" Then
             With frmBrandCat
@@ -161,13 +183,17 @@
             End If
         End If
     End Sub
-    Private Sub Dg_Unit_SelectionChanged(sender As Object, e As EventArgs) Handles dg_Unit.SelectionChanged
+    'Private Sub Dg_Unit_SelectionChanged(sender As Object, e As EventArgs) Handles dg_Unit.SelectionChanged
+    '    Dim i As Integer = dg_Unit.CurrentRow.Index
+    '    _id = dg_Unit.Item(0, i).Value
+    '    _unit = dg_Unit.Item(2, i).Value
+    'End Sub
+
+    Private Sub Dg_Unit_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dg_Unit.CellContentClick
         Dim i As Integer = dg_Unit.CurrentRow.Index
         _id = dg_Unit.Item(0, i).Value
         _unit = dg_Unit.Item(2, i).Value
-    End Sub
 
-    Private Sub Dg_Unit_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dg_Unit.CellContentClick
         Dim colName As String = dg_Unit.Columns(e.ColumnIndex).Name
         If colName = "col_edit_Unit" Then
             With frmUnitEntry

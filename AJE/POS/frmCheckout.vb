@@ -85,7 +85,7 @@
                 Exit Sub
             End If
         ElseIf frmPos.lbl_pay_Type.Text = "Credit" Then
-            If Val(tb_cash_Tendered.Text) > Val(tb_due_Total.Text) Or tb_cash_Tendered.Text = vbNullString Then
+            If Val(tb_cash_Tendered.Text) >= Val(tb_due_Total.Text) Or tb_cash_Tendered.Text = vbNullString Then
                 MsgBox("Please input a valid amount.", vbExclamation)
                 Exit Sub
             End If
@@ -132,8 +132,6 @@
         frmPos.lbl_due_Total.Text = 0.00
         MsgBox("Transaction saved.", vbInformation)
         Me.Close()
-        'If MsgBox("Do you wish to print receipt/invoice?", vbQuestion) = vbYes Then
 
-        'End If
     End Sub
 End Class

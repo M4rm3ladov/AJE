@@ -91,7 +91,7 @@
             _priceA = frmPos.dg_Search.Item(4, i).Value
             _priceB = frmPos.dg_Search.Item(5, i).Value
 
-            frmPos.dg_Order.Rows.Add(_id, _code, _desc, Format(_price, "0.00"), _unit, _qty, Format(_total, "0.00"), "EDIT", "REMOVE", _priceA, _priceB)
+            frmPos.dg_Order.Rows.Add(_id, _code, _desc, _unit, Format(_price, "0.00"), _qty, Format(_total, "0.00"), "EDIT", "REMOVE", _priceA, _priceB)
 
             MsgBox("Item/Service has been added to cart.", vbInformation)
 
@@ -105,7 +105,7 @@
                 Exit Sub
             End If
 
-            frmPos.dg_Order.Item(3, i).Value = Format(Val(tb_Price.Text), "0.00")
+            frmPos.dg_Order.Item(4, i).Value = Format(Val(tb_Price.Text), "0.00")
             frmPos.dg_Order.Item(5, i).Value = tb_Qty.Text
             frmPos.dg_Order.Item(6, i).Value = Format(Val(tb_Price.Text) * Val(tb_Qty.Text), "0.00")
             MsgBox("Item/Service has been updated.", vbInformation)

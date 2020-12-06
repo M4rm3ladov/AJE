@@ -63,7 +63,6 @@ Partial Class frmBrandCat
         Me.lbl_brand_Cat.Size = New System.Drawing.Size(57, 20)
         Me.lbl_brand_Cat.TabIndex = 20
         Me.lbl_brand_Cat.Text = "Label1"
-        Me.lbl_brand_Cat.Visible = False
         '
         'btn_Update
         '

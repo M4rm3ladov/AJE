@@ -115,6 +115,10 @@
     End Sub
 
     Private Sub btn_load_History_Click(sender As Object, e As EventArgs) Handles btn_load_History.Click
+        If tb_CustName.Text = vbNullString Then
+            MsgBox("Please select an existing Customer", vbExclamation)
+            Exit Sub
+        End If
         creditPay.SetDateFrom(dtp_From.Value.ToString("yyyy-MM-dd"))
         creditPay.SetDateTo(dtp_To.Value.ToString("yyyy-MM-dd"))
         creditPay.SetCustomer(lbl_custId.Text)

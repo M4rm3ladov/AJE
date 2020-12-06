@@ -2,6 +2,7 @@
     Dim user As New clsUser
     Dim frmUser As New frmUser
     Dim encryption As New clsEncryption
+    Dim login As New clsLogin
     Dim password, salt, hashedAndSalt
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
         clearControls()
@@ -89,10 +90,22 @@
                     frmBranch.tb_Search.Clear()
                     user.loadRecord()
                 End If
+
+                MsgBox("In order for changes to be applied, this account needs to log out.", vbOKOnly + vbInformation)
                 Me.Close()
+                frmUser.Close()
+
+                frmMain.lbl_Name.Text = vbNullString
+                frmMain.lbl_Type.Text = vbNullString
+                login.SetUsername(frmMain.lbl_Username.Text)
+                frmMain.lbl_Username.Text = vbNullString
+                frmMain.lbl_branch_Id.Text = vbNullString
+                login.setUserLogin(0)
+                frmMain.Close()
+                frmLogin.ShowDialog()
             End If
         Catch ex As Exception
-
+            MsgBox(ex, vbExclamation)
         End Try
     End Sub
     Private Sub clearControls()

@@ -1,4 +1,4 @@
-﻿Imports MySql.Data.MySqlClient
+﻿ Imports MySql.Data.MySqlClient
 Public Class clsCashierLog
     Dim cashP, creditP, refundA, cashIn, cashOut
     Private _CashierLogId As Object

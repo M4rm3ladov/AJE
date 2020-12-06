@@ -99,12 +99,17 @@ Public Class clsCreditPay
         cm.Parameters.AddWithValue("@date_to", _DateTo)
         cm.Parameters.AddWithValue("@customer_id", _Customer)
         dr = cm.ExecuteReader()
-        While dr.Read()
-            transDate = Format(dr.Item("trans_date"), "MM/dd/yyyy")
-            frmCreditPay.dg_History.Rows.Add(dr.Item("credit_settle_id").ToString, dr.Item("receipt").ToString, transDate, dr.Item("pay_amount").ToString,
-                                              dr.Item("user_gname").ToString & " " & dr.Item("user_mi").ToString & " " & dr.Item("user_surname").ToString & " " & dr.Item("user_suffix").ToString)
+        If dr.HasRows Then
+            While dr.Read()
+                transDate = Format(dr.Item("trans_date"), "MM/dd/yyyy")
+                frmCreditPay.dg_History.Rows.Add(dr.Item("credit_settle_id").ToString, dr.Item("receipt").ToString, transDate, dr.Item("pay_amount").ToString,
+                                                  dr.Item("user_gname").ToString & " " & dr.Item("user_mi").ToString & " " & dr.Item("user_surname").ToString & " " & dr.Item("user_suffix").ToString)
 
-        End While
+            End While
+        Else
+            MsgBox(vbInformation, "No data available on given parameters.")
+        End If
+
         DisconnectDatabase()
     End Sub
     'Public Sub loadItems(orderId)

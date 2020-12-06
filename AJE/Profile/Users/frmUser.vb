@@ -2,6 +2,7 @@
     Dim user As New clsUser
     Dim cashier As New clsCashier
     Dim manager As New clsManager
+    Dim login As New clsLogin
     Dim _id, _is_active
     Dim _branch, _gName, _mi, _fName, _suffix, _username, _usertype As String
     Private Sub btn_add_Manager_Click(sender As Object, e As EventArgs) Handles btn_add_Manager.Click
@@ -60,7 +61,26 @@
         cbo_filter_manager.SelectedIndex = 1
         cbo_Filter.SelectedIndex = 1
     End Sub
-    Private Sub DataGridView1_SelectionChanged(sender As Object, e As EventArgs) Handles DataGridView1.SelectionChanged
+    'Private Sub DataGridView1_SelectionChanged(sender As Object, e As EventArgs) Handles DataGridView1.SelectionChanged
+    '    Dim i As Integer = DataGridView1.CurrentRow.Index
+    '    _id = DataGridView1.Item(0, i).Value
+    '    _branch = DataGridView1.Item(2, i).Value
+    '    _gName = DataGridView1.Item(3, i).Value
+    '    _mi = DataGridView1.Item(4, i).Value
+    '    _fName = DataGridView1.Item(5, i).Value
+    '    _suffix = DataGridView1.Item(6, i).Value
+    '    _username = DataGridView1.Item(7, i).Value
+    '    _usertype = DataGridView1.Item(8, i).Value
+    '    _is_active = DataGridView1.Item(9, i).Value
+    '    If _is_active = False Then
+    '        _is_active = "No"
+    '    ElseIf _is_active = True Then
+    '        _is_active = "Yes"
+    '    End If
+    'End Sub
+    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
+        frmUserEntry.cbo_Branch.Items.Clear()
+        user.loadBranch()
         Dim i As Integer = DataGridView1.CurrentRow.Index
         _id = DataGridView1.Item(0, i).Value
         _branch = DataGridView1.Item(2, i).Value
@@ -76,10 +96,7 @@
         ElseIf _is_active = True Then
             _is_active = "Yes"
         End If
-    End Sub
-    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
-        frmUserEntry.cbo_Branch.Items.Clear()
-        user.loadBranch()
+
         Dim colName As String = DataGridView1.Columns(e.ColumnIndex).Name
         If colName = "col_Edit" Then
             With frmUserEntry
@@ -115,6 +132,19 @@
                     user.delete()
                     MsgBox("record has been successfully deleted.", vbInformation)
                     user.loadRecord()
+
+                    MsgBox("In order for changes to be applied, this account needs to log out.", vbOKOnly + vbInformation)
+                    Me.Close()
+
+                    frmMain.lbl_Name.Text = vbNullString
+                    frmMain.lbl_Type.Text = vbNullString
+                    login.SetUsername(frmMain.lbl_Username.Text)
+                    frmMain.lbl_Username.Text = vbNullString
+                    frmMain.lbl_branch_Id.Text = vbNullString
+                    login.setUserLogin(0)
+                    frmMain.Close()
+                    frmLogin.ShowDialog()
+
                 Else
                     MsgBox("record already in use and therefore can not be deleted.", vbInformation)
                 End If
@@ -122,7 +152,22 @@
 
         End If
     End Sub
-    Private Sub DataGridView2_SelectionChanged(sender As Object, e As EventArgs) Handles DataGridView2.SelectionChanged
+    'Private Sub DataGridView2_SelectionChanged(sender As Object, e As EventArgs) Handles DataGridView2.SelectionChanged
+    '    Dim i As Integer = DataGridView2.CurrentRow.Index
+    '    _id = DataGridView2.Item(0, i).Value
+    '    _gName = DataGridView2.Item(2, i).Value
+    '    _mi = DataGridView2.Item(3, i).Value
+    '    _fName = DataGridView2.Item(4, i).Value
+    '    _suffix = DataGridView2.Item(5, i).Value
+    '    _username = DataGridView2.Item(6, i).Value
+    '    _is_active = DataGridView2.Item(7, i).Value
+    '    If _is_active = False Then
+    '        _is_active = "No"
+    '    ElseIf _is_active = True Then
+    '        _is_active = "Yes"
+    '    End If
+    'End Sub
+    Private Sub DataGridView2_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView2.CellContentClick
         Dim i As Integer = DataGridView2.CurrentRow.Index
         _id = DataGridView2.Item(0, i).Value
         _gName = DataGridView2.Item(2, i).Value
@@ -136,8 +181,7 @@
         ElseIf _is_active = True Then
             _is_active = "Yes"
         End If
-    End Sub
-    Private Sub DataGridView2_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView2.CellContentClick
+
         Dim colName As String = DataGridView2.Columns(e.ColumnIndex).Name
         If colName = "col_edit_Cashier" Then
             With frmCashierEntry
@@ -163,6 +207,19 @@
                     cashier.delete()
                     MsgBox("Record has been successfully deleted.", vbInformation)
                     cashier.loadRecord()
+
+                    MsgBox("In order for changes to be applied, this account needs to log out.", vbOKOnly + vbInformation)
+                    Me.Close()
+
+                    frmMain.lbl_Name.Text = vbNullString
+                    frmMain.lbl_Type.Text = vbNullString
+                    login.SetUsername(frmMain.lbl_Username.Text)
+                    frmMain.lbl_Username.Text = vbNullString
+                    frmMain.lbl_branch_Id.Text = vbNullString
+                    login.setUserLogin(0)
+                    frmMain.Close()
+                    frmLogin.ShowDialog()
+
                 Else
                     MsgBox("Record already in use and therefore can not be deleted.", vbInformation)
                 End If
@@ -170,7 +227,22 @@
 
         End If
     End Sub
-    Private Sub DataGridView3_SelectionChanged(sender As Object, e As EventArgs) Handles DataGridView3.SelectionChanged
+    'Private Sub DataGridView3_SelectionChanged(sender As Object, e As EventArgs) Handles DataGridView3.SelectionChanged
+    '    Dim i As Integer = DataGridView3.CurrentRow.Index
+    '    _id = DataGridView3.Item(0, i).Value
+    '    _gName = DataGridView3.Item(2, i).Value
+    '    _mi = DataGridView3.Item(3, i).Value
+    '    _fName = DataGridView3.Item(4, i).Value
+    '    _suffix = DataGridView3.Item(5, i).Value
+    '    _username = DataGridView3.Item(6, i).Value
+    '    _is_active = DataGridView3.Item(7, i).Value
+    '    If _is_active = False Then
+    '        _is_active = "No"
+    '    ElseIf _is_active = True Then
+    '        _is_active = "Yes"
+    '    End If
+    'End Sub
+    Private Sub DataGridView3_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView3.CellContentClick
         Dim i As Integer = DataGridView3.CurrentRow.Index
         _id = DataGridView3.Item(0, i).Value
         _gName = DataGridView3.Item(2, i).Value
@@ -184,8 +256,7 @@
         ElseIf _is_active = True Then
             _is_active = "Yes"
         End If
-    End Sub
-    Private Sub DataGridView3_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView3.CellContentClick
+
         Dim colName As String = DataGridView3.Columns(e.ColumnIndex).Name
         If colName = "col_edit_Manager" Then
             With frmManagerEntry
@@ -211,6 +282,19 @@
                     manager.delete()
                     MsgBox("Record has been successfully deleted.", vbInformation)
                     manager.loadRecord()
+
+                    MsgBox("In order for changes to be applied, this account needs to log out.", vbOKOnly + vbInformation)
+                    Me.Close()
+
+                    frmMain.lbl_Name.Text = vbNullString
+                    frmMain.lbl_Type.Text = vbNullString
+                    login.SetUsername(frmMain.lbl_Username.Text)
+                    frmMain.lbl_Username.Text = vbNullString
+                    frmMain.lbl_branch_Id.Text = vbNullString
+                    login.setUserLogin(0)
+                    frmMain.Close()
+                    frmLogin.ShowDialog()
+
                 Else
                     MsgBox("Record already in use and therefore can not be deleted.", vbInformation)
                 End If
@@ -296,4 +380,5 @@
             End If
         End If
     End Sub
+
 End Class

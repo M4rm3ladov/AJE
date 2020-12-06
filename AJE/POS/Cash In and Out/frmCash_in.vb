@@ -64,6 +64,8 @@
 
     Private Sub frmCash_in_Load(sender As Object, e As EventArgs) Handles Me.Load
         dtp_transDate.Value = DateTime.Now
+        tb_Amount.Clear()
+        tb_Remarks.Clear()
         tb_Amount.Focus()
     End Sub
 End Class

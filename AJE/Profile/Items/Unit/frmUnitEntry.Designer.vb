@@ -63,7 +63,6 @@ Partial Class frmUnitEntry
         Me.lbl_Id.Size = New System.Drawing.Size(72, 20)
         Me.lbl_Id.TabIndex = 71
         Me.lbl_Id.Text = "Address:"
-        Me.lbl_Id.Visible = False
         '
         'btn_Update
         '

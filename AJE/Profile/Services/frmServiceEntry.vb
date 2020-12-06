@@ -95,8 +95,8 @@
             MsgBox("Please fill in the field(s) before saving.", vbExclamation)
             Exit Sub
         End If
-        If Convert.ToDecimal(tb_fee_A.Text) <= Convert.ToDecimal(tb_fee_B.Text) Then
-            MsgBox("Fee A should be Greater than fee B.", vbExclamation)
+        If Convert.ToDecimal(tb_fee_A.Text) < Convert.ToDecimal(tb_fee_B.Text) Then
+            MsgBox("Fee A should be Greater than or equal fee B.", vbExclamation)
             Exit Sub
         End If
         Try
@@ -128,8 +128,8 @@
             MsgBox("Please fill in the field(s) before saving.", vbExclamation)
             Exit Sub
         End If
-        If Convert.ToDecimal(tb_fee_A.Text) <= Convert.ToDecimal(tb_fee_B.Text) Then
-            MsgBox("Fee A should be Greater than fee B.", vbExclamation)
+        If Convert.ToDecimal(tb_fee_A.Text) < Convert.ToDecimal(tb_fee_B.Text) Then
+            MsgBox("Fee A should be Greater than or equal fee B.", vbExclamation)
             Exit Sub
         End If
         Try

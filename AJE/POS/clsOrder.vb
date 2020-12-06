@@ -58,8 +58,8 @@ Public Class clsOrder
         For i = 0 To frmPos.dg_Order.RowCount - 1
             _service_code = frmPos.dg_Order.Item(1, i).Value
             _id = frmPos.dg_Order.Item(0, i).Value
-            _qty = frmPos.dg_Order.Item(4, i).Value
-            _price = frmPos.dg_Order.Item(3, i).Value
+            _price = frmPos.dg_Order.Item(4, i).Value
+            _qty = frmPos.dg_Order.Item(5, i).Value
             _line_total = frmPos.dg_Order.Item(6, i).Value
             query = "SELECT EXISTS(SELECT service_code FROM service WHERE service_code = @service_code)"
             cm = New MySqlCommand(query, con)
@@ -71,8 +71,8 @@ Public Class clsOrder
                 cm = New MySqlCommand(query, con)
                 cm.Parameters.AddWithValue("@order_id", _order_id)
                 cm.Parameters.AddWithValue("@service_id", _id)
-                cm.Parameters.AddWithValue("@qty", _qty)
                 cm.Parameters.AddWithValue("@price", _price)
+                cm.Parameters.AddWithValue("@qty", _qty)
                 cm.Parameters.AddWithValue("@line_total", _line_total)
                 cm.ExecuteScalar()
                 cm.Dispose()
@@ -89,8 +89,8 @@ Public Class clsOrder
                 cm = New MySqlCommand(query, con)
                 cm.Parameters.AddWithValue("@order_id", _order_id)
                 cm.Parameters.AddWithValue("@inventory_id", _inventoryId)
-                cm.Parameters.AddWithValue("@qty", _qty)
                 cm.Parameters.AddWithValue("@price", _price)
+                cm.Parameters.AddWithValue("@qty", _qty)
                 cm.Parameters.AddWithValue("@line_total", _line_total)
                 cm.ExecuteScalar()
                 cm.Dispose()

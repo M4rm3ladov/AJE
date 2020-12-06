@@ -211,7 +211,7 @@
         Dim colName As String = dg_Order.Columns(e.ColumnIndex).Name
         Dim i As Integer = dg_Order.CurrentRow.Index
         If colName = "col_Edit" Then
-            frmPrice.tb_Price.Text = dg_Order.Item(3, i).Value
+            frmPrice.tb_Price.Text = dg_Order.Item(4, i).Value
             frmPrice.tb_Qty.Text = dg_Order.Item(5, i).Value
             frmPrice.lbl_Type.Text = 2
             frmPrice.btn_Add.Text = "Save"

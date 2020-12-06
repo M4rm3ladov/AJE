@@ -1,6 +1,7 @@
 ﻿Public Class frmManagerEntry
     Dim manager As New clsManager
     Dim encryption As New clsEncryption
+    Dim login As New clsLogin
     Dim password, salt, hashedAndSalt
     Private Sub btn_Save_Click(sender As Object, e As EventArgs) Handles btn_Save.Click
         If countEmpty() > 0 Then
@@ -75,10 +76,22 @@
                     frmUser.tb_search_Manager.Text = vbNullString
                     manager.loadRecord()
                 End If
+
+                MsgBox("In order for changes to be applied, this account needs to log out.", vbOKOnly + vbInformation)
                 Me.Close()
+                frmUser.Close()
+
+                frmMain.lbl_Name.Text = vbNullString
+                frmMain.lbl_Type.Text = vbNullString
+                login.SetUsername(frmMain.lbl_Username.Text)
+                frmMain.lbl_Username.Text = vbNullString
+                frmMain.lbl_branch_Id.Text = vbNullString
+                login.setUserLogin(0)
+                frmMain.Close()
+                frmLogin.ShowDialog()
             End If
         Catch ex As Exception
-
+            MsgBox(ex, vbExclamation)
         End Try
     End Sub
     Private Function countEmpty()
