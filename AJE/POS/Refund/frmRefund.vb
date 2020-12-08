@@ -43,6 +43,7 @@
     End Sub
 
     Private Sub frmRefund_Load(sender As Object, e As EventArgs) Handles Me.Load
+        dtp_Date.Value = DateTime.Now
         cbo_Receipt.SelectedIndex = 0
         KeyPreview = True
     End Sub
@@ -88,8 +89,6 @@
     End Sub
 
     Private Sub btn_Load_Click(sender As Object, e As EventArgs) Handles btn_Load.Click
-        dtp_Date.Value = DateTime.Now
-
         cbo_Orders.SelectedIndex = 0
         refund.SetTransDate(dtp_Date.Value.ToString("yyyy-MM-dd"))
         refund.SetBranchId(frmPos.lbl_branch_Id.Text)

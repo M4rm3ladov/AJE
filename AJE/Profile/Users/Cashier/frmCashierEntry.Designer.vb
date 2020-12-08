@@ -245,6 +245,7 @@ Partial Class frmCashierEntry
         Me.lbl_Id.Size = New System.Drawing.Size(23, 20)
         Me.lbl_Id.TabIndex = 54
         Me.lbl_Id.Text = "Id"
+        Me.lbl_Id.Visible = False
         '
         'btnCancel
         '

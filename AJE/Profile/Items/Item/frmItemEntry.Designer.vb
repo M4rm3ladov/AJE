@@ -93,6 +93,7 @@ Partial Class frmItemEntry
         Me.lbl_unit_Id.Size = New System.Drawing.Size(23, 20)
         Me.lbl_unit_Id.TabIndex = 73
         Me.lbl_unit_Id.Text = "Id"
+        Me.lbl_unit_Id.Visible = False
         '
         'Label9
         '
@@ -112,6 +113,7 @@ Partial Class frmItemEntry
         Me.lbl_category_Id.Size = New System.Drawing.Size(23, 20)
         Me.lbl_category_Id.TabIndex = 71
         Me.lbl_category_Id.Text = "Id"
+        Me.lbl_category_Id.Visible = False
         '
         'lbl_brand_Id
         '
@@ -121,6 +123,7 @@ Partial Class frmItemEntry
         Me.lbl_brand_Id.Size = New System.Drawing.Size(23, 20)
         Me.lbl_brand_Id.TabIndex = 70
         Me.lbl_brand_Id.Text = "Id"
+        Me.lbl_brand_Id.Visible = False
         '
         'lbl_Id
         '
@@ -130,6 +133,7 @@ Partial Class frmItemEntry
         Me.lbl_Id.Size = New System.Drawing.Size(23, 20)
         Me.lbl_Id.TabIndex = 69
         Me.lbl_Id.Text = "Id"
+        Me.lbl_Id.Visible = False
         '
         'tb_add_Desc
         '

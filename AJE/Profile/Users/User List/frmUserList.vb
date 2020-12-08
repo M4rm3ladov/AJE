@@ -55,17 +55,17 @@
                     userList.UserSearch = Trim(tb_Search.Text)
                     userList.searchUser("SELECT users.user_id, branch.branch_address, user_surname, user_gname, user_mi, user_suffix, CAST(username AS CHAR) AS username, user_type, is_active FROM users " &
                             "INNER JOIN user_details ON users.user_id = user_details.user_id " &
-                            "INNER JOIN branch ON branch.branch_id = users.branch_id WHERE users.username LIKE @0")
+                            "INNER JOIN branch ON branch.branch_id = users.branch_id WHERE users.user_type <> 'Admin' AND users.username LIKE @0 ")
                 Case "Name"
                     userList.UserSearch = Trim(tb_Search.Text)
                     userList.searchUser("SELECT users.user_id, branch.branch_address, user_surname, user_gname, user_mi, user_suffix, CAST(username AS CHAR) AS username, user_type, is_active FROM users " &
                             "INNER JOIN user_details ON users.user_id = user_details.user_id " &
-                            "INNER JOIN branch ON branch.branch_id = users.branch_id WHERE user_details.user_gname LIKE @0 OR user_details.user_surname LIKE @0")
+                            "INNER JOIN branch ON branch.branch_id = users.branch_id WHERE users.user_type <> 'Admin' AND user_details.user_gname LIKE @0 OR user_details.user_surname LIKE @0 ")
                 Case "Branch"
                     userList.UserSearch = Trim(tb_Search.Text)
                     userList.searchUser("SELECT users.user_id, branch.branch_address, user_surname, user_gname, user_mi, user_suffix, CAST(username AS CHAR) AS username, user_type, is_active FROM users " &
                             "INNER JOIN user_details ON users.user_id = user_details.user_id " &
-                            "INNER JOIN branch ON branch.branch_id = users.branch_id WHERE branch_address LIKE @0")
+                            "INNER JOIN branch ON branch.branch_id = users.branch_id WHERE users.user_type <> 'Admin' AND branch_address LIKE @0 ")
             End Select
         Else
             userList.loadRecord()

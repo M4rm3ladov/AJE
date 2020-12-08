@@ -9,7 +9,7 @@ Public Class clsUserList
         ConnectDatabase()
         Dim query = "SELECT users.user_id, branch.branch_address, user_surname, user_gname, user_mi, user_suffix, CAST(username AS CHAR) AS username, user_type, is_active FROM users " &
                     "INNER JOIN user_details ON users.user_id = user_details.user_id " &
-                    "INNER JOIN branch ON branch.branch_id = users.branch_id"
+                    "INNER JOIN branch ON branch.branch_id = users.branch_id WHERE users.user_type <> 'Admin' "
         cm = New MySqlCommand(query, con)
         dr = cm.ExecuteReader()
         While dr.Read

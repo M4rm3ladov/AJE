@@ -58,6 +58,7 @@
                 .tb_Receipt.Clear()
                 .tb_cash_Tendered.Clear()
                 .tb_Change.Text = Format(0.00, "0.00")
+                .Close()
             End With
             With frmCreditPay
                 .dg_Transactions.Rows.Clear()
