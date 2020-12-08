@@ -82,7 +82,9 @@
             frmRefund.dg_Refund.Rows.Clear()
             frmRefund.tb_receiptNo.Clear()
             frmRefund.tb_Orders.Clear()
-            frmRefund.lbl_due_Total.Text = ""
+            frmRefund.lbl_due_Total.Text = "0.00"
+            frmRefund.tb_Orders.Enabled = False
+            frmRefund.cbo_Orders.Enabled = False
             frmRefund.cbo_Receipt.SelectedIndex = 0
             frmRefund.dtp_Date.Value = Date.Now
         End If
