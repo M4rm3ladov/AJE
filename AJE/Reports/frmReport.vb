@@ -31,4 +31,8 @@
     Private Sub btn_Cashier_Click(sender As Object, e As EventArgs) Handles btn_Cashier.Click
         frmCashierReport.ShowDialog()
     End Sub
+
+    Private Sub btn_Refund_Click(sender As Object, e As EventArgs) Handles btn_Refund.Click
+        frmRefundReport.ShowDialog()
+    End Sub
 End Class

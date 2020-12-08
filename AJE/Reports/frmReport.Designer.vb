@@ -25,6 +25,7 @@ Partial Class frmReport
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmReport))
         Me.pnlHeader = New System.Windows.Forms.Panel()
         Me.pnlClose = New System.Windows.Forms.Panel()
+        Me.btn_Close = New System.Windows.Forms.Button()
         Me.Label21 = New System.Windows.Forms.Label()
         Me.pnlButtons = New System.Windows.Forms.Panel()
         Me.btn_Cashier = New System.Windows.Forms.Button()
@@ -32,7 +33,7 @@ Partial Class frmReport
         Me.btn_Sales = New System.Windows.Forms.Button()
         Me.pnlMid = New System.Windows.Forms.Panel()
         Me.pbImage = New System.Windows.Forms.PictureBox()
-        Me.btn_Close = New System.Windows.Forms.Button()
+        Me.btn_Refund = New System.Windows.Forms.Button()
         Me.pnlHeader.SuspendLayout()
         Me.pnlClose.SuspendLayout()
         Me.pnlButtons.SuspendLayout()
@@ -63,6 +64,21 @@ Partial Class frmReport
         Me.pnlClose.Size = New System.Drawing.Size(116, 106)
         Me.pnlClose.TabIndex = 4
         '
+        'btn_Close
+        '
+        Me.btn_Close.BackColor = System.Drawing.Color.FromArgb(CType(CType(93, Byte), Integer), CType(CType(107, Byte), Integer), CType(CType(132, Byte), Integer))
+        Me.btn_Close.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btn_Close.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_Close.ForeColor = System.Drawing.Color.FromArgb(CType(CType(93, Byte), Integer), CType(CType(107, Byte), Integer), CType(CType(132, Byte), Integer))
+        Me.btn_Close.Image = CType(resources.GetObject("btn_Close.Image"), System.Drawing.Image)
+        Me.btn_Close.Location = New System.Drawing.Point(0, 0)
+        Me.btn_Close.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btn_Close.Name = "btn_Close"
+        Me.btn_Close.Size = New System.Drawing.Size(116, 106)
+        Me.btn_Close.TabIndex = 1
+        Me.btn_Close.Text = " "
+        Me.btn_Close.UseVisualStyleBackColor = False
+        '
         'Label21
         '
         Me.Label21.AutoSize = True
@@ -76,6 +92,7 @@ Partial Class frmReport
         'pnlButtons
         '
         Me.pnlButtons.BackColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.pnlButtons.Controls.Add(Me.btn_Refund)
         Me.pnlButtons.Controls.Add(Me.btn_Cashier)
         Me.pnlButtons.Controls.Add(Me.btn_Customer)
         Me.pnlButtons.Controls.Add(Me.btn_Sales)
@@ -152,20 +169,20 @@ Partial Class frmReport
         Me.pbImage.TabIndex = 0
         Me.pbImage.TabStop = False
         '
-        'btn_Close
+        'btn_Refund
         '
-        Me.btn_Close.BackColor = System.Drawing.Color.FromArgb(CType(CType(93, Byte), Integer), CType(CType(107, Byte), Integer), CType(CType(132, Byte), Integer))
-        Me.btn_Close.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btn_Close.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_Close.ForeColor = System.Drawing.Color.FromArgb(CType(CType(93, Byte), Integer), CType(CType(107, Byte), Integer), CType(CType(132, Byte), Integer))
-        Me.btn_Close.Image = CType(resources.GetObject("btn_Close.Image"), System.Drawing.Image)
-        Me.btn_Close.Location = New System.Drawing.Point(0, 0)
-        Me.btn_Close.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.btn_Close.Name = "btn_Close"
-        Me.btn_Close.Size = New System.Drawing.Size(116, 106)
-        Me.btn_Close.TabIndex = 1
-        Me.btn_Close.Text = " "
-        Me.btn_Close.UseVisualStyleBackColor = False
+        Me.btn_Refund.BackColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btn_Refund.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btn_Refund.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_Refund.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_Refund.ForeColor = System.Drawing.Color.White
+        Me.btn_Refund.Location = New System.Drawing.Point(577, 0)
+        Me.btn_Refund.Margin = New System.Windows.Forms.Padding(0)
+        Me.btn_Refund.Name = "btn_Refund"
+        Me.btn_Refund.Size = New System.Drawing.Size(180, 68)
+        Me.btn_Refund.TabIndex = 9
+        Me.btn_Refund.Text = "Refund Report"
+        Me.btn_Refund.UseVisualStyleBackColor = False
         '
         'frmReport
         '
@@ -199,4 +216,5 @@ Partial Class frmReport
     Friend WithEvents btn_Sales As Button
     Friend WithEvents pnlMid As Panel
     Friend WithEvents pbImage As PictureBox
+    Friend WithEvents btn_Refund As Button
 End Class
