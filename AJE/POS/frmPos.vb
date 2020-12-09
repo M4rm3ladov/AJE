@@ -161,8 +161,6 @@
                 btn_Refund_Click(sender, e)
             Case Keys.F4
                 btn_Balance_Click(sender, e)
-            Case Keys.F6
-                btn_Sales_Click(sender, e)
             Case Keys.F5
                 btn_Checkout_Click(sender, e)
             Case Keys.Escape
@@ -173,10 +171,6 @@
                 btn_CashOut_Click(sender, e)
 
         End Select
-    End Sub
-
-    Private Sub btn_Sales_Click(sender As Object, e As EventArgs) Handles btn_Sales.Click
-
     End Sub
 
     Private Sub dg_Search_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dg_Search.CellContentClick

@@ -167,6 +167,7 @@ Partial Class frmMain
         Me.lbl_branch_Id.TabIndex = 15
         Me.lbl_branch_Id.Text = "Branch"
         Me.lbl_branch_Id.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.lbl_branch_Id.Visible = False
         '
         'lbl_Username
         '

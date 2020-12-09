@@ -14,7 +14,7 @@ Public Class frmCustomerTransacs
             Dim da As New MySqlDataAdapter
 
             ConnectDatabase()
-            da.SelectCommand = New MySqlCommand("SELECT DATE_FORMAT(trans_date, '%m/%d/%Y') AS trans_date, invoice, Description, price, qty, line_total, Cashiers FROM vw_customer_transactions WHERE branch_id = '" & frmPos.lbl_branch_Id.Text & "' AND  customer_id = '" & lbl_transac_customer_Id.Text & "' AND trans_date BETWEEN '" & dtp_transac_From.Value.ToString("yyyy-MM-dd") & "' AND '" & dtp_transac_To.Value.ToString("yyyy-MM-dd") & "'", con)
+            da.SelectCommand = New MySqlCommand("SELECT DATE_FORMAT(trans_date, '%m/%d/%Y') AS trans_date, invoice, Description, price, qty, line_total, Cashiers FROM vw_customer_transactions WHERE branch_id = '" & frmMain.lbl_branch_Id.Text & "' AND  customer_id = '" & lbl_transac_customer_Id.Text & "' AND trans_date BETWEEN '" & dtp_transac_From.Value.ToString("yyyy-MM-dd") & "' AND '" & dtp_transac_To.Value.ToString("yyyy-MM-dd") & "'", con)
             da.Fill(ds.Tables("dt_customer_cred_Transacs"))
             DisconnectDatabase()
 

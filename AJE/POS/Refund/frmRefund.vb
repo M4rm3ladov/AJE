@@ -39,6 +39,10 @@
     End Sub
 
     Private Sub btn_Confirm_Click(sender As Object, e As EventArgs) Handles btn_Confirm.Click
+        If dg_Refund.Rows.Count = 0 Then
+            MsgBox("Please add items/services in cart before checking out.", vbExclamation)
+            Exit Sub
+        End If
         frmRefundTransDate.ShowDialog()
     End Sub
 

@@ -21,7 +21,7 @@ Public Class frmCashierReport
             Dim da As New MySqlDataAdapter
 
             ConnectDatabase()
-            da.SelectCommand = New MySqlCommand("SELECT DATE_FORMAT(log_date, '%m/%d/%Y') AS log_date, Cashiers, Managers, TIME_FORMAT(time_from,'%h:%i:%s %p') AS time_from, TIME_FORMAT(time_to,'%h:%i:%s %p') AS time_to, begin_bal, end_bal FROM vw_cashier_log WHERE branch_id = '" & frmPos.lbl_branch_Id.Text & "' AND log_date BETWEEN '" & dtp_log_From.Value.ToString("yyyy-MM-dd") & "' AND '" & dtp_log_To.Value.ToString("yyyy-MM-dd") & "' ORDER BY log_date, time_from", con)
+            da.SelectCommand = New MySqlCommand("SELECT DATE_FORMAT(log_date, '%m/%d/%Y') AS log_date, Cashiers, Managers, TIME_FORMAT(time_from,'%h:%i:%s %p') AS time_from, TIME_FORMAT(time_to,'%h:%i:%s %p') AS time_to, begin_bal, end_bal FROM vw_cashier_log WHERE branch_id = '" & frmMain.lbl_branch_Id.Text & "' AND log_date BETWEEN '" & dtp_log_From.Value.ToString("yyyy-MM-dd") & "' AND '" & dtp_log_To.Value.ToString("yyyy-MM-dd") & "' ORDER BY log_date, time_from", con)
             da.Fill(ds.Tables("dt_cashier_log"))
             DisconnectDatabase()
 
@@ -68,7 +68,7 @@ Public Class frmCashierReport
             Dim da As New MySqlDataAdapter
 
             ConnectDatabase()
-            da.SelectCommand = New MySqlCommand("SELECT DATE_FORMAT(trans_date, '%m/%d/%Y') AS trans_date, Cashiers, Managers, amount, remarks FROM vw_cash_in WHERE branch_id = '" & frmPos.lbl_branch_Id.Text & "' AND trans_date BETWEEN '" & dtp_cash_in_From.Value.ToString("yyyy-MM-dd") & "' AND '" & dtp_cash_in_To.Value.ToString("yyyy-MM-dd") & "'", con)
+            da.SelectCommand = New MySqlCommand("SELECT DATE_FORMAT(trans_date, '%m/%d/%Y') AS trans_date, Cashiers, Managers, amount, remarks FROM vw_cash_in WHERE branch_id = '" & frmMain.lbl_branch_Id.Text & "' AND trans_date BETWEEN '" & dtp_cash_in_From.Value.ToString("yyyy-MM-dd") & "' AND '" & dtp_cash_in_To.Value.ToString("yyyy-MM-dd") & "'", con)
             da.Fill(ds.Tables("dt_cash_in"))
             DisconnectDatabase()
 
@@ -102,7 +102,7 @@ Public Class frmCashierReport
             Dim da As New MySqlDataAdapter
 
             ConnectDatabase()
-            da.SelectCommand = New MySqlCommand("SELECT DATE_FORMAT(trans_date, '%m/%d/%Y') AS trans_date, Cashiers, Managers, amount, remarks FROM vw_cash_out WHERE branch_id = '" & frmPos.lbl_branch_Id.Text & "' AND trans_date BETWEEN '" & dtp_cash_out_From.Value.ToString("yyyy-MM-dd") & "' AND '" & dtp_cash_out_To.Value.ToString("yyyy-MM-dd") & "'", con)
+            da.SelectCommand = New MySqlCommand("SELECT DATE_FORMAT(trans_date, '%m/%d/%Y') AS trans_date, Cashiers, Managers, amount, remarks FROM vw_cash_out WHERE branch_id = '" & frmMain.lbl_branch_Id.Text & "' AND trans_date BETWEEN '" & dtp_cash_out_From.Value.ToString("yyyy-MM-dd") & "' AND '" & dtp_cash_out_To.Value.ToString("yyyy-MM-dd") & "'", con)
             da.Fill(ds.Tables("dt_cash_out"))
             DisconnectDatabase()
 

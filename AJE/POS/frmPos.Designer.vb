@@ -24,6 +24,12 @@ Partial Class frmPos
     Private Sub InitializeComponent()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
@@ -33,12 +39,6 @@ Partial Class frmPos
         Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.pnlHeader = New System.Windows.Forms.Panel()
         Me.lbl_Header = New System.Windows.Forms.Label()
         Me.pnlFooter = New System.Windows.Forms.Panel()
@@ -60,7 +60,6 @@ Partial Class frmPos
         Me.btn_Add = New System.Windows.Forms.Button()
         Me.btn_Refund = New System.Windows.Forms.Button()
         Me.btn_Balance = New System.Windows.Forms.Button()
-        Me.btn_Sales = New System.Windows.Forms.Button()
         Me.btn_CashIn = New System.Windows.Forms.Button()
         Me.btn_CashOut = New System.Windows.Forms.Button()
         Me.btn_Logout = New System.Windows.Forms.Button()
@@ -76,6 +75,13 @@ Partial Class frmPos
         Me.cbo_Type = New System.Windows.Forms.ComboBox()
         Me.pnl_search_Dg = New System.Windows.Forms.Panel()
         Me.dg_Search = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_Add = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.pnl_search_dg_Bottom = New System.Windows.Forms.Panel()
         Me.pnl_search_dg_Right = New System.Windows.Forms.Panel()
         Me.pnl_search_dg_Left = New System.Windows.Forms.Panel()
@@ -86,8 +92,6 @@ Partial Class frmPos
         Me.Label7 = New System.Windows.Forms.Label()
         Me.pnl_cart_Dg = New System.Windows.Forms.Panel()
         Me.dg_Order = New System.Windows.Forms.DataGridView()
-        Me.pnl_cart_dg_Right = New System.Windows.Forms.Panel()
-        Me.pnl_cart_dg_Left = New System.Windows.Forms.Panel()
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -99,13 +103,8 @@ Partial Class frmPos
         Me.col_Remove = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.col_Add = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.pnl_cart_dg_Right = New System.Windows.Forms.Panel()
+        Me.pnl_cart_dg_Left = New System.Windows.Forms.Panel()
         Me.pnlHeader.SuspendLayout()
         Me.pnlFooter.SuspendLayout()
         Me.pnlRight.SuspendLayout()
@@ -310,7 +309,6 @@ Partial Class frmPos
         Me.tbl_Buttons.Controls.Add(Me.btn_Add, 0, 0)
         Me.tbl_Buttons.Controls.Add(Me.btn_Refund, 1, 1)
         Me.tbl_Buttons.Controls.Add(Me.btn_Balance, 0, 2)
-        Me.tbl_Buttons.Controls.Add(Me.btn_Sales, 0, 4)
         Me.tbl_Buttons.Controls.Add(Me.btn_CashIn, 1, 2)
         Me.tbl_Buttons.Controls.Add(Me.btn_CashOut, 0, 3)
         Me.tbl_Buttons.Controls.Add(Me.btn_Logout, 1, 3)
@@ -403,21 +401,6 @@ Partial Class frmPos
         Me.btn_Balance.TabIndex = 9
         Me.btn_Balance.Text = "[F4] Customer Balance"
         Me.btn_Balance.UseVisualStyleBackColor = False
-        '
-        'btn_Sales
-        '
-        Me.btn_Sales.BackColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(70, Byte), Integer))
-        Me.btn_Sales.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_Sales.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_Sales.ForeColor = System.Drawing.Color.White
-        Me.btn_Sales.Location = New System.Drawing.Point(3, 548)
-        Me.btn_Sales.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.btn_Sales.Name = "btn_Sales"
-        Me.btn_Sales.Size = New System.Drawing.Size(282, 125)
-        Me.btn_Sales.TabIndex = 13
-        Me.btn_Sales.Text = "[F6] Daily Sale"
-        Me.btn_Sales.UseVisualStyleBackColor = False
-        Me.btn_Sales.Visible = False
         '
         'btn_CashIn
         '
@@ -619,6 +602,88 @@ Partial Class frmPos
         Me.dg_Search.Size = New System.Drawing.Size(1328, 227)
         Me.dg_Search.TabIndex = 7
         '
+        'DataGridViewTextBoxColumn1
+        '
+        Me.DataGridViewTextBoxColumn1.HeaderText = "ID"
+        Me.DataGridViewTextBoxColumn1.MinimumWidth = 6
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        Me.DataGridViewTextBoxColumn1.Visible = False
+        Me.DataGridViewTextBoxColumn1.Width = 125
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DataGridViewTextBoxColumn2.DefaultCellStyle = DataGridViewCellStyle2
+        Me.DataGridViewTextBoxColumn2.HeaderText = "Code"
+        Me.DataGridViewTextBoxColumn2.MinimumWidth = 6
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.ReadOnly = True
+        Me.DataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridViewTextBoxColumn2.Width = 96
+        '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DataGridViewTextBoxColumn3.DefaultCellStyle = DataGridViewCellStyle3
+        Me.DataGridViewTextBoxColumn3.HeaderText = "Description"
+        Me.DataGridViewTextBoxColumn3.MinimumWidth = 6
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.ReadOnly = True
+        Me.DataGridViewTextBoxColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        '
+        'Column6
+        '
+        Me.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Column6.DefaultCellStyle = DataGridViewCellStyle4
+        Me.Column6.HeaderText = "Unit"
+        Me.Column6.MinimumWidth = 6
+        Me.Column6.Name = "Column6"
+        Me.Column6.ReadOnly = True
+        Me.Column6.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.Column6.Width = 82
+        '
+        'DataGridViewTextBoxColumn6
+        '
+        Me.DataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DataGridViewTextBoxColumn6.DefaultCellStyle = DataGridViewCellStyle5
+        Me.DataGridViewTextBoxColumn6.HeaderText = "Price A"
+        Me.DataGridViewTextBoxColumn6.MinimumWidth = 6
+        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
+        Me.DataGridViewTextBoxColumn6.ReadOnly = True
+        Me.DataGridViewTextBoxColumn6.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridViewTextBoxColumn6.Width = 103
+        '
+        'Column4
+        '
+        Me.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Column4.DefaultCellStyle = DataGridViewCellStyle6
+        Me.Column4.HeaderText = "Price B"
+        Me.Column4.MinimumWidth = 6
+        Me.Column4.Name = "Column4"
+        Me.Column4.ReadOnly = True
+        Me.Column4.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.Column4.Width = 102
+        '
+        'col_Add
+        '
+        Me.col_Add.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(CType(CType(39, Byte), Integer), CType(CType(174, Byte), Integer), CType(CType(96, Byte), Integer))
+        Me.col_Add.DefaultCellStyle = DataGridViewCellStyle7
+        Me.col_Add.HeaderText = ""
+        Me.col_Add.MinimumWidth = 6
+        Me.col_Add.Name = "col_Add"
+        Me.col_Add.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.col_Add.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.col_Add.Width = 29
+        '
         'pnl_search_dg_Bottom
         '
         Me.pnl_search_dg_Bottom.Dock = System.Windows.Forms.DockStyle.Bottom
@@ -747,24 +812,6 @@ Partial Class frmPos
         Me.dg_Order.Size = New System.Drawing.Size(1328, 533)
         Me.dg_Order.TabIndex = 4
         '
-        'pnl_cart_dg_Right
-        '
-        Me.pnl_cart_dg_Right.Dock = System.Windows.Forms.DockStyle.Right
-        Me.pnl_cart_dg_Right.Location = New System.Drawing.Point(1343, 0)
-        Me.pnl_cart_dg_Right.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.pnl_cart_dg_Right.Name = "pnl_cart_dg_Right"
-        Me.pnl_cart_dg_Right.Size = New System.Drawing.Size(14, 533)
-        Me.pnl_cart_dg_Right.TabIndex = 2
-        '
-        'pnl_cart_dg_Left
-        '
-        Me.pnl_cart_dg_Left.Dock = System.Windows.Forms.DockStyle.Left
-        Me.pnl_cart_dg_Left.Location = New System.Drawing.Point(0, 0)
-        Me.pnl_cart_dg_Left.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.pnl_cart_dg_Left.Name = "pnl_cart_dg_Left"
-        Me.pnl_cart_dg_Left.Size = New System.Drawing.Size(15, 533)
-        Me.pnl_cart_dg_Left.TabIndex = 1
-        '
         'DataGridViewTextBoxColumn4
         '
         Me.DataGridViewTextBoxColumn4.HeaderText = "ID"
@@ -782,7 +829,6 @@ Partial Class frmPos
         Me.DataGridViewTextBoxColumn5.ReadOnly = True
         Me.DataGridViewTextBoxColumn5.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DataGridViewTextBoxColumn5.Visible = False
-        Me.DataGridViewTextBoxColumn5.Width = 66
         '
         'Column8
         '
@@ -887,87 +933,23 @@ Partial Class frmPos
         Me.Column5.Visible = False
         Me.Column5.Width = 125
         '
-        'DataGridViewTextBoxColumn1
+        'pnl_cart_dg_Right
         '
-        Me.DataGridViewTextBoxColumn1.HeaderText = "ID"
-        Me.DataGridViewTextBoxColumn1.MinimumWidth = 6
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        Me.DataGridViewTextBoxColumn1.Visible = False
-        Me.DataGridViewTextBoxColumn1.Width = 125
+        Me.pnl_cart_dg_Right.Dock = System.Windows.Forms.DockStyle.Right
+        Me.pnl_cart_dg_Right.Location = New System.Drawing.Point(1343, 0)
+        Me.pnl_cart_dg_Right.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.pnl_cart_dg_Right.Name = "pnl_cart_dg_Right"
+        Me.pnl_cart_dg_Right.Size = New System.Drawing.Size(14, 533)
+        Me.pnl_cart_dg_Right.TabIndex = 2
         '
-        'DataGridViewTextBoxColumn2
+        'pnl_cart_dg_Left
         '
-        Me.DataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DataGridViewTextBoxColumn2.DefaultCellStyle = DataGridViewCellStyle2
-        Me.DataGridViewTextBoxColumn2.HeaderText = "Code"
-        Me.DataGridViewTextBoxColumn2.MinimumWidth = 6
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        Me.DataGridViewTextBoxColumn2.ReadOnly = True
-        Me.DataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridViewTextBoxColumn2.Width = 96
-        '
-        'DataGridViewTextBoxColumn3
-        '
-        Me.DataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DataGridViewTextBoxColumn3.DefaultCellStyle = DataGridViewCellStyle3
-        Me.DataGridViewTextBoxColumn3.HeaderText = "Description"
-        Me.DataGridViewTextBoxColumn3.MinimumWidth = 6
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        Me.DataGridViewTextBoxColumn3.ReadOnly = True
-        Me.DataGridViewTextBoxColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        '
-        'Column6
-        '
-        Me.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Column6.DefaultCellStyle = DataGridViewCellStyle4
-        Me.Column6.HeaderText = "Unit"
-        Me.Column6.MinimumWidth = 6
-        Me.Column6.Name = "Column6"
-        Me.Column6.ReadOnly = True
-        Me.Column6.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.Column6.Width = 82
-        '
-        'DataGridViewTextBoxColumn6
-        '
-        Me.DataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DataGridViewTextBoxColumn6.DefaultCellStyle = DataGridViewCellStyle5
-        Me.DataGridViewTextBoxColumn6.HeaderText = "Price A"
-        Me.DataGridViewTextBoxColumn6.MinimumWidth = 6
-        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
-        Me.DataGridViewTextBoxColumn6.ReadOnly = True
-        Me.DataGridViewTextBoxColumn6.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridViewTextBoxColumn6.Width = 111
-        '
-        'Column4
-        '
-        Me.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Column4.DefaultCellStyle = DataGridViewCellStyle6
-        Me.Column4.HeaderText = "Price B"
-        Me.Column4.MinimumWidth = 6
-        Me.Column4.Name = "Column4"
-        Me.Column4.ReadOnly = True
-        Me.Column4.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.Column4.Width = 110
-        '
-        'col_Add
-        '
-        Me.col_Add.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(CType(CType(39, Byte), Integer), CType(CType(174, Byte), Integer), CType(CType(96, Byte), Integer))
-        Me.col_Add.DefaultCellStyle = DataGridViewCellStyle7
-        Me.col_Add.HeaderText = ""
-        Me.col_Add.MinimumWidth = 6
-        Me.col_Add.Name = "col_Add"
-        Me.col_Add.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.col_Add.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.col_Add.Width = 29
+        Me.pnl_cart_dg_Left.Dock = System.Windows.Forms.DockStyle.Left
+        Me.pnl_cart_dg_Left.Location = New System.Drawing.Point(0, 0)
+        Me.pnl_cart_dg_Left.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.pnl_cart_dg_Left.Name = "pnl_cart_dg_Left"
+        Me.pnl_cart_dg_Left.Size = New System.Drawing.Size(15, 533)
+        Me.pnl_cart_dg_Left.TabIndex = 1
         '
         'frmPos
         '
@@ -1031,7 +1013,6 @@ Partial Class frmPos
     Friend WithEvents btn_Add As Button
     Friend WithEvents btn_Refund As Button
     Friend WithEvents btn_Balance As Button
-    Friend WithEvents btn_Sales As Button
     Friend WithEvents btn_CashIn As Button
     Friend WithEvents btn_CashOut As Button
     Friend WithEvents btn_Logout As Button
