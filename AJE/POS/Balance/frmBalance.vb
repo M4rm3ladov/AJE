@@ -2,6 +2,7 @@
     Dim strCurrency As String = ""
     Dim acceptableKey As Boolean = False
     Dim loginPos As New clsLoginPos
+
     Private Sub btn_Verify_Click(sender As Object, e As EventArgs) Handles btn_Verify.Click
         frmAuthenticate.lbl_Type.Text = 1
         frmAuthenticate.ShowDialog()

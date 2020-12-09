@@ -5,6 +5,38 @@
     Dim refund As New clsRefund
     Dim auth As New clsAuth
     Dim authKey As Integer
+    Public MoveForm As Boolean
+    Public MoveForm_MousePosition As Point
+
+    Public Sub MoveForm_MouseDown(sender As Object, e As MouseEventArgs) Handles _
+    Panel1.MouseDown ' Add more handles here (Example: PictureBox1.MouseDown)
+
+        If e.Button = MouseButtons.Left Then
+            MoveForm = True
+            Me.Cursor = Cursors.NoMove2D
+            MoveForm_MousePosition = e.Location
+        End If
+
+    End Sub
+
+    Public Sub MoveForm_MouseMove(sender As Object, e As MouseEventArgs) Handles _
+    Panel1.MouseMove ' Add more handles here (Example: PictureBox1.MouseMove)
+
+        If MoveForm Then
+            Me.Location = Me.Location + (e.Location - MoveForm_MousePosition)
+        End If
+
+    End Sub
+
+    Public Sub MoveForm_MouseUp(sender As Object, e As MouseEventArgs) Handles _
+    Panel1.MouseUp ' Add more handles here (Example: PictureBox1.MouseUp)
+
+        If e.Button = MouseButtons.Left Then
+            MoveForm = False
+            Me.Cursor = Cursors.Default
+        End If
+
+    End Sub
     Private Sub btn_Ok_Click_(sender As Object, e As EventArgs) Handles btn_Ok.Click
         auth.SetUsername(tb_Username.Text) 'authkey: 1 if inactive, 2 signed-in, 3 if valid
         auth.SetPassword(tb_Password.Text)
@@ -43,6 +75,8 @@
                 cashInOut.saveCashOut()
 
             End If
+            MsgBox("Transaction saved.", vbInformation)
+            frmCash_in.Close()
         ElseIf lbl_Type.Text = 3 Then
             credPay.SetCashierId(frmPos.lbl_user_Id.Text)
             credPay.SetManagerId(auth.setUserId)

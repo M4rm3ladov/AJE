@@ -4,7 +4,38 @@
     Dim manager As New clsManager
     Dim encryption As New clsEncryption
     Dim password, salt, hashedAndSalt
+    Public MoveForm As Boolean
+    Public MoveForm_MousePosition As Point
 
+    Public Sub MoveForm_MouseDown(sender As Object, e As MouseEventArgs) Handles _
+    Panel1.MouseDown ' Add more handles here (Example: PictureBox1.MouseDown)
+
+        If e.Button = MouseButtons.Left Then
+            MoveForm = True
+            Me.Cursor = Cursors.NoMove2D
+            MoveForm_MousePosition = e.Location
+        End If
+
+    End Sub
+
+    Public Sub MoveForm_MouseMove(sender As Object, e As MouseEventArgs) Handles _
+    Panel1.MouseMove ' Add more handles here (Example: PictureBox1.MouseMove)
+
+        If MoveForm Then
+            Me.Location = Me.Location + (e.Location - MoveForm_MousePosition)
+        End If
+
+    End Sub
+
+    Public Sub MoveForm_MouseUp(sender As Object, e As MouseEventArgs) Handles _
+    Panel1.MouseUp ' Add more handles here (Example: PictureBox1.MouseUp)
+
+        If e.Button = MouseButtons.Left Then
+            MoveForm = False
+            Me.Cursor = Cursors.Default
+        End If
+
+    End Sub
     Private Sub cb_show_Pass_CheckedChanged(sender As Object, e As EventArgs) Handles cb_show_Pass.CheckedChanged
         If cb_show_Pass.Checked = True Then
             tb_new_Password.PasswordChar = ""
