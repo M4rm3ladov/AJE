@@ -134,18 +134,27 @@ Public Class clsCustomer
                     "INNER JOIN customer_details ON customer.customer_id = customer_details.customer_id "
         cm = New MySqlCommand(query, con)
         dr = cm.ExecuteReader()
-        While dr.Read
-            i += 1
-            frmCustomers.dgCustomers.Rows.Add(dr.Item("customer_id").ToString, i, dr.Item("customer_code").ToString, dr.Item("customer_gname").ToString, dr.Item("customer_mi").ToString, dr.Item("customer_surname").ToString, dr.Item("customer_suffix").ToString, dr.Item("credit_limit").ToString, dr.Item("balance").ToString, "EDIT", "DELETE")
-        End While
+        If dr.HasRows Then
+            While dr.Read
+                i += 1
+                frmCustomers.dgCustomers.Rows.Add(dr.Item("customer_id").ToString, i, dr.Item("customer_code").ToString, dr.Item("customer_gname").ToString, dr.Item("customer_mi").ToString, dr.Item("customer_surname").ToString, dr.Item("customer_suffix").ToString, dr.Item("credit_limit").ToString, dr.Item("balance").ToString, "EDIT", "DELETE")
+            End While
+        Else
+            MsgBox("No available data to display", vbExclamation)
+        End If
+
         dr.Close()
         frmCustomers.lbl_row_Count.Text = "(" & frmCustomers.dgCustomers.RowCount & ") Record(s) found."
 
-        query = "SELECT SUM(balance) FROM customer"
-        cm = New MySqlCommand(query, con)
-        Dim total = cm.ExecuteScalar
+        If frmCustomers.dgCustomers.RowCount > 0 Then
+            query = "SELECT SUM(balance) FROM customer"
+            cm = New MySqlCommand(query, con)
+            Dim total = cm.ExecuteScalar
+            frmCustomers.lbl_amount_Receivable.Text = total
+        ElseIf frmCustomers.dgcustomers.RowCount = 0 Then
+            frmCustomers.lbl_amount_Receivable.Text = "0.00"
+        End If
         DisconnectDatabase()
-        frmCustomers.lbl_amount_Receivable.Text = total
     End Sub
 
     Public Function checkCustomerDuplicate()

@@ -59,7 +59,7 @@
             Exit Sub
         End If
         For i = 0 To dg_stock_In.RowCount - 1
-            If dg_stock_In.Rows(i).Cells(7).Value = 0 Then
+            If dg_stock_In.Rows(i).Cells(8).Value = 0 Then
                 MsgBox("Please fill in a valid quantity.", vbExclamation)
                 Exit Sub
             End If
@@ -76,7 +76,7 @@
             stockIn.ItemId = dg_stock_In.Rows(i).Cells(0).Value   'item_id
             stockIn.BranchId = lbl_branch_id_stock_In.Text 'branch_id
             stockIn.SupplierId = lbl_supplier_id_stock_In.Text 'supplier_id
-            stockIn.ItemQty = dg_stock_In.Rows(i).Cells(7).Value 'qty
+            stockIn.ItemQty = dg_stock_In.Rows(i).Cells(8).Value 'qty
             stockIn.TransacDate = dtp_stock_In.Value.ToString("yyyy-MM-dd") 'transac_date
             stockIn.Remarks = tb_remarks_stock_In.Text 'remarks
             stockIn.save()
@@ -176,7 +176,7 @@
         stockTrans.BranchFromId = lbl_branch_from_id_sT.Text
         For i = 0 To dg_stock_Transfer.RowCount - 1
             stockTrans.ItemId = dg_stock_Transfer.Rows(i).Cells(0).Value
-            If dg_stock_Transfer.Rows(i).Cells(7).Value = 0 Then
+            If dg_stock_Transfer.Rows(i).Cells(8).Value = 0 Then
                 MsgBox("Please fill in a valid quantity.", vbExclamation)
                 Exit Sub
             End If
@@ -185,7 +185,7 @@
                 MsgBox("Item: " & _itemDesc & " has no stock in record", vbExclamation)
                 Exit Sub
             End If
-            If dg_stock_Transfer.Rows(i).Cells(7).Value > stockTrans.getItemBranchQty Then
+            If dg_stock_Transfer.Rows(i).Cells(8).Value > stockTrans.getItemBranchQty Then
                 MsgBox("Item: " & _itemDesc & " currently on stock exceeds the amount to be transfered", vbExclamation)
                 Exit Sub
             End If
@@ -202,7 +202,7 @@
             stockTrans.ItemId = dg_stock_Transfer.Rows(i).Cells(0).Value   'item_id
             stockTrans.BranchFromId = lbl_branch_from_id_sT.Text 'branch_id
             stockTrans.BranchToId = lbl_branch_to_id_sT.Text 'supplier_id
-            stockTrans.ItemQty = dg_stock_Transfer.Rows(i).Cells(7).Value 'qty
+            stockTrans.ItemQty = dg_stock_Transfer.Rows(i).Cells(8).Value 'qty
             stockTrans.TransacDate = dtp_stock_Transfer.Value.ToString("yyyy-MM-dd") 'transac_date
             stockTrans.Remarks = tb_remarks_sT.Text 'remarks
             stockTrans.save()
@@ -287,7 +287,7 @@
         stockReturn.BranchId = lbl_branch_id_sR.Text
         For i = 0 To dg_stock_Return.RowCount - 1
             stockReturn.ItemId = dg_stock_Return.Rows(i).Cells(0).Value
-            If dg_stock_Return.Rows(i).Cells(7).Value = 0 Then
+            If dg_stock_Return.Rows(i).Cells(8).Value = 0 Then
                 MsgBox("Please fill in a valid quantity.", vbExclamation)
                 Exit Sub
             End If
@@ -296,7 +296,7 @@
                 MsgBox("Item: " & _itemDesc & " has no stock in record", vbExclamation)
                 Exit Sub
             End If
-            If dg_stock_Return.Rows(i).Cells(7).Value > stockReturn.getItemBranchQty Then
+            If dg_stock_Return.Rows(i).Cells(8).Value > stockReturn.getItemBranchQty Then
                 MsgBox("Item: " & _itemDesc & " currently on stock exceeds the amount to be returned", vbExclamation)
                 Exit Sub
             End If
@@ -313,7 +313,7 @@
             stockReturn.ItemId = dg_stock_Return.Rows(i).Cells(0).Value   'item_id
             stockReturn.BranchId = lbl_branch_id_sR.Text 'branch_id
             stockReturn.SupplierId = lbl_supplier_id_sR.Text 'supplier_id
-            stockReturn.ItemQty = dg_stock_Return.Rows(i).Cells(7).Value 'qty
+            stockReturn.ItemQty = dg_stock_Return.Rows(i).Cells(8).Value 'qty
             stockReturn.TransacDate = dtp_stock_Return.Value.ToString("yyyy-MM-dd") 'transac_date
             stockReturn.Remarks = tb_remarks_sR.Text 'remarks
             stockReturn.save()
@@ -386,7 +386,7 @@
         stockOut.BranchId = lbl_branch_id_stock_Out.Text
         For i = 0 To dg_stock_Out.RowCount - 1
             stockOut.ItemId = dg_stock_Out.Rows(i).Cells(0).Value
-            If dg_stock_Out.Rows(i).Cells(7).Value = 0 Then
+            If dg_stock_Out.Rows(i).Cells(8).Value = 0 Then
                 MsgBox("Please fill in a valid quantity.", vbExclamation)
                 Exit Sub
             End If
@@ -395,7 +395,7 @@
                 MsgBox("Item: " & _itemDesc & " has no stock in record", vbExclamation)
                 Exit Sub
             End If
-            If dg_stock_Out.Rows(i).Cells(7).Value > stockOut.getItemBranchQty Then
+            If dg_stock_Out.Rows(i).Cells(8).Value > stockOut.getItemBranchQty Then
                 MsgBox("Item: " & _itemDesc & " currently on stock exceeds the amount to be stocked out", vbExclamation)
                 Exit Sub
             End If
@@ -411,7 +411,7 @@
         For i = 0 To dg_stock_Out.RowCount - 1    'sets the column entries for stock_in table per dg_stock_in row
             stockOut.ItemId = dg_stock_Out.Rows(i).Cells(0).Value   'item_id
             stockOut.BranchId = lbl_branch_id_stock_Out.Text 'branch_id
-            stockOut.ItemQty = dg_stock_Out.Rows(i).Cells(7).Value 'qty
+            stockOut.ItemQty = dg_stock_Out.Rows(i).Cells(8).Value 'qty
             stockOut.TransacDate = dtp_stock_Out.Value.ToString("yyyy-MM-dd") 'transac_date
             stockOut.Remarks = tb_remarks_stock_Out.Text 'remarks
             stockOut.save()
@@ -609,7 +609,7 @@
             Exit Sub
         End If
         For i = 0 To dg_stock_Adjustment.RowCount - 1
-            If dg_stock_Adjustment.Rows(i).Cells(7).Value = 0 Then
+            If dg_stock_Adjustment.Rows(i).Cells(8).Value = 0 Then
                 MsgBox("Please fill in a valid quantity.", vbExclamation)
                 Exit Sub
             End If
@@ -618,7 +618,7 @@
         For i = 0 To dg_stock_Adjustment.RowCount - 1    'sets the column entries for stock_in table per dg_stock_in row
             stockAdjust.ItemId = dg_stock_Adjustment.Rows(i).Cells(0).Value   'item_id
             stockAdjust.BranchId = frmMain.lbl_branch_Id.Text 'branch_id
-            stockAdjust.ItemQty = dg_stock_Adjustment.Rows(i).Cells(7).Value 'qty
+            stockAdjust.ItemQty = dg_stock_Adjustment.Rows(i).Cells(8).Value 'qty
             stockAdjust.CountDate = dtp_stock_Adjustment.Value.ToString("yyyy-MM-dd") 'transac_date
             stockAdjust.DateFrom = dtp_from_sA.Value.ToString("yyyy-MM-dd")
             stockAdjust.DateTo = dtp_to_sA.Value.ToString("yyyy-MM-dd")
