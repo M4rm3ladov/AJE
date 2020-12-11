@@ -23,8 +23,8 @@ Partial Class frmCash_in
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.pnlHeader = New System.Windows.Forms.Panel()
-        Me.lbl_cash_In = New System.Windows.Forms.Label()
         Me.lbl_cash_Out = New System.Windows.Forms.Label()
+        Me.lbl_cash_In = New System.Windows.Forms.Label()
         Me.tb_Amount = New System.Windows.Forms.TextBox()
         Me.btn_Cancel = New System.Windows.Forms.Button()
         Me.btn_Go = New System.Windows.Forms.Button()
@@ -48,17 +48,6 @@ Partial Class frmCash_in
         Me.pnlHeader.Size = New System.Drawing.Size(584, 60)
         Me.pnlHeader.TabIndex = 3
         '
-        'lbl_cash_In
-        '
-        Me.lbl_cash_In.AutoSize = True
-        Me.lbl_cash_In.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_cash_In.ForeColor = System.Drawing.Color.White
-        Me.lbl_cash_In.Location = New System.Drawing.Point(14, 19)
-        Me.lbl_cash_In.Name = "lbl_cash_In"
-        Me.lbl_cash_In.Size = New System.Drawing.Size(87, 26)
-        Me.lbl_cash_In.TabIndex = 6
-        Me.lbl_cash_In.Text = "Cash In"
-        '
         'lbl_cash_Out
         '
         Me.lbl_cash_Out.AutoSize = True
@@ -69,6 +58,17 @@ Partial Class frmCash_in
         Me.lbl_cash_Out.Size = New System.Drawing.Size(104, 26)
         Me.lbl_cash_Out.TabIndex = 7
         Me.lbl_cash_Out.Text = "Cash Out"
+        '
+        'lbl_cash_In
+        '
+        Me.lbl_cash_In.AutoSize = True
+        Me.lbl_cash_In.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_cash_In.ForeColor = System.Drawing.Color.White
+        Me.lbl_cash_In.Location = New System.Drawing.Point(14, 19)
+        Me.lbl_cash_In.Name = "lbl_cash_In"
+        Me.lbl_cash_In.Size = New System.Drawing.Size(87, 26)
+        Me.lbl_cash_In.TabIndex = 6
+        Me.lbl_cash_In.Text = "Cash In"
         '
         'tb_Amount
         '

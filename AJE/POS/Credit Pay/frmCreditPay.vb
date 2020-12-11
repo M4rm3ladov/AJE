@@ -105,7 +105,7 @@
             'assigns search text
             creditPay.SetCustomerSearch(Trim(lbl_customer_Id.Text))
             'search for item
-            creditPay.searchCustomerCredit("SELECT orders.order_id, invoice, orders.trans_date, gross_amount FROM credit_payment INNER JOIN 
+            creditPay.searchCustomerCredit("SELECT orders.order_id, invoice, orders.trans_date, pay_amount, gross_amount FROM credit_payment INNER JOIN 
                                             orders ON orders.order_id = credit_payment.order_id WHERE customer_id = @0")
 
         Else

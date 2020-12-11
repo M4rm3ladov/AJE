@@ -7,7 +7,7 @@
     Public MoveForm_MousePosition As Point
 
     Public Sub MoveForm_MouseDown(sender As Object, e As MouseEventArgs) Handles _
-    Panel1.MouseDown ' Add more handles here (Example: PictureBox1.MouseDown)
+    Panel1.MouseDown, Label3.MouseDown ' Add more handles here (Example: PictureBox1.MouseDown)
 
         If e.Button = MouseButtons.Left Then
             MoveForm = True
@@ -18,7 +18,7 @@
     End Sub
 
     Public Sub MoveForm_MouseMove(sender As Object, e As MouseEventArgs) Handles _
-    Panel1.MouseMove ' Add more handles here (Example: PictureBox1.MouseMove)
+    Panel1.MouseMove, Label3.MouseDown ' Add more handles here (Example: PictureBox1.MouseMove)
 
         If MoveForm Then
             Me.Location = Me.Location + (e.Location - MoveForm_MousePosition)
@@ -27,7 +27,7 @@
     End Sub
 
     Public Sub MoveForm_MouseUp(sender As Object, e As MouseEventArgs) Handles _
-    Panel1.MouseUp ' Add more handles here (Example: PictureBox1.MouseUp)
+    Panel1.MouseUp, Label3.MouseDown ' Add more handles here (Example: PictureBox1.MouseUp)
 
         If e.Button = MouseButtons.Left Then
             MoveForm = False
@@ -193,6 +193,7 @@
         frmChangePass.lbl_type.Text = 3
         frmChangePass.ShowDialog()
     End Sub
+
     Private Sub lbl_change_Pass_MouseHover(sender As Object, e As EventArgs) Handles lbl_change_Pass.MouseHover
         lbl_change_Pass.ForeColor = Color.Blue
     End Sub

@@ -5,7 +5,7 @@
     Public MoveForm_MousePosition As Point
 
     Public Sub MoveForm_MouseDown(sender As Object, e As MouseEventArgs) Handles _
-    pnlHeader.MouseDown ' Add more handles here (Example: PictureBox1.MouseDown)
+    pnlHeader.MouseDown, lbl_cash_In.MouseDown, lbl_cash_Out.MouseDown ' Add more handles here (Example: PictureBox1.MouseDown)
 
         If e.Button = MouseButtons.Left Then
             MoveForm = True
@@ -16,7 +16,7 @@
     End Sub
 
     Public Sub MoveForm_MouseMove(sender As Object, e As MouseEventArgs) Handles _
-    pnlHeader.MouseMove ' Add more handles here (Example: PictureBox1.MouseMove)
+    pnlHeader.MouseMove, lbl_cash_In.MouseDown, lbl_cash_Out.MouseDown ' Add more handles here (Example: PictureBox1.MouseMove)
 
         If MoveForm Then
             Me.Location = Me.Location + (e.Location - MoveForm_MousePosition)
@@ -25,7 +25,7 @@
     End Sub
 
     Public Sub MoveForm_MouseUp(sender As Object, e As MouseEventArgs) Handles _
-    pnlHeader.MouseUp ' Add more handles here (Example: PictureBox1.MouseUp)
+    pnlHeader.MouseUp, lbl_cash_Out.MouseDown, lbl_cash_Out.MouseDown ' Add more handles here (Example: PictureBox1.MouseUp)
 
         If e.Button = MouseButtons.Left Then
             MoveForm = False
@@ -98,4 +98,5 @@
         tb_Remarks.Clear()
         tb_Amount.Focus()
     End Sub
+
 End Class

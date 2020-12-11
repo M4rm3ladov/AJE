@@ -71,7 +71,7 @@ Public Class clsCreditPay
         cm.Parameters.AddWithValue("@0", _CustomerSearch)
         dr = cm.ExecuteReader()
         While dr.Read
-            frmCreditPay.dg_Transactions.Rows.Add(dr.Item("order_id").ToString, dr.Item("invoice").ToString, Format(dr.Item("trans_date"), "MM/dd/yyyy"), dr.Item("gross_amount").ToString)
+            frmCreditPay.dg_Transactions.Rows.Add(dr.Item("order_id").ToString, dr.Item("invoice").ToString, Format(dr.Item("trans_date"), "MM/dd/yyyy"), dr.Item("pay_amount"), dr.Item("gross_amount").ToString)
         End While
         dr.Close()
         DisconnectDatabase()
