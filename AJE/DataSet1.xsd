@@ -50,6 +50,7 @@
               <xs:element name="qty" msprop:Generator_ColumnVarNameInTable="columnqty" msprop:Generator_ColumnPropNameInRow="qty" msprop:Generator_ColumnPropNameInTable="qtyColumn" msprop:Generator_UserColumnName="qty" type="xs:string" minOccurs="0" />
               <xs:element name="line_total" msprop:Generator_ColumnVarNameInTable="columnline_total" msprop:Generator_ColumnPropNameInRow="line_total" msprop:Generator_ColumnPropNameInTable="line_totalColumn" msprop:Generator_UserColumnName="line_total" type="xs:decimal" minOccurs="0" />
               <xs:element name="Cashiers" msprop:Generator_ColumnVarNameInTable="columnCashiers" msprop:Generator_ColumnPropNameInRow="Cashiers" msprop:Generator_ColumnPropNameInTable="CashiersColumn" msprop:Generator_UserColumnName="Cashiers" type="xs:string" minOccurs="0" />
+              <xs:element name="pay_amount" msprop:Generator_ColumnVarNameInTable="columnpay_amount" msprop:Generator_ColumnPropNameInRow="pay_amount" msprop:Generator_ColumnPropNameInTable="pay_amountColumn" msprop:Generator_UserColumnName="pay_amount" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

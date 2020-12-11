@@ -1427,6 +1427,8 @@ Partial Public Class DataSet1
         
         Private columnCashiers As Global.System.Data.DataColumn
         
+        Private columnpay_amount As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -1527,6 +1529,14 @@ Partial Public Class DataSet1
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property pay_amountColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnpay_amount
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -1563,9 +1573,9 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function Adddt_customer_cred_TransacsRow(ByVal Customers As String, ByVal trans_date As String, ByVal invoice As String, ByVal Description As String, ByVal price As Decimal, ByVal qty As String, ByVal line_total As Decimal, ByVal Cashiers As String) As dt_customer_cred_TransacsRow
+        Public Overloads Function Adddt_customer_cred_TransacsRow(ByVal Customers As String, ByVal trans_date As String, ByVal invoice As String, ByVal Description As String, ByVal price As Decimal, ByVal qty As String, ByVal line_total As Decimal, ByVal Cashiers As String, ByVal pay_amount As Decimal) As dt_customer_cred_TransacsRow
             Dim rowdt_customer_cred_TransacsRow As dt_customer_cred_TransacsRow = CType(Me.NewRow,dt_customer_cred_TransacsRow)
-            Dim columnValuesArray() As Object = New Object() {Customers, trans_date, invoice, Description, price, qty, line_total, Cashiers}
+            Dim columnValuesArray() As Object = New Object() {Customers, trans_date, invoice, Description, price, qty, line_total, Cashiers, pay_amount}
             rowdt_customer_cred_TransacsRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowdt_customer_cred_TransacsRow)
             Return rowdt_customer_cred_TransacsRow
@@ -1596,6 +1606,7 @@ Partial Public Class DataSet1
             Me.columnqty = MyBase.Columns("qty")
             Me.columnline_total = MyBase.Columns("line_total")
             Me.columnCashiers = MyBase.Columns("Cashiers")
+            Me.columnpay_amount = MyBase.Columns("pay_amount")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1617,6 +1628,8 @@ Partial Public Class DataSet1
             MyBase.Columns.Add(Me.columnline_total)
             Me.columnCashiers = New Global.System.Data.DataColumn("Cashiers", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCashiers)
+            Me.columnpay_amount = New Global.System.Data.DataColumn("pay_amount", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnpay_amount)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -6104,6 +6117,22 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property pay_amount() As Decimal
+            Get
+                Try 
+                    Return CType(Me(Me.tabledt_customer_cred_Transacs.pay_amountColumn),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'pay_amount' in table 'dt_customer_cred_Transacs' is DBNull."& _ 
+                            "", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledt_customer_cred_Transacs.pay_amountColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsCustomersNull() As Boolean
             Return Me.IsNull(Me.tabledt_customer_cred_Transacs.CustomersColumn)
         End Function
@@ -6196,6 +6225,18 @@ Partial Public Class DataSet1
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetCashiersNull()
             Me(Me.tabledt_customer_cred_Transacs.CashiersColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function Ispay_amountNull() As Boolean
+            Return Me.IsNull(Me.tabledt_customer_cred_Transacs.pay_amountColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub Setpay_amountNull()
+            Me(Me.tabledt_customer_cred_Transacs.pay_amountColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
