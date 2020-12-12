@@ -23,11 +23,12 @@ Partial Class frmCustomerTransacs
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmCustomerTransacs))
-        Dim ReportDataSource4 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.btn_Close = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.tc_Customer = New System.Windows.Forms.TabControl()
+        Me.tp_total_Balance = New System.Windows.Forms.TabPage()
         Me.tp_customer_Transac = New System.Windows.Forms.TabPage()
         Me.rv_Transac = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.pnl_transac_Right = New System.Windows.Forms.Panel()
@@ -54,12 +55,24 @@ Partial Class frmCustomerTransacs
         Me.btn_history_load_Report = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.dtp_history_From = New System.Windows.Forms.DateTimePicker()
+        Me.pnl_bal_Right = New System.Windows.Forms.Panel()
+        Me.pnl_bal_Left = New System.Windows.Forms.Panel()
+        Me.pnl_bal_Bottom = New System.Windows.Forms.Panel()
+        Me.pnl_bal_Top = New System.Windows.Forms.Panel()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.dtp_bal_To = New System.Windows.Forms.DateTimePicker()
+        Me.btn_load_Bal = New System.Windows.Forms.Button()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.dtp_bal_From = New System.Windows.Forms.DateTimePicker()
+        Me.rv_Balance = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.Panel3.SuspendLayout()
         Me.tc_Customer.SuspendLayout()
+        Me.tp_total_Balance.SuspendLayout()
         Me.tp_customer_Transac.SuspendLayout()
         Me.pnl_transac_Top.SuspendLayout()
         Me.tp_pay_History.SuspendLayout()
         Me.pnl_history_Top.SuspendLayout()
+        Me.pnl_bal_Top.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel3
@@ -100,6 +113,7 @@ Partial Class frmCustomerTransacs
         '
         'tc_Customer
         '
+        Me.tc_Customer.Controls.Add(Me.tp_total_Balance)
         Me.tc_Customer.Controls.Add(Me.tp_customer_Transac)
         Me.tc_Customer.Controls.Add(Me.tp_pay_History)
         Me.tc_Customer.Dock = System.Windows.Forms.DockStyle.Fill
@@ -110,6 +124,20 @@ Partial Class frmCustomerTransacs
         Me.tc_Customer.SelectedIndex = 0
         Me.tc_Customer.Size = New System.Drawing.Size(1500, 539)
         Me.tc_Customer.TabIndex = 22
+        '
+        'tp_total_Balance
+        '
+        Me.tp_total_Balance.Controls.Add(Me.rv_Balance)
+        Me.tp_total_Balance.Controls.Add(Me.pnl_bal_Right)
+        Me.tp_total_Balance.Controls.Add(Me.pnl_bal_Left)
+        Me.tp_total_Balance.Controls.Add(Me.pnl_bal_Bottom)
+        Me.tp_total_Balance.Controls.Add(Me.pnl_bal_Top)
+        Me.tp_total_Balance.Location = New System.Drawing.Point(4, 34)
+        Me.tp_total_Balance.Name = "tp_total_Balance"
+        Me.tp_total_Balance.Size = New System.Drawing.Size(1492, 501)
+        Me.tp_total_Balance.TabIndex = 2
+        Me.tp_total_Balance.Text = "Customer Balance"
+        Me.tp_total_Balance.UseVisualStyleBackColor = True
         '
         'tp_customer_Transac
         '
@@ -128,9 +156,9 @@ Partial Class frmCustomerTransacs
         'rv_Transac
         '
         Me.rv_Transac.Dock = System.Windows.Forms.DockStyle.Fill
-        ReportDataSource4.Name = "DataSet1"
-        ReportDataSource4.Value = Nothing
-        Me.rv_Transac.LocalReport.DataSources.Add(ReportDataSource4)
+        ReportDataSource2.Name = "DataSet1"
+        ReportDataSource2.Value = Nothing
+        Me.rv_Transac.LocalReport.DataSources.Add(ReportDataSource2)
         Me.rv_Transac.LocalReport.ReportEmbeddedResource = "AJE.Report1.rdlc"
         Me.rv_Transac.Location = New System.Drawing.Point(19, 131)
         Me.rv_Transac.Name = "rv_Transac"
@@ -398,6 +426,113 @@ Partial Class frmCustomerTransacs
         Me.dtp_history_From.TabIndex = 18
         Me.dtp_history_From.Value = New Date(2020, 3, 21, 0, 0, 0, 0)
         '
+        'pnl_bal_Right
+        '
+        Me.pnl_bal_Right.BackColor = System.Drawing.SystemColors.Control
+        Me.pnl_bal_Right.Dock = System.Windows.Forms.DockStyle.Right
+        Me.pnl_bal_Right.Location = New System.Drawing.Point(1476, 83)
+        Me.pnl_bal_Right.Name = "pnl_bal_Right"
+        Me.pnl_bal_Right.Size = New System.Drawing.Size(16, 402)
+        Me.pnl_bal_Right.TabIndex = 35
+        '
+        'pnl_bal_Left
+        '
+        Me.pnl_bal_Left.BackColor = System.Drawing.SystemColors.Control
+        Me.pnl_bal_Left.Dock = System.Windows.Forms.DockStyle.Left
+        Me.pnl_bal_Left.Location = New System.Drawing.Point(0, 83)
+        Me.pnl_bal_Left.Name = "pnl_bal_Left"
+        Me.pnl_bal_Left.Size = New System.Drawing.Size(16, 402)
+        Me.pnl_bal_Left.TabIndex = 34
+        '
+        'pnl_bal_Bottom
+        '
+        Me.pnl_bal_Bottom.BackColor = System.Drawing.SystemColors.Control
+        Me.pnl_bal_Bottom.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.pnl_bal_Bottom.Location = New System.Drawing.Point(0, 485)
+        Me.pnl_bal_Bottom.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.pnl_bal_Bottom.Name = "pnl_bal_Bottom"
+        Me.pnl_bal_Bottom.Size = New System.Drawing.Size(1492, 16)
+        Me.pnl_bal_Bottom.TabIndex = 33
+        '
+        'pnl_bal_Top
+        '
+        Me.pnl_bal_Top.BackColor = System.Drawing.SystemColors.Control
+        Me.pnl_bal_Top.Controls.Add(Me.Label5)
+        Me.pnl_bal_Top.Controls.Add(Me.dtp_bal_To)
+        Me.pnl_bal_Top.Controls.Add(Me.btn_load_Bal)
+        Me.pnl_bal_Top.Controls.Add(Me.Label6)
+        Me.pnl_bal_Top.Controls.Add(Me.dtp_bal_From)
+        Me.pnl_bal_Top.Dock = System.Windows.Forms.DockStyle.Top
+        Me.pnl_bal_Top.Location = New System.Drawing.Point(0, 0)
+        Me.pnl_bal_Top.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.pnl_bal_Top.Name = "pnl_bal_Top"
+        Me.pnl_bal_Top.Size = New System.Drawing.Size(1492, 83)
+        Me.pnl_bal_Top.TabIndex = 32
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(610, 24)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(105, 29)
+        Me.Label5.TabIndex = 22
+        Me.Label5.Text = "Date To:"
+        '
+        'dtp_bal_To
+        '
+        Me.dtp_bal_To.CustomFormat = "MM/dd/yyyy"
+        Me.dtp_bal_To.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtp_bal_To.Location = New System.Drawing.Point(728, 22)
+        Me.dtp_bal_To.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.dtp_bal_To.Name = "dtp_bal_To"
+        Me.dtp_bal_To.Size = New System.Drawing.Size(410, 35)
+        Me.dtp_bal_To.TabIndex = 21
+        Me.dtp_bal_To.Value = New Date(2020, 3, 21, 0, 0, 0, 0)
+        '
+        'btn_load_Bal
+        '
+        Me.btn_load_Bal.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(115, Byte), Integer), CType(CType(158, Byte), Integer))
+        Me.btn_load_Bal.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_load_Bal.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_load_Bal.ForeColor = System.Drawing.Color.White
+        Me.btn_load_Bal.Location = New System.Drawing.Point(1162, 8)
+        Me.btn_load_Bal.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btn_load_Bal.Name = "btn_load_Bal"
+        Me.btn_load_Bal.Size = New System.Drawing.Size(148, 63)
+        Me.btn_load_Bal.TabIndex = 20
+        Me.btn_load_Bal.Text = "Load Report"
+        Me.btn_load_Bal.UseVisualStyleBackColor = False
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(25, 24)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(132, 29)
+        Me.Label6.TabIndex = 19
+        Me.Label6.Text = "Date From:"
+        '
+        'dtp_bal_From
+        '
+        Me.dtp_bal_From.CustomFormat = "MM/dd/yyyy"
+        Me.dtp_bal_From.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtp_bal_From.Location = New System.Drawing.Point(171, 22)
+        Me.dtp_bal_From.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.dtp_bal_From.Name = "dtp_bal_From"
+        Me.dtp_bal_From.Size = New System.Drawing.Size(411, 35)
+        Me.dtp_bal_From.TabIndex = 18
+        Me.dtp_bal_From.Value = New Date(2020, 3, 21, 0, 0, 0, 0)
+        '
+        'rv_Balance
+        '
+        Me.rv_Balance.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.rv_Balance.Location = New System.Drawing.Point(16, 83)
+        Me.rv_Balance.Name = "rv_Balance"
+        Me.rv_Balance.Size = New System.Drawing.Size(1460, 402)
+        Me.rv_Balance.TabIndex = 36
+        '
         'frmCustomerTransacs
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
@@ -412,12 +547,15 @@ Partial Class frmCustomerTransacs
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
         Me.tc_Customer.ResumeLayout(False)
+        Me.tp_total_Balance.ResumeLayout(False)
         Me.tp_customer_Transac.ResumeLayout(False)
         Me.pnl_transac_Top.ResumeLayout(False)
         Me.pnl_transac_Top.PerformLayout()
         Me.tp_pay_History.ResumeLayout(False)
         Me.pnl_history_Top.ResumeLayout(False)
         Me.pnl_history_Top.PerformLayout()
+        Me.pnl_bal_Top.ResumeLayout(False)
+        Me.pnl_bal_Top.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -452,4 +590,15 @@ Partial Class frmCustomerTransacs
     Friend WithEvents tb_transac_Customer As TextBox
     Friend WithEvents Label7 As Label
     Friend WithEvents lbl_transac_customer_Id As Label
+    Friend WithEvents tp_total_Balance As TabPage
+    Friend WithEvents rv_Balance As Microsoft.Reporting.WinForms.ReportViewer
+    Friend WithEvents pnl_bal_Right As Panel
+    Friend WithEvents pnl_bal_Left As Panel
+    Friend WithEvents pnl_bal_Bottom As Panel
+    Friend WithEvents pnl_bal_Top As Panel
+    Friend WithEvents Label5 As Label
+    Friend WithEvents dtp_bal_To As DateTimePicker
+    Friend WithEvents btn_load_Bal As Button
+    Friend WithEvents Label6 As Label
+    Friend WithEvents dtp_bal_From As DateTimePicker
 End Class

@@ -639,6 +639,7 @@
     <EmbeddedResource Include="Reports\Customer Transacs\frmCustomerTransacs.resx">
       <DependentUpon>frmCustomerTransacs.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Customer Transacs\ReportBalance.rdlc" />
     <EmbeddedResource Include="Reports\frmReport.resx">
       <DependentUpon>frmReport.vb</DependentUpon>
     </EmbeddedResource>

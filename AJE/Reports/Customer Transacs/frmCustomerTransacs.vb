@@ -43,6 +43,7 @@ Public Class frmCustomerTransacs
     Private Sub btn_Close_Click(sender As Object, e As EventArgs) Handles btn_Close.Click
         rv_History.Reset()
         rv_Transac.Reset()
+        rv_Balance.Reset()
         Me.Close()
     End Sub
 
@@ -51,6 +52,8 @@ Public Class frmCustomerTransacs
         dtp_history_To.Value = DateTime.Now
         dtp_transac_From.Value = DateTime.Now
         dtp_transac_To.Value = DateTime.Now
+        dtp_bal_From.Value = DateTime.Now
+        dtp_bal_To.Value = DateTime.Now
     End Sub
 
     Private Sub lbl_transac_Customer_MouseHover(sender As Object, e As EventArgs) Handles lbl_transac_Customer.MouseHover
@@ -89,6 +92,40 @@ Public Class frmCustomerTransacs
             rv_History.LocalReport.DataSources.Add(rptDs)
             rv_History.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout)
             rv_History.ZoomMode = ZoomMode.PageWidth
+        Catch ex As Exception
+            DisconnectDatabase()
+            MsgBox(ex.Message, vbCritical)
+        End Try
+    End Sub
+
+    Private Sub btn_load_Bal_Click(sender As Object, e As EventArgs) Handles btn_load_Bal.Click
+        Dim rptDs As ReportDataSource
+        rv_Balance.RefreshReport()
+        Try
+            With rv_Balance.LocalReport
+                .ReportPath = Application.StartupPath & "\Report\ReportBalance.rdlc"
+                .DataSources.Clear()
+            End With
+
+            Dim ds As New DataSet1
+            Dim da As New MySqlDataAdapter
+
+            ConnectDatabase()
+            da.SelectCommand = New MySqlCommand("SELECT Customers, credit_limit, balance FROM vw_customer_balance", con)
+            da.Fill(ds.Tables("dt_customer_balance"))
+            DisconnectDatabase()
+
+            Dim rptParameter As ReportParameterCollection
+            rptParameter = New ReportParameterCollection
+            rptParameter.Add(New ReportParameter("BranchAddress", frmMain.lbl_branch_Address.Text))
+            rptParameter.Add(New ReportParameter("DateFrom", dtp_bal_From.Value.ToString("MM/dd/yy")))
+            rptParameter.Add(New ReportParameter("DateTill", dtp_bal_To.Value.ToString("MM/dd/yy")))
+            rv_Balance.LocalReport.SetParameters(rptParameter)
+
+            rptDs = New ReportDataSource("DataSet1", ds.Tables("dt_customer_balance"))
+            rv_Balance.LocalReport.DataSources.Add(rptDs)
+            rv_Balance.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout)
+            rv_Balance.ZoomMode = ZoomMode.PageWidth
         Catch ex As Exception
             DisconnectDatabase()
             MsgBox(ex.Message, vbCritical)
