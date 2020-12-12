@@ -34,7 +34,7 @@ Public Class frmSales
             rv_Cash.LocalReport.SetParameters(rptParameter)
 
             ConnectDatabase()
-            da.SelectCommand = New MySqlCommand("SELECT DATE_FORMAT(trans_date, '%m/%d/%Y') AS trans_date, receipt, Description, price, qty, line_total, Cashiers FROM vw_cash_sales WHERE branch_id = '" & frmMain.lbl_branch_Id.Text & "' AND trans_date BETWEEN '" & dtp_cash_From.Value.ToString("yyyy-MM-dd") & "' AND '" & dtp_cash_To.Value.ToString("yyyy-MM-dd") & "'", con)
+            da.SelectCommand = New MySqlCommand("SELECT DATE_FORMAT(trans_date, '%m/%d/%Y') AS trans_date, receipt, Description, Category, Unit, price, qty, line_total, Cashiers FROM vw_cash_sales WHERE branch_id = '" & frmMain.lbl_branch_Id.Text & "' AND trans_date BETWEEN '" & dtp_cash_From.Value.ToString("yyyy-MM-dd") & "' AND '" & dtp_cash_To.Value.ToString("yyyy-MM-dd") & "'", con)
             da.Fill(ds.Tables("dt_cash_Sales"))
             DisconnectDatabase()
 
@@ -61,7 +61,7 @@ Public Class frmSales
             Dim da As New MySqlDataAdapter
 
             ConnectDatabase()
-            da.SelectCommand = New MySqlCommand("SELECT DATE_FORMAT(trans_date, '%m/%d/%Y') AS trans_date, Customers, invoice, Description, price, qty, line_total, Cashiers FROM vw_credit_sales WHERE branch_id = '" & frmMain.lbl_branch_Id.Text & "' AND trans_date BETWEEN '" & dtp_credit_From.Value.ToString("yyyy-MM-dd") & "' AND '" & dtp_credit_To.Value.ToString("yyyy-MM-dd") & "'", con)
+            da.SelectCommand = New MySqlCommand("SELECT DATE_FORMAT(trans_date, '%m/%d/%Y') AS trans_date, Customers, invoice, Description, Category, Unit, price, qty, line_total, Cashiers FROM vw_credit_sales WHERE branch_id = '" & frmMain.lbl_branch_Id.Text & "' AND trans_date BETWEEN '" & dtp_credit_From.Value.ToString("yyyy-MM-dd") & "' AND '" & dtp_credit_To.Value.ToString("yyyy-MM-dd") & "'", con)
             da.Fill(ds.Tables("dt_credit_Sales"))
             DisconnectDatabase()
 

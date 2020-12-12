@@ -744,6 +744,10 @@ Partial Public Class DataSet1
         
         Private columnDescription As Global.System.Data.DataColumn
         
+        Private columnCategory As Global.System.Data.DataColumn
+        
+        Private columnUnit As Global.System.Data.DataColumn
+        
         Private columnprice As Global.System.Data.DataColumn
         
         Private columnqty As Global.System.Data.DataColumn
@@ -808,6 +812,22 @@ Partial Public Class DataSet1
         Public ReadOnly Property DescriptionColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnDescription
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property CategoryColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCategory
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property UnitColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnUnit
             End Get
         End Property
         
@@ -880,9 +900,9 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function Adddt_cash_SalesRow(ByVal trans_date As String, ByVal receipt As String, ByVal Description As String, ByVal price As Decimal, ByVal qty As String, ByVal line_total As Decimal, ByVal Cashiers As String) As dt_cash_SalesRow
+        Public Overloads Function Adddt_cash_SalesRow(ByVal trans_date As String, ByVal receipt As String, ByVal Description As String, ByVal Category As String, ByVal Unit As String, ByVal price As Decimal, ByVal qty As String, ByVal line_total As Decimal, ByVal Cashiers As String) As dt_cash_SalesRow
             Dim rowdt_cash_SalesRow As dt_cash_SalesRow = CType(Me.NewRow,dt_cash_SalesRow)
-            Dim columnValuesArray() As Object = New Object() {trans_date, receipt, Description, price, qty, line_total, Cashiers}
+            Dim columnValuesArray() As Object = New Object() {trans_date, receipt, Description, Category, Unit, price, qty, line_total, Cashiers}
             rowdt_cash_SalesRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowdt_cash_SalesRow)
             Return rowdt_cash_SalesRow
@@ -908,6 +928,8 @@ Partial Public Class DataSet1
             Me.columntrans_date = MyBase.Columns("trans_date")
             Me.columnreceipt = MyBase.Columns("receipt")
             Me.columnDescription = MyBase.Columns("Description")
+            Me.columnCategory = MyBase.Columns("Category")
+            Me.columnUnit = MyBase.Columns("Unit")
             Me.columnprice = MyBase.Columns("price")
             Me.columnqty = MyBase.Columns("qty")
             Me.columnline_total = MyBase.Columns("line_total")
@@ -923,6 +945,10 @@ Partial Public Class DataSet1
             MyBase.Columns.Add(Me.columnreceipt)
             Me.columnDescription = New Global.System.Data.DataColumn("Description", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnDescription)
+            Me.columnCategory = New Global.System.Data.DataColumn("Category", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCategory)
+            Me.columnUnit = New Global.System.Data.DataColumn("Unit", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnUnit)
             Me.columnprice = New Global.System.Data.DataColumn("price", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnprice)
             Me.columnqty = New Global.System.Data.DataColumn("qty", GetType(String), Nothing, Global.System.Data.MappingType.Element)
@@ -1074,6 +1100,10 @@ Partial Public Class DataSet1
         
         Private columnDescription As Global.System.Data.DataColumn
         
+        Private columnCategory As Global.System.Data.DataColumn
+        
+        Private columnUnit As Global.System.Data.DataColumn
+        
         Private columnprice As Global.System.Data.DataColumn
         
         Private columnqty As Global.System.Data.DataColumn
@@ -1140,6 +1170,22 @@ Partial Public Class DataSet1
         Public ReadOnly Property DescriptionColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnDescription
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property CategoryColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCategory
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property UnitColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnUnit
             End Get
         End Property
         
@@ -1220,9 +1266,9 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function Adddt_credit_SalesRow(ByVal trans_date As String, ByVal invoice As String, ByVal Description As String, ByVal price As Decimal, ByVal qty As String, ByVal line_total As Decimal, ByVal Cashiers As String, ByVal Customers As String) As dt_credit_SalesRow
+        Public Overloads Function Adddt_credit_SalesRow(ByVal trans_date As String, ByVal invoice As String, ByVal Description As String, ByVal Category As String, ByVal Unit As String, ByVal price As Decimal, ByVal qty As String, ByVal line_total As Decimal, ByVal Cashiers As String, ByVal Customers As String) As dt_credit_SalesRow
             Dim rowdt_credit_SalesRow As dt_credit_SalesRow = CType(Me.NewRow,dt_credit_SalesRow)
-            Dim columnValuesArray() As Object = New Object() {trans_date, invoice, Description, price, qty, line_total, Cashiers, Customers}
+            Dim columnValuesArray() As Object = New Object() {trans_date, invoice, Description, Category, Unit, price, qty, line_total, Cashiers, Customers}
             rowdt_credit_SalesRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowdt_credit_SalesRow)
             Return rowdt_credit_SalesRow
@@ -1248,6 +1294,8 @@ Partial Public Class DataSet1
             Me.columntrans_date = MyBase.Columns("trans_date")
             Me.columninvoice = MyBase.Columns("invoice")
             Me.columnDescription = MyBase.Columns("Description")
+            Me.columnCategory = MyBase.Columns("Category")
+            Me.columnUnit = MyBase.Columns("Unit")
             Me.columnprice = MyBase.Columns("price")
             Me.columnqty = MyBase.Columns("qty")
             Me.columnline_total = MyBase.Columns("line_total")
@@ -1264,6 +1312,10 @@ Partial Public Class DataSet1
             MyBase.Columns.Add(Me.columninvoice)
             Me.columnDescription = New Global.System.Data.DataColumn("Description", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnDescription)
+            Me.columnCategory = New Global.System.Data.DataColumn("Category", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCategory)
+            Me.columnUnit = New Global.System.Data.DataColumn("Unit", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnUnit)
             Me.columnprice = New Global.System.Data.DataColumn("price", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnprice)
             Me.columnqty = New Global.System.Data.DataColumn("qty", GetType(String), Nothing, Global.System.Data.MappingType.Element)
@@ -5615,6 +5667,36 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Category() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledt_cash_Sales.CategoryColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Category' in table 'dt_cash_Sales' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledt_cash_Sales.CategoryColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Unit() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledt_cash_Sales.UnitColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Unit' in table 'dt_cash_Sales' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledt_cash_Sales.UnitColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property price() As Decimal
             Get
                 Try 
@@ -5707,6 +5789,30 @@ Partial Public Class DataSet1
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetDescriptionNull()
             Me(Me.tabledt_cash_Sales.DescriptionColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsCategoryNull() As Boolean
+            Return Me.IsNull(Me.tabledt_cash_Sales.CategoryColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetCategoryNull()
+            Me(Me.tabledt_cash_Sales.CategoryColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsUnitNull() As Boolean
+            Return Me.IsNull(Me.tabledt_cash_Sales.UnitColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetUnitNull()
+            Me(Me.tabledt_cash_Sales.UnitColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -5820,6 +5926,36 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Category() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledt_credit_Sales.CategoryColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Category' in table 'dt_credit_Sales' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledt_credit_Sales.CategoryColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Unit() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledt_credit_Sales.UnitColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Unit' in table 'dt_credit_Sales' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledt_credit_Sales.UnitColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property price() As Decimal
             Get
                 Try 
@@ -5927,6 +6063,30 @@ Partial Public Class DataSet1
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetDescriptionNull()
             Me(Me.tabledt_credit_Sales.DescriptionColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsCategoryNull() As Boolean
+            Return Me.IsNull(Me.tabledt_credit_Sales.CategoryColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetCategoryNull()
+            Me(Me.tabledt_credit_Sales.CategoryColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsUnitNull() As Boolean
+            Return Me.IsNull(Me.tabledt_credit_Sales.UnitColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetUnitNull()
+            Me(Me.tabledt_credit_Sales.UnitColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _

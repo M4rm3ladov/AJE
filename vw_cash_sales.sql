@@ -4,7 +4,7 @@ USE `aje_pos`$$
 
 DROP VIEW IF EXISTS `vw_cash_sales`$$
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_cash_sales` AS (SELECT cash_payment.trans_date , cash_payment.receipt ,
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_cash_sales` AS (SELECT orders.trans_date AS DateInputed, cash_payment.trans_date AS transDate, cash_payment.receipt ,
 CONCAT(brand.brand_name,' | ', item.item_desc,' | ', item.item_add_desc) AS Description, category.category_name AS Category, unit.unit_name AS Unit,
 order_item_dtls.price ,order_item_dtls.qty,
 order_item_dtls.line_total ,CONCAT(`user_details`.`user_gname`,' ',`user_details`.`user_surname`,' ',`user_details`.`user_suffix`) AS Cashiers,
@@ -18,11 +18,11 @@ JOIN brand ON item.brand_id = brand.brand_id
 JOIN cash_payment ON orders.order_id = cash_payment.order_id
 JOIN cashier ON cash_payment.cashier_id = cashier.cashier_id
 JOIN user_details ON cashier.user_id = user_details. user_id) UNION 
-(SELECT cash_payment.trans_date , cash_payment.receipt , service.service_desc AS Description, '' AS Category, '' AS Unit, order_svc_dtls.price AS price, order_svc_dtls.qty AS qty, order_svc_dtls.line_total AS line_total,
+(SELECT orders.trans_date AS DateInputed , cash_payment.trans_date AS transDate, cash_payment.receipt , service.service_desc AS Description, '' AS Category, '' AS Unit, order_svc_dtls.price AS price, order_svc_dtls.qty AS qty, order_svc_dtls.line_total AS line_total,
 CONCAT(user_details.user_gname,' ', user_details.user_surname,' ', user_details.user_suffix) AS Cashiers, orders.branch_id AS branch_id FROM orders 
 JOIN order_svc_dtls ON order_svc_dtls.order_id = orders.order_id
 JOIN service ON service.service_id = order_svc_dtls.service_id
 JOIN cash_payment ON orders.order_id = cash_payment.order_id
 JOIN cashier ON cash_payment.cashier_id = cashier.cashier_id
 JOIN user_details ON cashier.user_id = user_details.user_id)
-ORDER BY trans_date, receipt
+ORDER BY transDate, receipt
