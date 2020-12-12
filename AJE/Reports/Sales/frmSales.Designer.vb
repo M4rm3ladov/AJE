@@ -23,8 +23,7 @@ Partial Class frmSales
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmSales))
-        Dim ReportDataSource6 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Dim ReportDataSource5 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.btn_Close = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -48,34 +47,19 @@ Partial Class frmSales
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.pnl_credit_Bottom = New System.Windows.Forms.Panel()
         Me.pnl_credit_Top = New System.Windows.Forms.Panel()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.cbo_search_Credit = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.dtp_credit_To = New System.Windows.Forms.DateTimePicker()
         Me.btn_credit_load_Report = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.dtp_credit_From = New System.Windows.Forms.DateTimePicker()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.cbo_search_Credit = New System.Windows.Forms.ComboBox()
-        Me.tp_All = New System.Windows.Forms.TabPage()
-        Me.pnl_all_Right = New System.Windows.Forms.Panel()
-        Me.pnl_all_Left = New System.Windows.Forms.Panel()
-        Me.pnl_all_Bottom = New System.Windows.Forms.Panel()
-        Me.pnl_all_Top = New System.Windows.Forms.Panel()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.cbo_all_Search = New System.Windows.Forms.ComboBox()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.dtp_all_To = New System.Windows.Forms.DateTimePicker()
-        Me.btn_all_Load = New System.Windows.Forms.Button()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.dtp_all_From = New System.Windows.Forms.DateTimePicker()
-        Me.rv_All = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.Panel3.SuspendLayout()
         Me.tc_Sales.SuspendLayout()
         Me.tp_Cash.SuspendLayout()
         Me.pnl_cash_Top.SuspendLayout()
         Me.tp_Credit.SuspendLayout()
         Me.pnl_credit_Top.SuspendLayout()
-        Me.tp_All.SuspendLayout()
-        Me.pnl_all_Top.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel3
@@ -116,7 +100,6 @@ Partial Class frmSales
         '
         'tc_Sales
         '
-        Me.tc_Sales.Controls.Add(Me.tp_All)
         Me.tc_Sales.Controls.Add(Me.tp_Cash)
         Me.tc_Sales.Controls.Add(Me.tp_Credit)
         Me.tc_Sales.Dock = System.Windows.Forms.DockStyle.Fill
@@ -145,9 +128,9 @@ Partial Class frmSales
         'rv_Cash
         '
         Me.rv_Cash.Dock = System.Windows.Forms.DockStyle.Fill
-        ReportDataSource6.Name = "DataSet1"
-        ReportDataSource6.Value = Nothing
-        Me.rv_Cash.LocalReport.DataSources.Add(ReportDataSource6)
+        ReportDataSource1.Name = "DataSet1"
+        ReportDataSource1.Value = Nothing
+        Me.rv_Cash.LocalReport.DataSources.Add(ReportDataSource1)
         Me.rv_Cash.LocalReport.ReportEmbeddedResource = "AJE.Report1.rdlc"
         Me.rv_Cash.Location = New System.Drawing.Point(19, 87)
         Me.rv_Cash.Name = "rv_Cash"
@@ -340,6 +323,27 @@ Partial Class frmSales
         Me.pnl_credit_Top.Size = New System.Drawing.Size(1558, 84)
         Me.pnl_credit_Top.TabIndex = 5
         '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(21, 24)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(128, 29)
+        Me.Label6.TabIndex = 26
+        Me.Label6.Text = "Search By:"
+        '
+        'cbo_search_Credit
+        '
+        Me.cbo_search_Credit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbo_search_Credit.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbo_search_Credit.FormattingEnabled = True
+        Me.cbo_search_Credit.Items.AddRange(New Object() {"Sale Date", "Input Date"})
+        Me.cbo_search_Credit.Location = New System.Drawing.Point(155, 22)
+        Me.cbo_search_Credit.Name = "cbo_search_Credit"
+        Me.cbo_search_Credit.Size = New System.Drawing.Size(167, 37)
+        Me.cbo_search_Credit.TabIndex = 25
+        '
         'Label1
         '
         Me.Label1.AutoSize = True
@@ -396,171 +400,6 @@ Partial Class frmSales
         Me.dtp_credit_From.TabIndex = 18
         Me.dtp_credit_From.Value = New Date(2020, 3, 21, 0, 0, 0, 0)
         '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(21, 24)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(128, 29)
-        Me.Label6.TabIndex = 26
-        Me.Label6.Text = "Search By:"
-        '
-        'cbo_search_Credit
-        '
-        Me.cbo_search_Credit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbo_search_Credit.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbo_search_Credit.FormattingEnabled = True
-        Me.cbo_search_Credit.Items.AddRange(New Object() {"Sale Date", "Input Date"})
-        Me.cbo_search_Credit.Location = New System.Drawing.Point(155, 22)
-        Me.cbo_search_Credit.Name = "cbo_search_Credit"
-        Me.cbo_search_Credit.Size = New System.Drawing.Size(167, 37)
-        Me.cbo_search_Credit.TabIndex = 25
-        '
-        'tp_All
-        '
-        Me.tp_All.BackColor = System.Drawing.SystemColors.Control
-        Me.tp_All.Controls.Add(Me.rv_All)
-        Me.tp_All.Controls.Add(Me.pnl_all_Right)
-        Me.tp_All.Controls.Add(Me.pnl_all_Left)
-        Me.tp_All.Controls.Add(Me.pnl_all_Bottom)
-        Me.tp_All.Controls.Add(Me.pnl_all_Top)
-        Me.tp_All.Location = New System.Drawing.Point(4, 34)
-        Me.tp_All.Name = "tp_All"
-        Me.tp_All.Size = New System.Drawing.Size(1564, 525)
-        Me.tp_All.TabIndex = 2
-        Me.tp_All.Text = "All Sales"
-        '
-        'pnl_all_Right
-        '
-        Me.pnl_all_Right.Dock = System.Windows.Forms.DockStyle.Right
-        Me.pnl_all_Right.Location = New System.Drawing.Point(1548, 84)
-        Me.pnl_all_Right.Name = "pnl_all_Right"
-        Me.pnl_all_Right.Size = New System.Drawing.Size(16, 425)
-        Me.pnl_all_Right.TabIndex = 33
-        '
-        'pnl_all_Left
-        '
-        Me.pnl_all_Left.Dock = System.Windows.Forms.DockStyle.Left
-        Me.pnl_all_Left.Location = New System.Drawing.Point(0, 84)
-        Me.pnl_all_Left.Name = "pnl_all_Left"
-        Me.pnl_all_Left.Size = New System.Drawing.Size(16, 425)
-        Me.pnl_all_Left.TabIndex = 32
-        '
-        'pnl_all_Bottom
-        '
-        Me.pnl_all_Bottom.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.pnl_all_Bottom.Location = New System.Drawing.Point(0, 509)
-        Me.pnl_all_Bottom.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.pnl_all_Bottom.Name = "pnl_all_Bottom"
-        Me.pnl_all_Bottom.Size = New System.Drawing.Size(1564, 16)
-        Me.pnl_all_Bottom.TabIndex = 31
-        '
-        'pnl_all_Top
-        '
-        Me.pnl_all_Top.Controls.Add(Me.Label7)
-        Me.pnl_all_Top.Controls.Add(Me.cbo_all_Search)
-        Me.pnl_all_Top.Controls.Add(Me.Label8)
-        Me.pnl_all_Top.Controls.Add(Me.dtp_all_To)
-        Me.pnl_all_Top.Controls.Add(Me.btn_all_Load)
-        Me.pnl_all_Top.Controls.Add(Me.Label9)
-        Me.pnl_all_Top.Controls.Add(Me.dtp_all_From)
-        Me.pnl_all_Top.Dock = System.Windows.Forms.DockStyle.Top
-        Me.pnl_all_Top.Location = New System.Drawing.Point(0, 0)
-        Me.pnl_all_Top.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.pnl_all_Top.Name = "pnl_all_Top"
-        Me.pnl_all_Top.Size = New System.Drawing.Size(1564, 84)
-        Me.pnl_all_Top.TabIndex = 30
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(25, 25)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(128, 29)
-        Me.Label7.TabIndex = 24
-        Me.Label7.Text = "Search By:"
-        '
-        'cbo_all_Search
-        '
-        Me.cbo_all_Search.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbo_all_Search.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbo_all_Search.FormattingEnabled = True
-        Me.cbo_all_Search.Items.AddRange(New Object() {"Sale Date", "Input Date"})
-        Me.cbo_all_Search.Location = New System.Drawing.Point(159, 23)
-        Me.cbo_all_Search.Name = "cbo_all_Search"
-        Me.cbo_all_Search.Size = New System.Drawing.Size(167, 37)
-        Me.cbo_all_Search.TabIndex = 23
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(934, 25)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(105, 29)
-        Me.Label8.TabIndex = 22
-        Me.Label8.Text = "Date To:"
-        '
-        'dtp_all_To
-        '
-        Me.dtp_all_To.CustomFormat = "MM/dd/yyyy"
-        Me.dtp_all_To.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtp_all_To.Location = New System.Drawing.Point(1052, 23)
-        Me.dtp_all_To.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.dtp_all_To.Name = "dtp_all_To"
-        Me.dtp_all_To.Size = New System.Drawing.Size(410, 35)
-        Me.dtp_all_To.TabIndex = 21
-        Me.dtp_all_To.Value = New Date(2020, 3, 21, 0, 0, 0, 0)
-        '
-        'btn_all_Load
-        '
-        Me.btn_all_Load.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(115, Byte), Integer), CType(CType(158, Byte), Integer))
-        Me.btn_all_Load.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_all_Load.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_all_Load.ForeColor = System.Drawing.Color.White
-        Me.btn_all_Load.Location = New System.Drawing.Point(1488, 9)
-        Me.btn_all_Load.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.btn_all_Load.Name = "btn_all_Load"
-        Me.btn_all_Load.Size = New System.Drawing.Size(148, 63)
-        Me.btn_all_Load.TabIndex = 20
-        Me.btn_all_Load.Text = "Load Report"
-        Me.btn_all_Load.UseVisualStyleBackColor = False
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(349, 25)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(132, 29)
-        Me.Label9.TabIndex = 19
-        Me.Label9.Text = "Date From:"
-        '
-        'dtp_all_From
-        '
-        Me.dtp_all_From.CustomFormat = "MM/dd/yyyy"
-        Me.dtp_all_From.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtp_all_From.Location = New System.Drawing.Point(495, 23)
-        Me.dtp_all_From.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.dtp_all_From.Name = "dtp_all_From"
-        Me.dtp_all_From.Size = New System.Drawing.Size(411, 35)
-        Me.dtp_all_From.TabIndex = 18
-        Me.dtp_all_From.Value = New Date(2020, 3, 21, 0, 0, 0, 0)
-        '
-        'rv_All
-        '
-        Me.rv_All.Dock = System.Windows.Forms.DockStyle.Fill
-        ReportDataSource5.Name = "DataSet1"
-        ReportDataSource5.Value = Nothing
-        Me.rv_All.LocalReport.DataSources.Add(ReportDataSource5)
-        Me.rv_All.LocalReport.ReportEmbeddedResource = "AJE.Report1.rdlc"
-        Me.rv_All.Location = New System.Drawing.Point(16, 84)
-        Me.rv_All.Name = "rv_All"
-        Me.rv_All.Size = New System.Drawing.Size(1532, 425)
-        Me.rv_All.TabIndex = 34
-        '
         'frmSales
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
@@ -581,9 +420,6 @@ Partial Class frmSales
         Me.tp_Credit.ResumeLayout(False)
         Me.pnl_credit_Top.ResumeLayout(False)
         Me.pnl_credit_Top.PerformLayout()
-        Me.tp_All.ResumeLayout(False)
-        Me.pnl_all_Top.ResumeLayout(False)
-        Me.pnl_all_Top.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -617,17 +453,4 @@ Partial Class frmSales
     Friend WithEvents Label5 As Label
     Friend WithEvents Label6 As Label
     Friend WithEvents cbo_search_Credit As ComboBox
-    Friend WithEvents tp_All As TabPage
-    Friend WithEvents pnl_all_Right As Panel
-    Friend WithEvents pnl_all_Left As Panel
-    Friend WithEvents pnl_all_Bottom As Panel
-    Friend WithEvents pnl_all_Top As Panel
-    Friend WithEvents Label7 As Label
-    Friend WithEvents cbo_all_Search As ComboBox
-    Friend WithEvents Label8 As Label
-    Friend WithEvents dtp_all_To As DateTimePicker
-    Friend WithEvents btn_all_Load As Button
-    Friend WithEvents Label9 As Label
-    Friend WithEvents dtp_all_From As DateTimePicker
-    Friend WithEvents rv_All As Microsoft.Reporting.WinForms.ReportViewer
 End Class

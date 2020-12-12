@@ -71,7 +71,7 @@ Public Class clsCreditPay
         cm.Parameters.AddWithValue("@0", _CustomerSearch)
         dr = cm.ExecuteReader()
         While dr.Read
-            frmCreditPay.dg_Transactions.Rows.Add(dr.Item("order_id").ToString, dr.Item("invoice").ToString, Format(dr.Item("trans_date"), "MM/dd/yyyy"), dr.Item("pay_amount"), dr.Item("gross_amount").ToString)
+            frmCreditPay.dg_Transactions.Rows.Add(dr.Item("order_id").ToString, Format(dr.Item("transDate"), "MM/dd/yyyy"), Format(dr.Item("InputedDate"), "MM/dd/yyyy"), dr.Item("invoice").ToString, dr.Item("pay_amount"), dr.Item("gross_amount").ToString)
         End While
         dr.Close()
         DisconnectDatabase()
@@ -107,7 +107,7 @@ Public Class clsCreditPay
 
             End While
         Else
-            MsgBox(vbInformation, "No data available on given parameters.")
+            MsgBox("No data available on given parameters.", vbInformation)
         End If
         dr.Close()
         DisconnectDatabase()

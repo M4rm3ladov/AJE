@@ -49,6 +49,12 @@ Partial Class frmCreditPay
         Me.btn_Checkout = New System.Windows.Forms.Button()
         Me.btn_Load = New System.Windows.Forms.Button()
         Me.pnl_settle_bal_Top = New System.Windows.Forms.Panel()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.cbo_cb_Search = New System.Windows.Forms.ComboBox()
+        Me.btn_load_Orders = New System.Windows.Forms.Button()
+        Me.dtp_cb_To = New System.Windows.Forms.DateTimePicker()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.dtp_cb_From = New System.Windows.Forms.DateTimePicker()
         Me.lbl_customer_Id = New System.Windows.Forms.Label()
         Me.lbl_Customer = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -74,8 +80,9 @@ Partial Class frmCreditPay
         Me.dtp_From = New System.Windows.Forms.DateTimePicker()
         Me.btn_load_History = New System.Windows.Forms.Button()
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.pnlHeader.SuspendLayout()
@@ -100,7 +107,7 @@ Partial Class frmCreditPay
         Me.pnlHeader.Location = New System.Drawing.Point(0, 0)
         Me.pnlHeader.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.pnlHeader.Name = "pnlHeader"
-        Me.pnlHeader.Size = New System.Drawing.Size(1446, 60)
+        Me.pnlHeader.Size = New System.Drawing.Size(1744, 60)
         Me.pnlHeader.TabIndex = 3
         '
         'lbl_Header
@@ -124,7 +131,7 @@ Partial Class frmCreditPay
         Me.tc_Credit.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.tc_Credit.Name = "tc_Credit"
         Me.tc_Credit.SelectedIndex = 0
-        Me.tc_Credit.Size = New System.Drawing.Size(1446, 862)
+        Me.tc_Credit.Size = New System.Drawing.Size(1744, 862)
         Me.tc_Credit.TabIndex = 17
         '
         'TabPage1
@@ -139,7 +146,7 @@ Partial Class frmCreditPay
         Me.TabPage1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.TabPage1.Size = New System.Drawing.Size(1438, 820)
+        Me.TabPage1.Size = New System.Drawing.Size(1736, 820)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Settle Credit Balance"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -148,9 +155,9 @@ Partial Class frmCreditPay
         '
         Me.dg_Transactions.AllowUserToAddRows = False
         Me.dg_Transactions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dg_Transactions.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.Column8, Me.Column3, Me.Column2})
+        Me.dg_Transactions.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn4, Me.Column8, Me.Column4, Me.DataGridViewTextBoxColumn5, Me.Column3, Me.Column2})
         Me.dg_Transactions.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.dg_Transactions.Location = New System.Drawing.Point(14, 159)
+        Me.dg_Transactions.Location = New System.Drawing.Point(14, 173)
         Me.dg_Transactions.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.dg_Transactions.Name = "dg_Transactions"
         Me.dg_Transactions.RowHeadersVisible = False
@@ -159,7 +166,7 @@ Partial Class frmCreditPay
         Me.dg_Transactions.RowsDefaultCellStyle = DataGridViewCellStyle5
         Me.dg_Transactions.RowTemplate.Height = 24
         Me.dg_Transactions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dg_Transactions.Size = New System.Drawing.Size(1112, 553)
+        Me.dg_Transactions.Size = New System.Drawing.Size(1410, 539)
         Me.dg_Transactions.TabIndex = 23
         '
         'pnl_settle_bal_Bottom
@@ -170,7 +177,7 @@ Partial Class frmCreditPay
         Me.pnl_settle_bal_Bottom.Location = New System.Drawing.Point(14, 712)
         Me.pnl_settle_bal_Bottom.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.pnl_settle_bal_Bottom.Name = "pnl_settle_bal_Bottom"
-        Me.pnl_settle_bal_Bottom.Size = New System.Drawing.Size(1112, 104)
+        Me.pnl_settle_bal_Bottom.Size = New System.Drawing.Size(1410, 104)
         Me.pnl_settle_bal_Bottom.TabIndex = 24
         '
         'pnl_settle_bal_Balance
@@ -178,7 +185,7 @@ Partial Class frmCreditPay
         Me.pnl_settle_bal_Balance.Controls.Add(Me.lbl_Balance)
         Me.pnl_settle_bal_Balance.Controls.Add(Me.Label2)
         Me.pnl_settle_bal_Balance.Dock = System.Windows.Forms.DockStyle.Right
-        Me.pnl_settle_bal_Balance.Location = New System.Drawing.Point(384, 0)
+        Me.pnl_settle_bal_Balance.Location = New System.Drawing.Point(682, 0)
         Me.pnl_settle_bal_Balance.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.pnl_settle_bal_Balance.Name = "pnl_settle_bal_Balance"
         Me.pnl_settle_bal_Balance.Size = New System.Drawing.Size(728, 104)
@@ -211,20 +218,20 @@ Partial Class frmCreditPay
         '
         Me.pnl_settle_bal_Left.BackColor = System.Drawing.SystemColors.Control
         Me.pnl_settle_bal_Left.Dock = System.Windows.Forms.DockStyle.Left
-        Me.pnl_settle_bal_Left.Location = New System.Drawing.Point(3, 159)
+        Me.pnl_settle_bal_Left.Location = New System.Drawing.Point(3, 173)
         Me.pnl_settle_bal_Left.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.pnl_settle_bal_Left.Name = "pnl_settle_bal_Left"
-        Me.pnl_settle_bal_Left.Size = New System.Drawing.Size(11, 657)
+        Me.pnl_settle_bal_Left.Size = New System.Drawing.Size(11, 643)
         Me.pnl_settle_bal_Left.TabIndex = 22
         '
         'pnl_settle_bal_Right
         '
         Me.pnl_settle_bal_Right.BackColor = System.Drawing.SystemColors.Control
         Me.pnl_settle_bal_Right.Dock = System.Windows.Forms.DockStyle.Right
-        Me.pnl_settle_bal_Right.Location = New System.Drawing.Point(1126, 159)
+        Me.pnl_settle_bal_Right.Location = New System.Drawing.Point(1424, 173)
         Me.pnl_settle_bal_Right.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.pnl_settle_bal_Right.Name = "pnl_settle_bal_Right"
-        Me.pnl_settle_bal_Right.Size = New System.Drawing.Size(15, 657)
+        Me.pnl_settle_bal_Right.Size = New System.Drawing.Size(15, 643)
         Me.pnl_settle_bal_Right.TabIndex = 21
         '
         'tbl_Buttons
@@ -237,7 +244,7 @@ Partial Class frmCreditPay
         Me.tbl_Buttons.Controls.Add(Me.btn_Checkout, 0, 1)
         Me.tbl_Buttons.Controls.Add(Me.btn_Load, 0, 0)
         Me.tbl_Buttons.Dock = System.Windows.Forms.DockStyle.Right
-        Me.tbl_Buttons.Location = New System.Drawing.Point(1141, 159)
+        Me.tbl_Buttons.Location = New System.Drawing.Point(1439, 173)
         Me.tbl_Buttons.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.tbl_Buttons.Name = "tbl_Buttons"
         Me.tbl_Buttons.RowCount = 4
@@ -245,7 +252,7 @@ Partial Class frmCreditPay
         Me.tbl_Buttons.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
         Me.tbl_Buttons.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
         Me.tbl_Buttons.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.tbl_Buttons.Size = New System.Drawing.Size(294, 657)
+        Me.tbl_Buttons.Size = New System.Drawing.Size(294, 643)
         Me.tbl_Buttons.TabIndex = 20
         '
         'btn_Back
@@ -255,10 +262,10 @@ Partial Class frmCreditPay
         Me.btn_Back.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_Back.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_Back.ForeColor = System.Drawing.Color.White
-        Me.btn_Back.Location = New System.Drawing.Point(3, 496)
+        Me.btn_Back.Location = New System.Drawing.Point(3, 484)
         Me.btn_Back.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btn_Back.Name = "btn_Back"
-        Me.btn_Back.Size = New System.Drawing.Size(288, 157)
+        Me.btn_Back.Size = New System.Drawing.Size(288, 155)
         Me.btn_Back.TabIndex = 39
         Me.btn_Back.Text = "[ESC] Back"
         Me.btn_Back.UseVisualStyleBackColor = False
@@ -270,10 +277,10 @@ Partial Class frmCreditPay
         Me.btn_New.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_New.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_New.ForeColor = System.Drawing.Color.White
-        Me.btn_New.Location = New System.Drawing.Point(3, 332)
+        Me.btn_New.Location = New System.Drawing.Point(3, 324)
         Me.btn_New.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btn_New.Name = "btn_New"
-        Me.btn_New.Size = New System.Drawing.Size(288, 156)
+        Me.btn_New.Size = New System.Drawing.Size(288, 152)
         Me.btn_New.TabIndex = 34
         Me.btn_New.Text = "[F2] New Payment"
         Me.btn_New.UseVisualStyleBackColor = False
@@ -285,10 +292,10 @@ Partial Class frmCreditPay
         Me.btn_Checkout.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_Checkout.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_Checkout.ForeColor = System.Drawing.Color.White
-        Me.btn_Checkout.Location = New System.Drawing.Point(3, 168)
+        Me.btn_Checkout.Location = New System.Drawing.Point(3, 164)
         Me.btn_Checkout.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btn_Checkout.Name = "btn_Checkout"
-        Me.btn_Checkout.Size = New System.Drawing.Size(288, 156)
+        Me.btn_Checkout.Size = New System.Drawing.Size(288, 152)
         Me.btn_Checkout.TabIndex = 36
         Me.btn_Checkout.Text = "[F5] Checkout"
         Me.btn_Checkout.UseVisualStyleBackColor = False
@@ -303,14 +310,20 @@ Partial Class frmCreditPay
         Me.btn_Load.Location = New System.Drawing.Point(3, 4)
         Me.btn_Load.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btn_Load.Name = "btn_Load"
-        Me.btn_Load.Size = New System.Drawing.Size(288, 156)
+        Me.btn_Load.Size = New System.Drawing.Size(288, 152)
         Me.btn_Load.TabIndex = 40
-        Me.btn_Load.Text = "[F1] Load Transactions"
+        Me.btn_Load.Text = "[F1] View Transactions"
         Me.btn_Load.UseVisualStyleBackColor = False
         '
         'pnl_settle_bal_Top
         '
         Me.pnl_settle_bal_Top.BackColor = System.Drawing.SystemColors.Control
+        Me.pnl_settle_bal_Top.Controls.Add(Me.Label3)
+        Me.pnl_settle_bal_Top.Controls.Add(Me.cbo_cb_Search)
+        Me.pnl_settle_bal_Top.Controls.Add(Me.btn_load_Orders)
+        Me.pnl_settle_bal_Top.Controls.Add(Me.dtp_cb_To)
+        Me.pnl_settle_bal_Top.Controls.Add(Me.Label1)
+        Me.pnl_settle_bal_Top.Controls.Add(Me.dtp_cb_From)
         Me.pnl_settle_bal_Top.Controls.Add(Me.lbl_customer_Id)
         Me.pnl_settle_bal_Top.Controls.Add(Me.lbl_Customer)
         Me.pnl_settle_bal_Top.Controls.Add(Me.Label4)
@@ -319,14 +332,77 @@ Partial Class frmCreditPay
         Me.pnl_settle_bal_Top.Location = New System.Drawing.Point(3, 4)
         Me.pnl_settle_bal_Top.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.pnl_settle_bal_Top.Name = "pnl_settle_bal_Top"
-        Me.pnl_settle_bal_Top.Size = New System.Drawing.Size(1432, 155)
+        Me.pnl_settle_bal_Top.Size = New System.Drawing.Size(1730, 169)
         Me.pnl_settle_bal_Top.TabIndex = 19
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(22, 20)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(119, 26)
+        Me.Label3.TabIndex = 48
+        Me.Label3.Text = "Search By:"
+        '
+        'cbo_cb_Search
+        '
+        Me.cbo_cb_Search.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbo_cb_Search.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbo_cb_Search.FormattingEnabled = True
+        Me.cbo_cb_Search.Items.AddRange(New Object() {"Sale Date", "Input Date"})
+        Me.cbo_cb_Search.Location = New System.Drawing.Point(221, 15)
+        Me.cbo_cb_Search.Name = "cbo_cb_Search"
+        Me.cbo_cb_Search.Size = New System.Drawing.Size(165, 40)
+        Me.cbo_cb_Search.TabIndex = 47
+        '
+        'btn_load_Orders
+        '
+        Me.btn_load_Orders.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(115, Byte), Integer), CType(CType(158, Byte), Integer))
+        Me.btn_load_Orders.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_load_Orders.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_load_Orders.ForeColor = System.Drawing.Color.White
+        Me.btn_load_Orders.Location = New System.Drawing.Point(1369, 63)
+        Me.btn_load_Orders.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btn_load_Orders.Name = "btn_load_Orders"
+        Me.btn_load_Orders.Size = New System.Drawing.Size(181, 58)
+        Me.btn_load_Orders.TabIndex = 46
+        Me.btn_load_Orders.Text = "Load Orders"
+        Me.btn_load_Orders.UseVisualStyleBackColor = False
+        '
+        'dtp_cb_To
+        '
+        Me.dtp_cb_To.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtp_cb_To.Location = New System.Drawing.Point(1140, 20)
+        Me.dtp_cb_To.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.dtp_cb_To.Name = "dtp_cb_To"
+        Me.dtp_cb_To.Size = New System.Drawing.Size(410, 35)
+        Me.dtp_cb_To.TabIndex = 45
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(405, 20)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(284, 26)
+        Me.Label1.TabIndex = 44
+        Me.Label1.Text = "Transaction Date (From-To):"
+        '
+        'dtp_cb_From
+        '
+        Me.dtp_cb_From.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtp_cb_From.Location = New System.Drawing.Point(713, 20)
+        Me.dtp_cb_From.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.dtp_cb_From.Name = "dtp_cb_From"
+        Me.dtp_cb_From.Size = New System.Drawing.Size(410, 35)
+        Me.dtp_cb_From.TabIndex = 43
         '
         'lbl_customer_Id
         '
         Me.lbl_customer_Id.AutoSize = True
         Me.lbl_customer_Id.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_customer_Id.Location = New System.Drawing.Point(609, 102)
+        Me.lbl_customer_Id.Location = New System.Drawing.Point(619, 113)
         Me.lbl_customer_Id.Name = "lbl_customer_Id"
         Me.lbl_customer_Id.Size = New System.Drawing.Size(0, 29)
         Me.lbl_customer_Id.TabIndex = 42
@@ -336,7 +412,7 @@ Partial Class frmCreditPay
         '
         Me.lbl_Customer.AutoSize = True
         Me.lbl_Customer.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_Customer.Location = New System.Drawing.Point(228, 102)
+        Me.lbl_Customer.Location = New System.Drawing.Point(216, 125)
         Me.lbl_Customer.Name = "lbl_Customer"
         Me.lbl_Customer.Size = New System.Drawing.Size(324, 26)
         Me.lbl_Customer.TabIndex = 41
@@ -346,7 +422,7 @@ Partial Class frmCreditPay
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(17, 30)
+        Me.Label4.Location = New System.Drawing.Point(22, 72)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(178, 26)
         Me.Label4.TabIndex = 13
@@ -356,12 +432,12 @@ Partial Class frmCreditPay
         '
         Me.tb_Name.BackColor = System.Drawing.SystemColors.Window
         Me.tb_Name.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tb_Name.Location = New System.Drawing.Point(233, 26)
+        Me.tb_Name.Location = New System.Drawing.Point(221, 67)
         Me.tb_Name.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.tb_Name.Multiline = True
         Me.tb_Name.Name = "tb_Name"
         Me.tb_Name.ReadOnly = True
-        Me.tb_Name.Size = New System.Drawing.Size(888, 54)
+        Me.tb_Name.Size = New System.Drawing.Size(1124, 54)
         Me.tb_Name.TabIndex = 34
         '
         'TabPage2
@@ -371,7 +447,7 @@ Partial Class frmCreditPay
         Me.TabPage2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.TabPage2.Size = New System.Drawing.Size(1438, 820)
+        Me.TabPage2.Size = New System.Drawing.Size(1736, 820)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Payment History"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -387,7 +463,7 @@ Partial Class frmCreditPay
         Me.Panel2.Location = New System.Drawing.Point(3, 4)
         Me.Panel2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1432, 812)
+        Me.Panel2.Size = New System.Drawing.Size(1730, 812)
         Me.Panel2.TabIndex = 0
         '
         'dg_History
@@ -396,7 +472,7 @@ Partial Class frmCreditPay
         Me.dg_History.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dg_History.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn6, Me.Column1})
         Me.dg_History.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.dg_History.Location = New System.Drawing.Point(11, 201)
+        Me.dg_History.Location = New System.Drawing.Point(11, 165)
         Me.dg_History.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.dg_History.Name = "dg_History"
         Me.dg_History.RowHeadersVisible = False
@@ -406,7 +482,7 @@ Partial Class frmCreditPay
         Me.dg_History.RowsDefaultCellStyle = DataGridViewCellStyle10
         Me.dg_History.RowTemplate.Height = 24
         Me.dg_History.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dg_History.Size = New System.Drawing.Size(1410, 596)
+        Me.dg_History.Size = New System.Drawing.Size(1708, 632)
         Me.dg_History.TabIndex = 28
         '
         'DataGridViewTextBoxColumn1
@@ -467,27 +543,27 @@ Partial Class frmCreditPay
         Me.pnl_history_Bottom.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.pnl_history_Bottom.Location = New System.Drawing.Point(11, 797)
         Me.pnl_history_Bottom.Name = "pnl_history_Bottom"
-        Me.pnl_history_Bottom.Size = New System.Drawing.Size(1410, 15)
+        Me.pnl_history_Bottom.Size = New System.Drawing.Size(1708, 15)
         Me.pnl_history_Bottom.TabIndex = 27
         '
         'pnl_history_Left
         '
         Me.pnl_history_Left.BackColor = System.Drawing.SystemColors.Control
         Me.pnl_history_Left.Dock = System.Windows.Forms.DockStyle.Left
-        Me.pnl_history_Left.Location = New System.Drawing.Point(0, 201)
+        Me.pnl_history_Left.Location = New System.Drawing.Point(0, 165)
         Me.pnl_history_Left.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.pnl_history_Left.Name = "pnl_history_Left"
-        Me.pnl_history_Left.Size = New System.Drawing.Size(11, 611)
+        Me.pnl_history_Left.Size = New System.Drawing.Size(11, 647)
         Me.pnl_history_Left.TabIndex = 26
         '
         'pnl_history_Right
         '
         Me.pnl_history_Right.BackColor = System.Drawing.SystemColors.Control
         Me.pnl_history_Right.Dock = System.Windows.Forms.DockStyle.Right
-        Me.pnl_history_Right.Location = New System.Drawing.Point(1421, 201)
+        Me.pnl_history_Right.Location = New System.Drawing.Point(1719, 165)
         Me.pnl_history_Right.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.pnl_history_Right.Name = "pnl_history_Right"
-        Me.pnl_history_Right.Size = New System.Drawing.Size(11, 611)
+        Me.pnl_history_Right.Size = New System.Drawing.Size(11, 647)
         Me.pnl_history_Right.TabIndex = 24
         '
         'Panel5
@@ -505,14 +581,14 @@ Partial Class frmCreditPay
         Me.Panel5.Location = New System.Drawing.Point(0, 0)
         Me.Panel5.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(1432, 201)
+        Me.Panel5.Size = New System.Drawing.Size(1730, 165)
         Me.Panel5.TabIndex = 2
         '
         'lbl_custSearch
         '
         Me.lbl_custSearch.AutoSize = True
         Me.lbl_custSearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_custSearch.Location = New System.Drawing.Point(327, 150)
+        Me.lbl_custSearch.Location = New System.Drawing.Point(327, 118)
         Me.lbl_custSearch.Name = "lbl_custSearch"
         Me.lbl_custSearch.Size = New System.Drawing.Size(324, 26)
         Me.lbl_custSearch.TabIndex = 42
@@ -522,7 +598,7 @@ Partial Class frmCreditPay
         '
         Me.lbl_custId.AutoSize = True
         Me.lbl_custId.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_custId.Location = New System.Drawing.Point(1216, 24)
+        Me.lbl_custId.Location = New System.Drawing.Point(1216, 17)
         Me.lbl_custId.Name = "lbl_custId"
         Me.lbl_custId.Size = New System.Drawing.Size(178, 26)
         Me.lbl_custId.TabIndex = 21
@@ -532,7 +608,7 @@ Partial Class frmCreditPay
         'dtp_To
         '
         Me.dtp_To.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtp_To.Location = New System.Drawing.Point(778, 24)
+        Me.dtp_To.Location = New System.Drawing.Point(761, 17)
         Me.dtp_To.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.dtp_To.Name = "dtp_To"
         Me.dtp_To.Size = New System.Drawing.Size(410, 35)
@@ -542,7 +618,7 @@ Partial Class frmCreditPay
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(24, 91)
+        Me.Label8.Location = New System.Drawing.Point(24, 72)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(178, 26)
         Me.Label8.TabIndex = 19
@@ -552,7 +628,7 @@ Partial Class frmCreditPay
         '
         Me.tb_CustName.BackColor = System.Drawing.SystemColors.Window
         Me.tb_CustName.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tb_CustName.Location = New System.Drawing.Point(332, 79)
+        Me.tb_CustName.Location = New System.Drawing.Point(332, 60)
         Me.tb_CustName.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.tb_CustName.Multiline = True
         Me.tb_CustName.Name = "tb_CustName"
@@ -564,7 +640,7 @@ Partial Class frmCreditPay
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(24, 24)
+        Me.Label7.Location = New System.Drawing.Point(24, 17)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(284, 26)
         Me.Label7.TabIndex = 16
@@ -573,7 +649,7 @@ Partial Class frmCreditPay
         'dtp_From
         '
         Me.dtp_From.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtp_From.Location = New System.Drawing.Point(332, 24)
+        Me.dtp_From.Location = New System.Drawing.Point(332, 17)
         Me.dtp_From.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.dtp_From.Name = "dtp_From"
         Me.dtp_From.Size = New System.Drawing.Size(410, 35)
@@ -585,7 +661,7 @@ Partial Class frmCreditPay
         Me.btn_load_History.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_load_History.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_load_History.ForeColor = System.Drawing.Color.White
-        Me.btn_load_History.Location = New System.Drawing.Point(1221, 76)
+        Me.btn_load_History.Location = New System.Drawing.Point(1204, 56)
         Me.btn_load_History.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btn_load_History.Name = "btn_load_History"
         Me.btn_load_History.Size = New System.Drawing.Size(181, 58)
@@ -601,30 +677,42 @@ Partial Class frmCreditPay
         Me.DataGridViewTextBoxColumn4.Visible = False
         Me.DataGridViewTextBoxColumn4.Width = 125
         '
+        'Column8
+        '
+        Me.Column8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Column8.DefaultCellStyle = DataGridViewCellStyle1
+        Me.Column8.HeaderText = "Input Date"
+        Me.Column8.MinimumWidth = 6
+        Me.Column8.Name = "Column8"
+        Me.Column8.ReadOnly = True
+        Me.Column8.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.Column8.Width = 157
+        '
+        'Column4
+        '
+        Me.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
+        Me.Column4.HeaderText = "Sale Date"
+        Me.Column4.Name = "Column4"
+        Me.Column4.ReadOnly = True
+        Me.Column4.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.Column4.Width = 154
+        '
         'DataGridViewTextBoxColumn5
         '
         Me.DataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DataGridViewTextBoxColumn5.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DataGridViewTextBoxColumn5.DefaultCellStyle = DataGridViewCellStyle2
         Me.DataGridViewTextBoxColumn5.HeaderText = "Invoice No"
         Me.DataGridViewTextBoxColumn5.MinimumWidth = 6
         Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
         Me.DataGridViewTextBoxColumn5.ReadOnly = True
         '
-        'Column8
-        '
-        Me.Column8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Column8.DefaultCellStyle = DataGridViewCellStyle2
-        Me.Column8.HeaderText = "Transaction Date"
-        Me.Column8.MinimumWidth = 6
-        Me.Column8.Name = "Column8"
-        Me.Column8.ReadOnly = True
-        '
         'Column3
         '
         Me.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!)
         Me.Column3.DefaultCellStyle = DataGridViewCellStyle3
         Me.Column3.HeaderText = "Initial Payment"
         Me.Column3.Name = "Column3"
@@ -648,7 +736,7 @@ Partial Class frmCreditPay
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1446, 922)
+        Me.ClientSize = New System.Drawing.Size(1744, 922)
         Me.Controls.Add(Me.tc_Credit)
         Me.Controls.Add(Me.pnlHeader)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -716,9 +804,16 @@ Partial Class frmCreditPay
     Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
+    Friend WithEvents dtp_cb_To As DateTimePicker
+    Friend WithEvents Label1 As Label
+    Friend WithEvents dtp_cb_From As DateTimePicker
+    Friend WithEvents btn_load_Orders As Button
+    Friend WithEvents Label3 As Label
+    Friend WithEvents cbo_cb_Search As ComboBox
     Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
     Friend WithEvents Column8 As DataGridViewTextBoxColumn
+    Friend WithEvents Column4 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
     Friend WithEvents Column3 As DataGridViewTextBoxColumn
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
 End Class

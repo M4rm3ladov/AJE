@@ -30,6 +30,7 @@
     Private Sub frmCreditPay_Load(sender As Object, e As EventArgs) Handles Me.Load
         dtp_From.Value = Date.Now
         dtp_To.Value = Date.Now
+        cbo_cb_Search.SelectedIndex = 0
         KeyPreview = True
     End Sub
 
@@ -98,21 +99,21 @@
         frmCreditTransacs.ShowDialog()
     End Sub
 
-    Private Sub tb_Name_TextChanged(sender As Object, e As EventArgs) Handles tb_Name.TextChanged
-        lbl_Balance.Text = creditPay.setCustomerBalance()
+    'Private Sub tb_Name_TextChanged(sender As Object, e As EventArgs) Handles tb_Name.TextChanged
+    '    lbl_Balance.Text = creditPay.setCustomerBalance()
 
-        If Trim(tb_Name.Text) <> "" Then
-            'assigns search text
-            creditPay.SetCustomerSearch(Trim(lbl_customer_Id.Text))
-            'search for item
-            creditPay.searchCustomerCredit("SELECT orders.order_id, invoice, orders.trans_date, pay_amount, gross_amount FROM credit_payment INNER JOIN 
-                                            orders ON orders.order_id = credit_payment.order_id WHERE customer_id = @0")
+    '    If Trim(tb_Name.Text) <> "" Then
+    '        'assigns search text
+    '        creditPay.SetCustomerSearch(Trim(lbl_customer_Id.Text))
+    '        'search for item
+    '        creditPay.searchCustomerCredit("SELECT orders.order_id, , invoice, orders.trans_date, pay_amount, gross_amount FROM credit_payment INNER JOIN 
+    '                                        orders ON orders.order_id = credit_payment.order_id WHERE customer_id = @0 AND orders.trans_date")
 
-        Else
-            'if text search is empty string 
-            dg_Transactions.Rows.Clear()
-        End If
-    End Sub
+    '    Else
+    '        'if text search is empty string 
+    '        dg_Transactions.Rows.Clear()
+    '    End If
+    'End Sub
 
     Private Sub btn_load_History_Click(sender As Object, e As EventArgs) Handles btn_load_History.Click
         If tb_CustName.Text = vbNullString Then
@@ -125,4 +126,27 @@
         creditPay.loadPayHistory()
     End Sub
 
+    Private Sub btn_load_Orders_Click(sender As Object, e As EventArgs) Handles btn_load_Orders.Click
+        lbl_Balance.Text = creditPay.setCustomerBalance()
+
+        If Trim(tb_Name.Text) <> "" Then
+            'assigns search text
+            creditPay.SetCustomerSearch(Trim(lbl_customer_Id.Text))
+            'search for item
+            If cbo_cb_Search.SelectedIndex = 0 Then
+                creditPay.searchCustomerCredit("SELECT orders.order_id, orders.trans_date AS transDate, credit_payment.trans_date AS InputedDate, invoice,  pay_amount, gross_amount FROM credit_payment INNER JOIN 
+                                            orders ON orders.order_id = credit_payment.order_id WHERE customer_id = @0 AND credit_payment.trans_date BETWEEN '" & dtp_cb_From.Value.ToString("yyyy-MM-dd") & "' AND '" & dtp_cb_To.Value.ToString("yyyy-MM-dd") & "' ")
+
+            ElseIf cbo_cb_Search.SelectedIndex = 1 Then
+                creditPay.searchCustomerCredit("SELECT orders.order_id, orders.trans_date AS transDate, credit_payment.trans_date AS InputedDate, invoice,  pay_amount, gross_amount FROM credit_payment INNER JOIN 
+                                            orders ON orders.order_id = credit_payment.order_id WHERE customer_id = @0 AND orders.trans_date BETWEEN '" & dtp_cb_From.Value.ToString("yyyy-MM-dd") & "' AND '" & dtp_cb_To.Value.ToString("yyyy-MM-dd") & "' ")
+
+            End If
+
+        Else
+            'if text search is empty string 
+            dg_Transactions.Rows.Clear()
+            MsgBox("No available orders to load for the given customer.", vbInformation)
+        End If
+    End Sub
 End Class

@@ -8,13 +8,11 @@ Public Class frmSales
         dtp_credit_To.Value = DateTime.Now
         cbo_search_Cash.SelectedIndex = 0
         cbo_search_Credit.SelectedIndex = 0
-        cbo_all_Search.SelectedIndex = 0
     End Sub
 
     Private Sub btn_Close_Click(sender As Object, e As EventArgs) Handles btn_Close.Click
         rv_Cash.Reset()
         rv_Credit.Reset()
-        rv_All.Reset()
         Me.Close()
     End Sub
 
@@ -101,44 +99,5 @@ Public Class frmSales
         End Try
     End Sub
 
-    Private Sub btn_all_Load_Click(sender As Object, e As EventArgs) Handles btn_all_Load.Click
-        Dim rptDs As ReportDataSource
-        Me.rv_All.RefreshReport()
-        Try
-            With rv_Credit.LocalReport
-                .ReportPath = Application.StartupPath & "\Report\ReportAllSales.rdlc"
-                .DataSources.Clear()
-            End With
 
-            Dim ds As New DataSet1
-            Dim da As New MySqlDataAdapter
-
-            If cbo_all_Search.SelectedIndex = 0 Then
-                ConnectDatabase()
-                da.SelectCommand = New MySqlCommand("SELECT DATE_FORMAT(DateInputed, '%m/%d/%Y') AS DateInputed, DATE_FORMAT(transDate, '%m/%d/%Y') AS transDate, Customers, invoice_receipt, Description, Category, Unit, price, qty, line_total, Cashiers FROM vw_all_sales WHERE branch_id = '" & frmMain.lbl_branch_Id.Text & "' AND transDate BETWEEN '" & dtp_all_From.Value.ToString("yyyy-MM-dd") & "' AND '" & dtp_all_To.Value.ToString("yyyy-MM-dd") & "'", con)
-                da.Fill(ds.Tables("dt_all_Sales"))
-                DisconnectDatabase()
-            ElseIf cbo_all_Search.SelectedIndex = 1 Then
-                ConnectDatabase()
-                da.SelectCommand = New MySqlCommand("SELECT DATE_FORMAT(DateInputed, '%m/%d/%Y') AS DateInputed, DATE_FORMAT(transDate, '%m/%d/%Y') AS transDate, Customers, invoice_receipt, Description, Category, Unit, price, qty, line_total, Cashiers FROM vw_all_sales WHERE branch_id = '" & frmMain.lbl_branch_Id.Text & "' AND DateInputed BETWEEN '" & dtp_all_From.Value.ToString("yyyy-MM-dd") & "' AND '" & dtp_all_To.Value.ToString("yyyy-MM-dd") & "'", con)
-                da.Fill(ds.Tables("dt_all_Sales"))
-                DisconnectDatabase()
-            End If
-
-            Dim rptParameter As ReportParameterCollection
-            rptParameter = New ReportParameterCollection
-            rptParameter.Add(New ReportParameter("BranchAddress", frmMain.lbl_branch_Address.Text))
-            rptParameter.Add(New ReportParameter("DateFrom", dtp_all_From.Value.ToString("MM/dd/yy")))
-            rptParameter.Add(New ReportParameter("DateTill", dtp_all_To.Value.ToString("MM/dd/yy")))
-            rv_All.LocalReport.SetParameters(rptParameter)
-
-            rptDs = New ReportDataSource("DataSet1", ds.Tables("dt_all_Sales"))
-            rv_All.LocalReport.DataSources.Add(rptDs)
-            rv_All.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout)
-            rv_All.ZoomMode = ZoomMode.PageWidth
-        Catch ex As Exception
-            DisconnectDatabase()
-            MsgBox(ex.Message, vbCritical)
-        End Try
-    End Sub
 End Class
