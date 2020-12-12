@@ -100,7 +100,7 @@ Public Class clsStockTransfer
         cm.ExecuteScalar()
         cm.Dispose()
 
-        query = "INSERT INTO stock_transfer (inventory_id, ref_no, branch_to_id, branch_from_id, qty, trans_date, remarks) " &
+        query = "INSERT INTO stock_transfer (inventory_id, ref_no, branch_id_to, branch_id_from, qty, trans_date, remarks) " &
                 "VALUES (@inventory_id, @ref_no, @branch_to_id, @branch_from_id, @qty, @trans_date, @remarks) "
         cm = New MySqlCommand(query, con)
         cm.Parameters.AddWithValue("@inventory_id", inventory_id_from)

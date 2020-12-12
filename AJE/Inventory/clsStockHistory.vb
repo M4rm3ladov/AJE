@@ -68,7 +68,7 @@ Public Class clsStockHistory
                 dateRef = Format(dr.Item("trans_date"), "yyyyMMdd")
                 frmStockTrans_History.dg_stock_History.Rows.Add(dr.Item("stock_trans_id").ToString, "ST" & dateRef & zero & dr.Item("ref_no").ToString, transDate, dr.Item("b_from"),
                                                    dr.Item("b_to"), dr.Item("item_code").ToString, dr.Item("brand_name").ToString, dr.Item("item_desc").ToString,
-                                                   dr.Item("item_add_desc").ToString, dr.Item("category_name").ToString, dr.Item("qty").ToString)
+                                                   dr.Item("item_add_desc").ToString, dr.Item("category_name").ToString, dr.Item("unit_name"), dr.Item("qty").ToString)
             End While
         Else
             MsgBox("No transaction on dates given.", vbInformation)

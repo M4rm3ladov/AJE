@@ -83,7 +83,7 @@ Public Class clsRefund
         cm.Parameters.AddWithValue("@trans_date", _TransDate)
         dr = cm.ExecuteReader()
         While dr.Read
-            frmRefund.dg_Search.Rows.Add(dr.Item("item_id").ToString, dr.Item("item_code").ToString, dr.Item("description").ToString, dr.Item("price").ToString, dr.Item("qty").ToString, dr.Item("line_total").ToString, "ADD")
+            frmRefund.dg_Search.Rows.Add(dr.Item("item_id").ToString, dr.Item("item_code").ToString, dr.Item("description").ToString, dr.Item("unit_name"), dr.Item("price").ToString, dr.Item("qty").ToString, dr.Item("line_total").ToString, "ADD")
         End While
         dr.Close()
         DisconnectDatabase()
@@ -97,7 +97,7 @@ Public Class clsRefund
         cm.Parameters.AddWithValue("@trans_date", _TransDate)
         dr = cm.ExecuteReader()
         While dr.Read
-            frmRefund.dg_Search.Rows.Add(dr.Item("service_id").ToString, dr.Item("service_code"), dr.Item("service_desc").ToString, dr.Item("price").ToString, dr.Item("qty").ToString, dr.Item("line_total").ToString, "ADD")
+            frmRefund.dg_Search.Rows.Add(dr.Item("service_id").ToString, dr.Item("service_code"), dr.Item("service_desc").ToString, dr.Item(""), dr.Item("price").ToString, dr.Item("qty").ToString, dr.Item("line_total").ToString, "ADD")
         End While
         dr.Close()
         DisconnectDatabase()

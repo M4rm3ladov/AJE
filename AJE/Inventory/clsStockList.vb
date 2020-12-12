@@ -32,6 +32,7 @@ Public Class clsStockList
                                                dr.Item("item_code").ToString, dr.Item("brand_name").ToString, dr.Item("item_desc").ToString, dr.Item("item_add_desc").ToString,
                                                dr.Item("category_name").ToString, dr.Item("unit_name").ToString, dr.Item("qty").ToString)
         End While
+        dr.Close()
         DisconnectDatabase()
         frmStock.lbl_row_count_stock_List.Text = "(" & frmStock.dg_stock_List.RowCount & ") Record(s) found."
     End Sub

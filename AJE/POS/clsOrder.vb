@@ -236,7 +236,7 @@ Public Class clsOrder
         cm.Parameters.AddWithValue("@0", _ItemSearch & "%")
         dr = cm.ExecuteReader()
         While dr.Read
-            frmPos.dg_Search.Rows.Add(dr.Item("service_id").ToString, dr.Item("service_code").ToString, dr.Item("service_desc").ToString, dr.Item("service_fee_A").ToString, dr.Item("service_fee_B").ToString, "ADD")
+            frmPos.dg_Search.Rows.Add(dr.Item("service_id").ToString, dr.Item("service_code").ToString, dr.Item("service_desc").ToString, dr.Item("").ToString, dr.Item("service_fee_A").ToString, dr.Item("service_fee_B").ToString, "ADD")
         End While
         dr.Close()
         DisconnectDatabase()

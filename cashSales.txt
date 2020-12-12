@@ -1,10 +1,4 @@
-DELIMITER $$
-
-USE `aje_pos`$$
-
-DROP VIEW IF EXISTS `vw_cash_sales`$$
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_cash_sales` AS (SELECT cash_payment.trans_date , cash_payment.receipt ,
+(SELECT cash_payment.trans_date , cash_payment.receipt ,
 CONCAT(brand.brand_name,' | ', item.item_desc,' | ', item.item_add_desc) AS Description, category.category_name AS Category, unit.unit_name AS Unit,
 order_item_dtls.price ,order_item_dtls.qty,
 order_item_dtls.line_total ,CONCAT(`user_details`.`user_gname`,' ',`user_details`.`user_surname`,' ',`user_details`.`user_suffix`) AS Cashiers,

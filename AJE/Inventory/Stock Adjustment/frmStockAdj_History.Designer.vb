@@ -49,6 +49,7 @@ Partial Class frmStockAdj_History
         Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -214,7 +215,7 @@ Partial Class frmStockAdj_History
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dg_stock_History.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.dg_stock_History.ColumnHeadersHeight = 29
-        Me.dg_stock_History.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn18, Me.Column11, Me.Column5, Me.Column16, Me.Column4, Me.Column13, Me.Column9, Me.Column12, Me.Column14, Me.Column10, Me.Column15, Me.Column1})
+        Me.dg_stock_History.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn18, Me.Column11, Me.Column5, Me.Column16, Me.Column4, Me.Column13, Me.Column9, Me.Column12, Me.Column14, Me.Column2, Me.Column10, Me.Column15, Me.Column1})
         Me.dg_stock_History.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dg_stock_History.Location = New System.Drawing.Point(16, 167)
         Me.dg_stock_History.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
@@ -314,6 +315,15 @@ Partial Class frmStockAdj_History
         Me.Column14.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.Column14.Width = 128
         '
+        'Column2
+        '
+        Me.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column2.HeaderText = "Unit"
+        Me.Column2.Name = "Column2"
+        Me.Column2.ReadOnly = True
+        Me.Column2.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.Column2.Width = 82
+        '
         'Column10
         '
         Me.Column10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
@@ -378,6 +388,12 @@ Partial Class frmStockAdj_History
     Friend WithEvents pnl_Right As Panel
     Friend WithEvents pnl_Bottom As Panel
     Friend WithEvents dg_stock_History As DataGridView
+    Friend WithEvents btn_Report As Button
+    Friend WithEvents Label2 As Label
+    Friend WithEvents dtp_To As DateTimePicker
+    Friend WithEvents btn_load_History As Button
+    Friend WithEvents Label19 As Label
+    Friend WithEvents dtp_From As DateTimePicker
     Friend WithEvents DataGridViewTextBoxColumn18 As DataGridViewTextBoxColumn
     Friend WithEvents Column11 As DataGridViewTextBoxColumn
     Friend WithEvents Column5 As DataGridViewTextBoxColumn
@@ -387,13 +403,8 @@ Partial Class frmStockAdj_History
     Friend WithEvents Column9 As DataGridViewTextBoxColumn
     Friend WithEvents Column12 As DataGridViewTextBoxColumn
     Friend WithEvents Column14 As DataGridViewTextBoxColumn
+    Friend WithEvents Column2 As DataGridViewTextBoxColumn
     Friend WithEvents Column10 As DataGridViewTextBoxColumn
     Friend WithEvents Column15 As DataGridViewTextBoxColumn
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
-    Friend WithEvents btn_Report As Button
-    Friend WithEvents Label2 As Label
-    Friend WithEvents dtp_To As DateTimePicker
-    Friend WithEvents btn_load_History As Button
-    Friend WithEvents Label19 As Label
-    Friend WithEvents dtp_From As DateTimePicker
 End Class

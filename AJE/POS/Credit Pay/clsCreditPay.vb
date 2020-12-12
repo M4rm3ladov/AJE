@@ -109,7 +109,7 @@ Public Class clsCreditPay
         Else
             MsgBox(vbInformation, "No data available on given parameters.")
         End If
-
+        dr.Close()
         DisconnectDatabase()
     End Sub
     'Public Sub loadItems(orderId)

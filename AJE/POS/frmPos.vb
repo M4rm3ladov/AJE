@@ -143,7 +143,7 @@
                             "CONCAT(brand_name, ' ', item_desc, ' ', item_add_desc, ' ', category_name) LIKE @0) ")
                 'search for services
             ElseIf cbo_Type.SelectedIndex = 1 Then
-                order.searchService("SELECT * FROM service WHERE service_code LIKE @0 OR service_desc LIKE @0")
+                order.searchService("SELECT service_id, service_code, service_desc, '', service_fee_A, service_fee_B FROM service WHERE service_code LIKE @0 OR service_desc LIKE @0")
             End If
         Else
             'if text search is empty string 

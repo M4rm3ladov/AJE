@@ -62,6 +62,7 @@ Public Class clsStockIn
             dr.Read()
             inventory_id = dr.Item("inventory_id")
             Dim initialQty = dr.Item("qty")
+            dr.Close()
             cm.Dispose()
 
             Dim newStockQty = _ItemQty + initialQty  'computes the sum of initial item qty with stock entry qty

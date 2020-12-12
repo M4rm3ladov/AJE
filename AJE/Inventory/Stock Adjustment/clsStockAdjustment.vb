@@ -6,6 +6,7 @@ Public Class clsStockAdjustment
     Private _DateFrom As Object
     Private _DateTo As Object
     Private _ItemQty As Object
+    Private _RefNo As Object
     Private _Remarks As Object
     Public WriteOnly Property ItemId
         Set
@@ -42,6 +43,11 @@ Public Class clsStockAdjustment
             _Remarks = Value
         End Set
     End Property
+    Public WriteOnly Property RefNo
+        Set
+            _RefNo = Value
+        End Set
+    End Property
 
     Dim stocklist As New clsStockList
     Public Sub save()
@@ -75,26 +81,19 @@ Public Class clsStockAdjustment
             Exit Sub
         End If
 
-        Dim _refNo = getRefNo()
-        Dim refNoLegnth As String = _refNo.ToString
-        Dim zero = ""
-        For i = 0 To 5 - refNoLegnth.Length
-            zero &= "0"
-            i += 1
-        Next
-
         query = "INSERT INTO inventory_period (period_from, period_to) VALUES (@date_From, @date_To); SELECT LAST_INSERT_ID()"
         cm = New MySqlCommand(query, con)
         cm.Parameters.AddWithValue("@date_From", _DateFrom)
         cm.Parameters.AddWithValue("@date_To", _DateTo)
         Dim _inv_period_Id = cm.ExecuteScalar()
+        cm.Dispose()
 
         query = "INSERT INTO physical_count (inv_period_id, inventory_id, ref_no, qty, count_date, remarks) " &
             "VALUES (@inv_period_id, @inventory_id, @ref_no, @qty, @count_date, @remarks); "
         cm = New MySqlCommand(query, con)
         cm.Parameters.AddWithValue("@inventory_id", inventory_id)
         cm.Parameters.AddWithValue("@inv_period_id", _inv_period_Id)
-        cm.Parameters.AddWithValue("@ref_no", _refNo)
+        cm.Parameters.AddWithValue("@ref_no", _RefNo)
         cm.Parameters.AddWithValue("@qty", _ItemQty)
         cm.Parameters.AddWithValue("@count_date", _CountDate)
         cm.Parameters.AddWithValue("@remarks", _Remarks)
@@ -103,9 +102,6 @@ Public Class clsStockAdjustment
         cm.Dispose()
         DisconnectDatabase()
 
-        MsgBox("Reference Code: " & "SA" & frmStock.dtp_stock_Adjustment.Value.ToString("yyyyMMdd") & zero & _refNo, vbInformation) 'generate ref Code
-        stocklist.loadStockList()
-        frmStock.clearControls()
     End Sub
     Public Function getRefNo() As Integer  'checks table is empty with return of count = 1 else if empty count = 0
         ConnectDatabase()

@@ -3892,6 +3892,8 @@ Partial Public Class DataSet1
         
         Private columnCategory As Global.System.Data.DataColumn
         
+        Private columnUnit As Global.System.Data.DataColumn
+        
         Private columnQty As Global.System.Data.DataColumn
         
         Private columnPeriod_From As Global.System.Data.DataColumn
@@ -3991,6 +3993,14 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property UnitColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnUnit
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public ReadOnly Property QtyColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnQty
@@ -4050,9 +4060,9 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function Adddt_stock_AdjustRow(ByVal Reference_Code As String, ByVal Transaction_Date As String, ByVal Code As String, ByVal Brand As String, ByVal Description As String, ByVal Additional_Description As String, ByVal Category As String, ByVal Qty As String, ByVal Period_From As String, ByVal Period_To As String) As dt_stock_AdjustRow
+        Public Overloads Function Adddt_stock_AdjustRow(ByVal Reference_Code As String, ByVal Transaction_Date As String, ByVal Code As String, ByVal Brand As String, ByVal Description As String, ByVal Additional_Description As String, ByVal Category As String, ByVal Unit As String, ByVal Qty As String, ByVal Period_From As String, ByVal Period_To As String) As dt_stock_AdjustRow
             Dim rowdt_stock_AdjustRow As dt_stock_AdjustRow = CType(Me.NewRow,dt_stock_AdjustRow)
-            Dim columnValuesArray() As Object = New Object() {Reference_Code, Transaction_Date, Code, Brand, Description, Additional_Description, Category, Qty, Period_From, Period_To}
+            Dim columnValuesArray() As Object = New Object() {Reference_Code, Transaction_Date, Code, Brand, Description, Additional_Description, Category, Unit, Qty, Period_From, Period_To}
             rowdt_stock_AdjustRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowdt_stock_AdjustRow)
             Return rowdt_stock_AdjustRow
@@ -4082,6 +4092,7 @@ Partial Public Class DataSet1
             Me.columnDescription = MyBase.Columns("Description")
             Me.columnAdditional_Description = MyBase.Columns("Additional_Description")
             Me.columnCategory = MyBase.Columns("Category")
+            Me.columnUnit = MyBase.Columns("Unit")
             Me.columnQty = MyBase.Columns("Qty")
             Me.columnPeriod_From = MyBase.Columns("Period_From")
             Me.columnPeriod_To = MyBase.Columns("Period_To")
@@ -4104,6 +4115,8 @@ Partial Public Class DataSet1
             MyBase.Columns.Add(Me.columnAdditional_Description)
             Me.columnCategory = New Global.System.Data.DataColumn("Category", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCategory)
+            Me.columnUnit = New Global.System.Data.DataColumn("Unit", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnUnit)
             Me.columnQty = New Global.System.Data.DataColumn("Qty", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnQty)
             Me.columnPeriod_From = New Global.System.Data.DataColumn("Period_From", GetType(String), Nothing, Global.System.Data.MappingType.Element)
@@ -7866,6 +7879,21 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Unit() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledt_stock_Adjust.UnitColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Unit' in table 'dt_stock_Adjust' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledt_stock_Adjust.UnitColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property Qty() As String
             Get
                 Try 
@@ -7991,6 +8019,18 @@ Partial Public Class DataSet1
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetCategoryNull()
             Me(Me.tabledt_stock_Adjust.CategoryColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsUnitNull() As Boolean
+            Return Me.IsNull(Me.tabledt_stock_Adjust.UnitColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetUnitNull()
+            Me(Me.tabledt_stock_Adjust.UnitColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _

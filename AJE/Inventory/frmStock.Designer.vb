@@ -471,7 +471,7 @@ Partial Class frmStock
         Me.lbl_Qty.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.lbl_Qty.Size = New System.Drawing.Size(189, 62)
         Me.lbl_Qty.TabIndex = 27
-        Me.lbl_Qty.Text = "200"
+        Me.lbl_Qty.Text = "0"
         Me.lbl_Qty.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Label25
@@ -1935,7 +1935,7 @@ Partial Class frmStock
         'Column2
         '
         Me.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        DataGridViewCellStyle17.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle17.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!)
         Me.Column2.DefaultCellStyle = DataGridViewCellStyle17
         Me.Column2.HeaderText = "Unit"
         Me.Column2.Name = "Column2"
@@ -2049,7 +2049,7 @@ Partial Class frmStock
         'Column6
         '
         Me.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        DataGridViewCellStyle27.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle27.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!)
         Me.Column6.DefaultCellStyle = DataGridViewCellStyle27
         Me.Column6.HeaderText = "Unit"
         Me.Column6.Name = "Column6"
@@ -2163,7 +2163,7 @@ Partial Class frmStock
         'Column7
         '
         Me.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        DataGridViewCellStyle37.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle37.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!)
         Me.Column7.DefaultCellStyle = DataGridViewCellStyle37
         Me.Column7.HeaderText = "Unit"
         Me.Column7.Name = "Column7"
@@ -2277,7 +2277,7 @@ Partial Class frmStock
         'Column8
         '
         Me.Column8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        DataGridViewCellStyle47.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle47.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!)
         Me.Column8.DefaultCellStyle = DataGridViewCellStyle47
         Me.Column8.HeaderText = "Unit"
         Me.Column8.Name = "Column8"
@@ -2389,7 +2389,7 @@ Partial Class frmStock
         'col_unit_sA
         '
         Me.col_unit_sA.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        DataGridViewCellStyle56.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle56.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!)
         Me.col_unit_sA.DefaultCellStyle = DataGridViewCellStyle56
         Me.col_unit_sA.HeaderText = "Unit"
         Me.col_unit_sA.Name = "col_unit_sA"
@@ -2433,7 +2433,7 @@ Partial Class frmStock
         '
         'Column5
         '
-        Me.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
+        Me.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Column5.DefaultCellStyle = DataGridViewCellStyle1
         Me.Column5.HeaderText = "#"
@@ -2469,7 +2469,7 @@ Partial Class frmStock
         '
         'DataGridViewTextBoxColumn23
         '
-        Me.DataGridViewTextBoxColumn23.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
+        Me.DataGridViewTextBoxColumn23.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DataGridViewTextBoxColumn23.DefaultCellStyle = DataGridViewCellStyle4
         Me.DataGridViewTextBoxColumn23.HeaderText = "Brand"
@@ -2514,8 +2514,8 @@ Partial Class frmStock
         '
         'Column1
         '
-        Me.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        DataGridViewCellStyle8.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        DataGridViewCellStyle8.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!)
         Me.Column1.DefaultCellStyle = DataGridViewCellStyle8
         Me.Column1.HeaderText = "Unit"
         Me.Column1.Name = "Column1"

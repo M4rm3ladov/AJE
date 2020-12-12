@@ -105,12 +105,12 @@
     End Sub
 
     Private Sub dg_stock_In_EditingControlShowing(sender As Object, e As DataGridViewEditingControlShowingEventArgs) Handles dg_stock_In.EditingControlShowing
-        If dg_stock_In.CurrentCell.ColumnIndex = 7 Then
+        If dg_stock_In.CurrentCell.ColumnIndex = 8 Then
             AddHandler CType(e.Control, TextBox).KeyPress, AddressOf col_Qty_keyPress
         End If
     End Sub
     Private Sub col_Qty_keyPress(ByVal sender As Object, ByVal e As KeyPressEventArgs)
-        If dg_stock_In.CurrentCell.ColumnIndex = 7 Then
+        If dg_stock_In.CurrentCell.ColumnIndex = 8 Then
             If IsNumeric(e.KeyChar.ToString()) Or e.KeyChar = ChrW(Keys.Back) Then
                 e.Handled = False
             Else
@@ -221,12 +221,12 @@
         frmStockTrans_History.ShowDialog()
     End Sub
     Private Sub dg_stock_Transfer_EditingControlShowing(sender As Object, e As DataGridViewEditingControlShowingEventArgs) Handles dg_stock_Transfer.EditingControlShowing
-        If dg_stock_Transfer.CurrentCell.ColumnIndex = 7 Then
+        If dg_stock_Transfer.CurrentCell.ColumnIndex = 8 Then
             AddHandler CType(e.Control, TextBox).KeyPress, AddressOf col_qty_sT_keyPress
         End If
     End Sub
     Private Sub col_qty_sT_keyPress(ByVal sender As Object, ByVal e As KeyPressEventArgs)
-        If dg_stock_Transfer.CurrentCell.ColumnIndex = 7 Then
+        If dg_stock_Transfer.CurrentCell.ColumnIndex = 8 Then
             If IsNumeric(e.KeyChar.ToString()) Or e.KeyChar = ChrW(Keys.Back) Then
                 e.Handled = False
             Else
@@ -336,12 +336,12 @@
         End If
     End Sub
     Private Sub dg_stock_Return_EditingControlShowing(sender As Object, e As DataGridViewEditingControlShowingEventArgs) Handles dg_stock_Return.EditingControlShowing
-        If dg_stock_Return.CurrentCell.ColumnIndex = 7 Then
+        If dg_stock_Return.CurrentCell.ColumnIndex = 8 Then
             AddHandler CType(e.Control, TextBox).KeyPress, AddressOf col_qty_sR_keyPress
         End If
     End Sub
     Private Sub col_qty_sR_keyPress(ByVal sender As Object, ByVal e As KeyPressEventArgs)
-        If dg_stock_Return.CurrentCell.ColumnIndex = 7 Then
+        If dg_stock_Return.CurrentCell.ColumnIndex = 8 Then
             If IsNumeric(e.KeyChar.ToString()) Or e.KeyChar = ChrW(Keys.Back) Then
                 e.Handled = False
             Else
@@ -433,12 +433,12 @@
         End If
     End Sub
     Private Sub dg_stock_Out_EditingControlShowing(sender As Object, e As DataGridViewEditingControlShowingEventArgs) Handles dg_stock_Out.EditingControlShowing
-        If dg_stock_Out.CurrentCell.ColumnIndex = 7 Then
+        If dg_stock_Out.CurrentCell.ColumnIndex = 8 Then
             AddHandler CType(e.Control, TextBox).KeyPress, AddressOf col_qty_stockOut_keyPress
         End If
     End Sub
     Private Sub col_qty_stockOut_keyPress(ByVal sender As Object, ByVal e As KeyPressEventArgs)
-        If dg_stock_Out.CurrentCell.ColumnIndex = 7 Then
+        If dg_stock_Out.CurrentCell.ColumnIndex = 8 Then
             If IsNumeric(e.KeyChar.ToString()) Or e.KeyChar = ChrW(Keys.Back) Then
                 e.Handled = False
             Else
@@ -615,6 +615,15 @@
             End If
         Next
 
+        Dim _refNo = stockAdjust.getRefNo()
+        stockAdjust.RefNo = _refNo
+        Dim refNoLegnth As String = _refNo.ToString
+        Dim zero = ""
+        For i = 0 To 5 - refNoLegnth.Length
+            zero &= "0"
+            i += 1
+        Next
+
         For i = 0 To dg_stock_Adjustment.RowCount - 1    'sets the column entries for stock_in table per dg_stock_in row
             stockAdjust.ItemId = dg_stock_Adjustment.Rows(i).Cells(0).Value   'item_id
             stockAdjust.BranchId = frmMain.lbl_branch_Id.Text 'branch_id
@@ -625,6 +634,10 @@
             stockAdjust.Remarks = tb_remarks_sA.Text 'remarks
             stockAdjust.save()
         Next
+
+        MsgBox("Reference Code: " & "SA" & dtp_stock_Adjustment.Value.ToString("yyyyMMdd") & zero & _refNo, vbInformation) 'generate ref Code
+        stockList.loadStockList()
+        clearControls()
     End Sub
 
     Private Sub btn_new_sA_Click(sender As Object, e As EventArgs) Handles btn_new_sA.Click
@@ -634,12 +647,12 @@
     End Sub
 
     Private Sub dg_stock_Adjustment_EditingControlShowing(sender As Object, e As DataGridViewEditingControlShowingEventArgs) Handles dg_stock_Adjustment.EditingControlShowing
-        If dg_stock_Adjustment.CurrentCell.ColumnIndex = 7 Then
+        If dg_stock_Adjustment.CurrentCell.ColumnIndex = 8 Then
             AddHandler CType(e.Control, TextBox).KeyPress, AddressOf col_qty_sA_keyPress
         End If
     End Sub
     Private Sub col_qty_sA_keyPress(ByVal sender As Object, ByVal e As KeyPressEventArgs)
-        If dg_stock_Adjustment.CurrentCell.ColumnIndex = 7 Then
+        If dg_stock_Adjustment.CurrentCell.ColumnIndex = 8 Then
             If IsNumeric(e.KeyChar.ToString()) Or e.KeyChar = ChrW(Keys.Back) Then
                 e.Handled = False
             Else

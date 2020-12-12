@@ -165,6 +165,7 @@ Public Class clsBrand
 
             If dr.HasRows Then
                 Dim _id = dr.Item("brand_id")
+                dr.Close()
                 DisconnectDatabase()
                 Return _id
             End If

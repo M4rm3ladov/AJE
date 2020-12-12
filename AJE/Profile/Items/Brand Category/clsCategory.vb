@@ -128,6 +128,7 @@ Public Class clsCategory
             dr.Read()
             If dr.HasRows Then
                 Dim _id = dr.Item("category_id")
+                dr.Close()
                 DisconnectDatabase()
                 Return _id
             End If

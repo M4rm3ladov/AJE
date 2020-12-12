@@ -139,17 +139,18 @@
                 cbo_Orders.Enabled = True
                 tb_Orders.Enabled = True
                 If cbo_Orders.SelectedIndex = 0 Then
-                    refund.searchItem("SELECT item.item_id, item.item_code, order_item_dtls.qty, order_item_dtls.price, order_item_dtls.line_total, CONCAT(brand_name, ' | ', item_desc, ' | ', item_add_desc, ' | ', category_name) As description FROM order_item_dtls " &
+                    refund.searchItem("SELECT item.item_id, item.item_code, order_item_dtls.qty, order_item_dtls.price, order_item_dtls.line_total, CONCAT(brand_name, ' | ', item_desc, ' | ', item_add_desc, ' | ', category_name) As description, unit_name FROM order_item_dtls " &
                                     "INNER JOIN orders on orders.`order_id` = order_item_dtls.`order_id` " &
                                     "INNER JOIN cash_payment ON cash_payment.order_id = orders.order_id " &
                                     "INNER JOIN inventory on inventory.`inventory_id` = order_item_dtls.`inventory_id` " &
                                     "INNER JOIN item on item.`item_id` = inventory.`item_id` " &
+                                    "INNER JOIN unit on unit.unit_id= item.unit_id" &
                                     "INNER JOIN brand on brand.`brand_id` = item.`brand_id` " &
                                     "INNER JOIN category on category.`category_id` = item.`category_id` WHERE (inventory.branch_id = @branch_id) AND (item_code LIKE @0 OR item_desc LIKE @0 OR item_add_desc LIKE @0 OR brand_name LIKE @0 OR category_name LIKE @0 OR " &
-                                    "CONCAT(brand_name, ' ', item_desc, ' ', item_add_desc, ' ', category_name) LIKE @0) AND (receipt = @receipt) AND (cash_payment.trans_date = @trans_date)")
+                                    "CONCAT(brand_name, ' ', item_desc, ' ', item_add_desc, ' ', category_name, ' ', unit_name) LIKE @0 or unit_name LIKE @0) AND (receipt = @receipt) AND (cash_payment.trans_date = @trans_date)")
 
                 ElseIf cbo_Orders.SelectedIndex = 1 Then
-                    refund.searchService("SELECT service.service_id, service_code, service_desc, order_svc_dtls.qty, order_svc_dtls.price, order_svc_dtls.line_total FROM order_svc_dtls " &
+                    refund.searchService("SELECT service.service_id, service_code, service_desc, '',  order_svc_dtls.qty, order_svc_dtls.price, order_svc_dtls.line_total FROM order_svc_dtls " &
                                     "INNER JOIN orders ON orders.order_id = order_svc_dtls.order_id " &
                                     "INNER JOIN cash_payment ON cash_payment.order_id = orders.order_id " &
                                     "INNER JOIN service ON service.service_id = order_svc_dtls.service_id " &
@@ -161,16 +162,17 @@
                 cbo_Orders.Enabled = True
                 tb_Orders.Enabled = True
                 If cbo_Orders.SelectedIndex = 0 Then
-                    refund.searchItemInvoice("SELECT item.item_id, item_code, order_item_dtls.qty, order_item_dtls.price, order_item_dtls.line_total, CONCAT(brand_name, ' | ', item_desc, ' | ', item_add_desc, ' | ', category_name) As description FROM order_item_dtls " &
+                    refund.searchItemInvoice("SELECT item.item_id, item_code, order_item_dtls.qty, order_item_dtls.price, order_item_dtls.line_total, CONCAT(brand_name, ' | ', item_desc, ' | ', item_add_desc, ' | ', category_name) As description, unit_name FROM order_item_dtls " &
                                     "INNER JOIN orders on orders.`order_id` = order_item_dtls.`order_id` " &
                                     "INNER JOIN credit_payment ON credit_payment.order_id = orders.order_id " &
                                     "INNER JOIN inventory on inventory.`inventory_id` = order_item_dtls.`inventory_id` " &
                                     "INNER JOIN item on item.`item_id` = inventory.`item_id` " &
+                                    "INNER JOIN unit on unit.unit_id = item.unit_id " &
                                     "INNER JOIN brand on brand.`brand_id` = item.`brand_id` " &
                                     "INNER JOIN category on category.`category_id` = item.`category_id` WHERE (inventory.branch_id = @branch_id) AND (item_code LIKE @0 OR item_desc LIKE @0 OR item_add_desc LIKE @0 OR brand_name LIKE @0 OR category_name LIKE @0 OR " &
-                                    "CONCAT(brand_name, ' ', item_desc, ' ', item_add_desc, ' ', category_name) LIKE @0) AND (invoice = @invoice) AND (credit_payment.trans_date = @trans_date)")
+                                    "unit_name LIKE @0 OR CONCAT(brand_name, ' ', item_desc, ' ', item_add_desc, ' ', category_name, ' ', unit_name) LIKE @0) AND (invoice = @invoice) AND (credit_payment.trans_date = @trans_date)")
                 ElseIf cbo_Orders.SelectedIndex = 1 Then
-                    refund.searchServiceInvoice("SELECT service.service_id, service_code, service_desc, order_svc_dtls.qty, order_svc_dtls.price, order_svc_dtls.line_total FROM order_svc_dtls " &
+                    refund.searchServiceInvoice("SELECT service.service_id, service_code, service_desc, '', order_svc_dtls.qty, order_svc_dtls.price, order_svc_dtls.line_total FROM order_svc_dtls " &
                                         "INNER JOIN orders ON orders.order_id = order_svc_dtls.order_id " &
                                         "INNER JOIN credit_payment ON credit_payment.order_id = orders.order_id " &
                                         "INNER JOIN service ON service.service_id = order_svc_dtls.service_id " &
@@ -178,7 +180,6 @@
                 End If
             End If
         End If
-
 
     End Sub
 

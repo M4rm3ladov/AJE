@@ -191,6 +191,7 @@ Public Class clsUser
                 frmUserEntry.lbl_branch_Id.Text = dr(0).ToString
             End While
         End If
+        dr.Close()
         DisconnectDatabase()
     End Sub
     Public Function loadPassword(_username As String)
