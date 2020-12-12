@@ -738,7 +738,9 @@ Partial Public Class DataSet1
     Partial Public Class dt_cash_SalesDataTable
         Inherits Global.System.Data.TypedTableBase(Of dt_cash_SalesRow)
         
-        Private columntrans_date As Global.System.Data.DataColumn
+        Private columnDateInputed As Global.System.Data.DataColumn
+        
+        Private columntransDate As Global.System.Data.DataColumn
         
         Private columnreceipt As Global.System.Data.DataColumn
         
@@ -793,9 +795,17 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property trans_dateColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property DateInputedColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columntrans_date
+                Return Me.columnDateInputed
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property transDateColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columntransDate
             End Get
         End Property
         
@@ -900,9 +910,9 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function Adddt_cash_SalesRow(ByVal trans_date As String, ByVal receipt As String, ByVal Description As String, ByVal Category As String, ByVal Unit As String, ByVal price As Decimal, ByVal qty As String, ByVal line_total As Decimal, ByVal Cashiers As String) As dt_cash_SalesRow
+        Public Overloads Function Adddt_cash_SalesRow(ByVal DateInputed As String, ByVal transDate As String, ByVal receipt As String, ByVal Description As String, ByVal Category As String, ByVal Unit As String, ByVal price As Decimal, ByVal qty As String, ByVal line_total As Decimal, ByVal Cashiers As String) As dt_cash_SalesRow
             Dim rowdt_cash_SalesRow As dt_cash_SalesRow = CType(Me.NewRow,dt_cash_SalesRow)
-            Dim columnValuesArray() As Object = New Object() {trans_date, receipt, Description, Category, Unit, price, qty, line_total, Cashiers}
+            Dim columnValuesArray() As Object = New Object() {DateInputed, transDate, receipt, Description, Category, Unit, price, qty, line_total, Cashiers}
             rowdt_cash_SalesRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowdt_cash_SalesRow)
             Return rowdt_cash_SalesRow
@@ -925,7 +935,8 @@ Partial Public Class DataSet1
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Sub InitVars()
-            Me.columntrans_date = MyBase.Columns("trans_date")
+            Me.columnDateInputed = MyBase.Columns("DateInputed")
+            Me.columntransDate = MyBase.Columns("transDate")
             Me.columnreceipt = MyBase.Columns("receipt")
             Me.columnDescription = MyBase.Columns("Description")
             Me.columnCategory = MyBase.Columns("Category")
@@ -939,8 +950,10 @@ Partial Public Class DataSet1
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitClass()
-            Me.columntrans_date = New Global.System.Data.DataColumn("trans_date", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columntrans_date)
+            Me.columnDateInputed = New Global.System.Data.DataColumn("DateInputed", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDateInputed)
+            Me.columntransDate = New Global.System.Data.DataColumn("transDate", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columntransDate)
             Me.columnreceipt = New Global.System.Data.DataColumn("receipt", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnreceipt)
             Me.columnDescription = New Global.System.Data.DataColumn("Description", GetType(String), Nothing, Global.System.Data.MappingType.Element)
@@ -1094,7 +1107,9 @@ Partial Public Class DataSet1
     Partial Public Class dt_credit_SalesDataTable
         Inherits Global.System.Data.TypedTableBase(Of dt_credit_SalesRow)
         
-        Private columntrans_date As Global.System.Data.DataColumn
+        Private columnDateInputed As Global.System.Data.DataColumn
+        
+        Private columntransDate As Global.System.Data.DataColumn
         
         Private columninvoice As Global.System.Data.DataColumn
         
@@ -1151,9 +1166,17 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property trans_dateColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property DateInputedColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columntrans_date
+                Return Me.columnDateInputed
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property transDateColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columntransDate
             End Get
         End Property
         
@@ -1266,9 +1289,9 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function Adddt_credit_SalesRow(ByVal trans_date As String, ByVal invoice As String, ByVal Description As String, ByVal Category As String, ByVal Unit As String, ByVal price As Decimal, ByVal qty As String, ByVal line_total As Decimal, ByVal Cashiers As String, ByVal Customers As String) As dt_credit_SalesRow
+        Public Overloads Function Adddt_credit_SalesRow(ByVal DateInputed As String, ByVal transDate As String, ByVal invoice As String, ByVal Description As String, ByVal Category As String, ByVal Unit As String, ByVal price As Decimal, ByVal qty As String, ByVal line_total As Decimal, ByVal Cashiers As String, ByVal Customers As String) As dt_credit_SalesRow
             Dim rowdt_credit_SalesRow As dt_credit_SalesRow = CType(Me.NewRow,dt_credit_SalesRow)
-            Dim columnValuesArray() As Object = New Object() {trans_date, invoice, Description, Category, Unit, price, qty, line_total, Cashiers, Customers}
+            Dim columnValuesArray() As Object = New Object() {DateInputed, transDate, invoice, Description, Category, Unit, price, qty, line_total, Cashiers, Customers}
             rowdt_credit_SalesRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowdt_credit_SalesRow)
             Return rowdt_credit_SalesRow
@@ -1291,7 +1314,8 @@ Partial Public Class DataSet1
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Sub InitVars()
-            Me.columntrans_date = MyBase.Columns("trans_date")
+            Me.columnDateInputed = MyBase.Columns("DateInputed")
+            Me.columntransDate = MyBase.Columns("transDate")
             Me.columninvoice = MyBase.Columns("invoice")
             Me.columnDescription = MyBase.Columns("Description")
             Me.columnCategory = MyBase.Columns("Category")
@@ -1306,8 +1330,10 @@ Partial Public Class DataSet1
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitClass()
-            Me.columntrans_date = New Global.System.Data.DataColumn("trans_date", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columntrans_date)
+            Me.columnDateInputed = New Global.System.Data.DataColumn("DateInputed", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDateInputed)
+            Me.columntransDate = New Global.System.Data.DataColumn("transDate", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columntransDate)
             Me.columninvoice = New Global.System.Data.DataColumn("invoice", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columninvoice)
             Me.columnDescription = New Global.System.Data.DataColumn("Description", GetType(String), Nothing, Global.System.Data.MappingType.Element)
@@ -5622,16 +5648,31 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property trans_date() As String
+        Public Property DateInputed() As String
             Get
                 Try 
-                    Return CType(Me(Me.tabledt_cash_Sales.trans_dateColumn),String)
+                    Return CType(Me(Me.tabledt_cash_Sales.DateInputedColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'trans_date' in table 'dt_cash_Sales' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'DateInputed' in table 'dt_cash_Sales' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tabledt_cash_Sales.trans_dateColumn) = value
+                Me(Me.tabledt_cash_Sales.DateInputedColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property transDate() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledt_cash_Sales.transDateColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'transDate' in table 'dt_cash_Sales' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledt_cash_Sales.transDateColumn) = value
             End Set
         End Property
         
@@ -5757,14 +5798,26 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function Istrans_dateNull() As Boolean
-            Return Me.IsNull(Me.tabledt_cash_Sales.trans_dateColumn)
+        Public Function IsDateInputedNull() As Boolean
+            Return Me.IsNull(Me.tabledt_cash_Sales.DateInputedColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub Settrans_dateNull()
-            Me(Me.tabledt_cash_Sales.trans_dateColumn) = Global.System.Convert.DBNull
+        Public Sub SetDateInputedNull()
+            Me(Me.tabledt_cash_Sales.DateInputedColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IstransDateNull() As Boolean
+            Return Me.IsNull(Me.tabledt_cash_Sales.transDateColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SettransDateNull()
+            Me(Me.tabledt_cash_Sales.transDateColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -5881,16 +5934,31 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property trans_date() As String
+        Public Property DateInputed() As String
             Get
                 Try 
-                    Return CType(Me(Me.tabledt_credit_Sales.trans_dateColumn),String)
+                    Return CType(Me(Me.tabledt_credit_Sales.DateInputedColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'trans_date' in table 'dt_credit_Sales' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'DateInputed' in table 'dt_credit_Sales' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tabledt_credit_Sales.trans_dateColumn) = value
+                Me(Me.tabledt_credit_Sales.DateInputedColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property transDate() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledt_credit_Sales.transDateColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'transDate' in table 'dt_credit_Sales' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledt_credit_Sales.transDateColumn) = value
             End Set
         End Property
         
@@ -6031,14 +6099,26 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function Istrans_dateNull() As Boolean
-            Return Me.IsNull(Me.tabledt_credit_Sales.trans_dateColumn)
+        Public Function IsDateInputedNull() As Boolean
+            Return Me.IsNull(Me.tabledt_credit_Sales.DateInputedColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub Settrans_dateNull()
-            Me(Me.tabledt_credit_Sales.trans_dateColumn) = Global.System.Convert.DBNull
+        Public Sub SetDateInputedNull()
+            Me(Me.tabledt_credit_Sales.DateInputedColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IstransDateNull() As Boolean
+            Return Me.IsNull(Me.tabledt_credit_Sales.transDateColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SettransDateNull()
+            Me(Me.tabledt_credit_Sales.transDateColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
