@@ -95,6 +95,8 @@
     End Sub
 
     Private Sub btn_Load_Click(sender As Object, e As EventArgs) Handles btn_Load.Click
+        dg_Search.Rows.Clear()
+        tb_Orders.Clear()
         cbo_Orders.SelectedIndex = 0
         refund.SetTransDate(dtp_Date.Value.ToString("yyyy-MM-dd"))
         refund.SetBranchId(frmPos.lbl_branch_Id.Text)
@@ -144,7 +146,7 @@
                                     "INNER JOIN cash_payment ON cash_payment.order_id = orders.order_id " &
                                     "INNER JOIN inventory on inventory.`inventory_id` = order_item_dtls.`inventory_id` " &
                                     "INNER JOIN item on item.`item_id` = inventory.`item_id` " &
-                                    "INNER JOIN unit on unit.unit_id= item.unit_id" &
+                                    "INNER JOIN unit on unit.unit_id= item.unit_id " &
                                     "INNER JOIN brand on brand.`brand_id` = item.`brand_id` " &
                                     "INNER JOIN category on category.`category_id` = item.`category_id` WHERE (inventory.branch_id = @branch_id) AND (item_code LIKE @0 OR item_desc LIKE @0 OR item_add_desc LIKE @0 OR brand_name LIKE @0 OR category_name LIKE @0 OR " &
                                     "CONCAT(brand_name, ' ', item_desc, ' ', item_add_desc, ' ', category_name, ' ', unit_name) LIKE @0 or unit_name LIKE @0) AND (receipt = @receipt) AND (cash_payment.trans_date = @trans_date)")
@@ -214,8 +216,8 @@
         Dim colName As String = dg_Refund.Columns(e.ColumnIndex).Name
         Dim i As Integer = dg_Refund.CurrentRow.Index
         If colName = "col_Edit" Then
-            frmPriceRefund.tb_Price.Text = dg_Refund.Item(3, i).Value
-            frmPriceRefund.tb_Qty.Text = dg_Refund.Item(4, i).Value
+            frmPriceRefund.tb_Price.Text = dg_Refund.Item(4, i).Value
+            frmPriceRefund.tb_Qty.Text = dg_Refund.Item(5, i).Value
             frmPriceRefund.lbl_Type.Text = 2
             frmPriceRefund.btn_Add.Text = "Save"
             frmPriceRefund.ShowDialog()
@@ -229,7 +231,7 @@
 
                 Dim due_total As Decimal = 0.00
                 For i = 0 To dg_Refund.RowCount - 1
-                    due_total = due_total + dg_Refund.Item(5, i).Value
+                    due_total = due_total + dg_Refund.Item(6, i).Value
                 Next
                 lbl_due_Total.Text = Format(due_total, "0.00") 'set due total
             End If

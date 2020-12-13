@@ -105,8 +105,16 @@
         order.SetBranchId(frmPos.lbl_branch_Id.Text)
         If frmPos.lbl_pay_Type.Text = "Cash" Then
             order.SetReceipt(tb_Receipt.Text.Trim)
+            If order.checkReceipt = True Then
+                MsgBox("Receipt Duplicate.", vbInformation)
+                Exit Sub
+            End If
         ElseIf frmPos.lbl_pay_Type.Text = "Credit" Then
             order.SetInvoice(tb_Receipt.Text.Trim)
+            If order.checkInvoice = True Then
+                MsgBox("Invoice Duplicate.", vbInformation)
+                Exit Sub
+            End If
         End If
         order.saveOrder()
 

@@ -1,7 +1,7 @@
 ﻿Public Class frmPriceRefund
     Dim strCurrency As String = ""
     Dim acceptableKey As Boolean = False
-    Dim _id, _code, _desc, _qty
+    Dim _id, _code, _desc, _qty, _unit
     Dim _total, _price, _priceA, _priceB As Double
     Private Sub tb_Price_KeyDown(sender As Object, e As KeyEventArgs) Handles tb_Price.KeyDown
         If (e.KeyCode >= Keys.D0 And e.KeyCode <= Keys.D9) OrElse (e.KeyCode >= Keys.NumPad0 And e.KeyCode <= Keys.NumPad9) OrElse e.KeyCode = Keys.Back Then
@@ -56,7 +56,7 @@
         End If
 
         Dim b As Integer = frmRefund.dg_Search.CurrentRow.Index
-        If Val(tb_Qty.Text) > frmRefund.dg_Search.Item(4, b).Value Or Val(tb_Qty.Text) = 0 Then                              'prompts message if qty is 0
+        If Val(tb_Qty.Text) > frmRefund.dg_Search.Item(5, b).Value Or Val(tb_Qty.Text) = 0 Then                              'prompts message if qty is 0
             MsgBox("Please input a valid quantity", vbExclamation)
             Exit Sub
         End If
@@ -72,11 +72,12 @@
             _id = frmRefund.dg_Search.Item(0, i).Value
             _code = frmRefund.dg_Search.Item(1, i).Value
             _desc = frmRefund.dg_Search.Item(2, i).Value
+            _unit = frmRefund.dg_Search.Item(3, i).Value
             _qty = tb_Qty.Text
             _price = Val(tb_Price.Text)
             _total = Val(tb_Price.Text) * Val(tb_Qty.Text)
 
-            frmRefund.dg_Refund.Rows.Add(_id, _code, _desc, Format(_price, "0.00"), _qty, Format(_total, "0.00"), "EDIT", "REMOVE")
+            frmRefund.dg_Refund.Rows.Add(_id, _code, _desc, _unit, Format(_price, "0.00"), _qty, Format(_total, "0.00"), "EDIT", "REMOVE")
 
             MsgBox("Item/Service has been added to cart.", vbInformation)
 
@@ -88,14 +89,14 @@
                 Exit Sub
             End If
 
-            frmRefund.dg_Refund.Item(3, i).Value = Format(Val(tb_Price.Text), "0.00")
-            frmRefund.dg_Refund.Item(4, i).Value = tb_Qty.Text
-            frmRefund.dg_Refund.Item(5, i).Value = Format(Val(tb_Price.Text) * Val(tb_Qty.Text), "0.00")
+            frmRefund.dg_Refund.Item(4, i).Value = Format(Val(tb_Price.Text), "0.00")
+            frmRefund.dg_Refund.Item(5, i).Value = tb_Qty.Text
+            frmRefund.dg_Refund.Item(6, i).Value = Format(Val(tb_Price.Text) * Val(tb_Qty.Text), "0.00")
             MsgBox("Item/Service has been updated.", vbInformation)
         End If
         Dim due_total As Decimal = 0.00
         For i = 0 To frmRefund.dg_Refund.RowCount - 1
-            due_total = due_total + frmRefund.dg_Refund.Item(5, i).Value
+            due_total = due_total + frmRefund.dg_Refund.Item(6, i).Value
         Next
         frmRefund.lbl_due_Total.Text = Format(due_total, "0.00") 'set due total
 
@@ -111,12 +112,12 @@
         If lbl_Type.Text = 1 Then
             If frmRefund.dg_Search.RowCount <> 0 Then
                 Dim i As Integer = frmRefund.dg_Search.CurrentRow.Index
-                tb_price_Range.Text = frmRefund.dg_Search.Item(3, i).Value
+                tb_price_Range.Text = frmRefund.dg_Search.Item(4, i).Value
             End If
         ElseIf lbl_Type.Text = 2 Then
             If frmRefund.dg_Refund.RowCount <> 0 Then
                 Dim i As Integer = frmRefund.dg_Refund.CurrentRow.Index
-                tb_price_Range.Text = frmRefund.dg_Refund.Item(3, i).Value
+                tb_price_Range.Text = frmRefund.dg_Refund.Item(4, i).Value
             End If
         End If
 

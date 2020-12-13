@@ -112,7 +112,7 @@ Public Class clsRefund
         cm.Parameters.AddWithValue("@trans_date", _TransDate)
         dr = cm.ExecuteReader()
         While dr.Read
-            frmRefund.dg_Search.Rows.Add(dr.Item("item_id").ToString, dr.Item("item_code").ToString, dr.Item("description"), dr.Item("price").ToString, dr.Item("qty").ToString, dr.Item("line_total").ToString, "ADD")
+            frmRefund.dg_Search.Rows.Add(dr.Item("item_id").ToString, dr.Item("item_code").ToString, dr.Item("description"), dr.Item("unit_name"), dr.Item("price").ToString, dr.Item("qty").ToString, dr.Item("line_total").ToString, "ADD")
         End While
         dr.Close()
         DisconnectDatabase()
@@ -126,7 +126,7 @@ Public Class clsRefund
         cm.Parameters.AddWithValue("@trans_date", _TransDate)
         dr = cm.ExecuteReader()
         While dr.Read
-            frmRefund.dg_Search.Rows.Add(dr.Item("service_id").ToString, dr.Item("service_code"), dr.Item("service_desc").ToString, dr.Item("price").ToString, dr.Item("qty").ToString, dr.Item("line_total").ToString, "ADD")
+            frmRefund.dg_Search.Rows.Add(dr.Item("service_id").ToString, dr.Item("service_code"), dr.Item("service_desc").ToString, dr.Item("").ToString, dr.Item("price").ToString, dr.Item("qty").ToString, dr.Item("line_total").ToString, "ADD")
         End While
         dr.Close()
         DisconnectDatabase()
@@ -147,9 +147,9 @@ Public Class clsRefund
         For i = 0 To frmRefund.dg_Refund.RowCount - 1
             _service_code = frmRefund.dg_Refund.Item(1, i).Value
             _id = frmRefund.dg_Refund.Item(0, i).Value
-            _qty = frmRefund.dg_Refund.Item(4, i).Value
-            _price = frmRefund.dg_Refund.Item(3, i).Value
-            _line_total = frmRefund.dg_Refund.Item(5, i).Value
+            _qty = frmRefund.dg_Refund.Item(5, i).Value
+            _price = frmRefund.dg_Refund.Item(4, i).Value
+            _line_total = frmRefund.dg_Refund.Item(6, i).Value
             query = "SELECT EXISTS(SELECT service_code FROM service WHERE service_code = @service_code)"
             cm = New MySqlCommand(query, con)
             cm.Parameters.AddWithValue("@service_code", _service_code)
