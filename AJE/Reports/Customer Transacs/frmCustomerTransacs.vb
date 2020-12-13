@@ -2,6 +2,10 @@
 Imports Microsoft.Reporting.WinForms
 Public Class frmCustomerTransacs
     Private Sub btn_load_transac_Report_Click(sender As Object, e As EventArgs) Handles btn_load_transac_Report.Click
+        If tb_transac_Customer.Text = vbNullString Then
+            MsgBox("Please select an existing customer.", vbInformation)
+            Exit Sub
+        End If
         Dim rptDs As ReportDataSource
         rv_Transac.RefreshReport()
         Try
@@ -14,7 +18,7 @@ Public Class frmCustomerTransacs
             Dim da As New MySqlDataAdapter
 
             ConnectDatabase()
-            da.SelectCommand = New MySqlCommand("SELECT DATE_FORMAT(trans_date, '%m/%d/%Y') AS trans_date, invoice, Description, price, qty, line_total, pay_amount, Cashiers FROM vw_customer_transactions WHERE branch_id = '" & frmMain.lbl_branch_Id.Text & "' AND  customer_id = '" & lbl_transac_customer_Id.Text & "' AND trans_date BETWEEN '" & dtp_transac_From.Value.ToString("yyyy-MM-dd") & "' AND '" & dtp_transac_To.Value.ToString("yyyy-MM-dd") & "'", con)
+            da.SelectCommand = New MySqlCommand("SELECT DATE_FORMAT(trans_date, '%m/%d/%Y') AS trans_date, invoice, Description, Category, Unit, price, qty, line_total, pay_amount, Cashiers FROM vw_customer_transactions WHERE branch_id = '" & frmMain.lbl_branch_Id.Text & "' AND  customer_id = '" & lbl_transac_customer_Id.Text & "' AND trans_date BETWEEN '" & dtp_transac_From.Value.ToString("yyyy-MM-dd") & "' AND '" & dtp_transac_To.Value.ToString("yyyy-MM-dd") & "'", con)
             da.Fill(ds.Tables("dt_customer_cred_Transacs"))
             DisconnectDatabase()
 
