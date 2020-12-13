@@ -82,6 +82,7 @@ Partial Class frmCustomerEntry
         Me.tb_credit_Limit.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tb_credit_Limit.Location = New System.Drawing.Point(255, 338)
         Me.tb_credit_Limit.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.tb_credit_Limit.MaxLength = 10
         Me.tb_credit_Limit.Name = "tb_credit_Limit"
         Me.tb_credit_Limit.RightToLeft = System.Windows.Forms.RightToLeft.Yes
         Me.tb_credit_Limit.ShortcutsEnabled = False

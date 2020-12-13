@@ -11,6 +11,8 @@
         btn_Service.BackColor = Color.FromArgb(127, 140, 141)
         btn_Supplier.BackColor = Color.FromArgb(127, 140, 141)
         btn_Branch.BackColor = Color.FromArgb(127, 140, 141)
+        btn_credit_Limit.BackColor = Color.FromArgb(127, 140, 141)
+        btn_critical_Stock.BackColor = Color.FromArgb(127, 140, 141)
     End Sub
 
     Private Sub btn_User_Click(sender As Object, e As EventArgs) Handles btn_User.Click
@@ -25,6 +27,8 @@
         btn_Service.BackColor = Color.FromArgb(127, 140, 141)
         btn_Supplier.BackColor = Color.FromArgb(127, 140, 141)
         btn_Branch.BackColor = Color.FromArgb(127, 140, 141)
+        btn_credit_Limit.BackColor = Color.FromArgb(127, 140, 141)
+        btn_critical_Stock.BackColor = Color.FromArgb(127, 140, 141)
     End Sub
 
     Private Sub btn_Service_Click(sender As Object, e As EventArgs) Handles btn_Service.Click
@@ -39,6 +43,8 @@
         btn_Item.BackColor = Color.FromArgb(127, 140, 141)
         btn_Supplier.BackColor = Color.FromArgb(127, 140, 141)
         btn_Branch.BackColor = Color.FromArgb(127, 140, 141)
+        btn_credit_Limit.BackColor = Color.FromArgb(127, 140, 141)
+        btn_critical_Stock.BackColor = Color.FromArgb(127, 140, 141)
     End Sub
 
     Private Sub btn_Branch_Click(sender As Object, e As EventArgs) Handles btn_Branch.Click
@@ -53,6 +59,8 @@
         btn_Item.BackColor = Color.FromArgb(127, 140, 141)
         btn_Service.BackColor = Color.FromArgb(127, 140, 141)
         btn_Supplier.BackColor = Color.FromArgb(127, 140, 141)
+        btn_credit_Limit.BackColor = Color.FromArgb(127, 140, 141)
+        btn_critical_Stock.BackColor = Color.FromArgb(127, 140, 141)
     End Sub
 
     Private Sub btn_Supplier_Click(sender As Object, e As EventArgs) Handles btn_Supplier.Click
@@ -67,6 +75,8 @@
         btn_User.BackColor = Color.FromArgb(127, 140, 141)
         btn_Item.BackColor = Color.FromArgb(127, 140, 141)
         btn_Service.BackColor = Color.FromArgb(127, 140, 141)
+        btn_credit_Limit.BackColor = Color.FromArgb(127, 140, 141)
+        btn_critical_Stock.BackColor = Color.FromArgb(127, 140, 141)
     End Sub
 
     Private Sub btn_Close_Click(sender As Object, e As EventArgs) Handles btn_Close.Click
@@ -83,4 +93,35 @@
         Me.Close()
     End Sub
 
+    Private Sub btn_credit_Limit_Click(sender As Object, e As EventArgs) Handles btn_credit_Limit.Click
+        With pbImage
+            pnlMid.Controls.Add(pbImage)
+            .BringToFront()
+            .Show()
+        End With
+        btn_credit_Limit.BackColor = Color.FromArgb(44, 62, 80)
+        btn_User.BackColor = Color.FromArgb(127, 140, 141)
+        btn_Item.BackColor = Color.FromArgb(127, 140, 141)
+        btn_Supplier.BackColor = Color.FromArgb(127, 140, 141)
+        btn_Branch.BackColor = Color.FromArgb(127, 140, 141)
+        btn_Service.BackColor = Color.FromArgb(127, 140, 141)
+        btn_critical_Stock.BackColor = Color.FromArgb(127, 140, 141)
+        frmCreditLimit.ShowDialog()
+    End Sub
+
+    Private Sub btn_critical_Stock_Click(sender As Object, e As EventArgs) Handles btn_critical_Stock.Click
+        With pbImage
+            pnlMid.Controls.Add(pbImage)
+            .BringToFront()
+            .Show()
+        End With
+        btn_critical_Stock.BackColor = Color.FromArgb(44, 62, 80)
+        btn_User.BackColor = Color.FromArgb(127, 140, 141)
+        btn_Item.BackColor = Color.FromArgb(127, 140, 141)
+        btn_Supplier.BackColor = Color.FromArgb(127, 140, 141)
+        btn_Branch.BackColor = Color.FromArgb(127, 140, 141)
+        btn_Service.BackColor = Color.FromArgb(127, 140, 141)
+        btn_credit_Limit.BackColor = Color.FromArgb(127, 140, 141)
+        frmCriticalStock.ShowDialog()
+    End Sub
 End Class

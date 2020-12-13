@@ -754,9 +754,9 @@ Partial Class frmPos
         Me.lbl_due_Total.BackColor = System.Drawing.Color.Black
         Me.lbl_due_Total.Font = New System.Drawing.Font("Microsoft Sans Serif", 28.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_due_Total.ForeColor = System.Drawing.Color.Green
-        Me.lbl_due_Total.Location = New System.Drawing.Point(1004, 24)
+        Me.lbl_due_Total.Location = New System.Drawing.Point(846, 24)
         Me.lbl_due_Total.Name = "lbl_due_Total"
-        Me.lbl_due_Total.Size = New System.Drawing.Size(340, 71)
+        Me.lbl_due_Total.Size = New System.Drawing.Size(498, 71)
         Me.lbl_due_Total.TabIndex = 25
         Me.lbl_due_Total.Text = "0.00"
         Me.lbl_due_Total.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -766,7 +766,7 @@ Partial Class frmPos
         Me.Label7.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(745, 29)
+        Me.Label7.Location = New System.Drawing.Point(585, 29)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(255, 55)
         Me.Label7.TabIndex = 24

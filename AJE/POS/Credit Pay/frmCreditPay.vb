@@ -147,6 +147,10 @@
             'if text search is empty string 
             dg_Transactions.Rows.Clear()
             MsgBox("No available orders to load for the given customer.", vbInformation)
+            Exit Sub
+        End If
+        If dg_Transactions.RowCount = 0 Then
+            MsgBox("No available orders to load for the given customer.", vbInformation)
         End If
     End Sub
 End Class

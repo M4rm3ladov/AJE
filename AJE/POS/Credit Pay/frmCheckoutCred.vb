@@ -10,7 +10,7 @@
         End If
     End Sub
     Private Sub tb_cash_Tendered_KeyPress(sender As Object, e As KeyPressEventArgs) Handles tb_cash_Tendered.KeyPress
-        If tb_cash_Tendered.Text.Length > 7 Then
+        If tb_cash_Tendered.Text.Length > 9 Then
             If e.KeyChar <> ControlChars.Back Then
                 e.Handled = Char.IsNumber(e.KeyChar) Or Not Char.IsNumber(e.KeyChar)
                 Exit Sub

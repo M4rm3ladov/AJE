@@ -327,6 +327,20 @@
     <Compile Include="Profile\Branch\frmBranchEntry.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Profile\Credit Limit\frmCreditLimit.Designer.vb">
+      <DependentUpon>frmCreditLimit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Profile\Credit Limit\frmCreditLimit.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Profile\Credit Limit\clsCreditLimit.vb" />
+    <Compile Include="Profile\Critical Stock\clsCriticalStock.vb" />
+    <Compile Include="Profile\Critical Stock\frmCriticalStock.Designer.vb">
+      <DependentUpon>frmCriticalStock.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Profile\Critical Stock\frmCriticalStock.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Profile\Items\Brand Category\clsBrand.vb" />
     <Compile Include="Profile\Items\Brand Category\clsCategory.vb" />
     <Compile Include="Profile\Items\Brand Category\frmBrandCat.Designer.vb">
@@ -584,6 +598,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Profile\Branch\frmBranchEntry.resx">
       <DependentUpon>frmBranchEntry.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Profile\Credit Limit\frmCreditLimit.resx">
+      <DependentUpon>frmCreditLimit.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Profile\Critical Stock\frmCriticalStock.resx">
+      <DependentUpon>frmCriticalStock.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Profile\Items\Brand Category\frmBrandCat.resx">
       <DependentUpon>frmBrandCat.vb</DependentUpon>

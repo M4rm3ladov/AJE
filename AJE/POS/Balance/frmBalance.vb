@@ -28,7 +28,7 @@
     End Sub
 
     Private Sub tb_initial_Bal_KeyPress(sender As Object, e As KeyPressEventArgs) Handles tb_initial_Bal.KeyPress
-        If tb_initial_Bal.Text.Length > 7 Then
+        If tb_initial_Bal.Text.Length > 9 Then
             If e.KeyChar <> ControlChars.Back Then
                 e.Handled = Char.IsNumber(e.KeyChar) Or Not Char.IsNumber(e.KeyChar)
                 Exit Sub

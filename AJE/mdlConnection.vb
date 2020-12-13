@@ -26,4 +26,5 @@ Module mdlConnection
             MsgBox(myerror, MsgBoxStyle.Critical)
         End Try
     End Sub
+
 End Module

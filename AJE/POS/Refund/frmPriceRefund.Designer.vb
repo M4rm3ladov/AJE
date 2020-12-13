@@ -58,7 +58,7 @@ Partial Class frmPriceRefund
         'tb_Qty
         '
         Me.tb_Qty.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tb_Qty.Location = New System.Drawing.Point(234, 320)
+        Me.tb_Qty.Location = New System.Drawing.Point(304, 319)
         Me.tb_Qty.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.tb_Qty.MaxLength = 3
         Me.tb_Qty.Multiline = True
@@ -72,13 +72,13 @@ Partial Class frmPriceRefund
         Me.tb_price_Range.BackColor = System.Drawing.Color.Black
         Me.tb_price_Range.Font = New System.Drawing.Font("Microsoft Sans Serif", 25.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tb_price_Range.ForeColor = System.Drawing.Color.Green
-        Me.tb_price_Range.Location = New System.Drawing.Point(162, 96)
+        Me.tb_price_Range.Location = New System.Drawing.Point(144, 96)
         Me.tb_price_Range.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.tb_price_Range.MaxLength = 2
         Me.tb_price_Range.Multiline = True
         Me.tb_price_Range.Name = "tb_price_Range"
         Me.tb_price_Range.ReadOnly = True
-        Me.tb_price_Range.Size = New System.Drawing.Size(242, 63)
+        Me.tb_price_Range.Size = New System.Drawing.Size(330, 63)
         Me.tb_price_Range.TabIndex = 27
         Me.tb_price_Range.TabStop = False
         Me.tb_price_Range.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -89,7 +89,7 @@ Partial Class frmPriceRefund
         Me.btn_Cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_Cancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_Cancel.ForeColor = System.Drawing.Color.White
-        Me.btn_Cancel.Location = New System.Drawing.Point(279, 443)
+        Me.btn_Cancel.Location = New System.Drawing.Point(348, 439)
         Me.btn_Cancel.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btn_Cancel.Name = "btn_Cancel"
         Me.btn_Cancel.Size = New System.Drawing.Size(125, 64)
@@ -103,7 +103,7 @@ Partial Class frmPriceRefund
         Me.btn_Add.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_Add.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_Add.ForeColor = System.Drawing.Color.White
-        Me.btn_Add.Location = New System.Drawing.Point(148, 443)
+        Me.btn_Add.Location = New System.Drawing.Point(217, 439)
         Me.btn_Add.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btn_Add.Name = "btn_Add"
         Me.btn_Add.Size = New System.Drawing.Size(125, 64)
@@ -130,7 +130,7 @@ Partial Class frmPriceRefund
         Me.tb_Price.MaxLength = 2
         Me.tb_Price.Multiline = True
         Me.tb_Price.Name = "tb_Price"
-        Me.tb_Price.Size = New System.Drawing.Size(322, 79)
+        Me.tb_Price.Size = New System.Drawing.Size(392, 79)
         Me.tb_Price.TabIndex = 22
         Me.tb_Price.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -139,7 +139,7 @@ Partial Class frmPriceRefund
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(70, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(461, 550)
+        Me.ClientSize = New System.Drawing.Size(539, 550)
         Me.Controls.Add(Me.lbl_Type)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.tb_Qty)

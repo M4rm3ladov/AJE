@@ -35,6 +35,8 @@ Partial Class frmProfiling
         Me.btn_User = New System.Windows.Forms.Button()
         Me.pnlMid = New System.Windows.Forms.Panel()
         Me.pbImage = New System.Windows.Forms.PictureBox()
+        Me.btn_credit_Limit = New System.Windows.Forms.Button()
+        Me.btn_critical_Stock = New System.Windows.Forms.Button()
         Me.pnlHeader.SuspendLayout()
         Me.pnlClose.SuspendLayout()
         Me.pnlButtons.SuspendLayout()
@@ -93,6 +95,8 @@ Partial Class frmProfiling
         'pnlButtons
         '
         Me.pnlButtons.BackColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.pnlButtons.Controls.Add(Me.btn_critical_Stock)
+        Me.pnlButtons.Controls.Add(Me.btn_credit_Limit)
         Me.pnlButtons.Controls.Add(Me.btn_Supplier)
         Me.pnlButtons.Controls.Add(Me.btn_Branch)
         Me.pnlButtons.Controls.Add(Me.btn_Service)
@@ -201,6 +205,36 @@ Partial Class frmProfiling
         Me.pbImage.TabIndex = 0
         Me.pbImage.TabStop = False
         '
+        'btn_credit_Limit
+        '
+        Me.btn_credit_Limit.BackColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btn_credit_Limit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btn_credit_Limit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_credit_Limit.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_credit_Limit.ForeColor = System.Drawing.Color.White
+        Me.btn_credit_Limit.Location = New System.Drawing.Point(730, 0)
+        Me.btn_credit_Limit.Margin = New System.Windows.Forms.Padding(0)
+        Me.btn_credit_Limit.Name = "btn_credit_Limit"
+        Me.btn_credit_Limit.Size = New System.Drawing.Size(219, 68)
+        Me.btn_credit_Limit.TabIndex = 10
+        Me.btn_credit_Limit.Text = "Credit Limit Adjust"
+        Me.btn_credit_Limit.UseVisualStyleBackColor = False
+        '
+        'btn_critical_Stock
+        '
+        Me.btn_critical_Stock.BackColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btn_critical_Stock.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btn_critical_Stock.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_critical_Stock.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_critical_Stock.ForeColor = System.Drawing.Color.White
+        Me.btn_critical_Stock.Location = New System.Drawing.Point(949, 0)
+        Me.btn_critical_Stock.Margin = New System.Windows.Forms.Padding(0)
+        Me.btn_critical_Stock.Name = "btn_critical_Stock"
+        Me.btn_critical_Stock.Size = New System.Drawing.Size(237, 68)
+        Me.btn_critical_Stock.TabIndex = 11
+        Me.btn_critical_Stock.Text = "Critical Stock Adjust"
+        Me.btn_critical_Stock.UseVisualStyleBackColor = False
+        '
         'frmProfiling
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
@@ -235,4 +269,6 @@ Partial Class frmProfiling
     Friend WithEvents btn_Close As Button
     Friend WithEvents pnlMid As Panel
     Friend WithEvents pbImage As PictureBox
+    Friend WithEvents btn_critical_Stock As Button
+    Friend WithEvents btn_credit_Limit As Button
 End Class

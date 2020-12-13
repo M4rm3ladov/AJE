@@ -2,8 +2,10 @@
     Dim strCurrency As String = ""
     Dim acceptableKey As Boolean = False
     Dim customer As New clsCustomer
+    Dim creditLimit As New clsCreditLimit
     Public MoveForm As Boolean
     Public MoveForm_MousePosition As Point
+    Private _creditLimit = creditLimit.getCreditLimit
 
     Public Sub MoveForm_MouseDown(sender As Object, e As MouseEventArgs) Handles _
     Panel1.MouseDown, Label1.MouseDown ' Add more handles here (Example: PictureBox1.MouseDown)
@@ -47,7 +49,7 @@
     End Sub
 
     Private Sub tb_credit_Limit_KeyPress(sender As Object, e As KeyPressEventArgs) Handles tb_credit_Limit.KeyPress
-        If tb_credit_Limit.Text.Length > 7 Then
+        If tb_credit_Limit.Text.Length > 10 Then
             If e.KeyChar <> ControlChars.Back Then
                 e.Handled = Char.IsNumber(e.KeyChar) Or Not Char.IsNumber(e.KeyChar)
                 Exit Sub
@@ -89,6 +91,10 @@
     Private Sub btn_Save_Click(sender As Object, e As EventArgs) Handles btn_Save.Click
         If countEmpty() = True Then
             MsgBox("Please fill in the field(s) before saving.", vbExclamation)
+            Exit Sub
+        End If
+        If _creditLimit < Val(tb_credit_Limit.Text) Then
+            MsgBox("The amount exceeds the maximum alloted credit limit. Max Credit Limit: " & Format(_creditLimit, "##,##0.00"), vbInformation)
             Exit Sub
         End If
         Try

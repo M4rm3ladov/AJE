@@ -37,7 +37,7 @@ Partial Class frmBalance
         Me.tb_initial_Bal.Multiline = True
         Me.tb_initial_Bal.Name = "tb_initial_Bal"
         Me.tb_initial_Bal.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.tb_initial_Bal.Size = New System.Drawing.Size(345, 85)
+        Me.tb_initial_Bal.Size = New System.Drawing.Size(417, 85)
         Me.tb_initial_Bal.TabIndex = 13
         '
         'Label3
@@ -57,7 +57,7 @@ Partial Class frmBalance
         Me.btn_Cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_Cancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_Cancel.ForeColor = System.Drawing.Color.White
-        Me.btn_Cancel.Location = New System.Drawing.Point(283, 216)
+        Me.btn_Cancel.Location = New System.Drawing.Point(355, 211)
         Me.btn_Cancel.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btn_Cancel.Name = "btn_Cancel"
         Me.btn_Cancel.Size = New System.Drawing.Size(125, 64)
@@ -71,7 +71,7 @@ Partial Class frmBalance
         Me.btn_Verify.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_Verify.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_Verify.ForeColor = System.Drawing.Color.White
-        Me.btn_Verify.Location = New System.Drawing.Point(152, 216)
+        Me.btn_Verify.Location = New System.Drawing.Point(224, 211)
         Me.btn_Verify.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btn_Verify.Name = "btn_Verify"
         Me.btn_Verify.Size = New System.Drawing.Size(125, 64)
@@ -84,7 +84,7 @@ Partial Class frmBalance
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(70, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(446, 314)
+        Me.ClientSize = New System.Drawing.Size(540, 314)
         Me.Controls.Add(Me.tb_initial_Bal)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.btn_Cancel)

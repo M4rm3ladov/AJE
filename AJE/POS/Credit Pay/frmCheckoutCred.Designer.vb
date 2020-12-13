@@ -143,12 +143,12 @@ Partial Class frmCheckoutCred
         Me.tb_Change.BackColor = System.Drawing.Color.Black
         Me.tb_Change.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tb_Change.ForeColor = System.Drawing.Color.Green
-        Me.tb_Change.Location = New System.Drawing.Point(471, 369)
+        Me.tb_Change.Location = New System.Drawing.Point(383, 369)
         Me.tb_Change.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.tb_Change.Multiline = True
         Me.tb_Change.Name = "tb_Change"
         Me.tb_Change.ReadOnly = True
-        Me.tb_Change.Size = New System.Drawing.Size(337, 96)
+        Me.tb_Change.Size = New System.Drawing.Size(425, 96)
         Me.tb_Change.TabIndex = 37
         Me.tb_Change.TabStop = False
         Me.tb_Change.Text = "0.00"
@@ -157,11 +157,11 @@ Partial Class frmCheckoutCred
         'tb_cash_Tendered
         '
         Me.tb_cash_Tendered.Font = New System.Drawing.Font("Microsoft Sans Serif", 25.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tb_cash_Tendered.Location = New System.Drawing.Point(526, 278)
+        Me.tb_cash_Tendered.Location = New System.Drawing.Point(383, 278)
         Me.tb_cash_Tendered.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.tb_cash_Tendered.Multiline = True
         Me.tb_cash_Tendered.Name = "tb_cash_Tendered"
-        Me.tb_cash_Tendered.Size = New System.Drawing.Size(282, 70)
+        Me.tb_cash_Tendered.Size = New System.Drawing.Size(426, 70)
         Me.tb_cash_Tendered.TabIndex = 31
         Me.tb_cash_Tendered.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -170,12 +170,12 @@ Partial Class frmCheckoutCred
         Me.tb_due_Total.BackColor = System.Drawing.Color.Black
         Me.tb_due_Total.Font = New System.Drawing.Font("Microsoft Sans Serif", 25.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tb_due_Total.ForeColor = System.Drawing.Color.Green
-        Me.tb_due_Total.Location = New System.Drawing.Point(526, 188)
+        Me.tb_due_Total.Location = New System.Drawing.Point(383, 188)
         Me.tb_due_Total.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.tb_due_Total.Multiline = True
         Me.tb_due_Total.Name = "tb_due_Total"
         Me.tb_due_Total.ReadOnly = True
-        Me.tb_due_Total.Size = New System.Drawing.Size(282, 70)
+        Me.tb_due_Total.Size = New System.Drawing.Size(425, 70)
         Me.tb_due_Total.TabIndex = 36
         Me.tb_due_Total.TabStop = False
         Me.tb_due_Total.Text = "0.00"
@@ -186,7 +186,7 @@ Partial Class frmCheckoutCred
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(70, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(870, 610)
+        Me.ClientSize = New System.Drawing.Size(877, 610)
         Me.Controls.Add(Me.tb_Receipt)
         Me.Controls.Add(Me.lbl_Receipt)
         Me.Controls.Add(Me.Label4)

@@ -9,6 +9,8 @@
     Dim stockOut As New clsStockOut
     Dim stockList As New clsStockList
     Dim stockAdjust As New clsStockAdjustment
+    Dim criticalStock As New clsCriticalStock
+    Private _criticalStock = criticalStock.getCriticalStock()
     '-----stock in end-----
     Private Sub lbl_items_stock_In_Click(sender As Object, e As EventArgs) Handles lbl_items_stock_In.Click
         frmItemList.ShowDialog()
@@ -455,7 +457,7 @@
         Dim i As Integer = dg_stock_List.CurrentRow.Index
         Dim _qty = dg_stock_List.Item(9, i).Value
         lbl_Qty.Text = _qty
-        If _qty <= 10 Then
+        If _qty <= _criticalStock Then
             lbl_Qty.ForeColor = Color.Red
         Else
             lbl_Qty.ForeColor = Color.Green
@@ -525,45 +527,45 @@
         ElseIf rb_critical_Items.Checked = True Then
             If tb_Search.Text = vbNullString Then
                 If cbo_Brand.SelectedIndex = 0 And cbo_Category.SelectedIndex <> 0 Then
-                    stockList.loadStock("SELECT * FROM vw_stock_list WHERE category_name = @category_name AND qty <= 10 AND branch_address = @branch_address")
+                    stockList.loadStock("SELECT * FROM vw_stock_list WHERE category_name = @category_name AND qty <= '" & _criticalStock & "' AND branch_address = @branch_address")
 
                 ElseIf cbo_Category.SelectedIndex = 0 And cbo_Brand.SelectedIndex <> 0 Then
-                    stockList.loadStock("SELECT * FROM vw_stock_list WHERE brand_name = @brand_name AND qty <= 10 AND branch_address = @branch_address")
+                    stockList.loadStock("SELECT * FROM vw_stock_list WHERE brand_name = @brand_name AND qty <= '" & _criticalStock & "' AND branch_address = @branch_address")
 
                 ElseIf cbo_Category.SelectedIndex = 0 And cbo_Brand.SelectedIndex = 0 Then
-                    stockList.loadStock("SELECT * FROM vw_stock_list WHERE qty <= 10 AND branch_address = @branch_address")
+                    stockList.loadStock("SELECT * FROM vw_stock_list WHERE qty <= '" & _criticalStock & "' AND branch_address = @branch_address")
 
                 ElseIf cbo_Category.SelectedIndex <> 0 And cbo_Brand.SelectedIndex <> 0 Then
-                    stockList.loadStock("SELECT * FROM vw_stock_list WHERE category_name = @category_name AND brand_name = @brand_name AND qty <= 10 AND branch_address = @branch_address")
+                    stockList.loadStock("SELECT * FROM vw_stock_list WHERE category_name = @category_name AND brand_name = @brand_name AND qty <= '" & _criticalStock & "' AND branch_address = @branch_address")
 
                 End If
             Else
                 If cbo_Filter.Text = "Code" Then
                     If cbo_Brand.SelectedIndex = 0 And cbo_Category.SelectedIndex <> 0 Then
-                        stockList.loadStock("SELECT * FROM vw_stock_list WHERE category_name = @category_name AND item_code LIKE @item_search AND qty <= 10 AND branch_address = @branch_address")
+                        stockList.loadStock("SELECT * FROM vw_stock_list WHERE category_name = @category_name AND item_code LIKE @item_search AND qty <= '" & _criticalStock & "' AND branch_address = @branch_address")
 
                     ElseIf cbo_Category.SelectedIndex = 0 And cbo_Brand.SelectedIndex <> 0 Then
-                        stockList.loadStock("SELECT * FROM vw_stock_list WHERE brand_name = @brand_name AND item_code LIKE @item_search AND qty <= 10 AND branch_address = @branch_address")
+                        stockList.loadStock("SELECT * FROM vw_stock_list WHERE brand_name = @brand_name AND item_code LIKE @item_search AND qty <= '" & _criticalStock & "' AND branch_address = @branch_address")
 
                     ElseIf cbo_Category.SelectedIndex = 0 And cbo_Brand.SelectedIndex = 0 Then
-                        stockList.loadStock("SELECT * FROM vw_stock_list WHERE item_code LIKE @item_search AND qty <= 10 AND branch_address = @branch_address")
+                        stockList.loadStock("SELECT * FROM vw_stock_list WHERE item_code LIKE @item_search AND qty <= '" & _criticalStock & "' AND branch_address = @branch_address")
 
                     ElseIf cbo_Category.SelectedIndex <> 0 And cbo_Brand.SelectedIndex <> 0 Then
-                        stockList.loadStock("SELECT * FROM vw_stock_list WHERE category_name = @category_name AND brand_name = @brand_name AND item_code LIKE @item_search AND qty <= 10 AND branch_address = @branch_address")
+                        stockList.loadStock("SELECT * FROM vw_stock_list WHERE category_name = @category_name AND brand_name = @brand_name AND item_code LIKE @item_search AND qty <= '" & _criticalStock & "' AND branch_address = @branch_address")
 
                     End If
                 ElseIf cbo_Filter.Text = "Description" Then
                     If cbo_Brand.SelectedIndex = 0 And cbo_Category.SelectedIndex <> 0 Then
-                        stockList.loadStock("SELECT * FROM vw_stock_list WHERE category_name = @category_name AND branch_address = @branch_address AND (item_desc LIKE @item_search OR item_add_desc LIKE @item_search) AND qty <= 10")
+                        stockList.loadStock("SELECT * FROM vw_stock_list WHERE category_name = @category_name AND branch_address = @branch_address AND (item_desc LIKE @item_search OR item_add_desc LIKE @item_search) AND qty <= '" & _criticalStock & "'")
 
                     ElseIf cbo_Category.SelectedIndex = 0 And cbo_Brand.SelectedIndex <> 0 Then
-                        stockList.loadStock("SELECT * FROM vw_stock_list WHERE brand_name = @brand_name AND branch_address = @branch_address AND (item_desc LIKE @item_search OR item_add_desc LIKE @item_search) AND qty <= 10")
+                        stockList.loadStock("SELECT * FROM vw_stock_list WHERE brand_name = @brand_name AND branch_address = @branch_address AND (item_desc LIKE @item_search OR item_add_desc LIKE @item_search) AND qty <= '" & _criticalStock & "'")
 
                     ElseIf cbo_Category.SelectedIndex = 0 And cbo_Brand.SelectedIndex = 0 Then
-                        stockList.loadStock("SELECT * FROM vw_stock_list WHERE branch_address = @branch_address AND (item_desc LIKE @item_search OR item_add_desc LIKE @item_search) AND qty <= 10 ")
+                        stockList.loadStock("SELECT * FROM vw_stock_list WHERE branch_address = @branch_address AND (item_desc LIKE @item_search OR item_add_desc LIKE @item_search) AND qty <= '" & _criticalStock & "' ")
 
                     ElseIf cbo_Category.SelectedIndex <> 0 And cbo_Brand.SelectedIndex <> 0 Then
-                        stockList.loadStock("SELECT * FROM vw_stock_list WHERE category_name = @category_name AND brand_name = @brand_name AND branch_address = @branch_address AND (item_desc LIKE @item_search OR item_add_desc LIKE @item_search) AND qty <= 10 ")
+                        stockList.loadStock("SELECT * FROM vw_stock_list WHERE category_name = @category_name AND brand_name = @brand_name AND branch_address = @branch_address AND (item_desc LIKE @item_search OR item_add_desc LIKE @item_search) AND qty <= '" & _criticalStock & "' ")
 
                     End If
                 End If

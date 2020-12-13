@@ -41,7 +41,7 @@
         End If
     End Sub
     Private Sub tb_Amount_KeyPress(sender As Object, e As KeyPressEventArgs) Handles tb_Amount.KeyPress
-        If tb_Amount.Text.Length > 7 Then
+        If tb_Amount.Text.Length > 8 Then
             If e.KeyChar <> ControlChars.Back Then
                 e.Handled = Char.IsNumber(e.KeyChar) Or Not Char.IsNumber(e.KeyChar)
                 Exit Sub
