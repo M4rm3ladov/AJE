@@ -23,6 +23,8 @@ Partial Class frmAuthenticate
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.lbl_Id = New System.Windows.Forms.Label()
+        Me.lbl_Type = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.btn_Cancel = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -30,8 +32,6 @@ Partial Class frmAuthenticate
         Me.btn_Ok = New System.Windows.Forms.Button()
         Me.tb_Password = New System.Windows.Forms.TextBox()
         Me.tb_Username = New System.Windows.Forms.TextBox()
-        Me.lbl_Id = New System.Windows.Forms.Label()
-        Me.lbl_Type = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -47,6 +47,28 @@ Partial Class frmAuthenticate
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(510, 55)
         Me.Panel1.TabIndex = 15
+        '
+        'lbl_Id
+        '
+        Me.lbl_Id.AutoSize = True
+        Me.lbl_Id.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_Id.Location = New System.Drawing.Point(352, 12)
+        Me.lbl_Id.Name = "lbl_Id"
+        Me.lbl_Id.Size = New System.Drawing.Size(119, 25)
+        Me.lbl_Id.TabIndex = 31
+        Me.lbl_Id.Text = "manager id"
+        Me.lbl_Id.Visible = False
+        '
+        'lbl_Type
+        '
+        Me.lbl_Type.AutoSize = True
+        Me.lbl_Type.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_Type.Location = New System.Drawing.Point(254, 12)
+        Me.lbl_Type.Name = "lbl_Type"
+        Me.lbl_Type.Size = New System.Drawing.Size(53, 25)
+        Me.lbl_Type.TabIndex = 30
+        Me.lbl_Type.Text = "type"
+        Me.lbl_Type.Visible = False
         '
         'Label3
         '
@@ -70,7 +92,7 @@ Partial Class frmAuthenticate
         Me.btn_Cancel.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btn_Cancel.Name = "btn_Cancel"
         Me.btn_Cancel.Size = New System.Drawing.Size(430, 55)
-        Me.btn_Cancel.TabIndex = 29
+        Me.btn_Cancel.TabIndex = 4
         Me.btn_Cancel.Text = "Close"
         Me.btn_Cancel.UseVisualStyleBackColor = False
         '
@@ -107,7 +129,7 @@ Partial Class frmAuthenticate
         Me.btn_Ok.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btn_Ok.Name = "btn_Ok"
         Me.btn_Ok.Size = New System.Drawing.Size(430, 55)
-        Me.btn_Ok.TabIndex = 28
+        Me.btn_Ok.TabIndex = 3
         Me.btn_Ok.Text = "Verify"
         Me.btn_Ok.UseVisualStyleBackColor = False
         '
@@ -123,7 +145,7 @@ Partial Class frmAuthenticate
         Me.tb_Password.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.tb_Password.ShortcutsEnabled = False
         Me.tb_Password.Size = New System.Drawing.Size(430, 42)
-        Me.tb_Password.TabIndex = 27
+        Me.tb_Password.TabIndex = 2
         '
         'tb_Username
         '
@@ -136,29 +158,7 @@ Partial Class frmAuthenticate
         Me.tb_Username.Name = "tb_Username"
         Me.tb_Username.ShortcutsEnabled = False
         Me.tb_Username.Size = New System.Drawing.Size(430, 42)
-        Me.tb_Username.TabIndex = 26
-        '
-        'lbl_Id
-        '
-        Me.lbl_Id.AutoSize = True
-        Me.lbl_Id.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_Id.Location = New System.Drawing.Point(352, 12)
-        Me.lbl_Id.Name = "lbl_Id"
-        Me.lbl_Id.Size = New System.Drawing.Size(119, 25)
-        Me.lbl_Id.TabIndex = 31
-        Me.lbl_Id.Text = "manager id"
-        Me.lbl_Id.Visible = False
-        '
-        'lbl_Type
-        '
-        Me.lbl_Type.AutoSize = True
-        Me.lbl_Type.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_Type.Location = New System.Drawing.Point(254, 12)
-        Me.lbl_Type.Name = "lbl_Type"
-        Me.lbl_Type.Size = New System.Drawing.Size(53, 25)
-        Me.lbl_Type.TabIndex = 30
-        Me.lbl_Type.Text = "type"
-        Me.lbl_Type.Visible = False
+        Me.tb_Username.TabIndex = 1
         '
         'frmAuthenticate
         '

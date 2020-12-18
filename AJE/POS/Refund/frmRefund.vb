@@ -13,6 +13,7 @@
         lbl_due_Total.Text = "0.00"
         cbo_Receipt.SelectedIndex = 0
         dtp_Date.Value = Date.Now
+        GroupBox1.Enabled = True
         Me.Close()
     End Sub
 
@@ -79,6 +80,7 @@
             cbo_Orders.Enabled = False
             cbo_Receipt.SelectedIndex = 0
             dtp_Date.Value = Date.Now
+            GroupBox1.Enabled = True
         End If
     End Sub
 
@@ -110,6 +112,7 @@
             ElseIf refund.loadFromReceipt() = True Then
                 cbo_Orders.Enabled = True
                 tb_Orders.Enabled = True
+                GroupBox1.Enabled = False
                 lbl_OrderId.Text = refund.loadOrderIdReceipt()
             End If
         ElseIf cbo_Receipt.SelectedIndex = 1 Then
@@ -123,6 +126,7 @@
             ElseIf refund.loadFromInvoice() = True Then
                 cbo_Orders.Enabled = True
                 tb_Orders.Enabled = True
+                GroupBox1.Enabled = False
                 lbl_OrderId.Text = refund.loadOrderIdInvoice()
             End If
             dg_Refund.Rows.Clear()

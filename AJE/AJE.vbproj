@@ -698,6 +698,7 @@
     <EmbeddedResource Include="Reports\Sales\Report2.rdlc" />
     <EmbeddedResource Include="Reports\Customer Transacs\Report3.rdlc" />
     <EmbeddedResource Include="Reports\Customer Transacs\Report4.rdlc" />
+    <EmbeddedResource Include="Reports\Sales\ReportAllSales.rdlc" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DataSet1.xsc">

@@ -10,6 +10,10 @@ Public Class clsRefund
     Private _Amount As Object
     Private _Remarks As Object
     Private _OrderId As Object
+    Private _RefundDate As Object
+    Public Sub SetRefundDate(AutoPropertyValue As Object)
+        _RefundDate = AutoPropertyValue
+    End Sub
     Public Sub SetTransDate(AutoPropertyValue As Object)
         _TransDate = AutoPropertyValue
     End Sub
@@ -198,7 +202,35 @@ Public Class clsRefund
                 cm.ExecuteScalar()
             End If
         Next
+        If frmRefund.cbo_Receipt.SelectedIndex = 1 Then
+            Dim cust_bal As Decimal
+            Dim cust_id
+            query = "SELECT customer.balance FROM customer 
+                    INNER JOIN credit_payment ON credit_payment.customer_id = customer.customer_id 
+                    WHERE credit_payment.trans_date = @trans_date AND credit_payment.invoice = @invoice_no"
+            cm = New MySqlCommand(query, con)
+            cm.Parameters.AddWithValue("@invoice_no", _InvoiceNo)
+            cm.Parameters.AddWithValue("@trans_date", _RefundDate)
+            cust_bal = cm.ExecuteScalar()
+            cm.Dispose()
 
+            query = "SELECT customer.customer_id FROM customer 
+                    INNER JOIN credit_payment ON credit_payment.customer_id = customer.customer_id 
+                    WHERE credit_payment.trans_date = @trans_date AND credit_payment.invoice = @invoice_no"
+            cm = New MySqlCommand(query, con)
+            cm.Parameters.AddWithValue("@invoice_no", _InvoiceNo)
+            cm.Parameters.AddWithValue("@trans_date", _RefundDate)
+            cust_id = cm.ExecuteScalar()
+            cm.Dispose()
+
+            Dim new_cust_bal As Decimal
+            new_cust_bal = cust_bal - _Amount
+
+            query = "UPDATE customer SET customer.balance = '" & new_cust_bal & "' WHERE customer.customer_id = '" & cust_id & "'"
+            cm = New MySqlCommand(query, con)
+            cm.ExecuteScalar()
+            cm.Dispose()
+        End If
         DisconnectDatabase()
     End Sub
     Public Function loadOrderIdReceipt()

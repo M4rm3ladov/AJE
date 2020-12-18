@@ -103,6 +103,9 @@
 
         ElseIf lbl_Type.Text = 4 Then
             refund.SetTransDate(frmRefundTransDate.dtp_Date.Value.ToString("yyyy-MM-dd"))
+            refund.SetRefundDate(frmRefund.dtp_Date.Value.ToString("yyyy-MM-dd"))
+            refund.SetReceiptNo(frmRefund.tb_receiptNo.Text)
+            refund.SetInvoiceNo(frmRefund.tb_receiptNo.Text)
             refund.SetCashierId(frmPos.lbl_user_Id.Text)
             refund.SetManagerId(auth.setUserId)
             refund.SetAmount(frmRefund.lbl_due_Total.Text)
