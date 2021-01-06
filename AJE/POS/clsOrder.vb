@@ -270,9 +270,9 @@ Public Class clsOrder
     End Function
     Public Function checkReceipt() As Boolean
         ConnectDatabase()
-        Dim query = "SELECT EXISTS(SELECT receipt FROM cash_payment WHERE trans_date = @trans_date)"
+        Dim query = "SELECT EXISTS(SELECT receipt FROM cash_payment WHERE receipt=@receipt AND trans_date = @trans_date)"
         cm = New MySqlCommand(query, con)
-        cm.Parameters.AddWithValue("@item_code", _Receipt)
+        cm.Parameters.AddWithValue("@receipt", _Receipt)
         cm.Parameters.AddWithValue("@trans_date", _TransDate)
         Dim _bool = cm.ExecuteScalar
         If _bool = 1 Then
@@ -286,9 +286,9 @@ Public Class clsOrder
     End Function
     Public Function checkInvoice() As Boolean
         ConnectDatabase()
-        Dim query = "SELECT EXISTS(SELECT invoice FROM credit_payment WHERE trans_date = @trans_date)"
+        Dim query = "SELECT EXISTS(SELECT invoice FROM credit_payment WHERE invoice=@invoice AND trans_date = @trans_date)"
         cm = New MySqlCommand(query, con)
-        cm.Parameters.AddWithValue("@item_code", _Invoice)
+        cm.Parameters.AddWithValue("@invoice", _Invoice)
         cm.Parameters.AddWithValue("@trans_date", _TransDate)
         Dim _bool = cm.ExecuteScalar
         If _bool = 1 Then
