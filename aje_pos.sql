@@ -24,11 +24,11 @@ CREATE TABLE `branch` (
   `branch_id` bigint(20) NOT NULL AUTO_INCREMENT,
   `branch_address` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`branch_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `branch` */
 
-insert  into `branch`(`branch_id`,`branch_address`) values (1,'Putik'),(2,'Hawaii'),(3,'Tetuan'),(5,'GUIWAN'),(6,'San Ramon'),(7,'Gotham'),(8,'Disneys');
+insert  into `branch`(`branch_id`,`branch_address`) values (1,'Putik'),(2,'Zone 4');
 
 /*Table structure for table `brand` */
 
@@ -38,11 +38,11 @@ CREATE TABLE `brand` (
   `brand_id` bigint(20) NOT NULL AUTO_INCREMENT,
   `brand_name` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`brand_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `brand` */
 
-insert  into `brand`(`brand_id`,`brand_name`) values (1,'FEDERAL'),(2,'EVERGREEN'),(3,'GOTYRE'),(4,'DURUN'),(5,'CEAT'),(6,'XCEED'),(7,'MEGA'),(8,'COMFORSER'),(9,'RADAR'),(11,'GOODYEAR'),(12,'HANKOOK'),(13,'COCA COLA'),(15,'FANTA'),(16,'TANDUAY'),(17,'SAN MIGUEL'),(18,'RED HORSE');
+insert  into `brand`(`brand_id`,`brand_name`) values (1,'Firestone'),(2,'Dunlop'),(3,'Bridgestone'),(4,'Shimano'),(5,'Mobil'),(6,'Federal');
 
 /*Table structure for table `cash_in` */
 
@@ -60,11 +60,9 @@ CREATE TABLE `cash_in` (
   KEY `cashier_id` (`cashier_id`),
   CONSTRAINT `cash_in_ibfk_2` FOREIGN KEY (`manager_id`) REFERENCES `manager` (`manager_id`),
   CONSTRAINT `cash_in_ibfk_3` FOREIGN KEY (`cashier_id`) REFERENCES `cashier` (`cashier_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `cash_in` */
-
-insert  into `cash_in`(`cash_in_id`,`cashier_id`,`manager_id`,`trans_date`,`amount`,`remarks`) values (1,2,1,'2020-11-18','300.00','test'),(2,2,1,'2020-12-05','23.00','kupit sen'),(3,2,1,'2020-12-05','50.00','sinsilyo'),(4,2,1,'2020-12-06','25.00','25');
 
 /*Table structure for table `cash_out` */
 
@@ -82,11 +80,9 @@ CREATE TABLE `cash_out` (
   KEY `cashier_id` (`cashier_id`),
   CONSTRAINT `cash_out_ibfk_2` FOREIGN KEY (`manager_id`) REFERENCES `manager` (`manager_id`),
   CONSTRAINT `cash_out_ibfk_3` FOREIGN KEY (`cashier_id`) REFERENCES `cashier` (`cashier_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `cash_out` */
-
-insert  into `cash_out`(`cash_out_id`,`cashier_id`,`manager_id`,`trans_date`,`amount`,`remarks`) values (1,2,1,'2020-12-05','30.00','utang pira'),(2,2,1,'2020-12-05','20.00','buy pancit'),(3,2,1,'2020-12-05','25.00','check lng ser'),(4,2,1,'2020-12-06','20.00','test out'),(5,2,1,'2020-12-06','23.00','23');
 
 /*Table structure for table `cash_payment` */
 
@@ -104,11 +100,11 @@ CREATE TABLE `cash_payment` (
   KEY `order_id` (`order_id`),
   CONSTRAINT `cash_payment_ibfk_1` FOREIGN KEY (`cashier_id`) REFERENCES `cashier` (`cashier_id`),
   CONSTRAINT `cash_payment_ibfk_2` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `cash_payment` */
 
-insert  into `cash_payment`(`cash_pay_id`,`order_id`,`cashier_id`,`trans_date`,`pay_amount`,`receipt`) values (1,2,2,'2020-04-15','5000.00','492910881'),(2,3,2,'2020-06-03','3000.00','25000210'),(3,4,6,'2020-06-03','28000.00','250001002'),(4,8,2,'2020-12-06','6000.00','\';DELETE * FROM cashier_log\'');
+insert  into `cash_payment`(`cash_pay_id`,`order_id`,`cashier_id`,`trans_date`,`pay_amount`,`receipt`) values (1,1,2,'2020-12-11','11000.00','29000910001'),(2,2,2,'2020-12-12','11000.00','89999819910'),(3,4,2,'2020-12-11','76000.00','6423111190'),(4,5,2,'2020-12-11','25000.00','77777362772'),(5,6,1,'2020-12-13','2000.00','123'),(6,7,1,'2020-12-13','550.00','123'),(7,10,3,'2020-12-30','8000.00','843917771'),(8,13,3,'2020-12-29','5500.00','182398789'),(9,14,4,'2020-12-29','12700.00','1829198789');
 
 /*Table structure for table `cashier` */
 
@@ -125,11 +121,11 @@ CREATE TABLE `cashier` (
   PRIMARY KEY (`cashier_id`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `cashier_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `cashier` */
 
-insert  into `cashier`(`cashier_id`,`user_id`,`username`,`password`,`salt`,`is_active`,`is_logged_in`) values (1,1,'antonio123','FC0mMV3Ym0dHzkrCDSfPyeRNzwEdrBZ1M3wPT0CMKBo=','j50mMYhR+NqDEsvL8tc4ud0g/mVvk7qNACzmR0vilw4=',1,0),(2,4,'renier1234','sFGIEb+5zi5T4fv29adw7qUa6AcKptFg87piMi9BKd4=','iG6TeyKBuXW53aTG/cco7dNVF6TgMxAQxxjf1WiqWi0=',1,0),(5,7,'Louise123','O9VgdzRbPrpMcFjG21bbbXJFIIVPT0Loh1+peq8/SS0=','ZKmONmX9vmaXBQOaynWR5hFra/zWrEgCwdvxTULscKA=',1,0),(6,11,'Hellow','Bj2FSS0bohbZnj0Y1exItXhZVbglQsZxdhujAA9g8lM=','IBOnINnMjzSyWjKNIXuP+nCi7lY4Z03qTn7WKOsbTXM=',1,0),(7,12,'Mary123','lGdKMBfxSSq+oQybjWEJiEkKaXKNCIhye+5HOOsUeaA=','mXMwboFmVFTAia5vAlE0j/563gTKRcy6R85NCEBGQeY=',1,0),(8,14,'Betty123','j+bYH1yMFRPfLbXUnmoc/6T9ZLDxF0Xj35+sCKwLKWA=','0+Cef2egMI3/QOMbsT/zgkLEhWF59IeNri6JYdiR2Cw=',1,0),(9,18,'chi1810','5AKzbohO8Yjud9TrwolT2maxLh7aiL/pJ2Jmla6FbZQ=','Miea2SBRNfE0n20lu31qTlAw5HlOe3bOLK5mUAFy348=',1,0);
+insert  into `cashier`(`cashier_id`,`user_id`,`username`,`password`,`salt`,`is_active`,`is_logged_in`) values (1,2,'Bruce123','8ZRlXRgrkHSb6/bvwiitnh3SpDMwK7cxMmDmyX8sXkU=','KUgvirdCvrLNufCiiHaA27DnnrqUTWuGIj2axhlyQDM=',1,0),(2,4,'Peter123','1nYQpr2/bOrXWw/w/L48KeKA2/7x+055lj17ogJkgoU=','wRP1RK+z/OHfAR6FxyD8sVZZvtHsG9RWIxoDkQ4IA7Q=',1,0),(3,5,'Mary123','Y/Tac/F6QofjQiSIJIXqDyye+q9ZV4MIVxevX7lXW/4=','Dj4tNTYANj/z1sbgPCJNf4Q2BqaPsQaIVHh3cylqvtY=',1,0),(4,6,'Betty123','3gzzdMn9ElauLB5r6tukJFQpG4Q/juODDQZFrc7/4aA=','pg+5SF/Fk14ZLaSlKf2kEU/gwch0FVoxV8Gap5Yp2ic=',1,0);
 
 /*Table structure for table `cashier_log` */
 
@@ -149,11 +145,11 @@ CREATE TABLE `cashier_log` (
   KEY `cashier_id` (`cashier_id`),
   CONSTRAINT `cashier_log_ibfk_2` FOREIGN KEY (`manager_id`) REFERENCES `manager` (`manager_id`),
   CONSTRAINT `cashier_log_ibfk_3` FOREIGN KEY (`cashier_id`) REFERENCES `cashier` (`cashier_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=168 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=59 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `cashier_log` */
 
-insert  into `cashier_log`(`cashier_log_id`,`cashier_id`,`manager_id`,`log_date`,`time_from`,`time_to`,`begin_bal`,`end_bal`) values (1,1,2,'2020-04-17','12:58:02',NULL,'2850.00','0.00'),(2,1,2,'2020-04-17','13:06:32',NULL,'200.00','0.00'),(3,2,2,'2020-04-17','13:23:57','11:26:03','500.00','500.00'),(4,1,2,'2020-04-17','13:34:12',NULL,'5002.00','0.00'),(5,1,2,'2020-04-17','13:40:39',NULL,'5020.00','0.00'),(6,1,2,'2020-04-17','13:45:33',NULL,'600.00','0.00'),(7,1,2,'2020-04-17','18:44:45',NULL,'200.00','0.00'),(8,2,2,'2020-04-17','18:48:33','00:05:31','2100.00','500.00'),(9,1,2,'2020-04-17','19:19:39',NULL,'200.00','0.00'),(10,2,2,'2020-04-17','19:20:05','00:05:31','5000.00','500.00'),(11,1,2,'2020-04-18','14:50:43',NULL,'3000.00','0.00'),(12,2,2,'2020-04-18','14:53:40','00:05:31','200.00','500.00'),(13,1,2,'2020-04-18','14:54:30',NULL,'2003.04','0.00'),(14,2,2,'2020-04-18','14:58:19','00:05:31','2500.00','500.00'),(15,1,2,'2020-04-18','15:13:30',NULL,'2000.00','0.00'),(16,1,2,'2020-04-18','15:22:41',NULL,'250.00','0.00'),(17,1,2,'2020-04-22','11:50:25',NULL,'1200.00','0.00'),(18,1,2,'2020-04-22','13:57:11',NULL,'2000.00','0.00'),(19,2,2,'2020-04-22','14:04:06','00:05:31','1250.00','500.00'),(20,1,2,'2020-04-22','14:07:18',NULL,'5200.00','0.00'),(21,2,2,'2020-04-22','14:08:22','00:05:31','3000.00','500.00'),(22,1,2,'2020-04-23','13:17:23',NULL,'20.00','0.00'),(23,1,2,'2020-04-23','13:19:28',NULL,'4050.00','0.00'),(24,1,2,'2020-04-25','16:21:04',NULL,'2000.00','0.00'),(25,1,2,'2020-04-25','16:27:11',NULL,'2500.00','0.00'),(26,2,2,'2020-05-02','22:55:31','00:05:31','5000.00','500.00'),(27,1,2,'2020-05-05','14:20:06',NULL,'5400.00','0.00'),(28,1,2,'2020-05-09','14:08:21',NULL,'2500.00','0.00'),(29,1,2,'2020-05-09','14:14:24',NULL,'2500.00','0.00'),(30,1,2,'2020-05-09','14:25:47',NULL,'2500.00','0.00'),(31,2,2,'2020-05-09','14:28:48','00:05:31','5600.00','500.00'),(32,2,2,'2020-05-09','14:32:06','00:05:31','5000.00','500.00'),(33,2,2,'2020-05-09','14:33:27','00:05:31','2500.00','500.00'),(34,2,2,'2020-05-09','14:47:12','00:05:31','2500.00','500.00'),(35,2,2,'2020-05-09','14:50:04','00:05:31','250.00','500.00'),(36,2,2,'2020-05-09','14:52:43','00:05:31','250.00','500.00'),(37,2,2,'2020-05-09','14:59:49','00:05:31','2500.00','500.00'),(38,2,2,'2020-05-15','15:44:22','00:05:31','3400.00','500.00'),(39,2,2,'2020-05-15','15:54:37','00:05:31','2500.00','500.00'),(40,2,2,'2020-05-15','16:03:19','00:05:31','2500.00','500.00'),(41,2,2,'2020-05-15','16:06:41','00:05:31','2500.00','500.00'),(42,2,2,'2020-05-15','16:09:53','00:05:31','2500.00','500.00'),(43,2,2,'2020-05-15','16:15:11','00:05:31','250.00','500.00'),(44,2,2,'2020-05-15','16:18:25','00:05:31','2500.00','500.00'),(45,2,2,'2020-05-15','16:22:14','00:05:31','2500.00','500.00'),(46,2,2,'2020-05-15','16:23:45','00:05:31','250.00','500.00'),(47,2,2,'2020-05-15','17:11:23','00:05:31','2500.00','500.00'),(48,2,2,'2020-05-15','17:15:43','00:05:31','3500.00','500.00'),(49,2,2,'2020-05-15','17:22:34','00:05:31','2500.00','500.00'),(50,2,2,'2020-05-15','17:25:53','00:05:31','2500.00','500.00'),(51,2,2,'2020-05-15','17:26:56','00:05:31','2500.00','500.00'),(52,2,2,'2020-05-15','17:28:45','00:05:31','25000.00','500.00'),(53,2,2,'2020-05-15','17:31:48','00:05:31','2500.00','500.00'),(54,2,2,'2020-05-15','17:34:39','00:05:31','0.00','500.00'),(55,2,2,'2020-05-15','19:28:20','00:05:31','2500.00','500.00'),(56,2,2,'2020-05-15','19:33:52','00:05:31','5300.00','500.00'),(57,1,2,'2020-05-17','13:27:13',NULL,'2500.00','0.00'),(58,1,2,'2020-05-17','13:51:38',NULL,'5000.00','0.00'),(59,2,2,'2020-06-02','16:09:45','00:05:31','2500.00','500.00'),(60,1,2,'2020-06-02','16:57:27',NULL,'2300.00','0.00'),(61,2,2,'2020-06-02','16:58:28','00:05:31','2344.44','500.00'),(62,2,2,'2020-06-02','17:17:38','00:05:31','2000.00','500.00'),(63,2,1,'2020-06-02','23:35:26','00:05:31','2500.00','500.00'),(64,2,1,'2020-06-03','15:52:17','00:05:31','5000.00','500.00'),(65,2,1,'2020-06-03','17:20:39','00:05:31','5000.00','500.00'),(66,2,2,'2020-06-03','17:28:16','00:05:31','2000.00','500.00'),(67,2,1,'2020-06-03','18:52:17','00:05:31','2000.00','500.00'),(68,6,1,'2020-06-03','20:19:04',NULL,'2000.00','0.00'),(69,6,3,'2020-06-03','20:26:07',NULL,'5000.00','0.00'),(70,6,1,'2020-06-04','20:49:02',NULL,'2000.00','0.00'),(71,6,1,'2020-06-04','20:57:27',NULL,'2000.00','0.00'),(72,2,1,'2020-06-07','17:02:46','00:05:31','2000.00','500.00'),(73,2,1,'2020-06-07','17:09:28','00:05:31','300.00','500.00'),(74,2,1,'2020-06-07','17:11:59','00:05:31','210.00','500.00'),(75,2,2,'2020-06-07','17:13:48','00:05:31','210.00','500.00'),(76,2,2,'2020-06-07','17:16:38','00:05:31','2100.00','500.00'),(77,2,1,'2020-06-23','20:05:42','00:05:31','4000.00','500.00'),(78,2,1,'2020-06-23','21:59:06','00:05:31','4000.00','500.00'),(79,2,2,'2020-06-23','22:00:14','00:05:31','4000.00','500.00'),(80,2,2,'2020-06-23','22:02:18','00:05:31','200.00','500.00'),(81,2,2,'2020-06-23','22:06:35','00:05:31','540.00','500.00'),(82,2,2,'2020-06-23','22:10:46','00:05:31','430.00','500.00'),(83,2,2,'2020-06-23','22:13:31','00:05:31','520.00','500.00'),(84,2,2,'2020-06-23','22:58:48','00:05:31','2000.00','500.00'),(85,2,2,'2020-06-23','23:30:58','00:05:31','3000.00','500.00'),(86,2,2,'2020-06-23','23:57:12','00:05:31','200.00','500.00'),(87,2,2,'2020-06-23','23:58:07','00:05:31','200.05','500.00'),(88,2,2,'2020-06-23','23:59:21','00:05:31','5000.00','500.00'),(89,2,2,'2020-06-24','00:05:29','00:05:31','2500.00','500.00'),(90,2,2,'2020-06-24','00:14:16',NULL,'1000.00','0.00'),(91,2,2,'2020-06-24','00:22:11',NULL,'9000.00','0.00'),(92,2,2,'2020-06-24','00:38:50',NULL,'600.50','0.00'),(93,2,2,'2020-06-24','00:39:57',NULL,'230.00','0.00'),(94,2,2,'2020-06-24','00:40:54',NULL,'53.20','0.00'),(95,2,2,'2020-06-24','00:42:01',NULL,'230.00','0.00'),(96,2,2,'2020-06-24','00:42:58',NULL,'43.00','0.00'),(97,2,2,'2020-06-24','00:44:07','00:44:12','53.00','0.00'),(98,2,2,'2020-06-24','00:55:48','00:55:54','39.99','39.99'),(99,2,2,'2020-06-24','15:40:02',NULL,'2300.00','0.00'),(100,7,2,'2020-06-24','15:50:17','15:51:39','400.00','400.00'),(101,7,2,'2020-06-24','17:15:50','17:17:51','250.00','250.00'),(102,8,2,'2020-06-24','17:59:47',NULL,'2300.00','0.00'),(103,8,2,'2020-06-24','18:34:25','19:54:32','220.00','220.00'),(104,8,2,'2020-06-24','19:58:14','20:32:47','200.05','170.05'),(105,2,1,'2020-11-18','11:15:16','11:16:38','520.00','520.00'),(106,2,1,'2020-11-18','11:20:08','11:20:36','320.00','320.00'),(107,2,1,'2020-11-18','11:21:26','11:22:52','69.69','69.69'),(108,2,1,'2020-11-18','11:26:41','11:26:53','201.00','201.00'),(109,2,1,'2020-11-18','11:27:56','11:28:18','89.87','89.87'),(110,2,1,'2020-11-18','11:34:02','11:34:45','200.00','200.00'),(111,2,1,'2020-11-18','11:44:08',NULL,'300.00','0.00'),(112,2,1,'2020-11-18','11:45:44','11:46:12','21.00','21.00'),(113,2,1,'2020-11-18','11:48:14','11:48:26','928.80','928.80'),(114,2,1,'2020-11-18','12:03:56','12:04:03','320.10','320.10'),(115,2,1,'2020-11-18','12:08:38','12:08:55','189.91','189.91'),(116,2,1,'2020-11-18','12:17:19','12:17:57','187.88','187.88'),(117,2,1,'2020-11-18','12:19:57','12:20:15','2010.10','2010.10'),(118,2,1,'2020-11-18','12:28:36','12:29:14','0.20','0.20'),(119,2,1,'2020-11-18','12:32:02','12:32:08','929.00','929.00'),(120,2,1,'2020-11-18','12:34:45','12:34:56','20.00','20.00'),(121,2,1,'2020-11-18','12:37:10','12:37:42','420.00','420.00'),(122,2,1,'2020-11-18','12:52:40','12:52:57','300.00','300.00'),(123,2,1,'2020-11-18','12:54:06','12:54:14','302.00','302.00'),(124,2,1,'2020-11-18','12:57:03','12:57:46','98.91','98.91'),(125,2,1,'2020-11-18','14:37:51','14:45:55','230.00','230.00'),(126,2,1,'2020-11-18','14:47:47','15:21:54','380.00','680.00'),(127,2,1,'2020-11-18','18:18:56','18:19:11','200.00','500.00'),(128,2,1,'2020-11-18','18:21:37','18:22:09','301.09','601.09'),(129,2,1,'2020-11-18','18:22:38','18:22:45','20.50','320.50'),(130,2,1,'2020-11-18','18:24:41','18:24:54','98.98','398.98'),(131,2,1,'2020-11-22','17:03:05','17:05:54','23.00','23.00'),(132,2,1,'2020-11-22','17:08:49','17:15:41','421.00','421.00'),(133,2,1,'2020-11-22','17:34:33','17:37:09','89.88','89.88'),(134,2,1,'2020-11-22','17:40:38','17:41:18','898.89','898.89'),(135,2,1,'2020-11-24','19:05:33','03:12:48','89.99','89.99'),(136,2,1,'2020-11-27','11:23:37','11:26:18','68.98','68.98'),(137,2,1,'2020-12-03','21:22:03','21:22:51','111.11','111.11'),(138,2,1,'2020-12-03','21:23:53','21:26:38','222.22','222.22'),(139,2,1,'2020-12-03','21:28:02','21:28:18','2020.20','2020.20'),(140,2,1,'2020-12-05','14:28:58','14:30:14','382.89','382.89'),(141,2,1,'2020-12-05','14:36:33','14:36:45','250.00','250.00'),(142,2,5,'2020-12-05','14:39:42',NULL,'89.99','0.00'),(143,2,5,'2020-12-05','14:50:14',NULL,'600.00','0.00'),(144,2,5,'2020-12-05','14:54:00','14:56:51','77.77','77.77'),(145,2,1,'2020-12-05','15:30:48','15:32:47','600.03','600.03'),(146,2,2,'2020-12-05','15:48:19','15:49:34','500.00','523.00'),(147,2,1,'2020-12-05','16:57:43','16:59:14','2020.20','2013.20'),(148,2,2,'2020-12-05','17:02:37','17:04:44','700.00','723.00'),(149,2,1,'2020-12-05','19:47:09','19:47:43','650.00','648.00'),(150,2,1,'2020-12-06','08:10:37','08:11:05','200.00','180.00'),(151,2,1,'2020-12-06','08:14:01','08:15:17','230.00','212.00'),(152,2,1,'2020-12-06','08:45:45','08:50:19','2000.00','1982.00'),(153,2,1,'2020-12-06','09:18:00','09:26:03','5000.00','4982.00'),(154,2,1,'2020-12-06','09:44:17','09:45:24','500.00','482.00'),(155,2,1,'2020-12-06','09:46:34','10:09:49','2300.00','8142.00'),(156,2,1,'2020-12-06','11:59:42','12:01:28','2800.00','9342.00'),(157,2,1,'2020-12-06','12:11:30','12:19:12','2089.99','9631.99'),(158,6,1,'2020-12-06','13:00:45','13:00:48','200.00','200.00'),(159,2,1,'2020-12-06','13:07:40','13:23:42','2300.00','9842.00'),(160,2,1,'2020-12-06','13:30:06','13:44:25','2300.00','9842.00'),(161,5,1,'2020-12-08','18:04:52','18:22:16','2000.00','1940.00'),(162,2,1,'2020-12-08','19:46:14','19:47:28','3000.00','3000.00'),(163,2,2,'2020-12-09','09:21:34','09:23:55','200.00','200.00'),(164,2,1,'2020-12-09','09:27:20','09:27:47','2000.00','2000.00'),(165,9,1,'2020-12-09','17:32:20','17:34:35','0.00','0.00'),(166,2,1,'2020-12-09','17:39:46','17:40:28','3000.00','3000.00'),(167,2,1,'2020-12-09','17:42:51','17:44:06','2000.00','2000.00');
+insert  into `cashier_log`(`cashier_log_id`,`cashier_id`,`manager_id`,`log_date`,`time_from`,`time_to`,`begin_bal`,`end_bal`) values (1,1,1,'2020-12-11','19:15:49','19:16:35','2000.00','2000.00'),(2,1,1,'2020-12-11','19:19:59','19:51:24','2000.00','2000.00'),(3,1,1,'2020-12-11','19:53:10','19:56:58','2000.00','2000.00'),(4,2,1,'2020-12-11','20:13:26','20:14:24','2000.00','2000.00'),(5,2,1,'2020-12-11','20:19:00','20:23:01','2000.00','12750.00'),(6,2,1,'2020-12-11','20:26:30','20:38:39','2000.00','98790.00'),(7,2,1,'2020-12-11','20:41:49','20:43:24','2000.00','123790.00'),(8,2,1,'2020-12-11','21:00:58','21:03:33','2000.00','123790.00'),(9,2,1,'2020-12-11','21:12:13','21:21:57','0.00','121790.00'),(10,1,1,'2020-12-12','23:38:00',NULL,'2000.00','0.00'),(11,1,1,'2020-12-12','23:43:30',NULL,'2000.00','0.00'),(12,1,1,'2020-12-12','23:52:09','23:52:39','2000.00','2000.00'),(13,1,1,'2020-12-12','23:53:59',NULL,'2000.00','0.00'),(14,1,1,'2020-12-12','23:57:08','23:59:06','2000.00','2000.00'),(15,1,1,'2020-12-13','00:00:55','00:01:34','2000.00','2000.00'),(16,1,1,'2020-12-13','00:03:01','00:03:31','2000.00','2000.00'),(17,1,1,'2020-12-13','00:04:11','00:04:38','2000.00','2000.00'),(18,1,1,'2020-12-13','15:29:14','15:30:36','2000.00','2000.00'),(19,1,1,'2020-12-13','15:34:13','15:36:08','2000.00','2000.00'),(20,1,1,'2020-12-13','16:24:31','16:26:02','2000.00','2000.00'),(21,1,1,'2020-12-13','16:26:30','16:32:14','2000.00','2000.00'),(22,1,1,'2020-12-13','19:23:21',NULL,'2000.00','0.00'),(23,1,1,'2020-12-13','19:29:05','19:31:10','2000.00','4200.00'),(24,1,1,'2020-12-13','19:39:32',NULL,'2000.00','0.00'),(25,1,1,'2020-12-13','19:46:55','19:49:44','2000.00','4200.00'),(26,1,1,'2020-12-13','20:05:00',NULL,'2000.00','0.00'),(27,1,1,'2020-12-13','20:08:49',NULL,'2000.00','0.00'),(28,1,1,'2020-12-13','20:13:03','20:16:58','2000.00','4200.00'),(29,1,1,'2020-12-13','20:43:31','20:46:21','2000.00','4200.00'),(30,1,1,'2020-12-13','20:47:35','21:08:10','2000.00','1500.00'),(31,1,1,'2020-12-13','21:18:56','21:19:41','2000.00','1500.00'),(32,1,1,'2020-12-15','11:32:48','11:33:15','2000.00','2000.00'),(33,3,1,'2020-12-15','11:33:35','11:33:58','4000.00','4000.00'),(34,3,1,'2020-12-15','11:38:03','11:47:04','4000.00','4000.00'),(35,3,1,'2020-12-16','11:48:00','11:48:34','4000.00','4000.00'),(36,3,1,'2020-12-16','11:56:52','11:58:44','4000.00','1340.00'),(37,1,1,'2020-12-16','13:03:42','15:45:56','2300.00','2300.00'),(38,3,1,'2020-12-18','10:15:30',NULL,'4000.00','0.00'),(39,1,1,'2020-12-18','10:21:26',NULL,'4000.00','0.00'),(40,3,1,'2020-12-18','10:36:21',NULL,'4000.00','0.00'),(41,3,1,'2020-12-18','10:40:35','10:41:50','4000.00','-4970.00'),(42,1,1,'2020-12-18','10:44:36','10:46:24','4000.00','-1980.00'),(43,3,1,'2020-12-18','10:47:52','10:51:21','4000.00','-10950.00'),(44,3,1,'2020-12-18','10:58:51',NULL,'4000.00','0.00'),(45,3,1,'2020-12-18','11:06:40','11:09:20','4000.00','-16930.00'),(46,3,1,'2020-12-30','13:44:22','13:46:14','5300.00','5300.00'),(47,3,1,'2020-12-30','13:48:51','13:58:32','5500.00','13500.00'),(48,3,1,'2020-12-30','14:07:41','14:10:03','5500.00','11000.00'),(49,3,1,'2020-12-30','14:15:01','14:17:53','5500.00','8300.00'),(50,3,1,'2020-12-30','14:28:24','14:30:25','5500.00','8300.00'),(51,3,1,'2020-12-29','17:36:03','17:39:11','5000.00','5000.00'),(52,3,1,'2020-12-29','17:41:05','17:47:55','5000.00','5000.00'),(53,3,1,'2020-12-29','17:50:42','17:55:18','5000.00','7800.00'),(54,3,1,'2020-12-29','19:07:22','19:08:18','5000.00','7800.00'),(55,4,1,'2020-12-29','21:50:00','21:54:09','5000.00','21900.00'),(56,4,1,'2020-12-30','21:56:13','22:01:14','5000.00','5000.00'),(57,4,1,'2020-12-30','22:02:56','22:05:26','5000.00','1550.00'),(58,4,1,'2020-12-30','22:06:14','22:10:57','5000.00','8950.00');
 
 /*Table structure for table `category` */
 
@@ -163,11 +159,11 @@ CREATE TABLE `category` (
   `category_id` bigint(20) NOT NULL AUTO_INCREMENT,
   `category_name` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`category_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `category` */
 
-insert  into `category`(`category_id`,`category_name`) values (2,'BRAND NEW WHEEL'),(3,'USED WHEEL'),(6,'SOFT DRINKS'),(7,'OIL'),(9,'ALCOHOLIC DRINK');
+insert  into `category`(`category_id`,`category_name`) values (1,'Brand New Tires'),(2,'Car Accesories'),(3,'Second Hand Tires'),(4,'Brake'),(5,'Oil');
 
 /*Table structure for table `credit_payment` */
 
@@ -188,11 +184,11 @@ CREATE TABLE `credit_payment` (
   CONSTRAINT `credit_payment_ibfk_1` FOREIGN KEY (`cashier_id`) REFERENCES `cashier` (`cashier_id`),
   CONSTRAINT `credit_payment_ibfk_2` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`),
   CONSTRAINT `credit_payment_ibfk_3` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `credit_payment` */
 
-insert  into `credit_payment`(`credit_pay_id`,`order_id`,`cashier_id`,`customer_id`,`trans_date`,`pay_amount`,`invoice`) values (1,1,2,2,'2020-04-17','2700.00','5923417'),(2,5,6,5,'2020-06-04','500.00','50100010'),(3,7,8,7,'2020-06-24','20000.00','09101989178');
+insert  into `credit_payment`(`credit_pay_id`,`order_id`,`cashier_id`,`customer_id`,`trans_date`,`pay_amount`,`invoice`) values (1,3,2,1,'2020-12-12','8000.00','99901789111'),(2,8,3,1,'2020-12-15','0.00','18988989'),(3,9,3,2,'2020-12-16','0.00','891889991'),(4,11,3,1,'2020-12-30','0.00','112389999'),(5,12,3,1,'2020-12-29','0.00','89198192998'),(6,15,4,3,'2020-12-30','0.00','19290192839'),(7,16,4,1,'2020-12-30','0.00','1234189999');
 
 /*Table structure for table `credit_settle` */
 
@@ -213,11 +209,11 @@ CREATE TABLE `credit_settle` (
   CONSTRAINT `credit_settle_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`),
   CONSTRAINT `credit_settle_ibfk_2` FOREIGN KEY (`cashier_id`) REFERENCES `cashier` (`cashier_id`),
   CONSTRAINT `credit_settle_ibfk_3` FOREIGN KEY (`manager_id`) REFERENCES `manager` (`manager_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `credit_settle` */
 
-insert  into `credit_settle`(`credit_settle_id`,`customer_id`,`cashier_id`,`manager_id`,`trans_date`,`pay_amount`,`receipt`) values (1,2,2,2,'2020-04-17','3000.00',2501321),(2,5,6,3,'2020-06-04','200.00',200012010),(3,7,8,2,'2020-06-25','10000.00',2102391089),(4,2,2,1,'2020-12-06','700.00',111112222),(5,2,2,1,'2020-12-06','1000.00',2221110000);
+insert  into `credit_settle`(`credit_settle_id`,`customer_id`,`cashier_id`,`manager_id`,`trans_date`,`pay_amount`,`receipt`) values (1,1,4,1,'2020-12-29','4200.00',819283789),(2,3,4,1,'2020-12-30','7400.00',832914799);
 
 /*Table structure for table `customer` */
 
@@ -229,11 +225,11 @@ CREATE TABLE `customer` (
   `credit_limit` decimal(15,2) DEFAULT '0.00',
   `balance` decimal(15,2) DEFAULT '0.00',
   PRIMARY KEY (`customer_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `customer` */
 
-insert  into `customer`(`customer_id`,`customer_code`,`credit_limit`,`balance`) values (1,'CUST-001','100.00','0.00'),(2,'CUST-002','3000.00','1000.00'),(3,'CUST-003','5000.00','0.00'),(4,'CUST-004','50000.00','0.00'),(5,'CUST-005','10000.00','300.00'),(6,'CUST-006','10000.00','0.00'),(7,'CUST-007','20000.00','9530.00'),(8,'CUST- 005','2000.00','0.00');
+insert  into `customer`(`customer_id`,`customer_code`,`credit_limit`,`balance`) values (1,'cust-001','10000.00','9800.00'),(2,'cust-002','20000.00','14950.00'),(3,'cust-003','30000.00','10000.00');
 
 /*Table structure for table `customer_details` */
 
@@ -251,7 +247,7 @@ CREATE TABLE `customer_details` (
 
 /*Data for the table `customer_details` */
 
-insert  into `customer_details`(`customer_id`,`customer_surname`,`customer_gname`,`customer_mi`,`customer_suffix`) values (1,'Antonio','Renier','',''),(2,'Antonio','Zoren','F.',''),(3,'KREME','KRISPY','',''),(4,'Stark','Tony','',''),(5,'Panther','Tchalla','',''),(6,'Wayne','Bruce','',''),(7,'Parker','Peter','',''),(8,'vicente','rosey','','');
+insert  into `customer_details`(`customer_id`,`customer_surname`,`customer_gname`,`customer_mi`,`customer_suffix`) values (1,'Stark','Tony','',''),(2,'Wayne','Bruce','',''),(3,'Bill','Gates',NULL,NULL);
 
 /*Table structure for table `inventory` */
 
@@ -267,11 +263,11 @@ CREATE TABLE `inventory` (
   KEY `branch_id` (`branch_id`),
   CONSTRAINT `inventory_ibfk_1` FOREIGN KEY (`item_id`) REFERENCES `item` (`item_id`),
   CONSTRAINT `inventory_ibfk_2` FOREIGN KEY (`branch_id`) REFERENCES `branch` (`branch_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `inventory` */
 
-insert  into `inventory`(`inventory_id`,`item_id`,`branch_id`,`qty`) values (1,14,3,50),(2,3,3,49),(3,5,3,46),(4,8,3,50),(5,25,6,30),(6,26,6,30),(7,15,6,40),(8,25,3,98),(9,27,7,100),(10,28,7,100),(11,25,7,100),(12,26,7,100),(13,29,8,350),(14,25,8,200),(15,26,8,7),(16,28,8,200);
+insert  into `inventory`(`inventory_id`,`item_id`,`branch_id`,`qty`) values (1,1,2,5),(2,2,2,16),(3,3,2,5),(4,4,2,-16),(5,1,1,3),(6,5,2,9),(7,2,1,1),(8,6,2,1),(9,7,2,1);
 
 /*Table structure for table `inventory_period` */
 
@@ -282,9 +278,11 @@ CREATE TABLE `inventory_period` (
   `period_from` date DEFAULT NULL,
   `period_to` date DEFAULT NULL,
   PRIMARY KEY (`inv_period_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `inventory_period` */
+
+insert  into `inventory_period`(`inv_period_id`,`period_from`,`period_to`) values (1,'2020-12-11','2020-12-11');
 
 /*Table structure for table `item` */
 
@@ -308,11 +306,11 @@ CREATE TABLE `item` (
   CONSTRAINT `item_ibfk_1` FOREIGN KEY (`brand_id`) REFERENCES `brand` (`brand_id`),
   CONSTRAINT `item_ibfk_2` FOREIGN KEY (`category_id`) REFERENCES `category` (`category_id`),
   CONSTRAINT `item_ibfk_3` FOREIGN KEY (`unit_id`) REFERENCES `unit` (`unit_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `item` */
 
-insert  into `item`(`item_id`,`item_code`,`item_desc`,`item_add_desc`,`brand_id`,`category_id`,`unit_id`,`item_unit_price`,`item_price_A`,`item_price_B`) values (1,'ITEM-001','ECOVAN','1554 12LT 8PR',1,2,1,'2600.00','2900.00','2700.00'),(2,'ITEM-002','ES88','155R 12LT 6PR',2,3,1,'2300.00','2500.00','2400.00'),(3,'ITEM-003','LRP158','155R 12LT 8PR',3,2,1,'1850.00','2100.00','1900.00'),(4,'ITEM-004','C212','155R 12LT 8PR',4,2,1,'2300.00','2600.00','2400.00'),(5,'ITEM-005','MIXLUG','500X12 10PR',4,2,1,'2800.00','2900.00','2700.00'),(6,'ITEM-006','MILER/RIB','500X12 8PR',3,3,1,'2200.00','2300.00','2100.00'),(7,'ITEM-007','MILAZE','165/65R13',5,2,1,'2500.00','2600.00','2400.00'),(8,'ITEM-008','EH22','165/65R13',2,2,1,'2450.00','2500.00','2400.00'),(9,'ITEM-009','MILAZE','165/65R13',5,3,1,'2500.00','2600.00','2400.00'),(10,'ITEM-010','EH22','165/65R13',2,3,1,'2450.00','2500.00','2400.00'),(11,'ITEM-011','CF610','165/65R13',8,3,1,'2300.00','2400.00','2200.00'),(12,'ITEM-012','RPX900','165 65R13',9,2,1,'2500.00','2600.00','2400.00'),(13,'ITEM-013','T90A','165/65R13',4,2,1,'2500.00','2600.00','2400.00'),(14,'ITEM-014','RPX9001','165 65R13',9,2,1,'2500.00','2600.00','2400.00'),(15,'ITEM-14321','AFASDFA','ASFASDF',13,2,2,'2600.00','2700.00','2500.00'),(17,'ITEM-13212','MARCH','ARPIL',1,3,1,'2500.00','3000.00','2000.00'),(22,'ITEM-123','ECO/VAN','1554 12LT 8PR',1,2,1,'2600.00','2900.00','2700.00'),(23,'ITEM-10321','CEET','BLAZE',4,3,1,'2000.00','2500.00','1900.00'),(24,'ITEM-52121','GOTX','LB 119',4,2,1,'2500.00','3000.00','1900.00'),(25,'ITEM-023140','ICE','BLUE',16,9,2,'25.00','30.00','20.00'),(26,'ITEM-012301','ICE','PINK',16,9,2,'25.00','30.00','20.00'),(27,'ITEM-19129','LIGHT','ORIGINAL',17,9,1,'45.00','50.00','40.00'),(28,'ITEM-39491','LIGHT','APPLE',17,9,1,'45.00','50.00','40.00'),(29,'ITEM-2191','ORIG.','12 Oz.',18,9,1,'80.00','90.00','75.00');
+insert  into `item`(`item_id`,`item_code`,`item_desc`,`item_add_desc`,`brand_id`,`category_id`,`unit_id`,`item_unit_price`,`item_price_A`,`item_price_B`) values (1,'item-001','165/60','R14',1,1,3,'2400.00','2600.00','2500.00'),(2,'item-002','165/60','R14',3,1,3,'2500.00','2700.00','2600.00'),(3,'item-003','165/95','R14',2,1,3,'2500.00','2600.00','2550.00'),(4,'item-004','165/90','R14',1,1,3,'2800.00','2990.00','2800.00'),(5,'item-005','Brake Pads','Heavy Duty',4,4,1,'500.00','550.00','530.00'),(6,'item-006','Engine Oil','15L',5,5,1,'50.00','60.00','55.00'),(7,'item-007','165/60','R14',6,1,1,'2700.00','2900.00','2800.00');
 
 /*Table structure for table `manager` */
 
@@ -329,11 +327,26 @@ CREATE TABLE `manager` (
   PRIMARY KEY (`manager_id`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `manager_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `manager` */
 
-insert  into `manager`(`manager_id`,`user_id`,`username`,`password`,`salt`,`is_active`,`is_logged_in`) values (1,4,'John12345','6aIJbUr31XiovrQOaO6Evt9xjb/J7HCgH8JsMaddS90=','GxSYNJ+2OUMjLsTy1rjAY/+QjMjoTa+WfY7Ty8M7iMc=',1,0),(2,6,'W4d3yyy','ieAgkbRFaDOsy88sP0APSXuCWe6yNx9Uz6TAL5ubNJY=','HKYb/kb7/bxP8qxXfIRn+m9q+W6sN+uSEMe3AbZpNkM=',1,0),(3,10,'BruceBruce','QVT8DRN+Ra7yknppOIlq7wMj0zUSeVb4u+W1Ye7v1vI=','GVGPcme74GR+U5+mgHuGo+Ad9hkagA+6EuXJ6aoUJ/w=',1,0),(5,1,'renier1234','sKIA7JeYVQiMnVbVe4eOuMoDeOYmvtgjDf5FOaZN8V4=','KlMy/zfVXjgA7cdj/kvEwO1WvO5QQeohiMQ4AJALu6g=',1,0),(6,17,'rose18','Lt5WHJnGJ4+yZHGZWGWnyDQgtQn9NvrXoJ4MTuj+imE=','8wSiPHLip0+B/u2iME8wdZsJaKBzBJq7STd1dtcv5EQ=',1,0);
+insert  into `manager`(`manager_id`,`user_id`,`username`,`password`,`salt`,`is_active`,`is_logged_in`) values (1,3,'Diana123','S+NaN+tzFe3mSiI1DRZKmtxpwrAvHFnNQI/BtOK2juM=','qh35E9BMmZvD4zbx441Rntxo8cbuBDjNIRIo0tzi6ao=',1,0);
+
+/*Table structure for table `misc` */
+
+DROP TABLE IF EXISTS `misc`;
+
+CREATE TABLE `misc` (
+  `critical_stock` bigint(20) DEFAULT '0',
+  `credit_limit` decimal(12,2) DEFAULT '10000.00',
+  `misc_id` bigint(20) unsigned NOT NULL,
+  PRIMARY KEY (`misc_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `misc` */
+
+insert  into `misc`(`critical_stock`,`credit_limit`,`misc_id`) values (3,'30000.00',1);
 
 /*Table structure for table `order_item_dtls` */
 
@@ -351,11 +364,11 @@ CREATE TABLE `order_item_dtls` (
   KEY `order_id` (`order_id`),
   CONSTRAINT `order_item_dtls_ibfk_3` FOREIGN KEY (`inventory_id`) REFERENCES `inventory` (`inventory_id`),
   CONSTRAINT `order_item_dtls_ibfk_4` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `order_item_dtls` */
 
-insert  into `order_item_dtls`(`order_item_id`,`order_id`,`inventory_id`,`qty`,`price`,`line_total`) values (1,1,3,1,'2700.00','2700.00'),(2,2,2,2,'1900.00','3800.00'),(3,3,3,1,'2800.00','2800.00'),(4,4,5,10,'30.00','300.00'),(5,4,6,10,'30.00','300.00'),(6,4,7,10,'2700.00','27000.00'),(7,5,5,10,'25.00','250.00'),(8,5,6,10,'25.00','250.00'),(9,6,13,0,'90.00','150.00'),(10,7,15,201,'30.00','201.00'),(11,7,13,150,'90.00','150.00'),(12,8,3,2,'2900.00','5800.00'),(13,8,8,2,'30.00','60.00');
+insert  into `order_item_dtls`(`order_item_id`,`order_id`,`inventory_id`,`qty`,`price`,`line_total`) values (1,1,6,1,'550.00','550.00'),(2,1,1,4,'2550.00','10200.00'),(3,2,2,2,'2650.00','5300.00'),(4,2,3,2,'2570.00','5140.00'),(5,3,4,3,'2800.00','8400.00'),(6,4,4,27,'2800.00','75600.00'),(7,5,1,10,'2500.00','25000.00'),(8,6,6,3,'550.00','1650.00'),(9,7,6,1,'550.00','550.00'),(10,8,8,10,'60.00','600.00'),(11,8,1,1,'2600.00','2600.00'),(12,9,4,6,'2990.00','17940.00'),(13,10,2,2,'2700.00','5400.00'),(14,10,1,1,'2600.00','2600.00'),(15,11,2,1,'2700.00','2700.00'),(16,11,1,1,'2500.00','2500.00'),(17,12,3,1,'2600.00','2600.00'),(18,12,1,1,'2600.00','2600.00'),(19,13,2,2,'2700.00','5400.00'),(20,14,9,4,'2900.00','11600.00'),(21,14,6,2,'550.00','1100.00'),(22,15,9,6,'2900.00','17400.00'),(23,16,1,3,'2600.00','7800.00');
 
 /*Table structure for table `order_svc_dtls` */
 
@@ -373,11 +386,9 @@ CREATE TABLE `order_svc_dtls` (
   KEY `order_id` (`order_id`),
   CONSTRAINT `order_svc_dtls_ibfk_1` FOREIGN KEY (`service_id`) REFERENCES `service` (`service_id`),
   CONSTRAINT `order_svc_dtls_ibfk_2` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `order_svc_dtls` */
-
-insert  into `order_svc_dtls`(`order_svc_dtls`,`order_id`,`service_id`,`qty`,`price`,`line_total`) values (1,2,1,2,'200.00','400.00');
 
 /*Table structure for table `orders` */
 
@@ -392,11 +403,11 @@ CREATE TABLE `orders` (
   PRIMARY KEY (`order_id`),
   KEY `branch_id` (`branch_id`),
   CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`branch_id`) REFERENCES `branch` (`branch_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `orders` */
 
-insert  into `orders`(`order_id`,`trans_date`,`gross_amount`,`trans_code`,`branch_id`) values (1,'2020-04-17','2700.00',1,3),(2,'2020-04-17','4200.00',1,3),(3,'2020-06-03','2800.00',1,3),(4,'2020-06-03','27600.00',1,6),(5,'2020-06-04','500.00',1,6),(6,'2020-06-24','19530.00',1,8),(7,'2020-06-24','19530.00',1,8),(8,'2020-12-06','5860.00',1,3);
+insert  into `orders`(`order_id`,`trans_date`,`gross_amount`,`trans_code`,`branch_id`) values (1,'2020-12-11','10750.00',1,2),(2,'2020-12-11','10440.00',2,2),(3,'2020-12-11','8400.00',3,2),(4,'2020-12-11','75600.00',4,2),(5,'2020-12-11','25000.00',5,2),(6,'2020-12-13','1650.00',1,2),(7,'2020-12-13','550.00',2,2),(8,'2020-12-15','3200.00',1,2),(9,'2020-12-15','17940.00',2,2),(10,'2020-12-30','8000.00',1,2),(11,'2020-12-30','5200.00',2,2),(12,'2020-12-29','5200.00',1,2),(13,'2020-12-29','5400.00',1,2),(14,'2020-12-29','12700.00',1,2),(15,'2020-12-30','17400.00',3,2),(16,'2020-12-30','7800.00',4,2);
 
 /*Table structure for table `physical_count` */
 
@@ -415,9 +426,11 @@ CREATE TABLE `physical_count` (
   KEY `inv_period_id` (`inv_period_id`),
   CONSTRAINT `physical_count_ibfk_4` FOREIGN KEY (`inv_period_id`) REFERENCES `inventory_period` (`inv_period_id`),
   CONSTRAINT `physical_count_ibfk_5` FOREIGN KEY (`inv_period_id`) REFERENCES `inventory` (`inventory_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `physical_count` */
+
+insert  into `physical_count`(`phys_count_id`,`inv_period_id`,`inventory_id`,`qty`,`count_date`,`ref_no`,`remarks`) values (1,1,1,10,'2020-12-11',1,'');
 
 /*Table structure for table `refund` */
 
@@ -438,11 +451,11 @@ CREATE TABLE `refund` (
   CONSTRAINT `refund_ibfk_2` FOREIGN KEY (`manager_id`) REFERENCES `manager` (`manager_id`),
   CONSTRAINT `refund_ibfk_3` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`),
   CONSTRAINT `refund_ibfk_4` FOREIGN KEY (`cashier_id`) REFERENCES `cashier` (`cashier_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `refund` */
 
-insert  into `refund`(`refund_id`,`order_id`,`cashier_id`,`manager_id`,`amount`,`trans_date`,`remarks`) values (1,2,2,2,'1800.00','2020-05-15','eyooo!'),(2,7,8,2,'30.00','2020-06-24','etc.'),(3,7,5,1,'60.00','2020-12-08','test refund for branch \'Disneys\'');
+insert  into `refund`(`refund_id`,`order_id`,`cashier_id`,`manager_id`,`amount`,`trans_date`,`remarks`) values (1,3,1,1,'2700.00','2020-12-13','test'),(2,8,3,1,'2660.00','2020-12-16','test'),(3,9,3,1,'2990.00','2020-12-18','testung'),(4,9,1,1,'2990.00','2020-12-18','testung'),(5,9,3,1,'2990.00','2020-12-18','test lang ng test'),(6,9,3,1,'2990.00','2020-12-18','test ulit ng test'),(7,9,1,1,'2990.00','2020-12-18','sdakfsadkjfaskl'),(8,9,3,1,'2990.00','2020-12-18','hutek'),(9,9,3,1,'2990.00','2020-12-18','fakjdsfkla'),(10,9,3,1,'2990.00','2020-12-18','eoooo!!'),(11,9,3,1,'2990.00','2020-12-18','ay nako'),(12,11,3,1,'2500.00','2020-12-30','helo world'),(13,11,3,1,'2700.00','2020-12-30','world hello'),(14,12,3,1,'2600.00','2020-12-29','akira'),(15,14,4,1,'3450.00','2020-12-30','akdsfajl');
 
 /*Table structure for table `refund_item_dtls` */
 
@@ -460,11 +473,11 @@ CREATE TABLE `refund_item_dtls` (
   KEY `inventory_id` (`inventory_id`),
   CONSTRAINT `refund_item_dtls_ibfk_1` FOREIGN KEY (`refund_id`) REFERENCES `refund` (`refund_id`),
   CONSTRAINT `refund_item_dtls_ibfk_2` FOREIGN KEY (`inventory_id`) REFERENCES `inventory` (`inventory_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `refund_item_dtls` */
 
-insert  into `refund_item_dtls`(`refund_item_id`,`refund_id`,`inventory_id`,`qty`,`price`,`sub_total`) values (1,NULL,2,1,'1800.00','1800.00'),(2,2,15,1,'30.00','30.00'),(3,3,15,2,'30.00','60.00');
+insert  into `refund_item_dtls`(`refund_item_id`,`refund_id`,`inventory_id`,`qty`,`price`,`sub_total`) values (1,1,4,1,'2700.00','2700.00'),(2,2,8,1,'60.00','60.00'),(3,2,1,1,'2600.00','2600.00'),(4,3,4,1,'2990.00','2990.00'),(5,4,4,1,'2990.00','2990.00'),(6,5,4,1,'2990.00','2990.00'),(7,6,4,1,'2990.00','2990.00'),(8,7,4,1,'2990.00','2990.00'),(9,8,4,1,'2990.00','2990.00'),(10,9,4,1,'2990.00','2990.00'),(11,10,4,1,'2990.00','2990.00'),(12,11,4,1,'2990.00','2990.00'),(13,12,1,1,'2500.00','2500.00'),(14,13,2,1,'2700.00','2700.00'),(15,14,3,1,'2600.00','2600.00'),(16,15,9,1,'2900.00','2900.00'),(17,15,6,1,'550.00','550.00');
 
 /*Table structure for table `refund_svc_dtls` */
 
@@ -501,7 +514,7 @@ CREATE TABLE `service` (
 
 /*Data for the table `service` */
 
-insert  into `service`(`service_id`,`service_code`,`service_desc`,`service_fee_A`,`service_fee_B`) values (1,'SERVICE-001','Tire Change','400.00','200.00'),(2,'SERVICE-002','OIL CHANGE','100.00','80.00');
+insert  into `service`(`service_id`,`service_code`,`service_desc`,`service_fee_A`,`service_fee_B`) values (1,'svc-001','Body Enhancement','5000.00','4000.00'),(2,'svc-002','Change Oil','40.00','30.00');
 
 /*Table structure for table `stock_in` */
 
@@ -523,11 +536,11 @@ CREATE TABLE `stock_in` (
   CONSTRAINT `stock_in_ibfk_2` FOREIGN KEY (`branch_id`) REFERENCES `branch` (`branch_id`),
   CONSTRAINT `stock_in_ibfk_3` FOREIGN KEY (`supplier_id`) REFERENCES `supplier` (`supplier_id`),
   CONSTRAINT `stock_in_ibfk_4` FOREIGN KEY (`inventory_id`) REFERENCES `inventory` (`inventory_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `stock_in` */
 
-insert  into `stock_in`(`stock_in_id`,`inventory_id`,`branch_id`,`supplier_id`,`ref_no`,`qty`,`trans_date`,`remarks`) values (1,1,3,2,1,50,'2020-03-21','initial'),(2,2,3,2,1,50,'2020-03-21','initial'),(3,3,3,2,1,50,'2020-03-21','initial'),(4,4,3,2,1,50,'2020-03-21','initial'),(5,5,6,5,2,50,'2020-03-21',''),(6,6,6,5,2,50,'2020-03-21',''),(7,7,6,5,2,50,'2020-03-21',''),(8,8,3,2,3,100,'2020-03-21',''),(9,9,7,2,4,100,'2020-03-21','initial stock in'),(10,10,7,2,4,100,'2020-03-21','initial stock in'),(11,11,7,2,4,100,'2020-03-21','initial stock in'),(12,12,7,2,4,100,'2020-03-21','initial stock in'),(13,13,8,2,5,500,'2020-03-21',''),(14,14,8,2,5,200,'2020-03-21',''),(15,15,8,2,5,200,'2020-03-21',''),(16,16,8,2,5,200,'2020-03-21',''),(17,15,8,2,6,5,'2020-03-21','');
+insert  into `stock_in`(`stock_in_id`,`inventory_id`,`branch_id`,`supplier_id`,`ref_no`,`qty`,`trans_date`,`remarks`) values (1,1,2,1,1,10,'2020-12-11','initial stock in'),(2,2,2,1,1,10,'2020-12-11','initial stock in'),(3,3,2,1,1,10,'2020-12-11','initial stock in'),(4,4,2,1,1,10,'2020-12-11','initial stock in'),(5,6,2,2,2,5,'2020-12-11','initial stock in for brake'),(6,1,2,1,3,1,'2020-12-13','stock 2 test'),(7,8,2,2,4,10,'2020-12-15','Oil stock'),(8,2,2,2,5,13,'2020-12-15','test stock'),(9,1,2,2,6,13,'2020-12-15','try and try'),(10,6,2,2,7,10,'2020-12-15','try ulit'),(11,2,2,1,8,2,'2020-12-30',''),(12,9,2,3,9,10,'2020-12-29','');
 
 /*Table structure for table `stock_out` */
 
@@ -546,9 +559,11 @@ CREATE TABLE `stock_out` (
   KEY `inventory_id` (`inventory_id`),
   CONSTRAINT `stock_out_ibfk_2` FOREIGN KEY (`branch_id`) REFERENCES `branch` (`branch_id`),
   CONSTRAINT `stock_out_ibfk_3` FOREIGN KEY (`inventory_id`) REFERENCES `inventory` (`inventory_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `stock_out` */
+
+insert  into `stock_out`(`stock_out_id`,`inventory_id`,`branch_id`,`ref_no`,`qty`,`trans_date`,`remarks`) values (1,4,2,1,5,'2020-12-11','Expired');
 
 /*Table structure for table `stock_return` */
 
@@ -570,9 +585,11 @@ CREATE TABLE `stock_return` (
   CONSTRAINT `stock_return_ibfk_1` FOREIGN KEY (`branch_id`) REFERENCES `branch` (`branch_id`),
   CONSTRAINT `stock_return_ibfk_2` FOREIGN KEY (`supplier_id`) REFERENCES `supplier` (`supplier_id`),
   CONSTRAINT `stock_return_ibfk_3` FOREIGN KEY (`inventory_id`) REFERENCES `inventory` (`inventory_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `stock_return` */
+
+insert  into `stock_return`(`stock_ret_id`,`inventory_id`,`branch_id`,`supplier_id`,`ref_no`,`qty`,`trans_date`,`remarks`) values (1,2,2,1,1,2,'2020-12-11','reject items'),(2,3,2,1,2,3,'2020-12-13','');
 
 /*Table structure for table `stock_transfer` */
 
@@ -594,9 +611,11 @@ CREATE TABLE `stock_transfer` (
   CONSTRAINT `stock_transfer_ibfk_2` FOREIGN KEY (`branch_id_from`) REFERENCES `branch` (`branch_id`),
   CONSTRAINT `stock_transfer_ibfk_3` FOREIGN KEY (`branch_id_to`) REFERENCES `branch` (`branch_id`),
   CONSTRAINT `stock_transfer_ibfk_4` FOREIGN KEY (`inventory_id`) REFERENCES `inventory` (`inventory_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `stock_transfer` */
+
+insert  into `stock_transfer`(`stock_trans_id`,`inventory_id`,`branch_id_from`,`branch_id_to`,`ref_no`,`qty`,`trans_date`,`remarks`) values (1,1,2,1,1,3,'2020-12-11',''),(2,2,2,1,2,1,'2020-12-13','test');
 
 /*Table structure for table `supplier` */
 
@@ -607,11 +626,11 @@ CREATE TABLE `supplier` (
   `supplier_name` varchar(50) DEFAULT NULL,
   `supplier_address` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`supplier_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `supplier` */
 
-insert  into `supplier`(`supplier_id`,`supplier_name`,`supplier_address`) values (2,'DOST','Petit Barracks Z.C.'),(3,'Tetuan Branch','Tetuan'),(5,'SM','Petit Baracks'),(6,'ASUS','divisoria');
+insert  into `supplier`(`supplier_id`,`supplier_name`,`supplier_address`) values (1,'SM City','Mindpro'),(2,'Citi Mall','Tetuan'),(3,'Citi Hardware','kasdla');
 
 /*Table structure for table `unit` */
 
@@ -621,11 +640,11 @@ CREATE TABLE `unit` (
   `unit_id` bigint(20) NOT NULL AUTO_INCREMENT,
   `unit_name` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`unit_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `unit` */
 
-insert  into `unit`(`unit_id`,`unit_name`) values (1,'Pieces'),(2,'Cases');
+insert  into `unit`(`unit_id`,`unit_name`) values (1,'pieces'),(2,'pack'),(3,'set');
 
 /*Table structure for table `user_details` */
 
@@ -643,7 +662,7 @@ CREATE TABLE `user_details` (
 
 /*Data for the table `user_details` */
 
-insert  into `user_details`(`user_id`,`user_surname`,`user_gname`,`user_mi`,`user_suffix`) values (1,'Antonio','Renier','',''),(2,'Tsuki','Ame','',''),(3,'Pedro','Juan','',''),(4,'Doe','John','',''),(6,'Wilson','Wade','D.',''),(7,'Rizal','Jose','P.',''),(8,'Bonifacio','Andres','',''),(9,'Hampaslupa','Agapito','H.',''),(10,'Wayne','Bruce','',''),(11,'Kitty','Hello','',''),(12,'Poppins','Mary','',''),(13,'Stark','Tony','',''),(14,'Boop','Betty','',''),(17,'Vicente','Rose','',''),(18,'Vicente','Grachi','',''),(19,'Antonio','Ren','','');
+insert  into `user_details`(`user_id`,`user_surname`,`user_gname`,`user_mi`,`user_suffix`) values (1,'Antonio','Renier',NULL,NULL),(2,'Wayne','Bruce','',''),(3,'Prince','Diana','',''),(4,'Parker','Peter','',''),(5,'Poppins','Mary','',''),(6,'Boop','Betty','','');
 
 /*Table structure for table `users` */
 
@@ -661,11 +680,33 @@ CREATE TABLE `users` (
   PRIMARY KEY (`user_id`),
   KEY `branch_id` (`branch_id`),
   CONSTRAINT `users_ibfk_1` FOREIGN KEY (`branch_id`) REFERENCES `branch` (`branch_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `users` */
 
-insert  into `users`(`user_id`,`branch_id`,`username`,`password`,`salt`,`user_type`,`is_active`,`is_logged_in`) values (1,8,'Admin123','6JwtKFYJubYRVT7Q7Ib68211QJ4tuAbCu4sGQK4GmfA=','PNE7+tlSXkvQ0ltJIKmtaoyujhYIy1X1Ubtcx0NdaW8=','Admin',1,0),(2,2,'ren1234','IXfJK7A6GN6OEKZXUIh6Cc/LRb9CXLHkCmEpMPeMRa8=','Fd7iD/SuFqdig45d5XZxt6wKyNVd9EjF6Ro4mcWQVo4=','Cashier',1,0),(3,3,'JuanP3dro','MUMrxDAgohbv8ZwFWawIhTR9JOSIouweju+YNosvh2k=','hPsALsSE3NyR8f0VWmutOjhWb6sUtvlvRGpWj5yjqVs=','Cashier',0,0),(4,3,'Jhon12345','H22EDWR8j7sRtt8BX9F9Y6egZnmF5gWQ+f60zXl+w98=','QXRw9/c7CvP7DFsGz+Y8bwl4FEaZflMnHy6OECQKq1E=','Manager',1,1),(6,2,'W4d3yyy','XuBFNaaJum59+xW6iX3BaVRvGiswXFtlux5CheZdWRU=','WPTrAcbqEhS/8CQiri87dAojTEyyhTbAbLDR1l0jdcY=','Manager',1,0),(7,8,'P3p3ng','wixfl1TaG8GVO/P4U11CZBYmVtVPgprCvNpj3Ma7lys=','PLaO7VFeubUmfFOsVnTnhYl8wUl4AtAmQWZD2pqu08Q=','Cashier',1,0),(8,5,'D4k1lang_','EohOYsihvuKvFb04l3r6Dynh16weGfRArQufGlXXPjM=','eGWNVczm4VOGEFeIikdY8R1P8PYPaFgM+miKM/LZVhw=','Manager',1,0),(9,1,'asdf','V/3zOn0QytiCl2Sc3fakpwZYrBkVcvBH/ShvuSA9Cjs=','PNlQSp+KTk74L7iLKUB+A/pSJzU9iE1Tq8fDEZWb/Rw=','Cashier',1,0),(10,6,'BruceBruce','xSYLDkg2nuAXn6XjXYTj3REXVNzbPhhH0FWoGQDGPzE=','DVGmNZHVngvhVCU7UYszg7gyuLz8z7K312U+B4P6F+k=','Manager',1,0),(11,6,'Hello','KiwoMkcltqPg1pHVKPDojLgrxIzHCey4qWfWI+uZRKY=','KHQmZp1oRSGDej3AsFPvGjfC+ZeFfAncigvNW/nZ+Pg=','Cashier',1,0),(12,7,'Mary123','YZSWvBpEW889MqkbVW3bIfVz2pQ6naIQ/2fJOlRWmiw=','nFxqa4GpxJj97hTZPnr4rlbmZ9HSJG974Fi5GUBkE5Y=','Cashier',1,0),(13,7,'Tony123','9V+l8oY+fyQ+2Z894Pucq0MHHJoMHZn5mmhxut87BuQ=','gNDSHnQuOtYmCYBhSd4crqTWbIw8HS5PUTM+lvCmP8Q=','Manager',1,0),(14,8,'Betty123','6Q0ycOmbNN6i47XJjJVZPKkOyo4Yh6A1FOrRx6s6qvY=','NB3z05dtbQ/q31wpSg5rn+5XBPUjekWPVIJKyONf9yg=','Cashier',1,0),(17,3,'rose','LcEmGtCvGbW7nYe7Uy9KGFR0EZ3lwEe2Z5Cngq0OhuY=','9T99x4URnbI69DMFTZHsdkZyWyDbQ8RWviAemDrsCsI=','Manager',1,0),(18,8,'grachi','cRkc24UPQA2XREsN4A22gEydsk6WzVhIoCwEqyxB5RE=','o2X/8pZ5vbKd6fhSiDCZKHKfp+VEXaXb/JE79TZncVg=','Cashier',1,0),(19,1,'admin','eUtLcUPGNDpBzngCf3PH8Ru9EK2JM58ZN2vYZO7I7JI=','nnEZaK6om223jqGgQ7acDNcmE46PII4HinzrT9fAYVY=','Admin',1,0);
+insert  into `users`(`user_id`,`branch_id`,`username`,`password`,`salt`,`user_type`,`is_active`,`is_logged_in`) values (1,1,'admin','/smooBQBS4hZPOkeLcnTj+kICixKgwOfLZN8xqKu7q4=','GkflZ7Xr7S/8BudwijKnEgPQ1APSxh3CYI3VJPhHVkg=','Admin',1,0),(2,2,'Bruce123','3AiZ7g/I7ayCbHSF1k3UiAj5MtwHuPoPLR1IDZLK3KY=','EkEQnNhC16AgGXCmDTkJ/YTqt10EEynw63bcYgQQWS0=','Cashier',1,0),(3,2,'Diana123','BouurctVvUoWokgAPDzoj8hRml1Q4yZlU2TTrMEp9t0=','TkEa7myj5brsZCK3Gk2le5yfaUmxLW/tczG0lBg1IDY=','Manager',1,0),(4,2,'Peter123','hKCpNpEea1H5ONBxxArCKx6dVrfjmGjwLHxb8k1oOIE=','grSwXc/t79OdhtTr82thUzvU0SZES0Wu4xOVR3G8idk=','Cashier',1,0),(5,2,'Mary123','0ahUNanoV53xNU3bVetOHrtDLyceqO5TqcqXFc6owzU=','lDIVtuYHCgeeFgpzoQYrRcZ6EAk3ljiRNsTxB2HuHqQ=','Cashier',1,0),(6,2,'Betty123','Gi5hyfc1mNL19HY3Qs0o3F0pD/4zE+UeWtEuLNaMs3A=','sNmrSjSh/EWMFkRB4prHhcLoWEqVrC0X1muj5mgfnR0=','Cashier',1,0);
+
+/*Table structure for table `vw_all_sales` */
+
+DROP TABLE IF EXISTS `vw_all_sales`;
+
+/*!50001 DROP VIEW IF EXISTS `vw_all_sales` */;
+/*!50001 DROP TABLE IF EXISTS `vw_all_sales` */;
+
+/*!50001 CREATE TABLE  `vw_all_sales`(
+ `DateInputed` date ,
+ `transDate` date ,
+ `Customers` varchar(72) ,
+ `invoice` varchar(50) ,
+ `Description` varchar(156) ,
+ `Category` varchar(50) ,
+ `Unit` varchar(50) ,
+ `price` decimal(15,2) ,
+ `qty` int(11) ,
+ `line_total` decimal(15,2) ,
+ `Cashiers` varchar(72) ,
+ `branch_id` bigint(20) 
+)*/;
 
 /*Table structure for table `vw_cash_in` */
 
@@ -707,9 +748,12 @@ DROP TABLE IF EXISTS `vw_cash_sales`;
 /*!50001 DROP TABLE IF EXISTS `vw_cash_sales` */;
 
 /*!50001 CREATE TABLE  `vw_cash_sales`(
- `trans_date` date ,
+ `DateInputed` date ,
+ `transDate` date ,
  `receipt` varchar(50) ,
  `Description` varchar(156) ,
+ `Category` varchar(50) ,
+ `Unit` varchar(50) ,
  `price` decimal(15,2) ,
  `qty` int(11) ,
  `line_total` decimal(15,2) ,
@@ -743,15 +787,31 @@ DROP TABLE IF EXISTS `vw_credit_sales`;
 /*!50001 DROP TABLE IF EXISTS `vw_credit_sales` */;
 
 /*!50001 CREATE TABLE  `vw_credit_sales`(
- `trans_date` date ,
+ `DateInputed` date ,
+ `transDate` date ,
  `Customers` varchar(72) ,
  `invoice` varchar(50) ,
  `Description` varchar(156) ,
+ `Category` varchar(50) ,
+ `Unit` varchar(50) ,
  `price` decimal(15,2) ,
  `qty` int(11) ,
  `line_total` decimal(15,2) ,
  `Cashiers` varchar(72) ,
  `branch_id` bigint(20) 
+)*/;
+
+/*Table structure for table `vw_customer_balance` */
+
+DROP TABLE IF EXISTS `vw_customer_balance`;
+
+/*!50001 DROP VIEW IF EXISTS `vw_customer_balance` */;
+/*!50001 DROP TABLE IF EXISTS `vw_customer_balance` */;
+
+/*!50001 CREATE TABLE  `vw_customer_balance`(
+ `Customers` varchar(61) ,
+ `credit_limit` decimal(15,2) ,
+ `balance` decimal(15,2) 
 )*/;
 
 /*Table structure for table `vw_customer_payments` */
@@ -780,9 +840,12 @@ DROP TABLE IF EXISTS `vw_customer_transactions`;
 /*!50001 CREATE TABLE  `vw_customer_transactions`(
  `Customers` varchar(72) ,
  `customer_id` bigint(20) ,
- `trans_date` date ,
+ `trans_date` varchar(17) ,
+ `pay_amount` varchar(17) ,
  `invoice` varchar(50) ,
  `Description` varchar(156) ,
+ `Category` varchar(50) ,
+ `Unit` varchar(50) ,
  `price` decimal(15,2) ,
  `qty` int(11) ,
  `line_total` decimal(15,2) ,
@@ -799,8 +862,9 @@ DROP TABLE IF EXISTS `vw_refund`;
 
 /*!50001 CREATE TABLE  `vw_refund`(
  `trans_date` date ,
- `item_code` varchar(20) ,
- `Description` varchar(209) ,
+ `Description` varchar(156) ,
+ `Category` varchar(50) ,
+ `Unit` varchar(50) ,
  `price` decimal(15,2) ,
  `qty` int(11) ,
  `sub_total` decimal(15,2) ,
@@ -825,6 +889,7 @@ DROP TABLE IF EXISTS `vw_stock_adjust_history`;
  `item_desc` varchar(50) ,
  `item_add_desc` varchar(50) ,
  `category_name` varchar(50) ,
+ `unit_name` varchar(50) ,
  `branch_address` varchar(100) ,
  `qty` int(11) ,
  `ref_no` bigint(10) ,
@@ -939,6 +1004,13 @@ DROP TABLE IF EXISTS `vw_stock_trans_history`;
  `remarks` varchar(255) 
 )*/;
 
+/*View structure for view vw_all_sales */
+
+/*!50001 DROP TABLE IF EXISTS `vw_all_sales` */;
+/*!50001 DROP VIEW IF EXISTS `vw_all_sales` */;
+
+/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_all_sales` AS (select `orders`.`trans_date` AS `DateInputed`,`credit_payment`.`trans_date` AS `transDate`,concat(`customer_details`.`customer_gname`,' ',`customer_details`.`customer_surname`,' ',`customer_details`.`customer_suffix`) AS `Customers`,`credit_payment`.`invoice` AS `invoice`,concat(`brand`.`brand_name`,' | ',`item`.`item_desc`,' | ',`item`.`item_add_desc`) AS `Description`,`category`.`category_name` AS `Category`,`unit`.`unit_name` AS `Unit`,`order_item_dtls`.`price` AS `price`,`order_item_dtls`.`qty` AS `qty`,`order_item_dtls`.`line_total` AS `line_total`,concat(`user_details`.`user_gname`,' ',`user_details`.`user_surname`,' ',`user_details`.`user_suffix`) AS `Cashiers`,`orders`.`branch_id` AS `branch_id` from ((((((((((`orders` join `order_item_dtls` on((`order_item_dtls`.`order_id` = `orders`.`order_id`))) join `inventory` on((`inventory`.`inventory_id` = `order_item_dtls`.`inventory_id`))) join `item` on((`item`.`item_id` = `inventory`.`item_id`))) join `unit` on((`unit`.`unit_id` = `item`.`unit_id`))) join `category` on((`category`.`category_id` = `item`.`category_id`))) join `brand` on((`brand`.`brand_id` = `item`.`brand_id`))) join `credit_payment` on((`credit_payment`.`order_id` = `orders`.`order_id`))) join `cashier` on((`cashier`.`cashier_id` = `credit_payment`.`cashier_id`))) join `user_details` on((`user_details`.`user_id` = `cashier`.`user_id`))) join `customer_details` on((`customer_details`.`customer_id` = `credit_payment`.`customer_id`)))) union (select `orders`.`trans_date` AS `DateInputed`,`credit_payment`.`trans_date` AS `transDate`,concat(`customer_details`.`customer_gname`,' ',`customer_details`.`customer_surname`,' ',`customer_details`.`customer_suffix`) AS `Customers`,`credit_payment`.`invoice` AS `invoice`,`service`.`service_desc` AS `Description`,'' AS `Category`,'' AS `Unit`,`order_svc_dtls`.`price` AS `price`,`order_svc_dtls`.`qty` AS `qty`,`order_svc_dtls`.`line_total` AS `line_total`,concat(`user_details`.`user_gname`,' ',`user_details`.`user_surname`,' ',`user_details`.`user_suffix`) AS `Cashiers`,`orders`.`branch_id` AS `branch_id` from ((((((`orders` join `order_svc_dtls` on((`order_svc_dtls`.`order_id` = `orders`.`order_id`))) join `service` on((`service`.`service_id` = `order_svc_dtls`.`service_id`))) join `credit_payment` on((`credit_payment`.`order_id` = `orders`.`order_id`))) join `cashier` on((`cashier`.`cashier_id` = `credit_payment`.`cashier_id`))) join `user_details` on((`user_details`.`user_id` = `cashier`.`user_id`))) join `customer_details` on((`customer_details`.`customer_id` = `credit_payment`.`customer_id`)))) union (select `orders`.`trans_date` AS `DateInputed`,`cash_payment`.`trans_date` AS `transDate`,'' AS `Customers`,`cash_payment`.`receipt` AS `receipt`,concat(`brand`.`brand_name`,' | ',`item`.`item_desc`,' | ',`item`.`item_add_desc`) AS `Description`,`category`.`category_name` AS `Category`,`unit`.`unit_name` AS `Unit`,`order_item_dtls`.`price` AS `price`,`order_item_dtls`.`qty` AS `qty`,`order_item_dtls`.`line_total` AS `line_total`,concat(`user_details`.`user_gname`,' ',`user_details`.`user_surname`,' ',`user_details`.`user_suffix`) AS `Cashiers`,`orders`.`branch_id` AS `branch_id` from (((((((((`orders` join `order_item_dtls` on((`orders`.`order_id` = `order_item_dtls`.`order_id`))) join `inventory` on((`order_item_dtls`.`inventory_id` = `inventory`.`inventory_id`))) join `item` on((`inventory`.`item_id` = `item`.`item_id`))) join `unit` on((`unit`.`unit_id` = `item`.`unit_id`))) join `category` on((`category`.`category_id` = `item`.`category_id`))) join `brand` on((`item`.`brand_id` = `brand`.`brand_id`))) join `cash_payment` on((`orders`.`order_id` = `cash_payment`.`order_id`))) join `cashier` on((`cash_payment`.`cashier_id` = `cashier`.`cashier_id`))) join `user_details` on((`cashier`.`user_id` = `user_details`.`user_id`)))) union (select `orders`.`trans_date` AS `DateInputed`,`cash_payment`.`trans_date` AS `transDate`,'' AS `Customers`,`cash_payment`.`receipt` AS `receipt`,`service`.`service_desc` AS `Description`,'' AS `Category`,'' AS `Unit`,`order_svc_dtls`.`price` AS `price`,`order_svc_dtls`.`qty` AS `qty`,`order_svc_dtls`.`line_total` AS `line_total`,concat(`user_details`.`user_gname`,' ',`user_details`.`user_surname`,' ',`user_details`.`user_suffix`) AS `Cashiers`,`orders`.`branch_id` AS `branch_id` from (((((`orders` join `order_svc_dtls` on((`order_svc_dtls`.`order_id` = `orders`.`order_id`))) join `service` on((`service`.`service_id` = `order_svc_dtls`.`service_id`))) join `cash_payment` on((`orders`.`order_id` = `cash_payment`.`order_id`))) join `cashier` on((`cash_payment`.`cashier_id` = `cashier`.`cashier_id`))) join `user_details` on((`cashier`.`user_id` = `user_details`.`user_id`)))) */;
+
 /*View structure for view vw_cash_in */
 
 /*!50001 DROP TABLE IF EXISTS `vw_cash_in` */;
@@ -958,7 +1030,7 @@ DROP TABLE IF EXISTS `vw_stock_trans_history`;
 /*!50001 DROP TABLE IF EXISTS `vw_cash_sales` */;
 /*!50001 DROP VIEW IF EXISTS `vw_cash_sales` */;
 
-/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_cash_sales` AS (select `cash_payment`.`trans_date` AS `trans_date`,`cash_payment`.`receipt` AS `receipt`,concat(`brand`.`brand_name`,' | ',`item`.`item_desc`,' | ',`item`.`item_add_desc`) AS `Description`,`order_item_dtls`.`price` AS `price`,`order_item_dtls`.`qty` AS `qty`,`order_item_dtls`.`line_total` AS `line_total`,concat(`user_details`.`user_gname`,' ',`user_details`.`user_surname`,' ',`user_details`.`user_suffix`) AS `Cashiers`,`orders`.`branch_id` AS `branch_id` from (((((((`orders` join `order_item_dtls` on((`orders`.`order_id` = `order_item_dtls`.`order_id`))) join `inventory` on((`order_item_dtls`.`inventory_id` = `inventory`.`inventory_id`))) join `item` on((`inventory`.`item_id` = `item`.`item_id`))) join `brand` on((`item`.`brand_id` = `brand`.`brand_id`))) join `cash_payment` on((`orders`.`order_id` = `cash_payment`.`order_id`))) join `cashier` on((`cash_payment`.`cashier_id` = `cashier`.`cashier_id`))) join `user_details` on((`cashier`.`user_id` = `user_details`.`user_id`)))) union (select `cash_payment`.`trans_date` AS `trans_date`,`cash_payment`.`receipt` AS `receipt`,`service`.`service_desc` AS `Description`,`order_svc_dtls`.`price` AS `price`,`order_svc_dtls`.`qty` AS `qty`,`order_svc_dtls`.`line_total` AS `line_total`,concat(`user_details`.`user_gname`,' ',`user_details`.`user_surname`,' ',`user_details`.`user_suffix`) AS `Cashiers`,`orders`.`branch_id` AS `branch_id` from (((((`orders` join `order_svc_dtls` on((`order_svc_dtls`.`order_id` = `orders`.`order_id`))) join `service` on((`service`.`service_id` = `order_svc_dtls`.`service_id`))) join `cash_payment` on((`orders`.`order_id` = `cash_payment`.`order_id`))) join `cashier` on((`cash_payment`.`cashier_id` = `cashier`.`cashier_id`))) join `user_details` on((`cashier`.`user_id` = `user_details`.`user_id`)))) order by `trans_date`,`receipt` */;
+/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_cash_sales` AS (select `orders`.`trans_date` AS `DateInputed`,`cash_payment`.`trans_date` AS `transDate`,`cash_payment`.`receipt` AS `receipt`,concat(`brand`.`brand_name`,' | ',`item`.`item_desc`,' | ',`item`.`item_add_desc`) AS `Description`,`category`.`category_name` AS `Category`,`unit`.`unit_name` AS `Unit`,`order_item_dtls`.`price` AS `price`,`order_item_dtls`.`qty` AS `qty`,`order_item_dtls`.`line_total` AS `line_total`,concat(`user_details`.`user_gname`,' ',`user_details`.`user_surname`,' ',`user_details`.`user_suffix`) AS `Cashiers`,`orders`.`branch_id` AS `branch_id` from (((((((((`orders` join `order_item_dtls` on((`orders`.`order_id` = `order_item_dtls`.`order_id`))) join `inventory` on((`order_item_dtls`.`inventory_id` = `inventory`.`inventory_id`))) join `item` on((`inventory`.`item_id` = `item`.`item_id`))) join `unit` on((`unit`.`unit_id` = `item`.`unit_id`))) join `category` on((`category`.`category_id` = `item`.`category_id`))) join `brand` on((`item`.`brand_id` = `brand`.`brand_id`))) join `cash_payment` on((`orders`.`order_id` = `cash_payment`.`order_id`))) join `cashier` on((`cash_payment`.`cashier_id` = `cashier`.`cashier_id`))) join `user_details` on((`cashier`.`user_id` = `user_details`.`user_id`)))) union (select `orders`.`trans_date` AS `DateInputed`,`cash_payment`.`trans_date` AS `transDate`,`cash_payment`.`receipt` AS `receipt`,`service`.`service_desc` AS `Description`,'' AS `Category`,'' AS `Unit`,`order_svc_dtls`.`price` AS `price`,`order_svc_dtls`.`qty` AS `qty`,`order_svc_dtls`.`line_total` AS `line_total`,concat(`user_details`.`user_gname`,' ',`user_details`.`user_surname`,' ',`user_details`.`user_suffix`) AS `Cashiers`,`orders`.`branch_id` AS `branch_id` from (((((`orders` join `order_svc_dtls` on((`order_svc_dtls`.`order_id` = `orders`.`order_id`))) join `service` on((`service`.`service_id` = `order_svc_dtls`.`service_id`))) join `cash_payment` on((`orders`.`order_id` = `cash_payment`.`order_id`))) join `cashier` on((`cash_payment`.`cashier_id` = `cashier`.`cashier_id`))) join `user_details` on((`cashier`.`user_id` = `user_details`.`user_id`)))) order by `transDate`,`receipt` */;
 
 /*View structure for view vw_cashier_log */
 
@@ -972,7 +1044,14 @@ DROP TABLE IF EXISTS `vw_stock_trans_history`;
 /*!50001 DROP TABLE IF EXISTS `vw_credit_sales` */;
 /*!50001 DROP VIEW IF EXISTS `vw_credit_sales` */;
 
-/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_credit_sales` AS (select `credit_payment`.`trans_date` AS `trans_date`,concat(`customer_details`.`customer_gname`,' ',`customer_details`.`customer_surname`,' ',`customer_details`.`customer_suffix`) AS `Customers`,`credit_payment`.`invoice` AS `invoice`,concat(`brand`.`brand_name`,' | ',`item`.`item_desc`,' | ',`item`.`item_add_desc`) AS `Description`,`order_item_dtls`.`price` AS `price`,`order_item_dtls`.`qty` AS `qty`,`order_item_dtls`.`line_total` AS `line_total`,concat(`user_details`.`user_gname`,' ',`user_details`.`user_surname`,' ',`user_details`.`user_suffix`) AS `Cashiers`,`orders`.`branch_id` AS `branch_id` from ((((((((`orders` join `order_item_dtls` on((`order_item_dtls`.`order_id` = `orders`.`order_id`))) join `inventory` on((`inventory`.`inventory_id` = `order_item_dtls`.`inventory_id`))) join `item` on((`item`.`item_id` = `inventory`.`item_id`))) join `brand` on((`brand`.`brand_id` = `item`.`brand_id`))) join `credit_payment` on((`credit_payment`.`order_id` = `orders`.`order_id`))) join `cashier` on((`cashier`.`cashier_id` = `credit_payment`.`cashier_id`))) join `user_details` on((`user_details`.`user_id` = `cashier`.`user_id`))) join `customer_details` on((`customer_details`.`customer_id` = `credit_payment`.`customer_id`)))) union (select `credit_payment`.`trans_date` AS `trans_date`,concat(`customer_details`.`customer_gname`,' ',`customer_details`.`customer_surname`,' ',`customer_details`.`customer_suffix`) AS `Customers`,`credit_payment`.`invoice` AS `invoice`,`service`.`service_desc` AS `Description`,`order_svc_dtls`.`price` AS `price`,`order_svc_dtls`.`qty` AS `qty`,`order_svc_dtls`.`line_total` AS `line_total`,concat(`user_details`.`user_gname`,' ',`user_details`.`user_surname`,' ',`user_details`.`user_suffix`) AS `Cashiers`,`orders`.`branch_id` AS `branch_id` from ((((((`orders` join `order_svc_dtls` on((`order_svc_dtls`.`order_id` = `orders`.`order_id`))) join `service` on((`service`.`service_id` = `order_svc_dtls`.`service_id`))) join `credit_payment` on((`credit_payment`.`order_id` = `orders`.`order_id`))) join `cashier` on((`cashier`.`cashier_id` = `credit_payment`.`cashier_id`))) join `user_details` on((`user_details`.`user_id` = `cashier`.`user_id`))) join `customer_details` on((`customer_details`.`customer_id` = `credit_payment`.`customer_id`)))) order by `trans_date`,`invoice` */;
+/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_credit_sales` AS (select `orders`.`trans_date` AS `DateInputed`,`credit_payment`.`trans_date` AS `transDate`,concat(`customer_details`.`customer_gname`,' ',`customer_details`.`customer_surname`,' ',`customer_details`.`customer_suffix`) AS `Customers`,`credit_payment`.`invoice` AS `invoice`,concat(`brand`.`brand_name`,' | ',`item`.`item_desc`,' | ',`item`.`item_add_desc`) AS `Description`,`category`.`category_name` AS `Category`,`unit`.`unit_name` AS `Unit`,`order_item_dtls`.`price` AS `price`,`order_item_dtls`.`qty` AS `qty`,`order_item_dtls`.`line_total` AS `line_total`,concat(`user_details`.`user_gname`,' ',`user_details`.`user_surname`,' ',`user_details`.`user_suffix`) AS `Cashiers`,`orders`.`branch_id` AS `branch_id` from ((((((((((`orders` join `order_item_dtls` on((`order_item_dtls`.`order_id` = `orders`.`order_id`))) join `inventory` on((`inventory`.`inventory_id` = `order_item_dtls`.`inventory_id`))) join `item` on((`item`.`item_id` = `inventory`.`item_id`))) join `unit` on((`unit`.`unit_id` = `item`.`unit_id`))) join `category` on((`category`.`category_id` = `item`.`category_id`))) join `brand` on((`brand`.`brand_id` = `item`.`brand_id`))) join `credit_payment` on((`credit_payment`.`order_id` = `orders`.`order_id`))) join `cashier` on((`cashier`.`cashier_id` = `credit_payment`.`cashier_id`))) join `user_details` on((`user_details`.`user_id` = `cashier`.`user_id`))) join `customer_details` on((`customer_details`.`customer_id` = `credit_payment`.`customer_id`)))) union (select `orders`.`trans_date` AS `DateInputed`,`credit_payment`.`trans_date` AS `transDate`,concat(`customer_details`.`customer_gname`,' ',`customer_details`.`customer_surname`,' ',`customer_details`.`customer_suffix`) AS `Customers`,`credit_payment`.`invoice` AS `invoice`,`service`.`service_desc` AS `Description`,'' AS `Category`,'' AS `Unit`,`order_svc_dtls`.`price` AS `price`,`order_svc_dtls`.`qty` AS `qty`,`order_svc_dtls`.`line_total` AS `line_total`,concat(`user_details`.`user_gname`,' ',`user_details`.`user_surname`,' ',`user_details`.`user_suffix`) AS `Cashiers`,`orders`.`branch_id` AS `branch_id` from ((((((`orders` join `order_svc_dtls` on((`order_svc_dtls`.`order_id` = `orders`.`order_id`))) join `service` on((`service`.`service_id` = `order_svc_dtls`.`service_id`))) join `credit_payment` on((`credit_payment`.`order_id` = `orders`.`order_id`))) join `cashier` on((`cashier`.`cashier_id` = `credit_payment`.`cashier_id`))) join `user_details` on((`user_details`.`user_id` = `cashier`.`user_id`))) join `customer_details` on((`customer_details`.`customer_id` = `credit_payment`.`customer_id`)))) order by `transDate`,`invoice` */;
+
+/*View structure for view vw_customer_balance */
+
+/*!50001 DROP TABLE IF EXISTS `vw_customer_balance` */;
+/*!50001 DROP VIEW IF EXISTS `vw_customer_balance` */;
+
+/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_customer_balance` AS select concat(`customer_details`.`customer_gname`,' ',`customer_details`.`customer_surname`) AS `Customers`,`customer`.`credit_limit` AS `credit_limit`,`customer`.`balance` AS `balance` from (`customer` join `customer_details` on((`customer`.`customer_id` = `customer_details`.`customer_id`))) */;
 
 /*View structure for view vw_customer_payments */
 
@@ -986,21 +1065,21 @@ DROP TABLE IF EXISTS `vw_stock_trans_history`;
 /*!50001 DROP TABLE IF EXISTS `vw_customer_transactions` */;
 /*!50001 DROP VIEW IF EXISTS `vw_customer_transactions` */;
 
-/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_customer_transactions` AS (select concat(`customer_details`.`customer_gname`,' ',`customer_details`.`customer_surname`,' ',`customer_details`.`customer_suffix`) AS `Customers`,`customer`.`customer_id` AS `customer_id`,`credit_payment`.`trans_date` AS `trans_date`,`credit_payment`.`invoice` AS `invoice`,concat(`brand`.`brand_name`,' | ',`item`.`item_desc`,' | ',`item`.`item_add_desc`) AS `Description`,`order_item_dtls`.`price` AS `price`,`order_item_dtls`.`qty` AS `qty`,`order_item_dtls`.`line_total` AS `line_total`,concat(`user_details`.`user_gname`,' ',`user_details`.`user_surname`,' ',`user_details`.`user_suffix`) AS `Cashiers`,`orders`.`branch_id` AS `branch_id` from (((((((((`orders` join `credit_payment` on((`credit_payment`.`order_id` = `orders`.`order_id`))) join `order_item_dtls` on((`order_item_dtls`.`order_id` = `orders`.`order_id`))) join `inventory` on((`inventory`.`inventory_id` = `order_item_dtls`.`inventory_id`))) join `item` on((`item`.`item_id` = `inventory`.`item_id`))) join `cashier` on((`credit_payment`.`cashier_id` = `cashier`.`cashier_id`))) join `user_details` on((`user_details`.`user_id` = `cashier`.`user_id`))) join `brand` on((`brand`.`brand_id` = `item`.`brand_id`))) join `customer` on((`customer`.`customer_id` = `credit_payment`.`customer_id`))) join `customer_details` on((`customer_details`.`customer_id` = `credit_payment`.`customer_id`)))) union (select concat(`customer_details`.`customer_gname`,' ',`customer_details`.`customer_surname`,' ',`customer_details`.`customer_suffix`) AS `Customers`,`customer`.`customer_id` AS `customer_id`,`credit_payment`.`trans_date` AS `trans_date`,`credit_payment`.`invoice` AS `invoice`,`service`.`service_desc` AS `Description`,`order_svc_dtls`.`price` AS `price`,`order_svc_dtls`.`qty` AS `qty`,`order_svc_dtls`.`line_total` AS `line_total`,concat(`user_details`.`user_gname`,' ',`user_details`.`user_surname`,' ',`user_details`.`user_suffix`) AS `Cashiers`,`orders`.`branch_id` AS `branch_id` from (((((((`orders` join `credit_payment` on((`credit_payment`.`order_id` = `orders`.`order_id`))) join `order_svc_dtls` on((`order_svc_dtls`.`order_id` = `orders`.`order_id`))) join `service` on((`service`.`service_id` = `order_svc_dtls`.`service_id`))) join `cashier` on((`credit_payment`.`cashier_id` = `cashier`.`cashier_id`))) join `user_details` on((`user_details`.`user_id` = `cashier`.`user_id`))) join `customer` on((`customer`.`customer_id` = `credit_payment`.`customer_id`))) join `customer_details` on((`customer_details`.`customer_id` = `credit_payment`.`customer_id`)))) order by `trans_date`,`invoice` */;
+/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_customer_transactions` AS (select concat(`customer_details`.`customer_gname`,' ',`customer_details`.`customer_surname`,' ',`customer_details`.`customer_suffix`) AS `Customers`,`customer`.`customer_id` AS `customer_id`,`credit_payment`.`trans_date` AS `trans_date`,`credit_payment`.`pay_amount` AS `pay_amount`,`credit_payment`.`invoice` AS `invoice`,concat(`brand`.`brand_name`,' | ',`item`.`item_desc`,' | ',`item`.`item_add_desc`) AS `Description`,`category`.`category_name` AS `Category`,`unit`.`unit_name` AS `Unit`,`order_item_dtls`.`price` AS `price`,`order_item_dtls`.`qty` AS `qty`,`order_item_dtls`.`line_total` AS `line_total`,concat(`user_details`.`user_gname`,' ',`user_details`.`user_surname`,' ',`user_details`.`user_suffix`) AS `Cashiers`,`orders`.`branch_id` AS `branch_id` from (((((((((((`orders` join `credit_payment` on((`credit_payment`.`order_id` = `orders`.`order_id`))) join `order_item_dtls` on((`order_item_dtls`.`order_id` = `orders`.`order_id`))) join `inventory` on((`inventory`.`inventory_id` = `order_item_dtls`.`inventory_id`))) join `item` on((`item`.`item_id` = `inventory`.`item_id`))) join `category` on((`category`.`category_id` = `item`.`category_id`))) join `unit` on((`unit`.`unit_id` = `item`.`unit_id`))) join `cashier` on((`credit_payment`.`cashier_id` = `cashier`.`cashier_id`))) join `user_details` on((`user_details`.`user_id` = `cashier`.`user_id`))) join `brand` on((`brand`.`brand_id` = `item`.`brand_id`))) join `customer` on((`customer`.`customer_id` = `credit_payment`.`customer_id`))) join `customer_details` on((`customer_details`.`customer_id` = `credit_payment`.`customer_id`)))) union (select concat(`customer_details`.`customer_gname`,' ',`customer_details`.`customer_surname`,' ',`customer_details`.`customer_suffix`) AS `Customers`,`customer`.`customer_id` AS `customer_id`,`credit_payment`.`pay_amount` AS `pay_amount`,`credit_payment`.`trans_date` AS `trans_date`,`credit_payment`.`invoice` AS `invoice`,`service`.`service_desc` AS `Description`,'' AS `Category`,'' AS `Unit`,`order_svc_dtls`.`price` AS `price`,`order_svc_dtls`.`qty` AS `qty`,`order_svc_dtls`.`line_total` AS `line_total`,concat(`user_details`.`user_gname`,' ',`user_details`.`user_surname`,' ',`user_details`.`user_suffix`) AS `Cashiers`,`orders`.`branch_id` AS `branch_id` from (((((((`orders` join `credit_payment` on((`credit_payment`.`order_id` = `orders`.`order_id`))) join `order_svc_dtls` on((`order_svc_dtls`.`order_id` = `orders`.`order_id`))) join `service` on((`service`.`service_id` = `order_svc_dtls`.`service_id`))) join `cashier` on((`credit_payment`.`cashier_id` = `cashier`.`cashier_id`))) join `user_details` on((`user_details`.`user_id` = `cashier`.`user_id`))) join `customer` on((`customer`.`customer_id` = `credit_payment`.`customer_id`))) join `customer_details` on((`customer_details`.`customer_id` = `credit_payment`.`customer_id`)))) order by `trans_date`,`invoice` */;
 
 /*View structure for view vw_refund */
 
 /*!50001 DROP TABLE IF EXISTS `vw_refund` */;
 /*!50001 DROP VIEW IF EXISTS `vw_refund` */;
 
-/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_refund` AS (select `refund`.`trans_date` AS `trans_date`,`item`.`item_code` AS `item_code`,concat(`brand`.`brand_name`,' | ',`item`.`item_desc`,' | ',`item`.`item_add_desc`,' | ',`category`.`category_name`) AS `Description`,`refund_item_dtls`.`price` AS `price`,`refund_item_dtls`.`qty` AS `qty`,`refund_item_dtls`.`sub_total` AS `sub_total`,concat(`c`.`user_gname`,' ',`c`.`user_surname`) AS `Cashiers`,concat(`m`.`user_gname`,' ',`m`.`user_surname`) AS `Managers`,`refund`.`remarks` AS `remarks`,`orders`.`branch_id` AS `branch_id` from ((((((((((`refund` join `refund_item_dtls` on((`refund_item_dtls`.`refund_id` = `refund`.`refund_id`))) join `inventory` on((`inventory`.`inventory_id` = `refund_item_dtls`.`inventory_id`))) join `item` on((`item`.`item_id` = `inventory`.`item_id`))) join `brand` on((`brand`.`brand_id` = `item`.`brand_id`))) join `category` on((`category`.`category_id` = `item`.`category_id`))) join `cashier` on((`cashier`.`cashier_id` = `refund`.`cashier_id`))) join `user_details` `c` on((`c`.`user_id` = `cashier`.`user_id`))) join `manager` on((`manager`.`manager_id` = `refund`.`manager_id`))) join `user_details` `m` on((`m`.`user_id` = `manager`.`manager_id`))) join `orders` on((`orders`.`order_id` = `refund`.`order_id`)))) union (select `refund`.`trans_date` AS `trans_date`,`service`.`service_code` AS `service_code`,`service`.`service_desc` AS `Description`,`refund_svc_dtls`.`price` AS `price`,`refund_svc_dtls`.`qty` AS `qty`,`refund_svc_dtls`.`sub_total` AS `sub_total`,concat(`c`.`user_gname`,' ',`c`.`user_surname`) AS `Cashiers`,concat(`m`.`user_gname`,' ',`m`.`user_surname`) AS `Managers`,`refund`.`remarks` AS `remarks`,`orders`.`branch_id` AS `branch_id` from (((((((`refund` join `refund_svc_dtls` on((`refund_svc_dtls`.`refund_id` = `refund`.`refund_id`))) join `service` on((`service`.`service_id` = `refund_svc_dtls`.`service_id`))) join `cashier` on((`cashier`.`cashier_id` = `refund`.`cashier_id`))) join `user_details` `c` on((`c`.`user_id` = `cashier`.`user_id`))) join `manager` on((`manager`.`manager_id` = `refund`.`manager_id`))) join `user_details` `m` on((`m`.`user_id` = `manager`.`manager_id`))) join `orders` on((`orders`.`order_id` = `refund`.`order_id`)))) */;
+/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_refund` AS (select `refund`.`trans_date` AS `trans_date`,concat(`brand`.`brand_name`,' | ',`item`.`item_desc`,' | ',`item`.`item_add_desc`) AS `Description`,`category`.`category_name` AS `Category`,`unit`.`unit_name` AS `Unit`,`refund_item_dtls`.`price` AS `price`,`refund_item_dtls`.`qty` AS `qty`,`refund_item_dtls`.`sub_total` AS `sub_total`,concat(`c`.`user_gname`,' ',`c`.`user_surname`) AS `Cashiers`,concat(`m`.`user_gname`,' ',`m`.`user_surname`) AS `Managers`,`refund`.`remarks` AS `remarks`,`orders`.`branch_id` AS `branch_id` from (((((((((((`refund` join `refund_item_dtls` on((`refund_item_dtls`.`refund_id` = `refund`.`refund_id`))) join `inventory` on((`inventory`.`inventory_id` = `refund_item_dtls`.`inventory_id`))) join `item` on((`item`.`item_id` = `inventory`.`item_id`))) join `unit` on((`unit`.`unit_id` = `item`.`unit_id`))) join `brand` on((`brand`.`brand_id` = `item`.`brand_id`))) join `category` on((`category`.`category_id` = `item`.`category_id`))) join `cashier` on((`cashier`.`cashier_id` = `refund`.`cashier_id`))) join `user_details` `c` on((`c`.`user_id` = `cashier`.`user_id`))) join `manager` on((`manager`.`manager_id` = `refund`.`manager_id`))) join `user_details` `m` on((`m`.`user_id` = `manager`.`manager_id`))) join `orders` on((`orders`.`order_id` = `refund`.`order_id`)))) union (select `refund`.`trans_date` AS `trans_date`,`service`.`service_desc` AS `Description`,'' AS `Category`,'' AS `Unit`,`refund_svc_dtls`.`price` AS `price`,`refund_svc_dtls`.`qty` AS `qty`,`refund_svc_dtls`.`sub_total` AS `sub_total`,concat(`c`.`user_gname`,' ',`c`.`user_surname`) AS `Cashiers`,concat(`m`.`user_gname`,' ',`m`.`user_surname`) AS `Managers`,`refund`.`remarks` AS `remarks`,`orders`.`branch_id` AS `branch_id` from (((((((`refund` join `refund_svc_dtls` on((`refund_svc_dtls`.`refund_id` = `refund`.`refund_id`))) join `service` on((`service`.`service_id` = `refund_svc_dtls`.`service_id`))) join `cashier` on((`cashier`.`cashier_id` = `refund`.`cashier_id`))) join `user_details` `c` on((`c`.`user_id` = `cashier`.`user_id`))) join `manager` on((`manager`.`manager_id` = `refund`.`manager_id`))) join `user_details` `m` on((`m`.`user_id` = `manager`.`manager_id`))) join `orders` on((`orders`.`order_id` = `refund`.`order_id`)))) */;
 
 /*View structure for view vw_stock_adjust_history */
 
 /*!50001 DROP TABLE IF EXISTS `vw_stock_adjust_history` */;
 /*!50001 DROP VIEW IF EXISTS `vw_stock_adjust_history` */;
 
-/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_stock_adjust_history` AS (select `physical_count`.`phys_count_id` AS `phys_count_id`,`physical_count`.`count_date` AS `count_date`,`item`.`item_code` AS `item_code`,`brand`.`brand_name` AS `brand_name`,`item`.`item_desc` AS `item_desc`,`item`.`item_add_desc` AS `item_add_desc`,`category`.`category_name` AS `category_name`,`branch`.`branch_address` AS `branch_address`,`physical_count`.`qty` AS `qty`,`physical_count`.`ref_no` AS `ref_no`,`inventory_period`.`period_from` AS `period_from`,`inventory_period`.`period_to` AS `period_to` from ((((((`inventory` join `physical_count` on((`physical_count`.`inventory_id` = `inventory`.`inventory_id`))) join `inventory_period` on((`inventory_period`.`inv_period_id` = `physical_count`.`inv_period_id`))) join `item` on((`item`.`item_id` = `inventory`.`item_id`))) join `brand` on((`brand`.`brand_id` = `item`.`brand_id`))) join `category` on((`category`.`category_id` = `item`.`category_id`))) join `branch` on((`branch`.`branch_id` = `inventory`.`branch_id`)))) */;
+/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_stock_adjust_history` AS (select `physical_count`.`phys_count_id` AS `phys_count_id`,`physical_count`.`count_date` AS `count_date`,`item`.`item_code` AS `item_code`,`brand`.`brand_name` AS `brand_name`,`item`.`item_desc` AS `item_desc`,`item`.`item_add_desc` AS `item_add_desc`,`category`.`category_name` AS `category_name`,`unit`.`unit_name` AS `unit_name`,`branch`.`branch_address` AS `branch_address`,`physical_count`.`qty` AS `qty`,`physical_count`.`ref_no` AS `ref_no`,`inventory_period`.`period_from` AS `period_from`,`inventory_period`.`period_to` AS `period_to` from (((((((`inventory` join `physical_count` on((`physical_count`.`inventory_id` = `inventory`.`inventory_id`))) join `inventory_period` on((`inventory_period`.`inv_period_id` = `physical_count`.`inv_period_id`))) join `item` on((`item`.`item_id` = `inventory`.`item_id`))) join `brand` on((`brand`.`brand_id` = `item`.`brand_id`))) join `category` on((`category`.`category_id` = `item`.`category_id`))) join `unit` on((`unit`.`unit_id` = `item`.`unit_id`))) join `branch` on((`branch`.`branch_id` = `inventory`.`branch_id`)))) */;
 
 /*View structure for view vw_stock_in_history */
 
