@@ -9,7 +9,7 @@
               <Width>1.64583in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.45055in</Width>
+              <Width>2.59638in</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>1.50694in</Width>
@@ -27,7 +27,7 @@
               <Width>0.92361in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.74306in</Width>
+              <Width>1.49306in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -109,7 +109,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Category</Value>
+                              <Value>CATEGORY</Value>
                               <Style>
                                 <FontFamily>SEGOE UI</FontFamily>
                                 <FontWeight>Bold</FontWeight>
@@ -142,7 +142,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Unit</Value>
+                              <Value>UNIT</Value>
                               <Style>
                                 <FontFamily>SEGOE UI</FontFamily>
                                 <FontWeight>Bold</FontWeight>
@@ -1656,7 +1656,7 @@
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Height>1.25in</Height>
-        <Width>12.85416in</Width>
+        <Width>12.74999in</Width>
         <Style>
           <Border>
             <Style>None</Style>
