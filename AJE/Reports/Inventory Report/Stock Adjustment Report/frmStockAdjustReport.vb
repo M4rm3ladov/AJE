@@ -26,7 +26,7 @@ Public Class frmStockAdjustReport
         Next
 
         With rv_stock_Adjust.LocalReport
-            .ReportPath = Application.StartupPath & "\Report\ReportStockAdjustment.rdlc"
+            .ReportEmbeddedResource = "AJE.ReportStockAdjustment.rdlc" '.ReportPath = Application.StartupPath & "\Report\ReportStockAdjustment.rdlc"
             .DataSources.Clear()
             .DataSources.Add(New ReportDataSource("DataSet1", dt))
         End With

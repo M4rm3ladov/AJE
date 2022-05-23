@@ -34,6 +34,7 @@
             ElseIf lbl_Type.Text = 2 Then
                 frmCreditPay.lbl_customer_Id.Text = DataGridView1.Item(0, i).Value
                 frmCreditPay.tb_Name.Text = DataGridView1.Item(2, i).Value & " " & DataGridView1.Item(3, i).Value & " " & DataGridView1.Item(4, i).Value & " " & DataGridView1.Item(5, i).Value
+                frmCreditPay.lbl_Balance.Text = lbl_Balance.Text
             ElseIf lbl_Type.Text = 3 Then
                 frmCreditPay.lbl_custId.Text = DataGridView1.Item(0, i).Value
                 frmCreditPay.tb_CustName.Text = DataGridView1.Item(2, i).Value & " " & DataGridView1.Item(3, i).Value & " " & DataGridView1.Item(4, i).Value & " " & DataGridView1.Item(5, i).Value

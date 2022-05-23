@@ -123,10 +123,10 @@ Public Class clsManager
     Public Function checkManagerDuplicate()
         Try
             ConnectDatabase()
-            Dim query = "SELECT username, user_id FROM manager WHERE username = @username OR user_id = @user_id"
+            Dim query = "SELECT username FROM manager WHERE username = @username " '"SELECT username, user_id FROM manager WHERE username = @username OR user_id = @user_id"
             Dim cm = New MySqlCommand(query, con)
             cm.Parameters.AddWithValue("@username", Username)
-            cm.Parameters.AddWithValue("@user_id", Id)
+            'cm.Parameters.AddWithValue("@user_id", Id)
             dr = cm.ExecuteReader
             If dr.HasRows Then
                 dr.Close()

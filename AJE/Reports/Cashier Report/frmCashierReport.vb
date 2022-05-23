@@ -3,12 +3,13 @@ Imports MySql.Data.MySqlClient
 Public Class frmCashierReport
     Private Sub btn_load_log_Report_Click(sender As Object, e As EventArgs) Handles btn_load_log_Report.Click
         Dim rptDs As ReportDataSource
-        Me.rv_Log.RefreshReport()
+
         Try
             With rv_Log.LocalReport
-                .ReportPath = Application.StartupPath & "\Report\ReportCashierLog.rdlc"
+                .ReportEmbeddedResource = "AJE.ReportCashierLog.rdlc" '.ReportPath = Application.StartupPath & "\Report\ReportCashierLog.rdlc"
                 .DataSources.Clear()
             End With
+            Me.rv_Log.RefreshReport()
 
             Dim rptParameter As ReportParameterCollection
             rptParameter = New ReportParameterCollection
@@ -50,12 +51,13 @@ Public Class frmCashierReport
 
     Private Sub btn_load_cash_in_Report_Click(sender As Object, e As EventArgs) Handles btn_load_cash_in_Report.Click
         Dim rptDs As ReportDataSource
-        Me.rv_cash_In.RefreshReport()
+
         Try
             With rv_cash_In.LocalReport
-                .ReportPath = Application.StartupPath & "\Report\ReportCashIn.rdlc"
+                .ReportEmbeddedResource = "AJE.ReportCashIn.rdlc" '.ReportPath = Application.StartupPath & "\Report\ReportCashIn.rdlc"
                 .DataSources.Clear()
             End With
+            Me.rv_cash_In.RefreshReport()
 
             Dim rptParameter As ReportParameterCollection
             rptParameter = New ReportParameterCollection
@@ -84,12 +86,13 @@ Public Class frmCashierReport
 
     Private Sub btn_cash_out_Report_Click(sender As Object, e As EventArgs) Handles btn_cash_out_Report.Click
         Dim rptDs As ReportDataSource
-        Me.rv_cash_Out.RefreshReport()
+
         Try
             With rv_cash_Out.LocalReport
-                .ReportPath = Application.StartupPath & "\Report\ReportCashOut.rdlc"
+                .ReportEmbeddedResource = "AJE.ReportCashOut.rdlc" '.ReportPath = Application.StartupPath & "\Report\ReportCashOut.rdlc"
                 .DataSources.Clear()
             End With
+            Me.rv_cash_Out.RefreshReport()
 
             Dim rptParameter As ReportParameterCollection
             rptParameter = New ReportParameterCollection

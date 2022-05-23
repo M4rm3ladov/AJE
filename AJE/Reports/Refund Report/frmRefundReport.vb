@@ -7,12 +7,13 @@ Public Class frmRefundReport
 
     Private Sub btn_load_refund_Report_Click(sender As Object, e As EventArgs) Handles btn_load_refund_Report.Click
         Dim rptDs As ReportDataSource
-        Me.rv_Refund.RefreshReport()
+
         Try
             With rv_Refund.LocalReport
-                .ReportPath = Application.StartupPath & "\Report\ReportRefund.rdlc"
+                .ReportEmbeddedResource = "AJE.ReportRefund.rdlc" '.ReportPath = Application.StartupPath & "\Report\ReportRefund.rdlc"
                 .DataSources.Clear()
             End With
+            Me.rv_Refund.RefreshReport()
 
             Dim ds As New DataSet1
             Dim da As New MySqlDataAdapter

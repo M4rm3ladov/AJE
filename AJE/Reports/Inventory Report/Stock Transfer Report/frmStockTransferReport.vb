@@ -25,7 +25,7 @@ Public Class frmStockTransferReport
         Next
 
         With rv_stock_Transfer.LocalReport
-            .ReportPath = Application.StartupPath & "\Report\ReportStockTransfer.rdlc"
+            .ReportEmbeddedResource = "AJE.ReportStockTransfer.rdlc" '.ReportPath = Application.StartupPath & "\Report\ReportStockTransfer.rdlc"
             .DataSources.Clear()
             .DataSources.Add(New ReportDataSource("DataSet1", dt))
         End With
