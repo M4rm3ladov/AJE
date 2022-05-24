@@ -47,9 +47,9 @@ Partial Class frmStockReturnReport
         Me.Panel3.Controls.Add(Me.Label4)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel3.Location = New System.Drawing.Point(0, 0)
-        Me.Panel3.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.Panel3.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(1262, 55)
+        Me.Panel3.Size = New System.Drawing.Size(841, 36)
         Me.Panel3.TabIndex = 25
         '
         'btn_Close
@@ -58,10 +58,10 @@ Partial Class frmStockReturnReport
         Me.btn_Close.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_Close.ForeColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(97, Byte), Integer))
         Me.btn_Close.Image = CType(resources.GetObject("btn_Close.Image"), System.Drawing.Image)
-        Me.btn_Close.Location = New System.Drawing.Point(1204, 0)
-        Me.btn_Close.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btn_Close.Location = New System.Drawing.Point(802, 0)
+        Me.btn_Close.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.btn_Close.Name = "btn_Close"
-        Me.btn_Close.Size = New System.Drawing.Size(58, 55)
+        Me.btn_Close.Size = New System.Drawing.Size(39, 36)
         Me.btn_Close.TabIndex = 54
         Me.btn_Close.UseVisualStyleBackColor = True
         '
@@ -70,9 +70,10 @@ Partial Class frmStockReturnReport
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.White
-        Me.Label4.Location = New System.Drawing.Point(14, 11)
+        Me.Label4.Location = New System.Drawing.Point(9, 7)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(209, 26)
+        Me.Label4.Size = New System.Drawing.Size(144, 18)
         Me.Label4.TabIndex = 2
         Me.Label4.Text = "Stock Return Report"
         '
@@ -83,26 +84,28 @@ Partial Class frmStockReturnReport
         ReportDataSource1.Value = Nothing
         Me.rv_stock_Return.LocalReport.DataSources.Add(ReportDataSource1)
         Me.rv_stock_Return.LocalReport.ReportEmbeddedResource = "AJE.Report1.rdlc"
-        Me.rv_stock_Return.Location = New System.Drawing.Point(0, 135)
+        Me.rv_stock_Return.Location = New System.Drawing.Point(0, 88)
+        Me.rv_stock_Return.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.rv_stock_Return.Name = "rv_stock_Return"
-        Me.rv_stock_Return.Size = New System.Drawing.Size(1246, 553)
+        Me.rv_stock_Return.Size = New System.Drawing.Size(830, 360)
         Me.rv_stock_Return.TabIndex = 42
         '
         'pnl_transac_Right
         '
         Me.pnl_transac_Right.Dock = System.Windows.Forms.DockStyle.Right
-        Me.pnl_transac_Right.Location = New System.Drawing.Point(1246, 135)
+        Me.pnl_transac_Right.Location = New System.Drawing.Point(830, 88)
+        Me.pnl_transac_Right.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.pnl_transac_Right.Name = "pnl_transac_Right"
-        Me.pnl_transac_Right.Size = New System.Drawing.Size(16, 553)
+        Me.pnl_transac_Right.Size = New System.Drawing.Size(11, 360)
         Me.pnl_transac_Right.TabIndex = 41
         '
         'pnl_transac_Bottom
         '
         Me.pnl_transac_Bottom.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.pnl_transac_Bottom.Location = New System.Drawing.Point(0, 688)
-        Me.pnl_transac_Bottom.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.pnl_transac_Bottom.Location = New System.Drawing.Point(0, 448)
+        Me.pnl_transac_Bottom.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.pnl_transac_Bottom.Name = "pnl_transac_Bottom"
-        Me.pnl_transac_Bottom.Size = New System.Drawing.Size(1262, 16)
+        Me.pnl_transac_Bottom.Size = New System.Drawing.Size(841, 10)
         Me.pnl_transac_Bottom.TabIndex = 40
         '
         'pnl_transac_Top
@@ -113,19 +116,21 @@ Partial Class frmStockReturnReport
         Me.pnl_transac_Top.Controls.Add(Me.Label19)
         Me.pnl_transac_Top.Controls.Add(Me.dtp_stock_return_From)
         Me.pnl_transac_Top.Dock = System.Windows.Forms.DockStyle.Top
-        Me.pnl_transac_Top.Location = New System.Drawing.Point(0, 55)
-        Me.pnl_transac_Top.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.pnl_transac_Top.Location = New System.Drawing.Point(0, 36)
+        Me.pnl_transac_Top.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.pnl_transac_Top.Name = "pnl_transac_Top"
-        Me.pnl_transac_Top.Size = New System.Drawing.Size(1262, 80)
+        Me.pnl_transac_Top.Size = New System.Drawing.Size(841, 52)
         Me.pnl_transac_Top.TabIndex = 39
+        Me.pnl_transac_Top.Visible = False
         '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(610, 24)
+        Me.Label2.Location = New System.Drawing.Point(407, 16)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(105, 29)
+        Me.Label2.Size = New System.Drawing.Size(70, 20)
         Me.Label2.TabIndex = 22
         Me.Label2.Text = "Date To:"
         '
@@ -133,10 +138,10 @@ Partial Class frmStockReturnReport
         '
         Me.dtp_stock_return_To.CustomFormat = "MM/dd/yyyy"
         Me.dtp_stock_return_To.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtp_stock_return_To.Location = New System.Drawing.Point(728, 22)
-        Me.dtp_stock_return_To.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.dtp_stock_return_To.Location = New System.Drawing.Point(485, 14)
+        Me.dtp_stock_return_To.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.dtp_stock_return_To.Name = "dtp_stock_return_To"
-        Me.dtp_stock_return_To.Size = New System.Drawing.Size(410, 35)
+        Me.dtp_stock_return_To.Size = New System.Drawing.Size(275, 26)
         Me.dtp_stock_return_To.TabIndex = 21
         Me.dtp_stock_return_To.Value = New Date(2020, 3, 21, 0, 0, 0, 0)
         '
@@ -146,10 +151,10 @@ Partial Class frmStockReturnReport
         Me.btn_load_stock_return_Report.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_load_stock_return_Report.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_load_stock_return_Report.ForeColor = System.Drawing.Color.White
-        Me.btn_load_stock_return_Report.Location = New System.Drawing.Point(1170, 8)
-        Me.btn_load_stock_return_Report.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btn_load_stock_return_Report.Location = New System.Drawing.Point(780, 5)
+        Me.btn_load_stock_return_Report.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.btn_load_stock_return_Report.Name = "btn_load_stock_return_Report"
-        Me.btn_load_stock_return_Report.Size = New System.Drawing.Size(148, 63)
+        Me.btn_load_stock_return_Report.Size = New System.Drawing.Size(99, 41)
         Me.btn_load_stock_return_Report.TabIndex = 20
         Me.btn_load_stock_return_Report.Text = "Load Report"
         Me.btn_load_stock_return_Report.UseVisualStyleBackColor = False
@@ -158,9 +163,10 @@ Partial Class frmStockReturnReport
         '
         Me.Label19.AutoSize = True
         Me.Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label19.Location = New System.Drawing.Point(25, 24)
+        Me.Label19.Location = New System.Drawing.Point(17, 16)
+        Me.Label19.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(132, 29)
+        Me.Label19.Size = New System.Drawing.Size(89, 20)
         Me.Label19.TabIndex = 19
         Me.Label19.Text = "Date From:"
         '
@@ -168,24 +174,25 @@ Partial Class frmStockReturnReport
         '
         Me.dtp_stock_return_From.CustomFormat = "MM/dd/yyyy"
         Me.dtp_stock_return_From.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtp_stock_return_From.Location = New System.Drawing.Point(171, 22)
-        Me.dtp_stock_return_From.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.dtp_stock_return_From.Location = New System.Drawing.Point(114, 14)
+        Me.dtp_stock_return_From.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.dtp_stock_return_From.Name = "dtp_stock_return_From"
-        Me.dtp_stock_return_From.Size = New System.Drawing.Size(411, 35)
+        Me.dtp_stock_return_From.Size = New System.Drawing.Size(275, 26)
         Me.dtp_stock_return_From.TabIndex = 18
         Me.dtp_stock_return_From.Value = New Date(2020, 3, 21, 0, 0, 0, 0)
         '
         'frmStockReturnReport
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1262, 704)
+        Me.ClientSize = New System.Drawing.Size(841, 458)
         Me.Controls.Add(Me.rv_stock_Return)
         Me.Controls.Add(Me.pnl_transac_Right)
         Me.Controls.Add(Me.pnl_transac_Bottom)
         Me.Controls.Add(Me.pnl_transac_Top)
         Me.Controls.Add(Me.Panel3)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Name = "frmStockReturnReport"
         Me.Text = "frmStockReturnReport"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized

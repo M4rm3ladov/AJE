@@ -2621,6 +2621,8 @@ Partial Public Class DataSet1
         
         Private columnSupplier As Global.System.Data.DataColumn
         
+        Private columnRemarks As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -2737,6 +2739,14 @@ Partial Public Class DataSet1
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property RemarksColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnRemarks
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -2773,9 +2783,9 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function Adddt_stock_InRow(ByVal Reference_Code As String, ByVal Transaction_Date As String, ByVal Code As String, ByVal Brand As String, ByVal Description As String, ByVal Additional_Description As String, ByVal Category As String, ByVal Unit As String, ByVal Qty As String, ByVal Supplier As String) As dt_stock_InRow
+        Public Overloads Function Adddt_stock_InRow(ByVal Reference_Code As String, ByVal Transaction_Date As String, ByVal Code As String, ByVal Brand As String, ByVal Description As String, ByVal Additional_Description As String, ByVal Category As String, ByVal Unit As String, ByVal Qty As String, ByVal Supplier As String, ByVal Remarks As String) As dt_stock_InRow
             Dim rowdt_stock_InRow As dt_stock_InRow = CType(Me.NewRow,dt_stock_InRow)
-            Dim columnValuesArray() As Object = New Object() {Reference_Code, Transaction_Date, Code, Brand, Description, Additional_Description, Category, Unit, Qty, Supplier}
+            Dim columnValuesArray() As Object = New Object() {Reference_Code, Transaction_Date, Code, Brand, Description, Additional_Description, Category, Unit, Qty, Supplier, Remarks}
             rowdt_stock_InRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowdt_stock_InRow)
             Return rowdt_stock_InRow
@@ -2808,6 +2818,7 @@ Partial Public Class DataSet1
             Me.columnUnit = MyBase.Columns("Unit")
             Me.columnQty = MyBase.Columns("Qty")
             Me.columnSupplier = MyBase.Columns("Supplier")
+            Me.columnRemarks = MyBase.Columns("Remarks")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2833,6 +2844,8 @@ Partial Public Class DataSet1
             MyBase.Columns.Add(Me.columnQty)
             Me.columnSupplier = New Global.System.Data.DataColumn("Supplier", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnSupplier)
+            Me.columnRemarks = New Global.System.Data.DataColumn("Remarks", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnRemarks)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2988,6 +3001,8 @@ Partial Public Class DataSet1
         
         Private columnQty As Global.System.Data.DataColumn
         
+        Private columnRemarks As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -3096,6 +3111,14 @@ Partial Public Class DataSet1
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property RemarksColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnRemarks
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -3132,9 +3155,9 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function Adddt_stock_OutRow(ByVal Reference_Code As String, ByVal Transaction_Date As String, ByVal Code As String, ByVal Brand As String, ByVal Description As String, ByVal Additional_Description As String, ByVal Category As String, ByVal Unit As String, ByVal Qty As String) As dt_stock_OutRow
+        Public Overloads Function Adddt_stock_OutRow(ByVal Reference_Code As String, ByVal Transaction_Date As String, ByVal Code As String, ByVal Brand As String, ByVal Description As String, ByVal Additional_Description As String, ByVal Category As String, ByVal Unit As String, ByVal Qty As String, ByVal Remarks As String) As dt_stock_OutRow
             Dim rowdt_stock_OutRow As dt_stock_OutRow = CType(Me.NewRow,dt_stock_OutRow)
-            Dim columnValuesArray() As Object = New Object() {Reference_Code, Transaction_Date, Code, Brand, Description, Additional_Description, Category, Unit, Qty}
+            Dim columnValuesArray() As Object = New Object() {Reference_Code, Transaction_Date, Code, Brand, Description, Additional_Description, Category, Unit, Qty, Remarks}
             rowdt_stock_OutRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowdt_stock_OutRow)
             Return rowdt_stock_OutRow
@@ -3166,6 +3189,7 @@ Partial Public Class DataSet1
             Me.columnCategory = MyBase.Columns("Category")
             Me.columnUnit = MyBase.Columns("Unit")
             Me.columnQty = MyBase.Columns("Qty")
+            Me.columnRemarks = MyBase.Columns("Remarks")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3189,6 +3213,8 @@ Partial Public Class DataSet1
             MyBase.Columns.Add(Me.columnUnit)
             Me.columnQty = New Global.System.Data.DataColumn("Qty", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnQty)
+            Me.columnRemarks = New Global.System.Data.DataColumn("Remarks", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnRemarks)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3346,6 +3372,8 @@ Partial Public Class DataSet1
         
         Private columnQty As Global.System.Data.DataColumn
         
+        Private columnRemarks As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -3462,6 +3490,14 @@ Partial Public Class DataSet1
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property RemarksColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnRemarks
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -3498,9 +3534,9 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function Adddt_stock_TransferRow(ByVal Reference_Code As String, ByVal Transaction_Date As String, ByVal Branch_To As String, ByVal Code As String, ByVal Brand As String, ByVal Description As String, ByVal Additional_Description As String, ByVal Category As String, ByVal Unit As String, ByVal Qty As String) As dt_stock_TransferRow
+        Public Overloads Function Adddt_stock_TransferRow(ByVal Reference_Code As String, ByVal Transaction_Date As String, ByVal Branch_To As String, ByVal Code As String, ByVal Brand As String, ByVal Description As String, ByVal Additional_Description As String, ByVal Category As String, ByVal Unit As String, ByVal Qty As String, ByVal Remarks As String) As dt_stock_TransferRow
             Dim rowdt_stock_TransferRow As dt_stock_TransferRow = CType(Me.NewRow,dt_stock_TransferRow)
-            Dim columnValuesArray() As Object = New Object() {Reference_Code, Transaction_Date, Branch_To, Code, Brand, Description, Additional_Description, Category, Unit, Qty}
+            Dim columnValuesArray() As Object = New Object() {Reference_Code, Transaction_Date, Branch_To, Code, Brand, Description, Additional_Description, Category, Unit, Qty, Remarks}
             rowdt_stock_TransferRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowdt_stock_TransferRow)
             Return rowdt_stock_TransferRow
@@ -3533,6 +3569,7 @@ Partial Public Class DataSet1
             Me.columnCategory = MyBase.Columns("Category")
             Me.columnUnit = MyBase.Columns("Unit")
             Me.columnQty = MyBase.Columns("Qty")
+            Me.columnRemarks = MyBase.Columns("Remarks")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3558,6 +3595,8 @@ Partial Public Class DataSet1
             MyBase.Columns.Add(Me.columnUnit)
             Me.columnQty = New Global.System.Data.DataColumn("Qty", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnQty)
+            Me.columnRemarks = New Global.System.Data.DataColumn("Remarks", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnRemarks)
             Me.columnBranch_To.Caption = "Supplier"
         End Sub
         
@@ -3716,6 +3755,8 @@ Partial Public Class DataSet1
         
         Private columnSupplier As Global.System.Data.DataColumn
         
+        Private columnRemarks As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -3832,6 +3873,14 @@ Partial Public Class DataSet1
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property RemarksColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnRemarks
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -3868,9 +3917,9 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function Adddt_stock_ReturnRow(ByVal Reference_Code As String, ByVal Transaction_Date As String, ByVal Code As String, ByVal Brand As String, ByVal Description As String, ByVal Additional_Description As String, ByVal Category As String, ByVal Unit As String, ByVal Qty As String, ByVal Supplier As String) As dt_stock_ReturnRow
+        Public Overloads Function Adddt_stock_ReturnRow(ByVal Reference_Code As String, ByVal Transaction_Date As String, ByVal Code As String, ByVal Brand As String, ByVal Description As String, ByVal Additional_Description As String, ByVal Category As String, ByVal Unit As String, ByVal Qty As String, ByVal Supplier As String, ByVal Remarks As String) As dt_stock_ReturnRow
             Dim rowdt_stock_ReturnRow As dt_stock_ReturnRow = CType(Me.NewRow,dt_stock_ReturnRow)
-            Dim columnValuesArray() As Object = New Object() {Reference_Code, Transaction_Date, Code, Brand, Description, Additional_Description, Category, Unit, Qty, Supplier}
+            Dim columnValuesArray() As Object = New Object() {Reference_Code, Transaction_Date, Code, Brand, Description, Additional_Description, Category, Unit, Qty, Supplier, Remarks}
             rowdt_stock_ReturnRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowdt_stock_ReturnRow)
             Return rowdt_stock_ReturnRow
@@ -3903,6 +3952,7 @@ Partial Public Class DataSet1
             Me.columnUnit = MyBase.Columns("Unit")
             Me.columnQty = MyBase.Columns("Qty")
             Me.columnSupplier = MyBase.Columns("Supplier")
+            Me.columnRemarks = MyBase.Columns("Remarks")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3928,6 +3978,8 @@ Partial Public Class DataSet1
             MyBase.Columns.Add(Me.columnQty)
             Me.columnSupplier = New Global.System.Data.DataColumn("Supplier", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnSupplier)
+            Me.columnRemarks = New Global.System.Data.DataColumn("Remarks", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnRemarks)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -7920,6 +7972,21 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Remarks() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledt_stock_In.RemarksColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Remarks' in table 'dt_stock_In' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledt_stock_In.RemarksColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsReference_CodeNull() As Boolean
             Return Me.IsNull(Me.tabledt_stock_In.Reference_CodeColumn)
         End Function
@@ -8036,6 +8103,18 @@ Partial Public Class DataSet1
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetSupplierNull()
             Me(Me.tabledt_stock_In.SupplierColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsRemarksNull() As Boolean
+            Return Me.IsNull(Me.tabledt_stock_In.RemarksColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetRemarksNull()
+            Me(Me.tabledt_stock_In.RemarksColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -8191,6 +8270,21 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Remarks() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledt_stock_Out.RemarksColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Remarks' in table 'dt_stock_Out' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledt_stock_Out.RemarksColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsReference_CodeNull() As Boolean
             Return Me.IsNull(Me.tabledt_stock_Out.Reference_CodeColumn)
         End Function
@@ -8295,6 +8389,18 @@ Partial Public Class DataSet1
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetQtyNull()
             Me(Me.tabledt_stock_Out.QtyColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsRemarksNull() As Boolean
+            Return Me.IsNull(Me.tabledt_stock_Out.RemarksColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetRemarksNull()
+            Me(Me.tabledt_stock_Out.RemarksColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -8466,6 +8572,21 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Remarks() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledt_stock_Transfer.RemarksColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Remarks' in table 'dt_stock_Transfer' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledt_stock_Transfer.RemarksColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsReference_CodeNull() As Boolean
             Return Me.IsNull(Me.tabledt_stock_Transfer.Reference_CodeColumn)
         End Function
@@ -8582,6 +8703,18 @@ Partial Public Class DataSet1
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetQtyNull()
             Me(Me.tabledt_stock_Transfer.QtyColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsRemarksNull() As Boolean
+            Return Me.IsNull(Me.tabledt_stock_Transfer.RemarksColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetRemarksNull()
+            Me(Me.tabledt_stock_Transfer.RemarksColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -8753,6 +8886,21 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Remarks() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledt_stock_Return.RemarksColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Remarks' in table 'dt_stock_Return' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledt_stock_Return.RemarksColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsReference_CodeNull() As Boolean
             Return Me.IsNull(Me.tabledt_stock_Return.Reference_CodeColumn)
         End Function
@@ -8869,6 +9017,18 @@ Partial Public Class DataSet1
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetSupplierNull()
             Me(Me.tabledt_stock_Return.SupplierColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsRemarksNull() As Boolean
+            Return Me.IsNull(Me.tabledt_stock_Return.RemarksColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetRemarksNull()
+            Me(Me.tabledt_stock_Return.RemarksColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     

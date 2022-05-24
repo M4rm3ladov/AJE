@@ -6,10 +6,10 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1.58333in</Width>
+              <Width>1.2689in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.72917in</Width>
+              <Width>1.55209in</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>1.10416in</Width>
@@ -21,7 +21,7 @@
               <Width>1.84722in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.12029in</Width>
+              <Width>1.88071in</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>1.40973in</Width>
@@ -31,6 +31,9 @@
             </TablixColumn>
             <TablixColumn>
               <Width>0.44444in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>1in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -211,7 +214,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>ADDITIONAL DESCRIPTION</Value>
+                              <Value>EXTRA DESCRIPTION</Value>
                               <Style>
                                 <FontFamily>SEGOE UI</FontFamily>
                                 <FontWeight>Bold</FontWeight>
@@ -323,6 +326,41 @@
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox19</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>LightGrey</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox1">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>REMARKS</Value>
+                              <Style>
+                                <FontFamily>SEGOE UI</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox1</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>Solid</Style>
@@ -622,12 +660,46 @@
                     </Textbox>
                   </CellContents>
                 </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Remarks">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!Remarks.Value</Value>
+                              <Style>
+                                <FontFamily>SEGOE UI</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Remarks</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
               </TablixCells>
             </TablixRow>
           </TablixRows>
         </TablixBody>
         <TablixColumnHierarchy>
           <TablixMembers>
+            <TablixMember />
             <TablixMember />
             <TablixMember />
             <TablixMember />
@@ -734,7 +806,7 @@
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Height>0.5in</Height>
-        <Width>12.94666in</Width>
+        <Width>13.21556in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -745,7 +817,7 @@
     <Height>2in</Height>
     <Style />
   </Body>
-  <Width>13.20362in</Width>
+  <Width>13.21556in</Width>
   <Page>
     <PageHeader>
       <Height>1in</Height>
@@ -1091,10 +1163,14 @@
           <DataField>Qty</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="Remarks">
+          <DataField>Remarks</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>DataSet1</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\win 10\Documents\Visual Studio 2015\Projects\AJE\AJE\DataSet1.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\Users\ASUS\Documents\Pos Inv\AJE\AJE\DataSet1.xsd</rd:SchemaPath>
         <rd:TableName>dt_stock_Transfer</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />

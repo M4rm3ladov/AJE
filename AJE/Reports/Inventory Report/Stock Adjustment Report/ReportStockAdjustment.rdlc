@@ -373,7 +373,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -385,7 +384,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Remarks</Value>
+                              <Value>REMARKS</Value>
                               <Style>
                                 <FontFamily>segoe ui</FontFamily>
                                 <FontWeight>Bold</FontWeight>
