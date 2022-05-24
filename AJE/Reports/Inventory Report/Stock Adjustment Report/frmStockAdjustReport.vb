@@ -22,7 +22,8 @@ Public Class frmStockAdjustReport
                         frmStockAdj_History.dg_stock_History.Rows(i).Cells(9).Value,
                         frmStockAdj_History.dg_stock_History.Rows(i).Cells(10).Value,
                         frmStockAdj_History.dg_stock_History.Rows(i).Cells(11).Value,
-                        frmStockAdj_History.dg_stock_History.Rows(i).Cells(12).Value)
+                        frmStockAdj_History.dg_stock_History.Rows(i).Cells(12).Value,
+                        frmStockAdj_History.dg_stock_History.Rows(i).Cells(13).Value)
         Next
 
         With rv_stock_Adjust.LocalReport

@@ -159,6 +159,7 @@ Public Class clsUser
                 Return True
             End If
         Catch ex As Exception
+            dr.Close()
             DisconnectDatabase()
             MsgBox(ex.Message, vbCritical)
         End Try

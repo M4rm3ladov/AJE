@@ -161,7 +161,7 @@ Public Class clsStockHistory
                 dateRef = Format(dr.Item("count_date"), "yyyyMMdd")
                 frmStockAdj_History.dg_stock_History.Rows.Add(dr.Item("phys_count_id").ToString, "SA" & dateRef & zero & dr.Item("ref_no").ToString, transDate, dr.Item("branch_address").ToString,
                                                    dr.Item("item_code").ToString, dr.Item("brand_name").ToString, dr.Item("item_desc").ToString, dr.Item("item_add_desc").ToString,
-                                                   dr.Item("category_name").ToString, dr.Item("unit_name").ToString, dr.Item("qty").ToString, Format(dr.Item("period_from"), "MM/dd/yyyy"), Format(dr.Item("period_to"), "MM/dd/yyyy"))
+                                                   dr.Item("category_name").ToString, dr.Item("unit_name").ToString, dr.Item("qty").ToString, Format(dr.Item("period_from"), "MM/dd/yyyy"), Format(dr.Item("period_to"), "MM/dd/yyyy"), dr.Item("remarks").ToString)
             End While
         Else
             MsgBox("No transaction on dates given.", vbInformation)

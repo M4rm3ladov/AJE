@@ -128,13 +128,14 @@ Public Class clsCashier
             Dim cm = New MySqlCommand(query, con)
             cm.Parameters.AddWithValue("@username", Username)
             'cm.Parameters.AddWithValue("@user_id", Id)
-            dr = cm.ExecuteReader
+            dr = cm.ExecuteReader()
             If dr.HasRows Then
                 dr.Close()
                 DisconnectDatabase()
                 Return True
             End If
         Catch ex As Exception
+            dr.Close()
             DisconnectDatabase()
             MsgBox(ex.Message, vbCritical)
         End Try
