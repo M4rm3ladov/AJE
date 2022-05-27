@@ -203,8 +203,18 @@ Public Class clsRefund
             End If
         Next
         If frmRefund.cbo_Receipt.SelectedIndex = 1 Then
-            Dim cust_bal As Decimal
+            Dim cust_bal, cust_payment As Decimal
             Dim cust_id
+
+            'query = "SELECT credit_payment.pay_amount FROM customer 
+            '        INNER JOIN credit_payment ON credit_payment.customer_id = customer.customer_id 
+            '        WHERE credit_payment.trans_date = @trans_date AND credit_payment.invoice = @invoice_no"
+            'cm = New MySqlCommand(query, con)
+            'cm.Parameters.AddWithValue("@invoice_no", _InvoiceNo)
+            'cm.Parameters.AddWithValue("@trans_date", _RefundDate)
+            'cust_payment = cm.ExecuteScalar()
+            'cm.Dispose()
+
             query = "SELECT customer.balance FROM customer 
                     INNER JOIN credit_payment ON credit_payment.customer_id = customer.customer_id 
                     WHERE credit_payment.trans_date = @trans_date AND credit_payment.invoice = @invoice_no"
@@ -224,14 +234,15 @@ Public Class clsRefund
             cm.Dispose()
 
             Dim new_cust_bal As Decimal
+
             new_cust_bal = cust_bal - _Amount
 
             query = "UPDATE customer SET customer.balance = '" & new_cust_bal & "' WHERE customer.customer_id = '" & cust_id & "'"
-            cm = New MySqlCommand(query, con)
-            cm.ExecuteScalar()
-            cm.Dispose()
-        End If
-        DisconnectDatabase()
+                cm = New MySqlCommand(query, con)
+                cm.ExecuteScalar()
+                cm.Dispose()
+            End If
+            DisconnectDatabase()
     End Sub
     Public Function loadOrderIdReceipt()
         ConnectDatabase()

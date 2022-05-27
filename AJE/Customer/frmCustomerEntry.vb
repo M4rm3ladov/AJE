@@ -128,6 +128,10 @@
             MsgBox("Please fill in the field(s) before saving.", vbExclamation)
             Exit Sub
         End If
+        If _creditLimit < Val(tb_credit_Limit.Text) Then
+            MsgBox("The amount exceeds the maximum alloted credit limit. Max Credit Limit: " & Format(_creditLimit, "##,##0.00"), vbInformation)
+            Exit Sub
+        End If
         Try
             customer.SetCreditLimit(Trim(tb_credit_Limit.Text))
             customer.SetId(CInt(lbl_Id.Text))

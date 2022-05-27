@@ -241,4 +241,8 @@
             End If
         End If
     End Sub
+
+    Private Sub cbo_Orders_TextChanged(sender As Object, e As EventArgs) Handles cbo_Orders.TextChanged
+        tb_Orders.Clear()
+    End Sub
 End Class
