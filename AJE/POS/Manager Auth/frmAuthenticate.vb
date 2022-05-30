@@ -113,7 +113,7 @@
             refund.SetOrderId(frmRefund.lbl_OrderId.Text)
             refund.SetBranchId(frmPos.lbl_branch_Id.Text)
             refund.saveRefund()
-            MsgBox("Transaction saved successfully.")
+            MsgBox("Transaction saved successfully.", vbInformation)
 
             frmRefund.dg_Search.Rows.Clear()
             frmRefund.dg_Refund.Rows.Clear()
@@ -122,6 +122,7 @@
             frmRefund.lbl_due_Total.Text = "0.00"
             frmRefund.tb_Orders.Enabled = False
             frmRefund.cbo_Orders.Enabled = False
+            frmRefund.GroupBox1.Enabled = True
             frmRefund.cbo_Receipt.SelectedIndex = 0
             frmRefund.dtp_Date.Value = Date.Now
         End If

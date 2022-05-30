@@ -11,6 +11,8 @@ Public Class clsRefund
     Private _Remarks As Object
     Private _OrderId As Object
     Private _RefundDate As Object
+    Private _RefundDateFrom As Object
+    Private _RefundDateTo As Object
     Public Sub SetRefundDate(AutoPropertyValue As Object)
         _RefundDate = AutoPropertyValue
     End Sub
@@ -43,6 +45,12 @@ Public Class clsRefund
     End Sub
     Public Sub SetOrderId(AutoPropertyValue As Object)
         _OrderId = AutoPropertyValue
+    End Sub
+    Public Sub SetDateFrom(AutoPropertyValue As Object)
+        _RefundDateFrom = AutoPropertyValue
+    End Sub
+    Public Sub SetDateTo(AutoPropertyValue As Object)
+        _RefundDateTo = AutoPropertyValue
     End Sub
     Public Function loadFromReceipt()
         ConnectDatabase()
@@ -203,7 +211,7 @@ Public Class clsRefund
             End If
         Next
         If frmRefund.cbo_Receipt.SelectedIndex = 1 Then
-            Dim cust_bal, cust_payment As Decimal
+            Dim cust_bal As Decimal
             Dim cust_id
 
             'query = "SELECT credit_payment.pay_amount FROM customer 
@@ -262,6 +270,52 @@ Public Class clsRefund
         DisconnectDatabase()
         Return ordId
     End Function
+    Public Sub loadCreditHistory()
+        Dim transDate As String
+        frmRefund.dg_History.Rows.Clear()
+        ConnectDatabase()
+        Dim query = "SELECT invoice, trans_date, Description, Category, Unit, price, qty, sub_total, Cashiers, remarks FROM vw_refund_credit
+                    WHERE trans_date BETWEEN @date_from AND @date_to AND branch_id = '" & frmMain.lbl_branch_Id.Text & "'"
+        cm = New MySqlCommand(query, con)
+        cm.Parameters.AddWithValue("@date_from", _RefundDateFrom)
+        cm.Parameters.AddWithValue("@date_to", _RefundDateTo)
+
+        dr = cm.ExecuteReader()
+        If dr.HasRows Then
+            While dr.Read()
+                transDate = Format(dr.Item("trans_date"), "MM/dd/yyyy")
+                frmRefund.dg_History.Rows.Add(dr.Item("invoice").ToString, transDate, dr.Item("Description").ToString, dr.Item("Category").ToString, dr.Item("Unit").ToString, dr.Item("price").ToString,
+                                               dr.Item("qty").ToString, dr.Item("sub_total").ToString, dr.Item("Cashiers").ToString, dr.Item("remarks").ToString)
+            End While
+        Else
+            MsgBox("No data available on given parameters.", vbInformation)
+        End If
+        dr.Close()
+        DisconnectDatabase()
+    End Sub
+    Public Sub loadCashHistory()
+        Dim transDate As String
+        frmRefund.dg_History.Rows.Clear()
+        ConnectDatabase()
+        Dim query = "SELECT receipt, trans_date, Description, Category, Unit, price, qty, sub_total, Cashiers, remarks FROM vw_refund_cash
+                    WHERE trans_date BETWEEN @date_from AND @date_to AND branch_id = '" & frmMain.lbl_branch_Id.Text & "'"
+        cm = New MySqlCommand(query, con)
+        cm.Parameters.AddWithValue("@date_from", _RefundDateFrom)
+        cm.Parameters.AddWithValue("@date_to", _RefundDateTo)
+
+        dr = cm.ExecuteReader()
+        If dr.HasRows Then
+            While dr.Read()
+                transDate = Format(dr.Item("trans_date"), "MM/dd/yyyy")
+                frmRefund.dg_History.Rows.Add(dr.Item("receipt").ToString, transDate, dr.Item("Description").ToString, dr.Item("Category").ToString, dr.Item("Unit").ToString, dr.Item("price").ToString,
+                                              dr.Item("qty").ToString, dr.Item("sub_total").ToString, dr.Item("Cashiers").ToString, dr.Item("remarks").ToString)
+            End While
+        Else
+            MsgBox("No data available on given parameters.", vbInformation)
+        End If
+        dr.Close()
+        DisconnectDatabase()
+    End Sub
     'Public Function checkRefundExists()
     '    ConnectDatabase()
     '    Dim query = "SELECT EXISTS(SELECT order_id FROM refund WHERE order_id = @order_id)"

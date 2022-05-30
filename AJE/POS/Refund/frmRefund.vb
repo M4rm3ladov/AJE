@@ -52,6 +52,9 @@
     Private Sub frmRefund_Load(sender As Object, e As EventArgs) Handles Me.Load
         dtp_Date.Value = DateTime.Now
         cbo_Receipt.SelectedIndex = 0
+        cbo_history_Type.SelectedIndex = 0
+        dtp_From.Value = DateTime.Now
+        dtp_To.Value = DateTime.Now
         KeyPreview = True
     End Sub
 
@@ -84,13 +87,13 @@
         End If
     End Sub
 
-    Private Sub tb_Search_KeyDown(sender As Object, e As KeyEventArgs)
+    Private Sub tb_Orders_KeyDown(sender As Object, e As KeyEventArgs) Handles tb_Orders.KeyDown
         If e.KeyCode = Keys.Enter Then
             e.SuppressKeyPress = True
         End If
     End Sub
 
-    Private Sub tb_invoiceNo_KeyDown(sender As Object, e As KeyEventArgs) Handles tb_receiptNo.KeyDown
+    Private Sub tb_receiptNo_KeyDown(sender As Object, e As KeyEventArgs) Handles tb_receiptNo.KeyDown
         If e.KeyCode = Keys.Enter Then
             e.SuppressKeyPress = True
         End If
@@ -160,7 +163,7 @@
                                     "INNER JOIN orders ON orders.order_id = order_svc_dtls.order_id " &
                                     "INNER JOIN cash_payment ON cash_payment.order_id = orders.order_id " &
                                     "INNER JOIN service ON service.service_id = order_svc_dtls.service_id " &
-                                    "WHERE service_code LIKE @0 OR service_desc LIKE @0 AND (receipt = @receipt) AND (cash_payment.trans_date = @trans_date)")
+                                    "WHERE (service_code LIKE @0 OR service_desc LIKE @0) AND (receipt = @receipt) AND (cash_payment.trans_date = @trans_date)")
                 End If
             End If
         ElseIf cbo_Receipt.SelectedIndex = 1 Then
@@ -182,7 +185,7 @@
                                         "INNER JOIN orders ON orders.order_id = order_svc_dtls.order_id " &
                                         "INNER JOIN credit_payment ON credit_payment.order_id = orders.order_id " &
                                         "INNER JOIN service ON service.service_id = order_svc_dtls.service_id " &
-                                        "WHERE service_code LIKE @0 OR service_desc LIKE @0 AND (invoice = @invoice) AND (credit_payment.trans_date = @trans_date)")
+                                        "WHERE (service_code LIKE @0 OR service_desc LIKE @0) AND (invoice = @invoice) AND (credit_payment.trans_date = @trans_date)")
                 End If
             End If
         End If
@@ -245,4 +248,17 @@
     Private Sub cbo_Orders_TextChanged(sender As Object, e As EventArgs) Handles cbo_Orders.TextChanged
         tb_Orders.Clear()
     End Sub
+
+    Private Sub btn_History_Click(sender As Object, e As EventArgs) Handles btn_History.Click
+        refund.SetDateFrom(dtp_From.Value.ToString("yyyy-MM-dd"))
+        refund.SetDateTo(dtp_To.Value.ToString("yyyy-MM-dd"))
+
+        If cbo_history_Type.SelectedIndex = 0 Then
+            refund.loadCashHistory()
+        ElseIf cbo_history_Type.SelectedIndex = 1 Then
+            refund.loadCreditHistory()
+        End If
+
+    End Sub
+
 End Class

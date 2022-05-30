@@ -63,11 +63,6 @@ Partial Class frmCreditPay
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.dg_History = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.pnl_history_Bottom = New System.Windows.Forms.Panel()
         Me.pnl_history_Left = New System.Windows.Forms.Panel()
         Me.pnl_history_Right = New System.Windows.Forms.Panel()
@@ -80,6 +75,11 @@ Partial Class frmCreditPay
         Me.Label7 = New System.Windows.Forms.Label()
         Me.dtp_From = New System.Windows.Forms.DateTimePicker()
         Me.btn_load_History = New System.Windows.Forms.Button()
+        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -357,7 +357,7 @@ Partial Class frmCreditPay
         Me.cbo_cb_Search.FormattingEnabled = True
         Me.cbo_cb_Search.Items.AddRange(New Object() {"Sale Date", "Input Date"})
         Me.cbo_cb_Search.Location = New System.Drawing.Point(147, 10)
-        Me.cbo_cb_Search.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.cbo_cb_Search.Margin = New System.Windows.Forms.Padding(2)
         Me.cbo_cb_Search.Name = "cbo_cb_Search"
         Me.cbo_cb_Search.Size = New System.Drawing.Size(111, 32)
         Me.cbo_cb_Search.TabIndex = 47
@@ -457,7 +457,7 @@ Partial Class frmCreditPay
         Me.TabPage2.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.TabPage2.Size = New System.Drawing.Size(1155, 527)
+        Me.TabPage2.Size = New System.Drawing.Size(916, 440)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Payment History"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -473,7 +473,7 @@ Partial Class frmCreditPay
         Me.Panel2.Location = New System.Drawing.Point(2, 3)
         Me.Panel2.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1151, 521)
+        Me.Panel2.Size = New System.Drawing.Size(912, 434)
         Me.Panel2.TabIndex = 0
         '
         'dg_History
@@ -487,74 +487,22 @@ Partial Class frmCreditPay
         Me.dg_History.Name = "dg_History"
         Me.dg_History.RowHeadersVisible = False
         Me.dg_History.RowHeadersWidth = 51
-        DataGridViewCellStyle11.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle11.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         DataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.dg_History.RowsDefaultCellStyle = DataGridViewCellStyle11
         Me.dg_History.RowTemplate.Height = 24
         Me.dg_History.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dg_History.Size = New System.Drawing.Size(1137, 404)
+        Me.dg_History.Size = New System.Drawing.Size(898, 317)
         Me.dg_History.TabIndex = 28
-        '
-        'DataGridViewTextBoxColumn1
-        '
-        Me.DataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        Me.DataGridViewTextBoxColumn1.HeaderText = "ID"
-        Me.DataGridViewTextBoxColumn1.MinimumWidth = 6
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        Me.DataGridViewTextBoxColumn1.Visible = False
-        Me.DataGridViewTextBoxColumn1.Width = 125
-        '
-        'DataGridViewTextBoxColumn2
-        '
-        Me.DataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        DataGridViewCellStyle7.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DataGridViewTextBoxColumn2.DefaultCellStyle = DataGridViewCellStyle7
-        Me.DataGridViewTextBoxColumn2.HeaderText = "Receipt No"
-        Me.DataGridViewTextBoxColumn2.MinimumWidth = 6
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        Me.DataGridViewTextBoxColumn2.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn3
-        '
-        Me.DataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        DataGridViewCellStyle8.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DataGridViewTextBoxColumn3.DefaultCellStyle = DataGridViewCellStyle8
-        Me.DataGridViewTextBoxColumn3.HeaderText = "Transaction Date"
-        Me.DataGridViewTextBoxColumn3.MinimumWidth = 6
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        Me.DataGridViewTextBoxColumn3.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn6
-        '
-        Me.DataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle9.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DataGridViewTextBoxColumn6.DefaultCellStyle = DataGridViewCellStyle9
-        Me.DataGridViewTextBoxColumn6.HeaderText = "Payment Amount"
-        Me.DataGridViewTextBoxColumn6.MinimumWidth = 6
-        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
-        Me.DataGridViewTextBoxColumn6.ReadOnly = True
-        Me.DataGridViewTextBoxColumn6.Width = 142
-        '
-        'Column1
-        '
-        Me.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        DataGridViewCellStyle10.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Column1.DefaultCellStyle = DataGridViewCellStyle10
-        Me.Column1.HeaderText = "Cashier Name"
-        Me.Column1.MinimumWidth = 6
-        Me.Column1.Name = "Column1"
-        Me.Column1.ReadOnly = True
-        Me.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         '
         'pnl_history_Bottom
         '
         Me.pnl_history_Bottom.BackColor = System.Drawing.SystemColors.Control
         Me.pnl_history_Bottom.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.pnl_history_Bottom.Location = New System.Drawing.Point(7, 511)
-        Me.pnl_history_Bottom.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.pnl_history_Bottom.Location = New System.Drawing.Point(7, 424)
+        Me.pnl_history_Bottom.Margin = New System.Windows.Forms.Padding(2)
         Me.pnl_history_Bottom.Name = "pnl_history_Bottom"
-        Me.pnl_history_Bottom.Size = New System.Drawing.Size(1137, 10)
+        Me.pnl_history_Bottom.Size = New System.Drawing.Size(898, 10)
         Me.pnl_history_Bottom.TabIndex = 27
         '
         'pnl_history_Left
@@ -564,17 +512,17 @@ Partial Class frmCreditPay
         Me.pnl_history_Left.Location = New System.Drawing.Point(0, 107)
         Me.pnl_history_Left.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.pnl_history_Left.Name = "pnl_history_Left"
-        Me.pnl_history_Left.Size = New System.Drawing.Size(7, 414)
+        Me.pnl_history_Left.Size = New System.Drawing.Size(7, 327)
         Me.pnl_history_Left.TabIndex = 26
         '
         'pnl_history_Right
         '
         Me.pnl_history_Right.BackColor = System.Drawing.SystemColors.Control
         Me.pnl_history_Right.Dock = System.Windows.Forms.DockStyle.Right
-        Me.pnl_history_Right.Location = New System.Drawing.Point(1144, 107)
+        Me.pnl_history_Right.Location = New System.Drawing.Point(905, 107)
         Me.pnl_history_Right.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.pnl_history_Right.Name = "pnl_history_Right"
-        Me.pnl_history_Right.Size = New System.Drawing.Size(7, 414)
+        Me.pnl_history_Right.Size = New System.Drawing.Size(7, 327)
         Me.pnl_history_Right.TabIndex = 24
         '
         'Panel5
@@ -592,7 +540,7 @@ Partial Class frmCreditPay
         Me.Panel5.Location = New System.Drawing.Point(0, 0)
         Me.Panel5.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(1151, 107)
+        Me.Panel5.Size = New System.Drawing.Size(912, 107)
         Me.Panel5.TabIndex = 2
         '
         'lbl_custSearch
@@ -684,6 +632,57 @@ Partial Class frmCreditPay
         Me.btn_load_History.Text = "Load History"
         Me.btn_load_History.UseVisualStyleBackColor = False
         '
+        'DataGridViewTextBoxColumn1
+        '
+        Me.DataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.DataGridViewTextBoxColumn1.HeaderText = "ID"
+        Me.DataGridViewTextBoxColumn1.MinimumWidth = 6
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        Me.DataGridViewTextBoxColumn1.Visible = False
+        Me.DataGridViewTextBoxColumn1.Width = 125
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        DataGridViewCellStyle7.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!)
+        Me.DataGridViewTextBoxColumn2.DefaultCellStyle = DataGridViewCellStyle7
+        Me.DataGridViewTextBoxColumn2.HeaderText = "Receipt"
+        Me.DataGridViewTextBoxColumn2.MinimumWidth = 6
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        DataGridViewCellStyle8.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DataGridViewTextBoxColumn3.DefaultCellStyle = DataGridViewCellStyle8
+        Me.DataGridViewTextBoxColumn3.HeaderText = "Transaction Date"
+        Me.DataGridViewTextBoxColumn3.MinimumWidth = 6
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn6
+        '
+        Me.DataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle9.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DataGridViewTextBoxColumn6.DefaultCellStyle = DataGridViewCellStyle9
+        Me.DataGridViewTextBoxColumn6.HeaderText = "Payment Amount"
+        Me.DataGridViewTextBoxColumn6.MinimumWidth = 6
+        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
+        Me.DataGridViewTextBoxColumn6.ReadOnly = True
+        '
+        'Column1
+        '
+        Me.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        DataGridViewCellStyle10.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Column1.DefaultCellStyle = DataGridViewCellStyle10
+        Me.Column1.HeaderText = "Cashier Name"
+        Me.Column1.MinimumWidth = 6
+        Me.Column1.Name = "Column1"
+        Me.Column1.ReadOnly = True
+        Me.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        '
         'DataGridViewTextBoxColumn4
         '
         Me.DataGridViewTextBoxColumn4.HeaderText = "ID"
@@ -718,7 +717,7 @@ Partial Class frmCreditPay
         Me.DataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DataGridViewTextBoxColumn5.DefaultCellStyle = DataGridViewCellStyle3
-        Me.DataGridViewTextBoxColumn5.HeaderText = "Invoice No"
+        Me.DataGridViewTextBoxColumn5.HeaderText = "Invoice"
         Me.DataGridViewTextBoxColumn5.MinimumWidth = 6
         Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
         Me.DataGridViewTextBoxColumn5.ReadOnly = True
@@ -755,7 +754,7 @@ Partial Class frmCreditPay
         Me.Controls.Add(Me.tc_Credit)
         Me.Controls.Add(Me.pnlHeader)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "frmCreditPay"
         Me.Text = "frmCreditPay"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
@@ -815,17 +814,17 @@ Partial Class frmCreditPay
     Friend WithEvents pnl_history_Left As Panel
     Friend WithEvents pnl_history_Bottom As Panel
     Friend WithEvents dg_History As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
-    Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents dtp_cb_To As DateTimePicker
     Friend WithEvents Label1 As Label
     Friend WithEvents dtp_cb_From As DateTimePicker
     Friend WithEvents btn_load_Orders As Button
     Friend WithEvents Label3 As Label
     Friend WithEvents cbo_cb_Search As ComboBox
+    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
+    Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
     Friend WithEvents Column8 As DataGridViewTextBoxColumn
     Friend WithEvents Column4 As DataGridViewTextBoxColumn
