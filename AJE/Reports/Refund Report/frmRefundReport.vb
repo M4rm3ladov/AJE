@@ -26,7 +26,7 @@ Public Class frmRefundReport
             rv_Refund.LocalReport.SetParameters(rptParameter)
 
             ConnectDatabase()
-            da.SelectCommand = New MySqlCommand("SELECT DATE_FORMAT(trans_date, '%m/%d/%Y') AS trans_date, Description, Category, Unit, price, qty, sub_total, Cashiers, Managers, remarks FROM vw_refund WHERE trans_date BETWEEN '" & dtp_refund_From.Value.ToString("yyyy-MM-dd") & "' AND '" & dtp_refund_To.Value.ToString("yyyy-MM-dd") & "' AND branch_id = '" & frmMain.lbl_branch_Id.Text & "'", con)
+            da.SelectCommand = New MySqlCommand("SELECT DATE_FORMAT(trans_date, '%m/%d/%Y') AS trans_date, receipt,Description, Category, Unit, price, qty, sub_total, Cashiers, Managers, remarks FROM vw_refund_cash WHERE trans_date BETWEEN '" & dtp_refund_From.Value.ToString("yyyy-MM-dd") & "' AND '" & dtp_refund_To.Value.ToString("yyyy-MM-dd") & "' AND branch_id = '" & frmMain.lbl_branch_Id.Text & "'", con)
             da.Fill(ds.Tables("dt_refund"))
             DisconnectDatabase()
 

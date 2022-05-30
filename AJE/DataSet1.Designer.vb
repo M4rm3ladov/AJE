@@ -5477,6 +5477,10 @@ Partial Public Class DataSet1
         
         Private columnremarks As Global.System.Data.DataColumn
         
+        Private columnreceipt As Global.System.Data.DataColumn
+        
+        Private columninvoice As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -5593,6 +5597,22 @@ Partial Public Class DataSet1
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property receiptColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnreceipt
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property invoiceColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columninvoice
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -5629,9 +5649,9 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function Adddt_refundRow(ByVal trans_date As String, ByVal Description As String, ByVal Category As String, ByVal Unit As String, ByVal price As Decimal, ByVal qty As String, ByVal sub_total As Decimal, ByVal Cashiers As String, ByVal Managers As String, ByVal remarks As String) As dt_refundRow
+        Public Overloads Function Adddt_refundRow(ByVal trans_date As String, ByVal Description As String, ByVal Category As String, ByVal Unit As String, ByVal price As Decimal, ByVal qty As String, ByVal sub_total As Decimal, ByVal Cashiers As String, ByVal Managers As String, ByVal remarks As String, ByVal receipt As String, ByVal invoice As String) As dt_refundRow
             Dim rowdt_refundRow As dt_refundRow = CType(Me.NewRow,dt_refundRow)
-            Dim columnValuesArray() As Object = New Object() {trans_date, Description, Category, Unit, price, qty, sub_total, Cashiers, Managers, remarks}
+            Dim columnValuesArray() As Object = New Object() {trans_date, Description, Category, Unit, price, qty, sub_total, Cashiers, Managers, remarks, receipt, invoice}
             rowdt_refundRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowdt_refundRow)
             Return rowdt_refundRow
@@ -5664,6 +5684,8 @@ Partial Public Class DataSet1
             Me.columnCashiers = MyBase.Columns("Cashiers")
             Me.columnManagers = MyBase.Columns("Managers")
             Me.columnremarks = MyBase.Columns("remarks")
+            Me.columnreceipt = MyBase.Columns("receipt")
+            Me.columninvoice = MyBase.Columns("invoice")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -5689,6 +5711,10 @@ Partial Public Class DataSet1
             MyBase.Columns.Add(Me.columnManagers)
             Me.columnremarks = New Global.System.Data.DataColumn("remarks", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnremarks)
+            Me.columnreceipt = New Global.System.Data.DataColumn("receipt", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnreceipt)
+            Me.columninvoice = New Global.System.Data.DataColumn("invoice", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columninvoice)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -10047,6 +10073,36 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property receipt() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledt_refund.receiptColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'receipt' in table 'dt_refund' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledt_refund.receiptColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property invoice() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledt_refund.invoiceColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'invoice' in table 'dt_refund' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledt_refund.invoiceColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function Istrans_dateNull() As Boolean
             Return Me.IsNull(Me.tabledt_refund.trans_dateColumn)
         End Function
@@ -10163,6 +10219,30 @@ Partial Public Class DataSet1
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetremarksNull()
             Me(Me.tabledt_refund.remarksColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsreceiptNull() As Boolean
+            Return Me.IsNull(Me.tabledt_refund.receiptColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetreceiptNull()
+            Me(Me.tabledt_refund.receiptColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsinvoiceNull() As Boolean
+            Return Me.IsNull(Me.tabledt_refund.invoiceColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetinvoiceNull()
+            Me(Me.tabledt_refund.invoiceColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
