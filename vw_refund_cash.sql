@@ -1,10 +1,3 @@
-DELIMITER $$
-
-USE `aje_pos`$$
-
-DROP VIEW IF EXISTS `vw_refund_cash`$$
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_refund_cash` AS 
 SELECT refund.trans_date, receipt , CONCAT(brand.brand_name,' | ',item.item_desc,' | ',item.item_add_desc) AS Description, category.category_name AS Category, unit.unit_name AS Unit, refund_item_dtls.qty, refund_item_dtls.price, refund_item_dtls.sub_total
 , CONCAT(c.user_gname, ' ', c.user_surname) AS Cashiers, CONCAT(m.user_gname, ' ', m.user_surname) AS Managers, refund.remarks, inventory.branch_id FROM refund
 

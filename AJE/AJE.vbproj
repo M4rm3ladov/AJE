@@ -709,6 +709,7 @@
     <EmbeddedResource Include="Reports\Refund Report\frmRefundReport.resx">
       <DependentUpon>frmRefundReport.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Refund Report\ReportCreditRefund.rdlc" />
     <EmbeddedResource Include="Reports\Refund Report\ReportRefund.rdlc" />
     <EmbeddedResource Include="Reports\Sales\frmSales.resx">
       <DependentUpon>frmSales.vb</DependentUpon>
