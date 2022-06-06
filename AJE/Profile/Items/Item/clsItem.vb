@@ -148,6 +148,26 @@ Public Class clsItem
         DisconnectDatabase()
         Return False
     End Function
+    Public Function checkServiceDuplicate()
+        Try
+            ConnectDatabase()
+            Dim query = "SELECT service_code FROM service WHERE service_code = @service_code"
+            Dim cm = New MySqlCommand(query, con)
+            cm.Parameters.AddWithValue("@service_code", _ItemCode)
+            dr = cm.ExecuteReader
+            If dr.HasRows Then
+                dr.Close()
+                DisconnectDatabase()
+                Return True
+            End If
+        Catch ex As Exception
+            DisconnectDatabase()
+            MsgBox(ex.Message, vbCritical)
+        End Try
+        dr.Close()
+        DisconnectDatabase()
+        Return False
+    End Function
     Public Sub loadRecord()
         Dim i As Integer
         frmItem.dg_Items.Rows.Clear()

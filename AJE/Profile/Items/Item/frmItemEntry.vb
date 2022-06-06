@@ -238,8 +238,8 @@
             item.SetBrand(CInt(lbl_brand_Id.Text))
             item.SetUnit(CInt(lbl_unit_Id.Text))
             Dim result = MsgBox("Are you sure you want to save this record?", vbYesNo + vbQuestion)
-            If item.checkItemDuplicate = True Then
-                MsgBox("Item is already existing.", vbInformation)
+            If item.checkItemDuplicate = True Or item.checkServiceDuplicate = True Then
+                MsgBox("Item code duplicate.", vbInformation)
                 Exit Sub
             End If
 

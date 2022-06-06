@@ -138,8 +138,8 @@
             service.SetFeeB(Trim(tb_fee_B.Text))
 
             Dim result = MsgBox("Are you sure you want to save this record?", vbYesNo + vbQuestion)
-            If service.checkServiceDuplicate = True Then
-                MsgBox("Service is already existing.", vbInformation)
+            If service.checkServiceDuplicate = True Or service.checkItemDuplicate = True Then
+                MsgBox("Service code duplicate.", vbInformation)
                 Exit Sub
             End If
 
