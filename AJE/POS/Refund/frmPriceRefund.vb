@@ -51,23 +51,19 @@
     End Sub
     Private Sub btn_Add_Click(sender As Object, e As EventArgs) Handles btn_Add.Click
         If Val(tb_Price.Text) > Val(tb_price_Range.Text) Or Val(tb_Price.Text) = 0 Then
-            MsgBox("Please input a valid price", vbExclamation)
+            MsgBox("Please input price within the price range.", vbExclamation)
             Exit Sub
         End If
 
         Dim b As Integer = frmRefund.dg_Search.CurrentRow.Index
-        If Val(tb_Qty.Text) > frmRefund.dg_Search.Item(5, b).Value Or Val(tb_Qty.Text) = 0 Then                              'prompts message if qty is 0
-            MsgBox("Please input a valid quantity", vbExclamation)
+        Dim validQty = Math.Abs(frmRefund.dg_Search.Item(6, b).Value - frmRefund.dg_Search.Item(5, b).Value)
+        If Val(tb_Qty.Text) > validQty Or Val(tb_Qty.Text) = 0 Then                              'prompts message if qty is 0
+            MsgBox("Please input a valid quantity. Check the previously refunded quantity", vbExclamation)
             Exit Sub
         End If
 
         If lbl_Type.Text = 1 Then
-            Dim i As Integer = frmRefund.dg_Search.CurrentRow.Index      'sets price range price A and priceB
-
-            If Val(tb_Price.Text) > Val(tb_price_Range.Text) Then
-                MsgBox("Please input price within the price range.", vbExclamation)
-                Exit Sub
-            End If
+            Dim i As Integer = frmRefund.dg_Search.CurrentRow.Index 'sets price range price A and priceB
 
             _id = frmRefund.dg_Search.Item(0, i).Value
             _code = frmRefund.dg_Search.Item(1, i).Value
@@ -77,17 +73,13 @@
             _price = Val(tb_Price.Text)
             _total = Val(tb_Price.Text) * Val(tb_Qty.Text)
 
+
             frmRefund.dg_Refund.Rows.Add(_id, _code, _desc, _unit, Format(_price, "0.00"), _qty, Format(_total, "0.00"), "EDIT", "REMOVE")
 
             MsgBox("Item/Service has been added to cart.", vbInformation)
 
         ElseIf lbl_Type.Text = 2 Then
-            Dim i As Integer = frmRefund.dg_Search.CurrentRow.Index
-
-            If Val(tb_Price.Text) > Val(tb_price_Range.Text) Then
-                MsgBox("Please input price within the price range.", vbExclamation)
-                Exit Sub
-            End If
+            Dim i As Integer = frmRefund.dg_Refund.CurrentRow.Index
 
             frmRefund.dg_Refund.Item(4, i).Value = Format(Val(tb_Price.Text), "0.00")
             frmRefund.dg_Refund.Item(5, i).Value = tb_Qty.Text

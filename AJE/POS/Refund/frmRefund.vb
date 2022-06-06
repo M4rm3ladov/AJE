@@ -105,6 +105,7 @@
         cbo_Orders.SelectedIndex = 0
         refund.SetTransDate(dtp_Date.Value.ToString("yyyy-MM-dd"))
         refund.SetBranchId(frmPos.lbl_branch_Id.Text)
+
         If cbo_Receipt.SelectedIndex = 0 Then
             refund.SetReceiptNo(tb_receiptNo.Text.Trim)
             If refund.loadFromReceipt() = False Then
@@ -117,6 +118,8 @@
                 tb_Orders.Enabled = True
                 GroupBox1.Enabled = False
                 lbl_OrderId.Text = refund.loadOrderIdReceipt()
+                refund.SetOrderId(lbl_OrderId.Text)
+                refund.loadReceiptItemsServices()
             End If
         ElseIf cbo_Receipt.SelectedIndex = 1 Then
             refund.SetInvoiceNo(tb_receiptNo.Text.Trim)
@@ -131,14 +134,20 @@
                 tb_Orders.Enabled = True
                 GroupBox1.Enabled = False
                 lbl_OrderId.Text = refund.loadOrderIdInvoice()
+                refund.SetOrderId(lbl_OrderId.Text)
+                refund.loadInvoiceItemsServices()
             End If
-            dg_Refund.Rows.Clear()
+
         End If
+        dg_Refund.Rows.Clear()
     End Sub
 
     Private Sub tb_Orders_TextChanged(sender As Object, e As EventArgs) Handles tb_Orders.TextChanged
-        If tb_Orders.Text.Trim = "" Then
-            dg_Search.Rows.Clear()
+        If tb_Orders.Text.Trim = "" And cbo_Receipt.SelectedIndex = 0 Then
+            refund.loadReceiptItemsServices()
+            Exit Sub
+        ElseIf tb_Orders.Text.Trim = "" And cbo_receipt.SelectedIndex = 1 Then
+            refund.loadInvoiceItemsServices()
             Exit Sub
         End If
         refund.SetItemSearch(Trim(tb_Orders.Text))
@@ -148,8 +157,10 @@
                 cbo_Orders.Enabled = True
                 tb_Orders.Enabled = True
                 If cbo_Orders.SelectedIndex = 0 Then
-                    refund.searchItem("SELECT item.item_id, item.item_code, order_item_dtls.qty, order_item_dtls.price, order_item_dtls.line_total, CONCAT(brand_name, ' | ', item_desc, ' | ', item_add_desc, ' | ', category_name) As description, unit_name FROM order_item_dtls " &
+                    refund.searchItem("SELECT item.item_id, item.item_code, order_item_dtls.qty, COALESCE(refund_item_dtls.qty, 0) AS refunded, order_item_dtls.price, order_item_dtls.line_total, CONCAT(brand_name, ' | ', item_desc, ' | ', item_add_desc, ' | ', category_name) As description, unit_name FROM order_item_dtls " &
                                     "INNER JOIN orders on orders.`order_id` = order_item_dtls.`order_id` " &
+                                    "LEFT JOIN refund ON refund.order_id = orders.order_id " &
+                                    "LEFT JOIN refund_item_dtls ON refund_item_dtls.refund_id = refund.refund_id " &
                                     "INNER JOIN cash_payment ON cash_payment.order_id = orders.order_id " &
                                     "INNER JOIN inventory on inventory.`inventory_id` = order_item_dtls.`inventory_id` " &
                                     "INNER JOIN item on item.`item_id` = inventory.`item_id` " &
@@ -159,8 +170,10 @@
                                     "CONCAT(brand_name, ' ', item_desc, ' ', item_add_desc, ' ', category_name, ' ', unit_name) LIKE @0 or unit_name LIKE @0) AND (receipt = @receipt) AND (cash_payment.trans_date = @trans_date)")
 
                 ElseIf cbo_Orders.SelectedIndex = 1 Then
-                    refund.searchService("SELECT service.service_id, service_code, service_desc, '',  order_svc_dtls.qty, order_svc_dtls.price, order_svc_dtls.line_total FROM order_svc_dtls " &
+                    refund.searchService("SELECT service.service_id, service_code, service_desc, '',  order_svc_dtls.qty, COALESCE(refund_svc_dtls.qty, 0) AS refunded, order_svc_dtls.price, order_svc_dtls.line_total FROM order_svc_dtls " &
                                     "INNER JOIN orders ON orders.order_id = order_svc_dtls.order_id " &
+                                    "LEFT JOIN refund ON refund.order_id = orders.order_id " &
+                                    "LEFT JOIN refund_svc_dtls ON refund_svc_dtls.refund_id = refund.refund_id	" &
                                     "INNER JOIN cash_payment ON cash_payment.order_id = orders.order_id " &
                                     "INNER JOIN service ON service.service_id = order_svc_dtls.service_id " &
                                     "WHERE (service_code LIKE @0 OR service_desc LIKE @0) AND (receipt = @receipt) AND (cash_payment.trans_date = @trans_date)")
@@ -171,8 +184,10 @@
                 cbo_Orders.Enabled = True
                 tb_Orders.Enabled = True
                 If cbo_Orders.SelectedIndex = 0 Then
-                    refund.searchItemInvoice("SELECT item.item_id, item_code, order_item_dtls.qty, order_item_dtls.price, order_item_dtls.line_total, CONCAT(brand_name, ' | ', item_desc, ' | ', item_add_desc, ' | ', category_name) As description, unit_name FROM order_item_dtls " &
+                    refund.searchItemInvoice("SELECT item.item_id, item_code, order_item_dtls.qty, COALESCE(refund_item_dtls.qty, 0) AS refunded, order_item_dtls.price, order_item_dtls.line_total, CONCAT(brand_name, ' | ', item_desc, ' | ', item_add_desc, ' | ', category_name) As description, unit_name FROM order_item_dtls " &
                                     "INNER JOIN orders on orders.`order_id` = order_item_dtls.`order_id` " &
+                                    "LEFT JOIN refund ON refund.order_id = orders.order_id " &
+                                    "LEFT JOIN refund_item_dtls ON refund_item_dtls.refund_id = refund.refund_id " &
                                     "INNER JOIN credit_payment ON credit_payment.order_id = orders.order_id " &
                                     "INNER JOIN inventory on inventory.`inventory_id` = order_item_dtls.`inventory_id` " &
                                     "INNER JOIN item on item.`item_id` = inventory.`item_id` " &
@@ -181,8 +196,10 @@
                                     "INNER JOIN category on category.`category_id` = item.`category_id` WHERE (inventory.branch_id = @branch_id) AND (item_code LIKE @0 OR item_desc LIKE @0 OR item_add_desc LIKE @0 OR brand_name LIKE @0 OR category_name LIKE @0 OR " &
                                     "unit_name LIKE @0 OR CONCAT(brand_name, ' ', item_desc, ' ', item_add_desc, ' ', category_name, ' ', unit_name) LIKE @0) AND (invoice = @invoice) AND (credit_payment.trans_date = @trans_date)")
                 ElseIf cbo_Orders.SelectedIndex = 1 Then
-                    refund.searchServiceInvoice("SELECT service.service_id, service_code, service_desc, '', order_svc_dtls.qty, order_svc_dtls.price, order_svc_dtls.line_total FROM order_svc_dtls " &
+                    refund.searchServiceInvoice("SELECT service.service_id, service_code, service_desc, '', order_svc_dtls.qty, COALESCE(refund_svc_dtls.qty, 0) AS refunded ,order_svc_dtls.price, order_svc_dtls.line_total FROM order_svc_dtls " &
                                         "INNER JOIN orders ON orders.order_id = order_svc_dtls.order_id " &
+                                        "LEFT JOIN refund ON refund.order_id = orders.order_id " &
+                                        "LEFT JOIN refund_svc_dtls ON refund_svc_dtls.refund_id = refund.refund_id	" &
                                         "INNER JOIN credit_payment ON credit_payment.order_id = orders.order_id " &
                                         "INNER JOIN service ON service.service_id = order_svc_dtls.service_id " &
                                         "WHERE (service_code LIKE @0 OR service_desc LIKE @0) AND (invoice = @invoice) AND (credit_payment.trans_date = @trans_date)")
@@ -255,7 +272,9 @@
 
         If cbo_history_Type.SelectedIndex = 0 Then
             refund.loadCashHistory()
+            dg_History.Columns(0).HeaderText = "Receipt"
         ElseIf cbo_history_Type.SelectedIndex = 1 Then
+            dg_History.Columns(0).HeaderText = "Invoice"
             refund.loadCreditHistory()
         End If
 
