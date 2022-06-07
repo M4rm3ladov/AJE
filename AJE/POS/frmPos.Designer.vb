@@ -61,8 +61,6 @@ Partial Class frmPos
         Me.btn_Refund = New System.Windows.Forms.Button()
         Me.btn_Balance = New System.Windows.Forms.Button()
         Me.btn_CashIn = New System.Windows.Forms.Button()
-        Me.btn_CashOut = New System.Windows.Forms.Button()
-        Me.btn_Logout = New System.Windows.Forms.Button()
         Me.pnl_Name = New System.Windows.Forms.Panel()
         Me.lbl_user_Id = New System.Windows.Forms.Label()
         Me.lbl_transac_Date = New System.Windows.Forms.Label()
@@ -105,6 +103,9 @@ Partial Class frmPos
         Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.pnl_cart_dg_Right = New System.Windows.Forms.Panel()
         Me.pnl_cart_dg_Left = New System.Windows.Forms.Panel()
+        Me.btn_CashOut = New System.Windows.Forms.Button()
+        Me.btn_Logout = New System.Windows.Forms.Button()
+        Me.btn_Void = New System.Windows.Forms.Button()
         Me.pnlHeader.SuspendLayout()
         Me.pnlFooter.SuspendLayout()
         Me.pnlRight.SuspendLayout()
@@ -185,7 +186,7 @@ Partial Class frmPos
         Me.pnlRight.Controls.Add(Me.tbl_Right)
         Me.pnlRight.Dock = System.Windows.Forms.DockStyle.Right
         Me.pnlRight.Location = New System.Drawing.Point(534, 39)
-        Me.pnlRight.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.pnlRight.Margin = New System.Windows.Forms.Padding(2)
         Me.pnlRight.Name = "pnlRight"
         Me.pnlRight.Size = New System.Drawing.Size(390, 457)
         Me.pnlRight.TabIndex = 4
@@ -318,9 +319,10 @@ Partial Class frmPos
         Me.tbl_Buttons.Controls.Add(Me.btn_Add, 0, 0)
         Me.tbl_Buttons.Controls.Add(Me.btn_Refund, 1, 1)
         Me.tbl_Buttons.Controls.Add(Me.btn_Balance, 0, 2)
-        Me.tbl_Buttons.Controls.Add(Me.btn_CashIn, 1, 2)
-        Me.tbl_Buttons.Controls.Add(Me.btn_CashOut, 0, 3)
-        Me.tbl_Buttons.Controls.Add(Me.btn_Logout, 1, 3)
+        Me.tbl_Buttons.Controls.Add(Me.btn_Logout, 1, 4)
+        Me.tbl_Buttons.Controls.Add(Me.btn_CashOut, 1, 3)
+        Me.tbl_Buttons.Controls.Add(Me.btn_CashIn, 0, 3)
+        Me.tbl_Buttons.Controls.Add(Me.btn_Void, 1, 2)
         Me.tbl_Buttons.Dock = System.Windows.Forms.DockStyle.Fill
         Me.tbl_Buttons.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbl_Buttons.Location = New System.Drawing.Point(2, 111)
@@ -418,43 +420,13 @@ Partial Class frmPos
         Me.btn_CashIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_CashIn.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_CashIn.ForeColor = System.Drawing.Color.White
-        Me.btn_CashIn.Location = New System.Drawing.Point(195, 123)
+        Me.btn_CashIn.Location = New System.Drawing.Point(2, 183)
         Me.btn_CashIn.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.btn_CashIn.Name = "btn_CashIn"
         Me.btn_CashIn.Size = New System.Drawing.Size(189, 54)
         Me.btn_CashIn.TabIndex = 10
         Me.btn_CashIn.Text = "[F8] Cash In"
         Me.btn_CashIn.UseVisualStyleBackColor = False
-        '
-        'btn_CashOut
-        '
-        Me.btn_CashOut.BackColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(70, Byte), Integer))
-        Me.btn_CashOut.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btn_CashOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_CashOut.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_CashOut.ForeColor = System.Drawing.Color.White
-        Me.btn_CashOut.Location = New System.Drawing.Point(2, 183)
-        Me.btn_CashOut.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.btn_CashOut.Name = "btn_CashOut"
-        Me.btn_CashOut.Size = New System.Drawing.Size(189, 54)
-        Me.btn_CashOut.TabIndex = 11
-        Me.btn_CashOut.Text = "[F9] Cash Out"
-        Me.btn_CashOut.UseVisualStyleBackColor = False
-        '
-        'btn_Logout
-        '
-        Me.btn_Logout.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(43, Byte), Integer))
-        Me.btn_Logout.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btn_Logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_Logout.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_Logout.ForeColor = System.Drawing.Color.White
-        Me.btn_Logout.Location = New System.Drawing.Point(195, 183)
-        Me.btn_Logout.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.btn_Logout.Name = "btn_Logout"
-        Me.btn_Logout.Size = New System.Drawing.Size(189, 54)
-        Me.btn_Logout.TabIndex = 12
-        Me.btn_Logout.Text = "[ESC] Logout"
-        Me.btn_Logout.UseVisualStyleBackColor = False
         '
         'pnl_Name
         '
@@ -970,6 +942,51 @@ Partial Class frmPos
         Me.pnl_cart_dg_Left.Size = New System.Drawing.Size(10, 139)
         Me.pnl_cart_dg_Left.TabIndex = 1
         '
+        'btn_CashOut
+        '
+        Me.btn_CashOut.BackColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btn_CashOut.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btn_CashOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_CashOut.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_CashOut.ForeColor = System.Drawing.Color.White
+        Me.btn_CashOut.Location = New System.Drawing.Point(195, 183)
+        Me.btn_CashOut.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.btn_CashOut.Name = "btn_CashOut"
+        Me.btn_CashOut.Size = New System.Drawing.Size(189, 54)
+        Me.btn_CashOut.TabIndex = 11
+        Me.btn_CashOut.Text = "[F9] Cash Out"
+        Me.btn_CashOut.UseVisualStyleBackColor = False
+        '
+        'btn_Logout
+        '
+        Me.btn_Logout.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(43, Byte), Integer))
+        Me.btn_Logout.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btn_Logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_Logout.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_Logout.ForeColor = System.Drawing.Color.White
+        Me.btn_Logout.Location = New System.Drawing.Point(195, 243)
+        Me.btn_Logout.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.btn_Logout.Name = "btn_Logout"
+        Me.btn_Logout.Size = New System.Drawing.Size(189, 57)
+        Me.btn_Logout.TabIndex = 12
+        Me.btn_Logout.Text = "[ESC] Logout"
+        Me.btn_Logout.UseVisualStyleBackColor = False
+        '
+        'btn_Void
+        '
+        Me.btn_Void.BackColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btn_Void.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btn_Void.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_Void.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_Void.ForeColor = System.Drawing.Color.White
+        Me.btn_Void.Location = New System.Drawing.Point(195, 123)
+        Me.btn_Void.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.btn_Void.Name = "btn_Void"
+        Me.btn_Void.Size = New System.Drawing.Size(189, 54)
+        Me.btn_Void.TabIndex = 13
+        Me.btn_Void.Text = "[F6] Void Transaction"
+        Me.btn_Void.UseVisualStyleBackColor = False
+        '
         'frmPos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -983,7 +1000,7 @@ Partial Class frmPos
         Me.Controls.Add(Me.pnlFooter)
         Me.Controls.Add(Me.pnlHeader)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "frmPos"
         Me.Text = "frmPos"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
@@ -1034,8 +1051,6 @@ Partial Class frmPos
     Friend WithEvents btn_Refund As Button
     Friend WithEvents btn_Balance As Button
     Friend WithEvents btn_CashIn As Button
-    Friend WithEvents btn_CashOut As Button
-    Friend WithEvents btn_Logout As Button
     Friend WithEvents pnl_Name As Panel
     Friend WithEvents lbl_user_Id As Label
     Friend WithEvents lbl_transac_Date As Label
@@ -1078,4 +1093,7 @@ Partial Class frmPos
     Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
     Friend WithEvents Column4 As DataGridViewTextBoxColumn
     Friend WithEvents col_Add As DataGridViewButtonColumn
+    Friend WithEvents btn_CashOut As Button
+    Friend WithEvents btn_Logout As Button
+    Friend WithEvents btn_Void As Button
 End Class

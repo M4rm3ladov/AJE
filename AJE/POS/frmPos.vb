@@ -163,6 +163,8 @@
                 btn_Balance_Click(sender, e)
             Case Keys.F5
                 btn_Checkout_Click(sender, e)
+            Case Keys.F6
+                btn_Void_Click(sender, e)
             Case Keys.Escape
                 btn_Logout_Click(sender, e)
             Case Keys.F8
@@ -245,4 +247,7 @@
         End If
     End Sub
 
+    Private Sub btn_Void_Click(sender As Object, e As EventArgs) Handles btn_Void.Click
+        frmVoid.ShowDialog()
+    End Sub
 End Class

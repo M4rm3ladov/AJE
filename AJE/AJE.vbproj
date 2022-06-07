@@ -333,6 +333,12 @@
     <Compile Include="POS\Refund\frmRefundTransDate.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="POS\Void\frmVoid.Designer.vb">
+      <DependentUpon>frmVoid.vb</DependentUpon>
+    </Compile>
+    <Compile Include="POS\Void\frmVoid.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Profile\Branch\clsBranch.vb" />
     <Compile Include="Profile\Branch\frmBranch.Designer.vb">
       <DependentUpon>frmBranch.vb</DependentUpon>
@@ -611,6 +617,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="POS\Refund\frmRefundTransDate.resx">
       <DependentUpon>frmRefundTransDate.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POS\Void\frmVoid.resx">
+      <DependentUpon>frmVoid.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Profile\Branch\frmBranch.resx">
       <DependentUpon>frmBranch.vb</DependentUpon>
