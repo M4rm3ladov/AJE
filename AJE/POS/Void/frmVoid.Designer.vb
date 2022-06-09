@@ -71,6 +71,12 @@ Partial Class frmVoid
         Me.Label5 = New System.Windows.Forms.Label()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.dg_History = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.pnl_top_History = New System.Windows.Forms.Panel()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -78,12 +84,6 @@ Partial Class frmVoid
         Me.dtp_To = New System.Windows.Forms.DateTimePicker()
         Me.btn_History = New System.Windows.Forms.Button()
         Me.dtp_From = New System.Windows.Forms.DateTimePicker()
-        Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.pnlHeader.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -290,6 +290,7 @@ Partial Class frmVoid
         Me.lbl_OrderId.Size = New System.Drawing.Size(61, 18)
         Me.lbl_OrderId.TabIndex = 36
         Me.lbl_OrderId.Text = "Order Id"
+        Me.lbl_OrderId.Visible = False
         '
         'pnl_Total
         '
@@ -548,6 +549,67 @@ Partial Class frmVoid
         Me.dg_History.Size = New System.Drawing.Size(1073, 301)
         Me.dg_History.TabIndex = 29
         '
+        'DataGridViewTextBoxColumn9
+        '
+        Me.DataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
+        DataGridViewCellStyle7.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DataGridViewTextBoxColumn9.DefaultCellStyle = DataGridViewCellStyle7
+        Me.DataGridViewTextBoxColumn9.HeaderText = "Date"
+        Me.DataGridViewTextBoxColumn9.MinimumWidth = 6
+        Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
+        Me.DataGridViewTextBoxColumn9.ReadOnly = True
+        Me.DataGridViewTextBoxColumn9.Width = 69
+        '
+        'DataGridViewTextBoxColumn5
+        '
+        Me.DataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        DataGridViewCellStyle8.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!)
+        Me.DataGridViewTextBoxColumn5.DefaultCellStyle = DataGridViewCellStyle8
+        Me.DataGridViewTextBoxColumn5.HeaderText = "Receipt/Invoice"
+        Me.DataGridViewTextBoxColumn5.MinimumWidth = 6
+        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        Me.DataGridViewTextBoxColumn5.ReadOnly = True
+        '
+        'Column3
+        '
+        Me.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        DataGridViewCellStyle9.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!)
+        Me.Column3.DefaultCellStyle = DataGridViewCellStyle9
+        Me.Column3.HeaderText = "Payment Type"
+        Me.Column3.Name = "Column3"
+        Me.Column3.ReadOnly = True
+        Me.Column3.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        '
+        'DataGridViewTextBoxColumn11
+        '
+        Me.DataGridViewTextBoxColumn11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        DataGridViewCellStyle10.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DataGridViewTextBoxColumn11.DefaultCellStyle = DataGridViewCellStyle10
+        Me.DataGridViewTextBoxColumn11.HeaderText = "Cashier"
+        Me.DataGridViewTextBoxColumn11.MinimumWidth = 6
+        Me.DataGridViewTextBoxColumn11.Name = "DataGridViewTextBoxColumn11"
+        Me.DataGridViewTextBoxColumn11.ReadOnly = True
+        Me.DataGridViewTextBoxColumn11.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        '
+        'Column1
+        '
+        Me.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        DataGridViewCellStyle11.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!)
+        Me.Column1.DefaultCellStyle = DataGridViewCellStyle11
+        Me.Column1.HeaderText = "Manager"
+        Me.Column1.Name = "Column1"
+        Me.Column1.ReadOnly = True
+        Me.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        '
+        'Column10
+        '
+        Me.Column10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        DataGridViewCellStyle12.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!)
+        Me.Column10.DefaultCellStyle = DataGridViewCellStyle12
+        Me.Column10.HeaderText = "Remarks"
+        Me.Column10.Name = "Column10"
+        Me.Column10.ReadOnly = True
+        '
         'pnl_top_History
         '
         Me.pnl_top_History.Controls.Add(Me.GroupBox4)
@@ -624,67 +686,6 @@ Partial Class frmVoid
         Me.dtp_From.Name = "dtp_From"
         Me.dtp_From.Size = New System.Drawing.Size(257, 24)
         Me.dtp_From.TabIndex = 40
-        '
-        'DataGridViewTextBoxColumn9
-        '
-        Me.DataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        DataGridViewCellStyle7.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DataGridViewTextBoxColumn9.DefaultCellStyle = DataGridViewCellStyle7
-        Me.DataGridViewTextBoxColumn9.HeaderText = "Date"
-        Me.DataGridViewTextBoxColumn9.MinimumWidth = 6
-        Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
-        Me.DataGridViewTextBoxColumn9.ReadOnly = True
-        Me.DataGridViewTextBoxColumn9.Width = 69
-        '
-        'DataGridViewTextBoxColumn5
-        '
-        Me.DataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        DataGridViewCellStyle8.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!)
-        Me.DataGridViewTextBoxColumn5.DefaultCellStyle = DataGridViewCellStyle8
-        Me.DataGridViewTextBoxColumn5.HeaderText = "Receipt/Invoice"
-        Me.DataGridViewTextBoxColumn5.MinimumWidth = 6
-        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
-        Me.DataGridViewTextBoxColumn5.ReadOnly = True
-        '
-        'Column3
-        '
-        Me.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        DataGridViewCellStyle9.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!)
-        Me.Column3.DefaultCellStyle = DataGridViewCellStyle9
-        Me.Column3.HeaderText = "Payment Type"
-        Me.Column3.Name = "Column3"
-        Me.Column3.ReadOnly = True
-        Me.Column3.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        '
-        'DataGridViewTextBoxColumn11
-        '
-        Me.DataGridViewTextBoxColumn11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        DataGridViewCellStyle10.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DataGridViewTextBoxColumn11.DefaultCellStyle = DataGridViewCellStyle10
-        Me.DataGridViewTextBoxColumn11.HeaderText = "Cashier"
-        Me.DataGridViewTextBoxColumn11.MinimumWidth = 6
-        Me.DataGridViewTextBoxColumn11.Name = "DataGridViewTextBoxColumn11"
-        Me.DataGridViewTextBoxColumn11.ReadOnly = True
-        Me.DataGridViewTextBoxColumn11.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        '
-        'Column1
-        '
-        Me.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        DataGridViewCellStyle11.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!)
-        Me.Column1.DefaultCellStyle = DataGridViewCellStyle11
-        Me.Column1.HeaderText = "Manager"
-        Me.Column1.Name = "Column1"
-        Me.Column1.ReadOnly = True
-        Me.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        '
-        'Column10
-        '
-        Me.Column10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        DataGridViewCellStyle12.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!)
-        Me.Column10.DefaultCellStyle = DataGridViewCellStyle12
-        Me.Column10.HeaderText = "Remarks"
-        Me.Column10.Name = "Column10"
-        Me.Column10.ReadOnly = True
         '
         'frmVoid
         '

@@ -303,15 +303,6 @@ Public Class clsRefund
             Dim cust_bal As Decimal
             Dim cust_id
 
-            'query = "Select credit_payment.pay_amount FROM customer 
-            '        INNER JOIN credit_payment ON credit_payment.customer_id = customer.customer_id 
-            '        WHERE credit_payment.trans_date = @trans_date AND credit_payment.invoice = @invoice_no"
-            'cm = New MySqlCommand(query, con)
-            'cm.Parameters.AddWithValue("@invoice_no", _InvoiceNo)
-            'cm.Parameters.AddWithValue("@trans_date", _RefundDate)
-            'cust_payment = cm.ExecuteScalar()
-            'cm.Dispose()
-
             query = "SELECT customer.balance FROM customer 
                     INNER JOIN credit_payment ON credit_payment.customer_id = customer.customer_id 
                     WHERE credit_payment.trans_date = @trans_date AND credit_payment.invoice = @invoice_no"

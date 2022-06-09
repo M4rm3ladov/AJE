@@ -5,9 +5,17 @@ Public Class clsVoid
     Private _CashierId As Object
     Private _ManagerId As Object
     Private _Remarks As Object
+    Private _InvoiceNo As Object
+    Private _Gross As Object
     Private _VoidDate As Object
     Private _DateFrom As Object
     Private _DateTo As Object
+    Public Sub SetGross(AutoPropertyValue As Object)
+        _Gross = AutoPropertyValue
+    End Sub
+    Public Sub SetInvoiceNo(AutoPropertyValue As Object)
+        _InvoiceNo = AutoPropertyValue
+    End Sub
     Public Sub SetOrderId(AutoPropertyValue As Object)
         _OrderId = AutoPropertyValue
     End Sub
@@ -177,7 +185,45 @@ Public Class clsVoid
             Next
         End If
 
+        Dim cust_bal As Decimal
+        Dim cust_id
+
+        query = "SELECT EXISTS(SELECT order_id FROM credit_payment WHERE order_id = @order_id)"
+        cm = New MySqlCommand(query, con)
+        cm.Parameters.AddWithValue("@order_id", _OrderId)
+        Dim count = cm.ExecuteScalar()
+
+        If count = 0 Then
+            cm.Dispose()
+            DisconnectDatabase()
+            Exit Sub
+        End If
+
+        query = "SELECT customer.balance FROM customer 
+                    INNER JOIN credit_payment ON credit_payment.customer_id = customer.customer_id 
+                    WHERE credit_payment.invoice = @invoice_no"
+        cm = New MySqlCommand(query, con)
+        cm.Parameters.AddWithValue("@invoice_no", _InvoiceNo)
+        cust_bal = cm.ExecuteScalar()
         cm.Dispose()
+
+        query = "SELECT customer.customer_id FROM customer 
+                    INNER JOIN credit_payment ON credit_payment.customer_id = customer.customer_id 
+                    WHERE credit_payment.invoice = @invoice_no"
+        cm = New MySqlCommand(query, con)
+        cm.Parameters.AddWithValue("@invoice_no", _InvoiceNo)
+        cust_id = cm.ExecuteScalar()
+        cm.Dispose()
+
+        Dim new_cust_bal As Decimal
+
+        new_cust_bal = cust_bal - _Gross
+
+        query = "UPDATE customer SET customer.balance = '" & new_cust_bal & "' WHERE customer.customer_id = '" & cust_id & "'"
+        cm = New MySqlCommand(query, con)
+        cm.ExecuteScalar()
+        cm.Dispose()
+
         DisconnectDatabase()
     End Sub
 End Class

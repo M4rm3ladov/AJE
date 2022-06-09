@@ -128,6 +128,8 @@
             frmRefund.dtp_Date.Value = Date.Now
 
         ElseIf lbl_Type.Text = 5 Then
+            void.SetInvoiceNo(frmVoid.dg_Search.Item(3, frmVoid.dg_Search.CurrentRow.Index).Value)
+            void.SetGross(frmVoid.lbl_due_Total.Text)
             void.SetVoidDate(frmVoidTransdate.dtp_Date.Value.ToString("yyyy-MM-dd"))
             void.SetCashierId(frmPos.lbl_user_Id.Text)
             void.SetManagerId(auth.setUserId)
