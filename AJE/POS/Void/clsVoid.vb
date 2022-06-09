@@ -6,6 +6,8 @@ Public Class clsVoid
     Private _ManagerId As Object
     Private _Remarks As Object
     Private _VoidDate As Object
+    Private _DateFrom As Object
+    Private _DateTo As Object
     Public Sub SetOrderId(AutoPropertyValue As Object)
         _OrderId = AutoPropertyValue
     End Sub
@@ -23,6 +25,55 @@ Public Class clsVoid
     End Sub
     Public Sub SetVoidDate(AutoPropertyValue As Object)
         _VoidDate = AutoPropertyValue
+    End Sub
+    Public Sub SetDateFrom(AutoPropertyValue As Object)
+        _DateFrom = AutoPropertyValue
+    End Sub
+    Public Sub SetDateTo(AutoPropertyValue As Object)
+        _DateTo = AutoPropertyValue
+    End Sub
+    Public Sub loadHistory()
+        Dim transDate As String
+        frmVoid.dg_History.Rows.Clear()
+        ConnectDatabase()
+        Dim query = "SELECT cash_payment.receipt, CONCAT(c.user_gname,' ',c.user_surname) AS Cashiers, CONCAT(m.user_gname,' ',m.user_surname) AS Managers, 'Cash' AS payType,
+                    void.trans_date, void.remarks 
+                    FROM void
+                    INNER JOIN orders ON orders.order_id = void.order_id
+                    INNER JOIN cash_payment ON cash_payment.order_id = void.order_id
+                    INNER JOIN manager ON manager.manager_id = void.manager_id
+                    INNER JOIN user_details AS m ON m.user_id = manager.user_id
+                    INNER JOIN cashier ON cashier.cashier_id = void.cashier_id
+                    INNER JOIN user_details AS c ON c.user_id = cashier.user_id
+                    WHERE void.trans_date BETWEEN @date_from AND @date_to AND orders.branch_id = @branch_id
+                    UNION
+                    SELECT credit_payment.invoice , CONCAT(c.user_gname,' ',c.user_surname) AS Cashiers, CONCAT(m.user_gname,' ',m.user_surname) AS Managers, 'Credit' AS payType,
+                    void.trans_date, void.remarks 
+                    FROM void
+                    INNER JOIN orders ON orders.order_id = void.order_id
+                    INNER JOIN credit_payment ON credit_payment.order_id = void.order_id
+                    INNER JOIN manager ON manager.manager_id = void.manager_id
+                    INNER JOIN user_details AS m ON m.user_id = manager.user_id
+                    INNER JOIN cashier ON cashier.cashier_id = void.cashier_id
+                    INNER JOIN user_details AS c ON c.user_id = cashier.user_id
+                    WHERE void.trans_date BETWEEN @date_from AND @date_to AND orders.branch_id = @branch_id"
+        cm = New MySqlCommand(query, con)
+        cm.Parameters.AddWithValue("@date_from", _DateFrom)
+        cm.Parameters.AddWithValue("@date_to", _DateTo)
+        cm.Parameters.AddWithValue("@branch_id", _BranchId)
+
+        dr = cm.ExecuteReader()
+        If dr.HasRows Then
+            While dr.Read()
+                transDate = Format(dr.Item("trans_date"), "MM/dd/yyyy")
+                frmVoid.dg_History.Rows.Add(transDate, dr.Item("receipt").ToString, dr.Item("payType").ToString, dr.Item("Cashiers").ToString, dr.Item("Managers").ToString,
+                                               dr.Item("remarks").ToString)
+            End While
+        Else
+            MsgBox("No data available on given parameters.", vbInformation)
+        End If
+        dr.Close()
+        DisconnectDatabase()
     End Sub
     Public Sub searchOrders(query As String) 'dg_Search item populate
         frmVoid.dg_Search.Rows.Clear()

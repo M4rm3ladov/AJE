@@ -31,7 +31,6 @@
     End Sub
 
     Private Sub frmVoid_Load(sender As Object, e As EventArgs) Handles Me.Load
-        cbo_history_Type.SelectedIndex = 0
         cbo_cb_Search.SelectedIndex = 0
         lbl_due_Total.Text = "0.00"
         dtp_From.Value = DateTime.Now
@@ -71,7 +70,10 @@
     End Sub
 
     Private Sub btn_History_Click(sender As Object, e As EventArgs) Handles btn_History.Click
-
+        void.SetDateFrom(dtp_From.Value.ToString("yyyy-MM-dd"))
+        void.SetDateTo(dtp_To.Value.ToString("yyyy-MM-dd"))
+        void.SetBranchId(frmMain.lbl_branch_Id.Text)
+        void.loadHistory()
     End Sub
 
     Private Sub btn_Load_Click(sender As Object, e As EventArgs) Handles btn_Load.Click
