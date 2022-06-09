@@ -1,6 +1,6 @@
 ﻿ Imports MySql.Data.MySqlClient
 Public Class clsCashierLog
-    Dim cashP, creditS, creditP, refundA, cashIn, cashOut
+    Dim cashP, creditS, creditP, voidA, refundA, cashIn, cashOut
     Private _CashierLogId As Object
     Private _CashierId As Object
     Private _ManagerId As Object
@@ -102,6 +102,22 @@ Public Class clsCashierLog
         End While
         dr.Close()
 
+        query = "SELECT SUM(orders.gross_amount) AS gross FROM void 
+                INNER JOIN orders ON orders.order_id = void.order_id 
+                WHERE trans_date = @trans_date AND cashier_id = @cashier_id"
+        cm = New MySqlCommand(query, con)
+        cm.Parameters.AddWithValue("@trans_date", Date.Now.ToString("yyyy-MM-dd"))
+        cm.Parameters.AddWithValue("@cashier_id", _CashierId)
+        dr = cm.ExecuteReader
+        While dr.Read
+            If dr.IsDBNull(0) Then
+                voidA = 0
+            Else
+                voidA = dr.Item("gross")
+            End If
+        End While
+        dr.Close()
+
         query = "SELECT SUM(amount) AS gross FROM refund WHERE trans_date = @trans_date AND cashier_id = @cashier_id"
         cm = New MySqlCommand(query, con)
         cm.Parameters.AddWithValue("@trans_date", Date.Now.ToString("yyyy-MM-dd"))
@@ -149,7 +165,7 @@ Public Class clsCashierLog
         End While
         dr.Close()
 
-        Dim total = begbal + (cashP + creditS + creditP - refundA) + cashIn - cashOut
+        Dim total = begbal + (cashP + creditS + creditP - (refundA + voidA)) + cashIn - cashOut
         DisconnectDatabase()
         Return total
     End Function
