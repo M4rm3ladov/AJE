@@ -35,4 +35,8 @@
     Private Sub btn_Refund_Click(sender As Object, e As EventArgs) Handles btn_Refund.Click
         frmRefundReport.ShowDialog()
     End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        frmVoidReport.ShowDialog()
+    End Sub
 End Class

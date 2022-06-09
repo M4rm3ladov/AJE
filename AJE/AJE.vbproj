@@ -545,6 +545,12 @@
     <Compile Include="Reports\Sales\frmSales.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Reports\Void Report\frmVoidReport.Designer.vb">
+      <DependentUpon>frmVoidReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Void Report\frmVoidReport.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Customer\frmCustomerEntry.resx">
@@ -747,6 +753,11 @@
     <EmbeddedResource Include="Reports\Customer Transacs\Report3.rdlc" />
     <EmbeddedResource Include="Reports\Customer Transacs\Report4.rdlc" />
     <EmbeddedResource Include="Reports\Sales\ReportAllSales.rdlc" />
+    <EmbeddedResource Include="Reports\Void Report\frmVoidReport.resx">
+      <DependentUpon>frmVoidReport.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Void Report\ReportCreditVoid.rdlc" />
+    <EmbeddedResource Include="Reports\Void Report\ReportVoid.rdlc" />
   </ItemGroup>
   <ItemGroup>
     <None Include="AJE_TemporaryKey.pfx" />
@@ -814,6 +825,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
