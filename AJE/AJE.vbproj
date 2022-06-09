@@ -333,10 +333,23 @@
     <Compile Include="POS\Refund\frmRefundTransDate.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="POS\Void\clsVoid.vb" />
+    <Compile Include="POS\Void\frmOrderTransacs.Designer.vb">
+      <DependentUpon>frmOrderTransacs.vb</DependentUpon>
+    </Compile>
+    <Compile Include="POS\Void\frmOrderTransacs.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="POS\Void\frmVoid.Designer.vb">
       <DependentUpon>frmVoid.vb</DependentUpon>
     </Compile>
     <Compile Include="POS\Void\frmVoid.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POS\Void\frmVoidTransDate.Designer.vb">
+      <DependentUpon>frmVoidTransDate.vb</DependentUpon>
+    </Compile>
+    <Compile Include="POS\Void\frmVoidTransDate.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Profile\Branch\clsBranch.vb" />
@@ -618,8 +631,14 @@
     <EmbeddedResource Include="POS\Refund\frmRefundTransDate.resx">
       <DependentUpon>frmRefundTransDate.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="POS\Void\frmOrderTransacs.resx">
+      <DependentUpon>frmOrderTransacs.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="POS\Void\frmVoid.resx">
       <DependentUpon>frmVoid.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POS\Void\frmVoidTransDate.resx">
+      <DependentUpon>frmVoidTransDate.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Profile\Branch\frmBranch.resx">
       <DependentUpon>frmBranch.vb</DependentUpon>

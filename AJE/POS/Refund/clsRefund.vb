@@ -52,7 +52,18 @@ Public Class clsRefund
     Public Sub SetDateTo(AutoPropertyValue As Object)
         _RefundDateTo = AutoPropertyValue
     End Sub
-
+    Public Function checkVoidExists()
+        ConnectDatabase()
+        Dim query = "SELECT EXISTS(SELECT void.order_id FROM void WHERE void.order_id = @order_id)"
+        cm = New MySqlCommand(query, con)
+        cm.Parameters.AddWithValue("@order_id", _OrderId)
+        Dim count = cm.ExecuteScalar()
+        DisconnectDatabase()
+        If count > 0 Then
+            Return True
+        End If
+        Return False
+    End Function
     Public Sub loadReceiptItemsServices()
         frmRefund.dg_Search.Rows.Clear()
         ConnectDatabase()
@@ -67,7 +78,7 @@ Public Class clsRefund
                     INNER JOIN brand ON brand.`brand_id` = item.`brand_id` 
                     INNER JOIN category ON category.`category_id` = item.`category_id`
 
-                    WHERE (inventory.branch_id = 1)
+                    WHERE (inventory.branch_id = @branch_id)
                     AND (receipt = @receipt) AND (cash_payment.trans_date = @trans_date)
  
                     UNION
@@ -84,6 +95,7 @@ Public Class clsRefund
         cm = New MySqlCommand(query, con)
         cm.Parameters.AddWithValue("@receipt", _ReceiptNo)
         cm.Parameters.AddWithValue("@trans_date", _TransDate)
+        cm.Parameters.AddWithValue("@branch_id", _BranchId)
         dr = cm.ExecuteReader()
         While dr.Read
             frmRefund.dg_Search.Rows.Add(dr.Item("item_id").ToString, dr.Item("item_code").ToString, dr.Item("description").ToString, dr.Item("unit_name"), dr.Item("price").ToString, dr.Item("qty").ToString, dr.Item("refunded").ToString, dr.Item("line_total").ToString, "ADD")
@@ -105,7 +117,7 @@ Public Class clsRefund
                     INNER JOIN brand ON brand.`brand_id` = item.`brand_id` 
                     INNER JOIN category ON category.`category_id` = item.`category_id` 
                     
-                    WHERE (inventory.branch_id = 1) 
+                    WHERE (inventory.branch_id = @branch_id) 
                     AND (invoice = @invoice) AND (credit_payment.trans_date = @trans_date)
 
                     UNION
@@ -121,6 +133,7 @@ Public Class clsRefund
         cm = New MySqlCommand(query, con)
         cm.Parameters.AddWithValue("@invoice", _InvoiceNo)
         cm.Parameters.AddWithValue("@trans_date", _TransDate)
+        cm.Parameters.AddWithValue("@branch_id", _BranchId)
         dr = cm.ExecuteReader()
         While dr.Read
             frmRefund.dg_Search.Rows.Add(dr.Item("item_id").ToString, dr.Item("item_code").ToString, dr.Item("description").ToString, dr.Item("unit_name"), dr.Item("price").ToString, dr.Item("qty").ToString, dr.Item("refunded").ToString, dr.Item("line_total").ToString, "ADD")

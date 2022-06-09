@@ -3,6 +3,7 @@
     Dim cashLog As New clsCashierLog
     Dim credPay As New clsCreditPay
     Dim refund As New clsRefund
+    Dim void As New clsVoid
     Dim auth As New clsAuth
     Dim authKey As Integer
     Public MoveForm As Boolean
@@ -125,6 +126,16 @@
             frmRefund.GroupBox1.Enabled = True
             frmRefund.cbo_Receipt.SelectedIndex = 0
             frmRefund.dtp_Date.Value = Date.Now
+
+        ElseIf lbl_Type.Text = 5 Then
+            void.SetVoidDate(frmVoidTransdate.dtp_Date.Value.ToString("yyyy-MM-dd"))
+            void.SetCashierId(frmPos.lbl_user_Id.Text)
+            void.SetManagerId(auth.setUserId)
+            void.SetRemarks(frmVoidTransdate.tb_Remarks.Text)
+            void.SetOrderId(frmVoid.lbl_OrderId.Text)
+            void.SetBranchId(frmPos.lbl_branch_Id.Text)
+            void.saveVoid()
+            MsgBox("Transaction saved successfully.", vbInformation)
         End If
 
         Me.Close()

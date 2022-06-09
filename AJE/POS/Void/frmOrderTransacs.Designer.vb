@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class frmCreditTransacs
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
+Partial Class frmOrderTransacs
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,33 +20,33 @@ Partial Class frmCreditTransacs
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmCreditTransacs))
-        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle20 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle21 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle19 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmOrderTransacs))
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.btn_Close = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.pnl_Top = New System.Windows.Forms.Panel()
         Me.pnl_Bottom = New System.Windows.Forms.Panel()
         Me.lbl_due_Total = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.pnl_Left = New System.Windows.Forms.Panel()
-        Me.pnl_Right = New System.Windows.Forms.Panel()
-        Me.dg_Cred_Transac = New System.Windows.Forms.DataGridView()
+        Me.dg_Transac = New System.Windows.Forms.DataGridView()
         Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.pnl_Right = New System.Windows.Forms.Panel()
+        Me.pnl_Left = New System.Windows.Forms.Panel()
+        Me.pnl_Top = New System.Windows.Forms.Panel()
         Me.Panel1.SuspendLayout()
         Me.pnl_Bottom.SuspendLayout()
-        CType(Me.dg_Cred_Transac, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dg_Transac, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -59,7 +59,7 @@ Partial Class frmCreditTransacs
         Me.Panel1.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(867, 36)
-        Me.Panel1.TabIndex = 17
+        Me.Panel1.TabIndex = 18
         '
         'btn_Close
         '
@@ -82,18 +82,9 @@ Partial Class frmCreditTransacs
         Me.Label3.Location = New System.Drawing.Point(9, 7)
         Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(129, 18)
+        Me.Label3.Size = New System.Drawing.Size(133, 18)
         Me.Label3.TabIndex = 2
-        Me.Label3.Text = "Credit Transaction"
-        '
-        'pnl_Top
-        '
-        Me.pnl_Top.Dock = System.Windows.Forms.DockStyle.Top
-        Me.pnl_Top.Location = New System.Drawing.Point(0, 36)
-        Me.pnl_Top.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.pnl_Top.Name = "pnl_Top"
-        Me.pnl_Top.Size = New System.Drawing.Size(867, 13)
-        Me.pnl_Top.TabIndex = 18
+        Me.Label3.Text = "Items and Services"
         '
         'pnl_Bottom
         '
@@ -104,7 +95,7 @@ Partial Class frmCreditTransacs
         Me.pnl_Bottom.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.pnl_Bottom.Name = "pnl_Bottom"
         Me.pnl_Bottom.Size = New System.Drawing.Size(867, 66)
-        Me.pnl_Bottom.TabIndex = 19
+        Me.pnl_Bottom.TabIndex = 20
         '
         'lbl_due_Total
         '
@@ -132,65 +123,47 @@ Partial Class frmCreditTransacs
         Me.Label7.TabIndex = 26
         Me.Label7.Text = "Gross Total:"
         '
-        'pnl_Left
+        'dg_Transac
         '
-        Me.pnl_Left.Dock = System.Windows.Forms.DockStyle.Left
-        Me.pnl_Left.Location = New System.Drawing.Point(0, 49)
-        Me.pnl_Left.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.pnl_Left.Name = "pnl_Left"
-        Me.pnl_Left.Size = New System.Drawing.Size(10, 380)
-        Me.pnl_Left.TabIndex = 20
-        '
-        'pnl_Right
-        '
-        Me.pnl_Right.Dock = System.Windows.Forms.DockStyle.Right
-        Me.pnl_Right.Location = New System.Drawing.Point(858, 49)
-        Me.pnl_Right.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.pnl_Right.Name = "pnl_Right"
-        Me.pnl_Right.Size = New System.Drawing.Size(9, 380)
-        Me.pnl_Right.TabIndex = 21
-        '
-        'dg_Cred_Transac
-        '
-        Me.dg_Cred_Transac.AllowUserToAddRows = False
-        DataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle15.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        DataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dg_Cred_Transac.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle15
-        Me.dg_Cred_Transac.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dg_Cred_Transac.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column8, Me.Column9, Me.Column1, Me.Column2})
-        Me.dg_Cred_Transac.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.dg_Cred_Transac.Location = New System.Drawing.Point(10, 49)
-        Me.dg_Cred_Transac.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.dg_Cred_Transac.Name = "dg_Cred_Transac"
-        DataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle20.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        DataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dg_Cred_Transac.RowHeadersDefaultCellStyle = DataGridViewCellStyle20
-        Me.dg_Cred_Transac.RowHeadersVisible = False
-        Me.dg_Cred_Transac.RowHeadersWidth = 51
-        DataGridViewCellStyle21.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        DataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(141, Byte), Integer))
-        DataGridViewCellStyle21.SelectionForeColor = System.Drawing.Color.White
-        Me.dg_Cred_Transac.RowsDefaultCellStyle = DataGridViewCellStyle21
-        Me.dg_Cred_Transac.RowTemplate.Height = 24
-        Me.dg_Cred_Transac.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dg_Cred_Transac.Size = New System.Drawing.Size(848, 380)
-        Me.dg_Cred_Transac.TabIndex = 22
+        Me.dg_Transac.AllowUserToAddRows = False
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dg_Transac.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        Me.dg_Transac.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dg_Transac.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column8, Me.Column9, Me.Column1, Me.Column2})
+        Me.dg_Transac.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.dg_Transac.Location = New System.Drawing.Point(10, 49)
+        Me.dg_Transac.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.dg_Transac.Name = "dg_Transac"
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
+        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dg_Transac.RowHeadersDefaultCellStyle = DataGridViewCellStyle6
+        Me.dg_Transac.RowHeadersVisible = False
+        Me.dg_Transac.RowHeadersWidth = 51
+        DataGridViewCellStyle7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(141, Byte), Integer))
+        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White
+        Me.dg_Transac.RowsDefaultCellStyle = DataGridViewCellStyle7
+        Me.dg_Transac.RowTemplate.Height = 24
+        Me.dg_Transac.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dg_Transac.Size = New System.Drawing.Size(848, 380)
+        Me.dg_Transac.TabIndex = 26
         '
         'Column8
         '
         Me.Column8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        DataGridViewCellStyle16.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Column8.DefaultCellStyle = DataGridViewCellStyle16
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Column8.DefaultCellStyle = DataGridViewCellStyle2
         Me.Column8.HeaderText = "Description"
         Me.Column8.MinimumWidth = 6
         Me.Column8.Name = "Column8"
@@ -200,9 +173,9 @@ Partial Class frmCreditTransacs
         'Column9
         '
         Me.Column9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle17.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Column9.DefaultCellStyle = DataGridViewCellStyle17
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Column9.DefaultCellStyle = DataGridViewCellStyle3
         Me.Column9.HeaderText = "Price"
         Me.Column9.MinimumWidth = 6
         Me.Column9.Name = "Column9"
@@ -213,9 +186,9 @@ Partial Class frmCreditTransacs
         'Column1
         '
         Me.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle18.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Column1.DefaultCellStyle = DataGridViewCellStyle18
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Column1.DefaultCellStyle = DataGridViewCellStyle4
         Me.Column1.HeaderText = "Qty"
         Me.Column1.MinimumWidth = 6
         Me.Column1.Name = "Column1"
@@ -226,9 +199,9 @@ Partial Class frmCreditTransacs
         'Column2
         '
         Me.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        DataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle19.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Column2.DefaultCellStyle = DataGridViewCellStyle19
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Column2.DefaultCellStyle = DataGridViewCellStyle5
         Me.Column2.HeaderText = "Total"
         Me.Column2.MinimumWidth = 6
         Me.Column2.Name = "Column2"
@@ -236,28 +209,53 @@ Partial Class frmCreditTransacs
         Me.Column2.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.Column2.Width = 69
         '
-        'frmCreditTransacs
+        'pnl_Right
+        '
+        Me.pnl_Right.Dock = System.Windows.Forms.DockStyle.Right
+        Me.pnl_Right.Location = New System.Drawing.Point(858, 49)
+        Me.pnl_Right.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.pnl_Right.Name = "pnl_Right"
+        Me.pnl_Right.Size = New System.Drawing.Size(9, 380)
+        Me.pnl_Right.TabIndex = 25
+        '
+        'pnl_Left
+        '
+        Me.pnl_Left.Dock = System.Windows.Forms.DockStyle.Left
+        Me.pnl_Left.Location = New System.Drawing.Point(0, 49)
+        Me.pnl_Left.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.pnl_Left.Name = "pnl_Left"
+        Me.pnl_Left.Size = New System.Drawing.Size(10, 380)
+        Me.pnl_Left.TabIndex = 24
+        '
+        'pnl_Top
+        '
+        Me.pnl_Top.Dock = System.Windows.Forms.DockStyle.Top
+        Me.pnl_Top.Location = New System.Drawing.Point(0, 36)
+        Me.pnl_Top.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.pnl_Top.Name = "pnl_Top"
+        Me.pnl_Top.Size = New System.Drawing.Size(867, 13)
+        Me.pnl_Top.TabIndex = 23
+        '
+        'frmOrderTransacs
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(867, 495)
-        Me.Controls.Add(Me.dg_Cred_Transac)
+        Me.Controls.Add(Me.dg_Transac)
         Me.Controls.Add(Me.pnl_Right)
         Me.Controls.Add(Me.pnl_Left)
-        Me.Controls.Add(Me.pnl_Bottom)
         Me.Controls.Add(Me.pnl_Top)
+        Me.Controls.Add(Me.pnl_Bottom)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Margin = New System.Windows.Forms.Padding(2)
-        Me.Name = "frmCreditTransacs"
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "frmCreditTransacs"
+        Me.Name = "frmOrderTransacs"
+        Me.Text = "frmOrderTransacs"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         Me.pnl_Bottom.ResumeLayout(False)
         Me.pnl_Bottom.PerformLayout()
-        CType(Me.dg_Cred_Transac, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dg_Transac, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -265,15 +263,15 @@ Partial Class frmCreditTransacs
     Friend WithEvents Panel1 As Panel
     Friend WithEvents btn_Close As Button
     Friend WithEvents Label3 As Label
-    Friend WithEvents pnl_Top As Panel
     Friend WithEvents pnl_Bottom As Panel
     Friend WithEvents lbl_due_Total As Label
     Friend WithEvents Label7 As Label
-    Friend WithEvents pnl_Left As Panel
-    Friend WithEvents pnl_Right As Panel
-    Friend WithEvents dg_Cred_Transac As DataGridView
+    Friend WithEvents dg_Transac As DataGridView
     Friend WithEvents Column8 As DataGridViewTextBoxColumn
     Friend WithEvents Column9 As DataGridViewTextBoxColumn
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
+    Friend WithEvents pnl_Right As Panel
+    Friend WithEvents pnl_Left As Panel
+    Friend WithEvents pnl_Top As Panel
 End Class

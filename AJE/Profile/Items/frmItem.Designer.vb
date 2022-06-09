@@ -37,6 +37,10 @@ Partial Class frmItem
         Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle19 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle24 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle20 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle21 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
@@ -47,10 +51,6 @@ Partial Class frmItem
         Dim DataGridViewCellStyle26 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle27 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle28 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.tc_Profile = New System.Windows.Forms.TabControl()
         Me.tp_Items = New System.Windows.Forms.TabPage()
         Me.dg_Items = New System.Windows.Forms.DataGridView()
@@ -79,6 +79,11 @@ Partial Class frmItem
         Me.tb_Search = New System.Windows.Forms.TextBox()
         Me.tp_Category = New System.Windows.Forms.TabPage()
         Me.dg_Category = New System.Windows.Forms.DataGridView()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_edit_Category = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.col_delete_Category = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.pnl_Category_Right = New System.Windows.Forms.Panel()
         Me.pnl_Category_Left = New System.Windows.Forms.Panel()
         Me.pnl_Category_Bottom = New System.Windows.Forms.Panel()
@@ -117,11 +122,6 @@ Partial Class frmItem
         Me.btn_new_Unit = New System.Windows.Forms.Button()
         Me.tb_search_Unit = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.col_edit_Category = New System.Windows.Forms.DataGridViewButtonColumn()
-        Me.col_delete_Category = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.tc_Profile.SuspendLayout()
         Me.tp_Items.SuspendLayout()
         CType(Me.dg_Items, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -150,10 +150,10 @@ Partial Class frmItem
         Me.tc_Profile.Dock = System.Windows.Forms.DockStyle.Fill
         Me.tc_Profile.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tc_Profile.Location = New System.Drawing.Point(0, 0)
-        Me.tc_Profile.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.tc_Profile.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.tc_Profile.Name = "tc_Profile"
         Me.tc_Profile.SelectedIndex = 0
-        Me.tc_Profile.Size = New System.Drawing.Size(1404, 588)
+        Me.tc_Profile.Size = New System.Drawing.Size(924, 382)
         Me.tc_Profile.TabIndex = 0
         '
         'tp_Items
@@ -163,10 +163,11 @@ Partial Class frmItem
         Me.tp_Items.Controls.Add(Me.pnl_Items_Left)
         Me.tp_Items.Controls.Add(Me.pnl_Item_Bottom)
         Me.tp_Items.Controls.Add(Me.pnl_Item_Top)
-        Me.tp_Items.Location = New System.Drawing.Point(4, 34)
+        Me.tp_Items.Location = New System.Drawing.Point(4, 25)
+        Me.tp_Items.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.tp_Items.Name = "tp_Items"
-        Me.tp_Items.Padding = New System.Windows.Forms.Padding(3)
-        Me.tp_Items.Size = New System.Drawing.Size(1396, 550)
+        Me.tp_Items.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.tp_Items.Size = New System.Drawing.Size(916, 353)
         Me.tp_Items.TabIndex = 0
         Me.tp_Items.Text = "Items"
         '
@@ -184,8 +185,9 @@ Partial Class frmItem
         Me.dg_Items.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dg_Items.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.Column6, Me.DataGridViewTextBoxColumn2, Me.Column7, Me.Column8, Me.col_add_Description, Me.DataGridViewTextBoxColumn3, Me.co, Me.Column11, Me.Column9, Me.Column10, Me.col_Edit, Me.col_Delete})
         Me.dg_Items.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.dg_Items.Location = New System.Drawing.Point(19, 87)
-        Me.dg_Items.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.dg_Items.Location = New System.Drawing.Point(13, 57)
+        Me.dg_Items.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.dg_Items.MultiSelect = False
         Me.dg_Items.Name = "dg_Items"
         Me.dg_Items.RowHeadersVisible = False
         Me.dg_Items.RowHeadersWidth = 51
@@ -195,7 +197,7 @@ Partial Class frmItem
         Me.dg_Items.RowsDefaultCellStyle = DataGridViewCellStyle14
         Me.dg_Items.RowTemplate.Height = 24
         Me.dg_Items.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dg_Items.Size = New System.Drawing.Size(1358, 385)
+        Me.dg_Items.Size = New System.Drawing.Size(890, 245)
         Me.dg_Items.TabIndex = 30
         '
         'DataGridViewTextBoxColumn1
@@ -216,7 +218,7 @@ Partial Class frmItem
         Me.Column6.Name = "Column6"
         Me.Column6.ReadOnly = True
         Me.Column6.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.Column6.Width = 59
+        Me.Column6.Width = 41
         '
         'DataGridViewTextBoxColumn2
         '
@@ -228,7 +230,7 @@ Partial Class frmItem
         Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
         Me.DataGridViewTextBoxColumn2.ReadOnly = True
         Me.DataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridViewTextBoxColumn2.Width = 96
+        Me.DataGridViewTextBoxColumn2.Width = 66
         '
         'Column7
         '
@@ -240,6 +242,7 @@ Partial Class frmItem
         Me.Column7.Name = "Column7"
         Me.Column7.ReadOnly = True
         Me.Column7.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.Column7.Width = 71
         '
         'Column8
         '
@@ -273,7 +276,7 @@ Partial Class frmItem
         Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
         Me.DataGridViewTextBoxColumn3.ReadOnly = True
         Me.DataGridViewTextBoxColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridViewTextBoxColumn3.Width = 128
+        Me.DataGridViewTextBoxColumn3.Width = 90
         '
         'co
         '
@@ -285,7 +288,7 @@ Partial Class frmItem
         Me.co.Name = "co"
         Me.co.ReadOnly = True
         Me.co.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.co.Width = 82
+        Me.co.Width = 58
         '
         'Column11
         '
@@ -299,7 +302,7 @@ Partial Class frmItem
         Me.Column11.Name = "Column11"
         Me.Column11.ReadOnly = True
         Me.Column11.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.Column11.Width = 121
+        Me.Column11.Width = 87
         '
         'Column9
         '
@@ -313,7 +316,7 @@ Partial Class frmItem
         Me.Column9.Name = "Column9"
         Me.Column9.ReadOnly = True
         Me.Column9.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.Column9.Width = 103
+        Me.Column9.Width = 72
         '
         'Column10
         '
@@ -326,7 +329,7 @@ Partial Class frmItem
         Me.Column10.Name = "Column10"
         Me.Column10.ReadOnly = True
         Me.Column10.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.Column10.Width = 102
+        Me.Column10.Width = 72
         '
         'col_Edit
         '
@@ -342,7 +345,7 @@ Partial Class frmItem
         Me.col_Edit.ReadOnly = True
         Me.col_Edit.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.col_Edit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.col_Edit.Width = 29
+        Me.col_Edit.Width = 19
         '
         'col_Delete
         '
@@ -358,41 +361,44 @@ Partial Class frmItem
         Me.col_Delete.ReadOnly = True
         Me.col_Delete.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.col_Delete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.col_Delete.Width = 29
+        Me.col_Delete.Width = 19
         '
         'pnl_Items_Right
         '
         Me.pnl_Items_Right.Dock = System.Windows.Forms.DockStyle.Right
-        Me.pnl_Items_Right.Location = New System.Drawing.Point(1377, 87)
+        Me.pnl_Items_Right.Location = New System.Drawing.Point(903, 57)
+        Me.pnl_Items_Right.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.pnl_Items_Right.Name = "pnl_Items_Right"
-        Me.pnl_Items_Right.Size = New System.Drawing.Size(16, 385)
+        Me.pnl_Items_Right.Size = New System.Drawing.Size(11, 245)
         Me.pnl_Items_Right.TabIndex = 29
         '
         'pnl_Items_Left
         '
         Me.pnl_Items_Left.Dock = System.Windows.Forms.DockStyle.Left
-        Me.pnl_Items_Left.Location = New System.Drawing.Point(3, 87)
+        Me.pnl_Items_Left.Location = New System.Drawing.Point(2, 57)
+        Me.pnl_Items_Left.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.pnl_Items_Left.Name = "pnl_Items_Left"
-        Me.pnl_Items_Left.Size = New System.Drawing.Size(16, 385)
+        Me.pnl_Items_Left.Size = New System.Drawing.Size(11, 245)
         Me.pnl_Items_Left.TabIndex = 28
         '
         'pnl_Item_Bottom
         '
         Me.pnl_Item_Bottom.Controls.Add(Me.lbl_row_count_Items)
         Me.pnl_Item_Bottom.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.pnl_Item_Bottom.Location = New System.Drawing.Point(3, 472)
-        Me.pnl_Item_Bottom.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.pnl_Item_Bottom.Location = New System.Drawing.Point(2, 302)
+        Me.pnl_Item_Bottom.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.pnl_Item_Bottom.Name = "pnl_Item_Bottom"
-        Me.pnl_Item_Bottom.Size = New System.Drawing.Size(1390, 75)
+        Me.pnl_Item_Bottom.Size = New System.Drawing.Size(912, 49)
         Me.pnl_Item_Bottom.TabIndex = 27
         '
         'lbl_row_count_Items
         '
         Me.lbl_row_count_Items.AutoSize = True
         Me.lbl_row_count_Items.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_row_count_Items.Location = New System.Drawing.Point(30, 26)
+        Me.lbl_row_count_Items.Location = New System.Drawing.Point(20, 17)
+        Me.lbl_row_count_Items.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lbl_row_count_Items.Name = "lbl_row_count_Items"
-        Me.lbl_row_count_Items.Size = New System.Drawing.Size(117, 25)
+        Me.lbl_row_count_Items.Size = New System.Drawing.Size(76, 17)
         Me.lbl_row_count_Items.TabIndex = 9
         Me.lbl_row_count_Items.Text = "Row Count"
         '
@@ -404,19 +410,20 @@ Partial Class frmItem
         Me.pnl_Item_Top.Controls.Add(Me.Label2)
         Me.pnl_Item_Top.Controls.Add(Me.tb_Search)
         Me.pnl_Item_Top.Dock = System.Windows.Forms.DockStyle.Top
-        Me.pnl_Item_Top.Location = New System.Drawing.Point(3, 3)
-        Me.pnl_Item_Top.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.pnl_Item_Top.Location = New System.Drawing.Point(2, 2)
+        Me.pnl_Item_Top.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.pnl_Item_Top.Name = "pnl_Item_Top"
-        Me.pnl_Item_Top.Size = New System.Drawing.Size(1390, 84)
+        Me.pnl_Item_Top.Size = New System.Drawing.Size(912, 55)
         Me.pnl_Item_Top.TabIndex = 4
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(880, 24)
+        Me.Label1.Location = New System.Drawing.Point(587, 16)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(97, 25)
+        Me.Label1.Size = New System.Drawing.Size(63, 17)
         Me.Label1.TabIndex = 7
         Me.Label1.Text = "Filter By:"
         '
@@ -426,10 +433,10 @@ Partial Class frmItem
         Me.btn_Add.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_Add.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_Add.ForeColor = System.Drawing.Color.White
-        Me.btn_Add.Location = New System.Drawing.Point(1222, 12)
-        Me.btn_Add.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btn_Add.Location = New System.Drawing.Point(815, 8)
+        Me.btn_Add.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.btn_Add.Name = "btn_Add"
-        Me.btn_Add.Size = New System.Drawing.Size(163, 56)
+        Me.btn_Add.Size = New System.Drawing.Size(109, 36)
         Me.btn_Add.TabIndex = 5
         Me.btn_Add.Text = "Add Item"
         Me.btn_Add.UseVisualStyleBackColor = False
@@ -441,31 +448,32 @@ Partial Class frmItem
         Me.cbo_Filter.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbo_Filter.FormattingEnabled = True
         Me.cbo_Filter.Items.AddRange(New Object() {"Code", "Description", "Brand", "Category"})
-        Me.cbo_Filter.Location = New System.Drawing.Point(983, 20)
-        Me.cbo_Filter.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.cbo_Filter.Location = New System.Drawing.Point(655, 13)
+        Me.cbo_Filter.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.cbo_Filter.Name = "cbo_Filter"
-        Me.cbo_Filter.Size = New System.Drawing.Size(205, 37)
+        Me.cbo_Filter.Size = New System.Drawing.Size(138, 28)
         Me.cbo_Filter.TabIndex = 6
         '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(17, 24)
+        Me.Label2.Location = New System.Drawing.Point(11, 16)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(86, 25)
+        Me.Label2.Size = New System.Drawing.Size(57, 17)
         Me.Label2.TabIndex = 4
         Me.Label2.Text = "Search:"
         '
         'tb_Search
         '
         Me.tb_Search.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tb_Search.Location = New System.Drawing.Point(109, 20)
-        Me.tb_Search.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.tb_Search.Location = New System.Drawing.Point(73, 13)
+        Me.tb_Search.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.tb_Search.MaxLength = 100
         Me.tb_Search.Name = "tb_Search"
         Me.tb_Search.ShortcutsEnabled = False
-        Me.tb_Search.Size = New System.Drawing.Size(745, 35)
+        Me.tb_Search.Size = New System.Drawing.Size(498, 26)
         Me.tb_Search.TabIndex = 3
         '
         'tp_Category
@@ -475,10 +483,11 @@ Partial Class frmItem
         Me.tp_Category.Controls.Add(Me.pnl_Category_Left)
         Me.tp_Category.Controls.Add(Me.pnl_Category_Bottom)
         Me.tp_Category.Controls.Add(Me.pnl_Category_Top)
-        Me.tp_Category.Location = New System.Drawing.Point(4, 34)
+        Me.tp_Category.Location = New System.Drawing.Point(4, 25)
+        Me.tp_Category.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.tp_Category.Name = "tp_Category"
-        Me.tp_Category.Padding = New System.Windows.Forms.Padding(3)
-        Me.tp_Category.Size = New System.Drawing.Size(1396, 550)
+        Me.tp_Category.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.tp_Category.Size = New System.Drawing.Size(916, 353)
         Me.tp_Category.TabIndex = 1
         Me.tp_Category.Text = "Category"
         Me.tp_Category.UseVisualStyleBackColor = True
@@ -489,8 +498,9 @@ Partial Class frmItem
         Me.dg_Category.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dg_Category.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.col_edit_Category, Me.col_delete_Category})
         Me.dg_Category.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.dg_Category.Location = New System.Drawing.Point(19, 87)
-        Me.dg_Category.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.dg_Category.Location = New System.Drawing.Point(13, 57)
+        Me.dg_Category.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.dg_Category.MultiSelect = False
         Me.dg_Category.Name = "dg_Category"
         Me.dg_Category.RowHeadersVisible = False
         Me.dg_Category.RowHeadersWidth = 51
@@ -499,450 +509,8 @@ Partial Class frmItem
         Me.dg_Category.RowsDefaultCellStyle = DataGridViewCellStyle19
         Me.dg_Category.RowTemplate.Height = 24
         Me.dg_Category.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dg_Category.Size = New System.Drawing.Size(1358, 385)
+        Me.dg_Category.Size = New System.Drawing.Size(890, 245)
         Me.dg_Category.TabIndex = 31
-        '
-        'pnl_Category_Right
-        '
-        Me.pnl_Category_Right.BackColor = System.Drawing.SystemColors.Control
-        Me.pnl_Category_Right.Dock = System.Windows.Forms.DockStyle.Right
-        Me.pnl_Category_Right.Location = New System.Drawing.Point(1377, 87)
-        Me.pnl_Category_Right.Name = "pnl_Category_Right"
-        Me.pnl_Category_Right.Size = New System.Drawing.Size(16, 385)
-        Me.pnl_Category_Right.TabIndex = 30
-        '
-        'pnl_Category_Left
-        '
-        Me.pnl_Category_Left.BackColor = System.Drawing.SystemColors.Control
-        Me.pnl_Category_Left.Dock = System.Windows.Forms.DockStyle.Left
-        Me.pnl_Category_Left.Location = New System.Drawing.Point(3, 87)
-        Me.pnl_Category_Left.Name = "pnl_Category_Left"
-        Me.pnl_Category_Left.Size = New System.Drawing.Size(16, 385)
-        Me.pnl_Category_Left.TabIndex = 29
-        '
-        'pnl_Category_Bottom
-        '
-        Me.pnl_Category_Bottom.BackColor = System.Drawing.SystemColors.Control
-        Me.pnl_Category_Bottom.Controls.Add(Me.lbl_row_count_Category)
-        Me.pnl_Category_Bottom.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.pnl_Category_Bottom.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.pnl_Category_Bottom.Location = New System.Drawing.Point(3, 472)
-        Me.pnl_Category_Bottom.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.pnl_Category_Bottom.Name = "pnl_Category_Bottom"
-        Me.pnl_Category_Bottom.Size = New System.Drawing.Size(1390, 75)
-        Me.pnl_Category_Bottom.TabIndex = 28
-        '
-        'lbl_row_count_Category
-        '
-        Me.lbl_row_count_Category.AutoSize = True
-        Me.lbl_row_count_Category.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_row_count_Category.Location = New System.Drawing.Point(30, 26)
-        Me.lbl_row_count_Category.Name = "lbl_row_count_Category"
-        Me.lbl_row_count_Category.Size = New System.Drawing.Size(117, 25)
-        Me.lbl_row_count_Category.TabIndex = 9
-        Me.lbl_row_count_Category.Text = "Row Count"
-        '
-        'pnl_Category_Top
-        '
-        Me.pnl_Category_Top.BackColor = System.Drawing.SystemColors.Control
-        Me.pnl_Category_Top.Controls.Add(Me.btn_new_Category)
-        Me.pnl_Category_Top.Controls.Add(Me.Label3)
-        Me.pnl_Category_Top.Controls.Add(Me.tb_search_Category)
-        Me.pnl_Category_Top.Dock = System.Windows.Forms.DockStyle.Top
-        Me.pnl_Category_Top.Location = New System.Drawing.Point(3, 3)
-        Me.pnl_Category_Top.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.pnl_Category_Top.Name = "pnl_Category_Top"
-        Me.pnl_Category_Top.Size = New System.Drawing.Size(1390, 84)
-        Me.pnl_Category_Top.TabIndex = 3
-        '
-        'btn_new_Category
-        '
-        Me.btn_new_Category.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(115, Byte), Integer), CType(CType(158, Byte), Integer))
-        Me.btn_new_Category.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_new_Category.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_new_Category.ForeColor = System.Drawing.Color.White
-        Me.btn_new_Category.Location = New System.Drawing.Point(739, 12)
-        Me.btn_new_Category.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.btn_new_Category.Name = "btn_new_Category"
-        Me.btn_new_Category.Size = New System.Drawing.Size(170, 60)
-        Me.btn_new_Category.TabIndex = 2
-        Me.btn_new_Category.Text = "Add Category"
-        Me.btn_new_Category.UseVisualStyleBackColor = False
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(16, 25)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(86, 25)
-        Me.Label3.TabIndex = 1
-        Me.Label3.Text = "Search:"
-        '
-        'tb_search_Category
-        '
-        Me.tb_search_Category.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tb_search_Category.Location = New System.Drawing.Point(107, 25)
-        Me.tb_search_Category.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.tb_search_Category.Name = "tb_search_Category"
-        Me.tb_search_Category.Size = New System.Drawing.Size(597, 35)
-        Me.tb_search_Category.TabIndex = 0
-        '
-        'tp_Brand
-        '
-        Me.tp_Brand.Controls.Add(Me.dg_Brand)
-        Me.tp_Brand.Controls.Add(Me.pnl_Brand_Right)
-        Me.tp_Brand.Controls.Add(Me.pnl_Left_Brand)
-        Me.tp_Brand.Controls.Add(Me.pnl_Brand_Bottom)
-        Me.tp_Brand.Controls.Add(Me.pnl_Brand_Top)
-        Me.tp_Brand.Location = New System.Drawing.Point(4, 34)
-        Me.tp_Brand.Name = "tp_Brand"
-        Me.tp_Brand.Size = New System.Drawing.Size(1396, 550)
-        Me.tp_Brand.TabIndex = 2
-        Me.tp_Brand.Text = "Brand"
-        Me.tp_Brand.UseVisualStyleBackColor = True
-        '
-        'dg_Brand
-        '
-        Me.dg_Brand.AllowUserToAddRows = False
-        Me.dg_Brand.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dg_Brand.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.col_edit_Brand, Me.col_delete_Brand})
-        Me.dg_Brand.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.dg_Brand.Location = New System.Drawing.Point(16, 84)
-        Me.dg_Brand.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.dg_Brand.Name = "dg_Brand"
-        Me.dg_Brand.RowHeadersVisible = False
-        Me.dg_Brand.RowHeadersWidth = 51
-        DataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.dg_Brand.RowsDefaultCellStyle = DataGridViewCellStyle24
-        Me.dg_Brand.RowTemplate.Height = 24
-        Me.dg_Brand.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dg_Brand.Size = New System.Drawing.Size(1364, 391)
-        Me.dg_Brand.TabIndex = 32
-        '
-        'DataGridViewTextBoxColumn4
-        '
-        Me.DataGridViewTextBoxColumn4.HeaderText = "ID"
-        Me.DataGridViewTextBoxColumn4.MinimumWidth = 6
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        Me.DataGridViewTextBoxColumn4.Visible = False
-        Me.DataGridViewTextBoxColumn4.Width = 125
-        '
-        'DataGridViewTextBoxColumn5
-        '
-        Me.DataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle20.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DataGridViewTextBoxColumn5.DefaultCellStyle = DataGridViewCellStyle20
-        Me.DataGridViewTextBoxColumn5.HeaderText = "#"
-        Me.DataGridViewTextBoxColumn5.MinimumWidth = 6
-        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
-        Me.DataGridViewTextBoxColumn5.ReadOnly = True
-        Me.DataGridViewTextBoxColumn5.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridViewTextBoxColumn5.Width = 59
-        '
-        'DataGridViewTextBoxColumn6
-        '
-        Me.DataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        DataGridViewCellStyle21.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DataGridViewTextBoxColumn6.DefaultCellStyle = DataGridViewCellStyle21
-        Me.DataGridViewTextBoxColumn6.HeaderText = "Brand Name"
-        Me.DataGridViewTextBoxColumn6.MinimumWidth = 6
-        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
-        Me.DataGridViewTextBoxColumn6.ReadOnly = True
-        Me.DataGridViewTextBoxColumn6.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        '
-        'col_edit_Brand
-        '
-        Me.col_edit_Brand.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(196, Byte), Integer), CType(CType(15, Byte), Integer))
-        DataGridViewCellStyle22.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.col_edit_Brand.DefaultCellStyle = DataGridViewCellStyle22
-        Me.col_edit_Brand.HeaderText = ""
-        Me.col_edit_Brand.MinimumWidth = 6
-        Me.col_edit_Brand.Name = "col_edit_Brand"
-        Me.col_edit_Brand.ReadOnly = True
-        Me.col_edit_Brand.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.col_edit_Brand.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.col_edit_Brand.Width = 29
-        '
-        'col_delete_Brand
-        '
-        Me.col_delete_Brand.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle23.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(43, Byte), Integer))
-        DataGridViewCellStyle23.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.col_delete_Brand.DefaultCellStyle = DataGridViewCellStyle23
-        Me.col_delete_Brand.HeaderText = ""
-        Me.col_delete_Brand.MinimumWidth = 6
-        Me.col_delete_Brand.Name = "col_delete_Brand"
-        Me.col_delete_Brand.ReadOnly = True
-        Me.col_delete_Brand.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.col_delete_Brand.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.col_delete_Brand.Width = 29
-        '
-        'pnl_Brand_Right
-        '
-        Me.pnl_Brand_Right.BackColor = System.Drawing.SystemColors.Control
-        Me.pnl_Brand_Right.Dock = System.Windows.Forms.DockStyle.Right
-        Me.pnl_Brand_Right.Location = New System.Drawing.Point(1380, 84)
-        Me.pnl_Brand_Right.Name = "pnl_Brand_Right"
-        Me.pnl_Brand_Right.Size = New System.Drawing.Size(16, 391)
-        Me.pnl_Brand_Right.TabIndex = 31
-        '
-        'pnl_Left_Brand
-        '
-        Me.pnl_Left_Brand.BackColor = System.Drawing.SystemColors.Control
-        Me.pnl_Left_Brand.Dock = System.Windows.Forms.DockStyle.Left
-        Me.pnl_Left_Brand.Location = New System.Drawing.Point(0, 84)
-        Me.pnl_Left_Brand.Name = "pnl_Left_Brand"
-        Me.pnl_Left_Brand.Size = New System.Drawing.Size(16, 391)
-        Me.pnl_Left_Brand.TabIndex = 30
-        '
-        'pnl_Brand_Bottom
-        '
-        Me.pnl_Brand_Bottom.BackColor = System.Drawing.SystemColors.Control
-        Me.pnl_Brand_Bottom.Controls.Add(Me.lbl_row_count_Brand)
-        Me.pnl_Brand_Bottom.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.pnl_Brand_Bottom.Location = New System.Drawing.Point(0, 475)
-        Me.pnl_Brand_Bottom.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.pnl_Brand_Bottom.Name = "pnl_Brand_Bottom"
-        Me.pnl_Brand_Bottom.Size = New System.Drawing.Size(1396, 75)
-        Me.pnl_Brand_Bottom.TabIndex = 28
-        '
-        'lbl_row_count_Brand
-        '
-        Me.lbl_row_count_Brand.AutoSize = True
-        Me.lbl_row_count_Brand.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_row_count_Brand.Location = New System.Drawing.Point(30, 26)
-        Me.lbl_row_count_Brand.Name = "lbl_row_count_Brand"
-        Me.lbl_row_count_Brand.Size = New System.Drawing.Size(117, 25)
-        Me.lbl_row_count_Brand.TabIndex = 9
-        Me.lbl_row_count_Brand.Text = "Row Count"
-        '
-        'pnl_Brand_Top
-        '
-        Me.pnl_Brand_Top.BackColor = System.Drawing.SystemColors.Control
-        Me.pnl_Brand_Top.Controls.Add(Me.btn_new_Brand)
-        Me.pnl_Brand_Top.Controls.Add(Me.tb_search_Brand)
-        Me.pnl_Brand_Top.Controls.Add(Me.Label4)
-        Me.pnl_Brand_Top.Dock = System.Windows.Forms.DockStyle.Top
-        Me.pnl_Brand_Top.Location = New System.Drawing.Point(0, 0)
-        Me.pnl_Brand_Top.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.pnl_Brand_Top.Name = "pnl_Brand_Top"
-        Me.pnl_Brand_Top.Size = New System.Drawing.Size(1396, 84)
-        Me.pnl_Brand_Top.TabIndex = 9
-        '
-        'btn_new_Brand
-        '
-        Me.btn_new_Brand.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(115, Byte), Integer), CType(CType(158, Byte), Integer))
-        Me.btn_new_Brand.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_new_Brand.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_new_Brand.ForeColor = System.Drawing.Color.White
-        Me.btn_new_Brand.Location = New System.Drawing.Point(723, 13)
-        Me.btn_new_Brand.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.btn_new_Brand.Name = "btn_new_Brand"
-        Me.btn_new_Brand.Size = New System.Drawing.Size(154, 59)
-        Me.btn_new_Brand.TabIndex = 5
-        Me.btn_new_Brand.Text = "Add Brand"
-        Me.btn_new_Brand.UseVisualStyleBackColor = False
-        '
-        'tb_search_Brand
-        '
-        Me.tb_search_Brand.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tb_search_Brand.Location = New System.Drawing.Point(108, 24)
-        Me.tb_search_Brand.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.tb_search_Brand.Name = "tb_search_Brand"
-        Me.tb_search_Brand.Size = New System.Drawing.Size(583, 35)
-        Me.tb_search_Brand.TabIndex = 3
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(16, 24)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(86, 25)
-        Me.Label4.TabIndex = 4
-        Me.Label4.Text = "Search:"
-        '
-        'tp_Unit
-        '
-        Me.tp_Unit.Controls.Add(Me.dg_Unit)
-        Me.tp_Unit.Controls.Add(Me.pnl_Unit_Right)
-        Me.tp_Unit.Controls.Add(Me.pnl_Unit_Left)
-        Me.tp_Unit.Controls.Add(Me.Panel7)
-        Me.tp_Unit.Controls.Add(Me.pnl_Unit_Top)
-        Me.tp_Unit.Location = New System.Drawing.Point(4, 34)
-        Me.tp_Unit.Name = "tp_Unit"
-        Me.tp_Unit.Size = New System.Drawing.Size(1396, 550)
-        Me.tp_Unit.TabIndex = 3
-        Me.tp_Unit.Text = "Unit"
-        Me.tp_Unit.UseVisualStyleBackColor = True
-        '
-        'dg_Unit
-        '
-        Me.dg_Unit.AllowUserToAddRows = False
-        Me.dg_Unit.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dg_Unit.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.col_edit_Unit, Me.col_delete_Unit})
-        Me.dg_Unit.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.dg_Unit.Location = New System.Drawing.Point(16, 84)
-        Me.dg_Unit.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.dg_Unit.Name = "dg_Unit"
-        Me.dg_Unit.RowHeadersVisible = False
-        Me.dg_Unit.RowHeadersWidth = 51
-        DataGridViewCellStyle29.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.dg_Unit.RowsDefaultCellStyle = DataGridViewCellStyle29
-        Me.dg_Unit.RowTemplate.Height = 24
-        Me.dg_Unit.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dg_Unit.Size = New System.Drawing.Size(1364, 391)
-        Me.dg_Unit.TabIndex = 34
-        '
-        'DataGridViewTextBoxColumn7
-        '
-        Me.DataGridViewTextBoxColumn7.HeaderText = "ID"
-        Me.DataGridViewTextBoxColumn7.MinimumWidth = 6
-        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
-        Me.DataGridViewTextBoxColumn7.Visible = False
-        Me.DataGridViewTextBoxColumn7.Width = 125
-        '
-        'DataGridViewTextBoxColumn8
-        '
-        Me.DataGridViewTextBoxColumn8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle25.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DataGridViewTextBoxColumn8.DefaultCellStyle = DataGridViewCellStyle25
-        Me.DataGridViewTextBoxColumn8.HeaderText = "#"
-        Me.DataGridViewTextBoxColumn8.MinimumWidth = 6
-        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
-        Me.DataGridViewTextBoxColumn8.ReadOnly = True
-        Me.DataGridViewTextBoxColumn8.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridViewTextBoxColumn8.Width = 59
-        '
-        'DataGridViewTextBoxColumn9
-        '
-        Me.DataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        DataGridViewCellStyle26.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DataGridViewTextBoxColumn9.DefaultCellStyle = DataGridViewCellStyle26
-        Me.DataGridViewTextBoxColumn9.HeaderText = "Unit Name"
-        Me.DataGridViewTextBoxColumn9.MinimumWidth = 6
-        Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
-        Me.DataGridViewTextBoxColumn9.ReadOnly = True
-        Me.DataGridViewTextBoxColumn9.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        '
-        'col_edit_Unit
-        '
-        Me.col_edit_Unit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle27.BackColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(196, Byte), Integer), CType(CType(15, Byte), Integer))
-        DataGridViewCellStyle27.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.col_edit_Unit.DefaultCellStyle = DataGridViewCellStyle27
-        Me.col_edit_Unit.HeaderText = ""
-        Me.col_edit_Unit.MinimumWidth = 6
-        Me.col_edit_Unit.Name = "col_edit_Unit"
-        Me.col_edit_Unit.ReadOnly = True
-        Me.col_edit_Unit.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.col_edit_Unit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.col_edit_Unit.Width = 29
-        '
-        'col_delete_Unit
-        '
-        Me.col_delete_Unit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle28.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(43, Byte), Integer))
-        DataGridViewCellStyle28.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.col_delete_Unit.DefaultCellStyle = DataGridViewCellStyle28
-        Me.col_delete_Unit.HeaderText = ""
-        Me.col_delete_Unit.MinimumWidth = 6
-        Me.col_delete_Unit.Name = "col_delete_Unit"
-        Me.col_delete_Unit.ReadOnly = True
-        Me.col_delete_Unit.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.col_delete_Unit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.col_delete_Unit.Width = 29
-        '
-        'pnl_Unit_Right
-        '
-        Me.pnl_Unit_Right.BackColor = System.Drawing.SystemColors.Control
-        Me.pnl_Unit_Right.Dock = System.Windows.Forms.DockStyle.Right
-        Me.pnl_Unit_Right.Location = New System.Drawing.Point(1380, 84)
-        Me.pnl_Unit_Right.Name = "pnl_Unit_Right"
-        Me.pnl_Unit_Right.Size = New System.Drawing.Size(16, 391)
-        Me.pnl_Unit_Right.TabIndex = 33
-        '
-        'pnl_Unit_Left
-        '
-        Me.pnl_Unit_Left.BackColor = System.Drawing.SystemColors.Control
-        Me.pnl_Unit_Left.Dock = System.Windows.Forms.DockStyle.Left
-        Me.pnl_Unit_Left.Location = New System.Drawing.Point(0, 84)
-        Me.pnl_Unit_Left.Name = "pnl_Unit_Left"
-        Me.pnl_Unit_Left.Size = New System.Drawing.Size(16, 391)
-        Me.pnl_Unit_Left.TabIndex = 32
-        '
-        'Panel7
-        '
-        Me.Panel7.BackColor = System.Drawing.SystemColors.Control
-        Me.Panel7.Controls.Add(Me.lbl_row_count_Unit)
-        Me.Panel7.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel7.Location = New System.Drawing.Point(0, 475)
-        Me.Panel7.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.Panel7.Name = "Panel7"
-        Me.Panel7.Size = New System.Drawing.Size(1396, 75)
-        Me.Panel7.TabIndex = 31
-        '
-        'lbl_row_count_Unit
-        '
-        Me.lbl_row_count_Unit.AutoSize = True
-        Me.lbl_row_count_Unit.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_row_count_Unit.Location = New System.Drawing.Point(30, 26)
-        Me.lbl_row_count_Unit.Name = "lbl_row_count_Unit"
-        Me.lbl_row_count_Unit.Size = New System.Drawing.Size(117, 25)
-        Me.lbl_row_count_Unit.TabIndex = 9
-        Me.lbl_row_count_Unit.Text = "Row Count"
-        '
-        'pnl_Unit_Top
-        '
-        Me.pnl_Unit_Top.BackColor = System.Drawing.SystemColors.Control
-        Me.pnl_Unit_Top.Controls.Add(Me.btn_new_Unit)
-        Me.pnl_Unit_Top.Controls.Add(Me.tb_search_Unit)
-        Me.pnl_Unit_Top.Controls.Add(Me.Label5)
-        Me.pnl_Unit_Top.Dock = System.Windows.Forms.DockStyle.Top
-        Me.pnl_Unit_Top.Location = New System.Drawing.Point(0, 0)
-        Me.pnl_Unit_Top.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.pnl_Unit_Top.Name = "pnl_Unit_Top"
-        Me.pnl_Unit_Top.Size = New System.Drawing.Size(1396, 84)
-        Me.pnl_Unit_Top.TabIndex = 29
-        '
-        'btn_new_Unit
-        '
-        Me.btn_new_Unit.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(115, Byte), Integer), CType(CType(158, Byte), Integer))
-        Me.btn_new_Unit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_new_Unit.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_new_Unit.ForeColor = System.Drawing.Color.White
-        Me.btn_new_Unit.Location = New System.Drawing.Point(723, 12)
-        Me.btn_new_Unit.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.btn_new_Unit.Name = "btn_new_Unit"
-        Me.btn_new_Unit.Size = New System.Drawing.Size(154, 59)
-        Me.btn_new_Unit.TabIndex = 5
-        Me.btn_new_Unit.Text = "Add Unit"
-        Me.btn_new_Unit.UseVisualStyleBackColor = False
-        '
-        'tb_search_Unit
-        '
-        Me.tb_search_Unit.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tb_search_Unit.Location = New System.Drawing.Point(108, 23)
-        Me.tb_search_Unit.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.tb_search_Unit.Name = "tb_search_Unit"
-        Me.tb_search_Unit.Size = New System.Drawing.Size(583, 35)
-        Me.tb_search_Unit.TabIndex = 3
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(16, 23)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(86, 25)
-        Me.Label5.TabIndex = 4
-        Me.Label5.Text = "Search:"
         '
         'Column1
         '
@@ -962,7 +530,7 @@ Partial Class frmItem
         Me.Column2.Name = "Column2"
         Me.Column2.ReadOnly = True
         Me.Column2.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.Column2.Width = 59
+        Me.Column2.Width = 41
         '
         'Column3
         '
@@ -988,7 +556,7 @@ Partial Class frmItem
         Me.col_edit_Category.ReadOnly = True
         Me.col_edit_Category.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.col_edit_Category.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.col_edit_Category.Width = 29
+        Me.col_edit_Category.Width = 19
         '
         'col_delete_Category
         '
@@ -1003,15 +571,474 @@ Partial Class frmItem
         Me.col_delete_Category.ReadOnly = True
         Me.col_delete_Category.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.col_delete_Category.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.col_delete_Category.Width = 29
+        Me.col_delete_Category.Width = 19
+        '
+        'pnl_Category_Right
+        '
+        Me.pnl_Category_Right.BackColor = System.Drawing.SystemColors.Control
+        Me.pnl_Category_Right.Dock = System.Windows.Forms.DockStyle.Right
+        Me.pnl_Category_Right.Location = New System.Drawing.Point(903, 57)
+        Me.pnl_Category_Right.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.pnl_Category_Right.Name = "pnl_Category_Right"
+        Me.pnl_Category_Right.Size = New System.Drawing.Size(11, 245)
+        Me.pnl_Category_Right.TabIndex = 30
+        '
+        'pnl_Category_Left
+        '
+        Me.pnl_Category_Left.BackColor = System.Drawing.SystemColors.Control
+        Me.pnl_Category_Left.Dock = System.Windows.Forms.DockStyle.Left
+        Me.pnl_Category_Left.Location = New System.Drawing.Point(2, 57)
+        Me.pnl_Category_Left.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.pnl_Category_Left.Name = "pnl_Category_Left"
+        Me.pnl_Category_Left.Size = New System.Drawing.Size(11, 245)
+        Me.pnl_Category_Left.TabIndex = 29
+        '
+        'pnl_Category_Bottom
+        '
+        Me.pnl_Category_Bottom.BackColor = System.Drawing.SystemColors.Control
+        Me.pnl_Category_Bottom.Controls.Add(Me.lbl_row_count_Category)
+        Me.pnl_Category_Bottom.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.pnl_Category_Bottom.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.pnl_Category_Bottom.Location = New System.Drawing.Point(2, 302)
+        Me.pnl_Category_Bottom.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.pnl_Category_Bottom.Name = "pnl_Category_Bottom"
+        Me.pnl_Category_Bottom.Size = New System.Drawing.Size(912, 49)
+        Me.pnl_Category_Bottom.TabIndex = 28
+        '
+        'lbl_row_count_Category
+        '
+        Me.lbl_row_count_Category.AutoSize = True
+        Me.lbl_row_count_Category.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_row_count_Category.Location = New System.Drawing.Point(20, 17)
+        Me.lbl_row_count_Category.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lbl_row_count_Category.Name = "lbl_row_count_Category"
+        Me.lbl_row_count_Category.Size = New System.Drawing.Size(76, 17)
+        Me.lbl_row_count_Category.TabIndex = 9
+        Me.lbl_row_count_Category.Text = "Row Count"
+        '
+        'pnl_Category_Top
+        '
+        Me.pnl_Category_Top.BackColor = System.Drawing.SystemColors.Control
+        Me.pnl_Category_Top.Controls.Add(Me.btn_new_Category)
+        Me.pnl_Category_Top.Controls.Add(Me.Label3)
+        Me.pnl_Category_Top.Controls.Add(Me.tb_search_Category)
+        Me.pnl_Category_Top.Dock = System.Windows.Forms.DockStyle.Top
+        Me.pnl_Category_Top.Location = New System.Drawing.Point(2, 2)
+        Me.pnl_Category_Top.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.pnl_Category_Top.Name = "pnl_Category_Top"
+        Me.pnl_Category_Top.Size = New System.Drawing.Size(912, 55)
+        Me.pnl_Category_Top.TabIndex = 3
+        '
+        'btn_new_Category
+        '
+        Me.btn_new_Category.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(115, Byte), Integer), CType(CType(158, Byte), Integer))
+        Me.btn_new_Category.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_new_Category.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_new_Category.ForeColor = System.Drawing.Color.White
+        Me.btn_new_Category.Location = New System.Drawing.Point(493, 8)
+        Me.btn_new_Category.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.btn_new_Category.Name = "btn_new_Category"
+        Me.btn_new_Category.Size = New System.Drawing.Size(113, 39)
+        Me.btn_new_Category.TabIndex = 2
+        Me.btn_new_Category.Text = "Add Category"
+        Me.btn_new_Category.UseVisualStyleBackColor = False
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(11, 16)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(57, 17)
+        Me.Label3.TabIndex = 1
+        Me.Label3.Text = "Search:"
+        '
+        'tb_search_Category
+        '
+        Me.tb_search_Category.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tb_search_Category.Location = New System.Drawing.Point(71, 16)
+        Me.tb_search_Category.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.tb_search_Category.Name = "tb_search_Category"
+        Me.tb_search_Category.Size = New System.Drawing.Size(399, 26)
+        Me.tb_search_Category.TabIndex = 0
+        '
+        'tp_Brand
+        '
+        Me.tp_Brand.Controls.Add(Me.dg_Brand)
+        Me.tp_Brand.Controls.Add(Me.pnl_Brand_Right)
+        Me.tp_Brand.Controls.Add(Me.pnl_Left_Brand)
+        Me.tp_Brand.Controls.Add(Me.pnl_Brand_Bottom)
+        Me.tp_Brand.Controls.Add(Me.pnl_Brand_Top)
+        Me.tp_Brand.Location = New System.Drawing.Point(4, 25)
+        Me.tp_Brand.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.tp_Brand.Name = "tp_Brand"
+        Me.tp_Brand.Size = New System.Drawing.Size(916, 353)
+        Me.tp_Brand.TabIndex = 2
+        Me.tp_Brand.Text = "Brand"
+        Me.tp_Brand.UseVisualStyleBackColor = True
+        '
+        'dg_Brand
+        '
+        Me.dg_Brand.AllowUserToAddRows = False
+        Me.dg_Brand.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dg_Brand.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.col_edit_Brand, Me.col_delete_Brand})
+        Me.dg_Brand.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.dg_Brand.Location = New System.Drawing.Point(11, 55)
+        Me.dg_Brand.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.dg_Brand.MultiSelect = False
+        Me.dg_Brand.Name = "dg_Brand"
+        Me.dg_Brand.RowHeadersVisible = False
+        Me.dg_Brand.RowHeadersWidth = 51
+        DataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.dg_Brand.RowsDefaultCellStyle = DataGridViewCellStyle24
+        Me.dg_Brand.RowTemplate.Height = 24
+        Me.dg_Brand.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dg_Brand.Size = New System.Drawing.Size(894, 249)
+        Me.dg_Brand.TabIndex = 32
+        '
+        'DataGridViewTextBoxColumn4
+        '
+        Me.DataGridViewTextBoxColumn4.HeaderText = "ID"
+        Me.DataGridViewTextBoxColumn4.MinimumWidth = 6
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        Me.DataGridViewTextBoxColumn4.Visible = False
+        Me.DataGridViewTextBoxColumn4.Width = 125
+        '
+        'DataGridViewTextBoxColumn5
+        '
+        Me.DataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        DataGridViewCellStyle20.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DataGridViewTextBoxColumn5.DefaultCellStyle = DataGridViewCellStyle20
+        Me.DataGridViewTextBoxColumn5.HeaderText = "#"
+        Me.DataGridViewTextBoxColumn5.MinimumWidth = 6
+        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        Me.DataGridViewTextBoxColumn5.ReadOnly = True
+        Me.DataGridViewTextBoxColumn5.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridViewTextBoxColumn5.Width = 41
+        '
+        'DataGridViewTextBoxColumn6
+        '
+        Me.DataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        DataGridViewCellStyle21.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DataGridViewTextBoxColumn6.DefaultCellStyle = DataGridViewCellStyle21
+        Me.DataGridViewTextBoxColumn6.HeaderText = "Brand Name"
+        Me.DataGridViewTextBoxColumn6.MinimumWidth = 6
+        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
+        Me.DataGridViewTextBoxColumn6.ReadOnly = True
+        Me.DataGridViewTextBoxColumn6.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        '
+        'col_edit_Brand
+        '
+        Me.col_edit_Brand.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        DataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(196, Byte), Integer), CType(CType(15, Byte), Integer))
+        DataGridViewCellStyle22.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.col_edit_Brand.DefaultCellStyle = DataGridViewCellStyle22
+        Me.col_edit_Brand.HeaderText = ""
+        Me.col_edit_Brand.MinimumWidth = 6
+        Me.col_edit_Brand.Name = "col_edit_Brand"
+        Me.col_edit_Brand.ReadOnly = True
+        Me.col_edit_Brand.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.col_edit_Brand.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.col_edit_Brand.Width = 19
+        '
+        'col_delete_Brand
+        '
+        Me.col_delete_Brand.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        DataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle23.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(43, Byte), Integer))
+        DataGridViewCellStyle23.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.col_delete_Brand.DefaultCellStyle = DataGridViewCellStyle23
+        Me.col_delete_Brand.HeaderText = ""
+        Me.col_delete_Brand.MinimumWidth = 6
+        Me.col_delete_Brand.Name = "col_delete_Brand"
+        Me.col_delete_Brand.ReadOnly = True
+        Me.col_delete_Brand.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.col_delete_Brand.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.col_delete_Brand.Width = 19
+        '
+        'pnl_Brand_Right
+        '
+        Me.pnl_Brand_Right.BackColor = System.Drawing.SystemColors.Control
+        Me.pnl_Brand_Right.Dock = System.Windows.Forms.DockStyle.Right
+        Me.pnl_Brand_Right.Location = New System.Drawing.Point(905, 55)
+        Me.pnl_Brand_Right.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.pnl_Brand_Right.Name = "pnl_Brand_Right"
+        Me.pnl_Brand_Right.Size = New System.Drawing.Size(11, 249)
+        Me.pnl_Brand_Right.TabIndex = 31
+        '
+        'pnl_Left_Brand
+        '
+        Me.pnl_Left_Brand.BackColor = System.Drawing.SystemColors.Control
+        Me.pnl_Left_Brand.Dock = System.Windows.Forms.DockStyle.Left
+        Me.pnl_Left_Brand.Location = New System.Drawing.Point(0, 55)
+        Me.pnl_Left_Brand.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.pnl_Left_Brand.Name = "pnl_Left_Brand"
+        Me.pnl_Left_Brand.Size = New System.Drawing.Size(11, 249)
+        Me.pnl_Left_Brand.TabIndex = 30
+        '
+        'pnl_Brand_Bottom
+        '
+        Me.pnl_Brand_Bottom.BackColor = System.Drawing.SystemColors.Control
+        Me.pnl_Brand_Bottom.Controls.Add(Me.lbl_row_count_Brand)
+        Me.pnl_Brand_Bottom.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.pnl_Brand_Bottom.Location = New System.Drawing.Point(0, 304)
+        Me.pnl_Brand_Bottom.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.pnl_Brand_Bottom.Name = "pnl_Brand_Bottom"
+        Me.pnl_Brand_Bottom.Size = New System.Drawing.Size(916, 49)
+        Me.pnl_Brand_Bottom.TabIndex = 28
+        '
+        'lbl_row_count_Brand
+        '
+        Me.lbl_row_count_Brand.AutoSize = True
+        Me.lbl_row_count_Brand.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_row_count_Brand.Location = New System.Drawing.Point(20, 17)
+        Me.lbl_row_count_Brand.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lbl_row_count_Brand.Name = "lbl_row_count_Brand"
+        Me.lbl_row_count_Brand.Size = New System.Drawing.Size(76, 17)
+        Me.lbl_row_count_Brand.TabIndex = 9
+        Me.lbl_row_count_Brand.Text = "Row Count"
+        '
+        'pnl_Brand_Top
+        '
+        Me.pnl_Brand_Top.BackColor = System.Drawing.SystemColors.Control
+        Me.pnl_Brand_Top.Controls.Add(Me.btn_new_Brand)
+        Me.pnl_Brand_Top.Controls.Add(Me.tb_search_Brand)
+        Me.pnl_Brand_Top.Controls.Add(Me.Label4)
+        Me.pnl_Brand_Top.Dock = System.Windows.Forms.DockStyle.Top
+        Me.pnl_Brand_Top.Location = New System.Drawing.Point(0, 0)
+        Me.pnl_Brand_Top.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.pnl_Brand_Top.Name = "pnl_Brand_Top"
+        Me.pnl_Brand_Top.Size = New System.Drawing.Size(916, 55)
+        Me.pnl_Brand_Top.TabIndex = 9
+        '
+        'btn_new_Brand
+        '
+        Me.btn_new_Brand.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(115, Byte), Integer), CType(CType(158, Byte), Integer))
+        Me.btn_new_Brand.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_new_Brand.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_new_Brand.ForeColor = System.Drawing.Color.White
+        Me.btn_new_Brand.Location = New System.Drawing.Point(482, 8)
+        Me.btn_new_Brand.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.btn_new_Brand.Name = "btn_new_Brand"
+        Me.btn_new_Brand.Size = New System.Drawing.Size(103, 38)
+        Me.btn_new_Brand.TabIndex = 5
+        Me.btn_new_Brand.Text = "Add Brand"
+        Me.btn_new_Brand.UseVisualStyleBackColor = False
+        '
+        'tb_search_Brand
+        '
+        Me.tb_search_Brand.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tb_search_Brand.Location = New System.Drawing.Point(72, 16)
+        Me.tb_search_Brand.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.tb_search_Brand.Name = "tb_search_Brand"
+        Me.tb_search_Brand.Size = New System.Drawing.Size(390, 26)
+        Me.tb_search_Brand.TabIndex = 3
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(11, 16)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(57, 17)
+        Me.Label4.TabIndex = 4
+        Me.Label4.Text = "Search:"
+        '
+        'tp_Unit
+        '
+        Me.tp_Unit.Controls.Add(Me.dg_Unit)
+        Me.tp_Unit.Controls.Add(Me.pnl_Unit_Right)
+        Me.tp_Unit.Controls.Add(Me.pnl_Unit_Left)
+        Me.tp_Unit.Controls.Add(Me.Panel7)
+        Me.tp_Unit.Controls.Add(Me.pnl_Unit_Top)
+        Me.tp_Unit.Location = New System.Drawing.Point(4, 25)
+        Me.tp_Unit.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.tp_Unit.Name = "tp_Unit"
+        Me.tp_Unit.Size = New System.Drawing.Size(916, 353)
+        Me.tp_Unit.TabIndex = 3
+        Me.tp_Unit.Text = "Unit"
+        Me.tp_Unit.UseVisualStyleBackColor = True
+        '
+        'dg_Unit
+        '
+        Me.dg_Unit.AllowUserToAddRows = False
+        Me.dg_Unit.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dg_Unit.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.col_edit_Unit, Me.col_delete_Unit})
+        Me.dg_Unit.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.dg_Unit.Location = New System.Drawing.Point(11, 55)
+        Me.dg_Unit.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.dg_Unit.MultiSelect = False
+        Me.dg_Unit.Name = "dg_Unit"
+        Me.dg_Unit.RowHeadersVisible = False
+        Me.dg_Unit.RowHeadersWidth = 51
+        DataGridViewCellStyle29.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.dg_Unit.RowsDefaultCellStyle = DataGridViewCellStyle29
+        Me.dg_Unit.RowTemplate.Height = 24
+        Me.dg_Unit.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dg_Unit.Size = New System.Drawing.Size(894, 249)
+        Me.dg_Unit.TabIndex = 34
+        '
+        'DataGridViewTextBoxColumn7
+        '
+        Me.DataGridViewTextBoxColumn7.HeaderText = "ID"
+        Me.DataGridViewTextBoxColumn7.MinimumWidth = 6
+        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        Me.DataGridViewTextBoxColumn7.Visible = False
+        Me.DataGridViewTextBoxColumn7.Width = 125
+        '
+        'DataGridViewTextBoxColumn8
+        '
+        Me.DataGridViewTextBoxColumn8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        DataGridViewCellStyle25.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DataGridViewTextBoxColumn8.DefaultCellStyle = DataGridViewCellStyle25
+        Me.DataGridViewTextBoxColumn8.HeaderText = "#"
+        Me.DataGridViewTextBoxColumn8.MinimumWidth = 6
+        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
+        Me.DataGridViewTextBoxColumn8.ReadOnly = True
+        Me.DataGridViewTextBoxColumn8.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridViewTextBoxColumn8.Width = 41
+        '
+        'DataGridViewTextBoxColumn9
+        '
+        Me.DataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        DataGridViewCellStyle26.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DataGridViewTextBoxColumn9.DefaultCellStyle = DataGridViewCellStyle26
+        Me.DataGridViewTextBoxColumn9.HeaderText = "Unit Name"
+        Me.DataGridViewTextBoxColumn9.MinimumWidth = 6
+        Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
+        Me.DataGridViewTextBoxColumn9.ReadOnly = True
+        Me.DataGridViewTextBoxColumn9.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        '
+        'col_edit_Unit
+        '
+        Me.col_edit_Unit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        DataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle27.BackColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(196, Byte), Integer), CType(CType(15, Byte), Integer))
+        DataGridViewCellStyle27.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.col_edit_Unit.DefaultCellStyle = DataGridViewCellStyle27
+        Me.col_edit_Unit.HeaderText = ""
+        Me.col_edit_Unit.MinimumWidth = 6
+        Me.col_edit_Unit.Name = "col_edit_Unit"
+        Me.col_edit_Unit.ReadOnly = True
+        Me.col_edit_Unit.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.col_edit_Unit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.col_edit_Unit.Width = 19
+        '
+        'col_delete_Unit
+        '
+        Me.col_delete_Unit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        DataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle28.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(43, Byte), Integer))
+        DataGridViewCellStyle28.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.col_delete_Unit.DefaultCellStyle = DataGridViewCellStyle28
+        Me.col_delete_Unit.HeaderText = ""
+        Me.col_delete_Unit.MinimumWidth = 6
+        Me.col_delete_Unit.Name = "col_delete_Unit"
+        Me.col_delete_Unit.ReadOnly = True
+        Me.col_delete_Unit.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.col_delete_Unit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.col_delete_Unit.Width = 19
+        '
+        'pnl_Unit_Right
+        '
+        Me.pnl_Unit_Right.BackColor = System.Drawing.SystemColors.Control
+        Me.pnl_Unit_Right.Dock = System.Windows.Forms.DockStyle.Right
+        Me.pnl_Unit_Right.Location = New System.Drawing.Point(905, 55)
+        Me.pnl_Unit_Right.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.pnl_Unit_Right.Name = "pnl_Unit_Right"
+        Me.pnl_Unit_Right.Size = New System.Drawing.Size(11, 249)
+        Me.pnl_Unit_Right.TabIndex = 33
+        '
+        'pnl_Unit_Left
+        '
+        Me.pnl_Unit_Left.BackColor = System.Drawing.SystemColors.Control
+        Me.pnl_Unit_Left.Dock = System.Windows.Forms.DockStyle.Left
+        Me.pnl_Unit_Left.Location = New System.Drawing.Point(0, 55)
+        Me.pnl_Unit_Left.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.pnl_Unit_Left.Name = "pnl_Unit_Left"
+        Me.pnl_Unit_Left.Size = New System.Drawing.Size(11, 249)
+        Me.pnl_Unit_Left.TabIndex = 32
+        '
+        'Panel7
+        '
+        Me.Panel7.BackColor = System.Drawing.SystemColors.Control
+        Me.Panel7.Controls.Add(Me.lbl_row_count_Unit)
+        Me.Panel7.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Panel7.Location = New System.Drawing.Point(0, 304)
+        Me.Panel7.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.Panel7.Name = "Panel7"
+        Me.Panel7.Size = New System.Drawing.Size(916, 49)
+        Me.Panel7.TabIndex = 31
+        '
+        'lbl_row_count_Unit
+        '
+        Me.lbl_row_count_Unit.AutoSize = True
+        Me.lbl_row_count_Unit.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_row_count_Unit.Location = New System.Drawing.Point(20, 17)
+        Me.lbl_row_count_Unit.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lbl_row_count_Unit.Name = "lbl_row_count_Unit"
+        Me.lbl_row_count_Unit.Size = New System.Drawing.Size(76, 17)
+        Me.lbl_row_count_Unit.TabIndex = 9
+        Me.lbl_row_count_Unit.Text = "Row Count"
+        '
+        'pnl_Unit_Top
+        '
+        Me.pnl_Unit_Top.BackColor = System.Drawing.SystemColors.Control
+        Me.pnl_Unit_Top.Controls.Add(Me.btn_new_Unit)
+        Me.pnl_Unit_Top.Controls.Add(Me.tb_search_Unit)
+        Me.pnl_Unit_Top.Controls.Add(Me.Label5)
+        Me.pnl_Unit_Top.Dock = System.Windows.Forms.DockStyle.Top
+        Me.pnl_Unit_Top.Location = New System.Drawing.Point(0, 0)
+        Me.pnl_Unit_Top.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.pnl_Unit_Top.Name = "pnl_Unit_Top"
+        Me.pnl_Unit_Top.Size = New System.Drawing.Size(916, 55)
+        Me.pnl_Unit_Top.TabIndex = 29
+        '
+        'btn_new_Unit
+        '
+        Me.btn_new_Unit.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(115, Byte), Integer), CType(CType(158, Byte), Integer))
+        Me.btn_new_Unit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_new_Unit.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_new_Unit.ForeColor = System.Drawing.Color.White
+        Me.btn_new_Unit.Location = New System.Drawing.Point(482, 8)
+        Me.btn_new_Unit.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.btn_new_Unit.Name = "btn_new_Unit"
+        Me.btn_new_Unit.Size = New System.Drawing.Size(103, 38)
+        Me.btn_new_Unit.TabIndex = 5
+        Me.btn_new_Unit.Text = "Add Unit"
+        Me.btn_new_Unit.UseVisualStyleBackColor = False
+        '
+        'tb_search_Unit
+        '
+        Me.tb_search_Unit.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tb_search_Unit.Location = New System.Drawing.Point(72, 15)
+        Me.tb_search_Unit.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.tb_search_Unit.Name = "tb_search_Unit"
+        Me.tb_search_Unit.Size = New System.Drawing.Size(390, 26)
+        Me.tb_search_Unit.TabIndex = 3
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(11, 15)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(57, 17)
+        Me.Label5.TabIndex = 4
+        Me.Label5.Text = "Search:"
         '
         'frmItem
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1404, 588)
+        Me.ClientSize = New System.Drawing.Size(924, 382)
         Me.Controls.Add(Me.tc_Profile)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Name = "frmItem"
         Me.Text = "frmItem"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized

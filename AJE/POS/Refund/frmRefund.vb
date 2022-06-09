@@ -6,6 +6,7 @@
         End If
         dg_Search.Rows.Clear()
         dg_Refund.Rows.Clear()
+        dg_History.Rows.Clear()
         tb_receiptNo.Clear()
         tb_Orders.Clear()
         tb_Orders.Enabled = False
@@ -114,6 +115,10 @@
                 MsgBox("No record found!", vbExclamation)
 
             ElseIf refund.loadFromReceipt() = True Then
+                If refund.checkVoidExists() = True Then
+                    MsgBox("The receipt has been voided and cannot be refunded", vbInformation)
+                    Exit Sub
+                End If
                 cbo_Orders.Enabled = True
                 tb_Orders.Enabled = True
                 GroupBox1.Enabled = False
@@ -130,15 +135,19 @@
                 MsgBox("No record found!", vbExclamation)
 
             ElseIf refund.loadFromInvoice() = True Then
+                If refund.checkVoidExists = True Then
+                    MsgBox("The receipt has been voided and cannot be refunded", vbInformation)
+                    Exit Sub
+                End If
                 cbo_Orders.Enabled = True
                 tb_Orders.Enabled = True
                 GroupBox1.Enabled = False
                 lbl_OrderId.Text = refund.loadOrderIdInvoice()
                 refund.SetOrderId(lbl_OrderId.Text)
                 refund.loadInvoiceItemsServices()
-            End If
+                End If
 
-        End If
+            End If
         dg_Refund.Rows.Clear()
     End Sub
 
@@ -277,7 +286,6 @@
             dg_History.Columns(0).HeaderText = "Invoice"
             refund.loadCreditHistory()
         End If
-
     End Sub
 
 End Class
