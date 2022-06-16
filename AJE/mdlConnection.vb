@@ -10,7 +10,7 @@ Module mdlConnection
                 con.ConnectionString = "Persist Security Info = False; DATABASE=" & My.Settings.myDb & ";" &
                    "SERVER=" & My.Settings.myServer & ";user id=" & My.Settings.myUsername &
                    ";password=" & My.Settings.myPassword & ";port=" &
-                   My.Settings.myPort & ";charset=utf8;"
+                   My.Settings.myPort & ";charset=utf8;SslMode=None"
                 con.Open()
             End If
 
