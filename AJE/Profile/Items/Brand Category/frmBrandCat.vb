@@ -147,7 +147,7 @@
     Private Sub frmBrandCat_Load(sender As Object, e As EventArgs) Handles Me.Load
         If lbl_Header.Text = "Brand" Then
             lbl_tag.Text = "Brand Name"
-        ElseIf lbl_Header.Text = "Category"Then
+        ElseIf lbl_Header.Text = "Category" Then
             lbl_tag.Text = "Category Name"
         End If
     End Sub

@@ -50,7 +50,7 @@ Public Class clsLogin
                 Return 1
             End If
 
-            query = "SELECT COUNT(*) FROM users WHERE username = @username " ' AND is_logged_in = 0" 'check if logged_in
+            query = "SELECT COUNT(*) FROM users WHERE username = @username " 'AND is_logged_in = 0" 'check if logged_in
             cm = New MySqlCommand(query, con)
             cm.Parameters.AddWithValue("@username", _Username)
             If CInt(cm.ExecuteScalar) <> 1 Then
