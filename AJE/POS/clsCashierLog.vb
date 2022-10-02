@@ -104,7 +104,7 @@ Public Class clsCashierLog
 
         query = "SELECT SUM(orders.gross_amount) AS gross FROM void 
                 INNER JOIN orders ON orders.order_id = void.order_id 
-                WHERE trans_date = @trans_date AND cashier_id = @cashier_id"
+                WHERE orders.trans_date = @trans_date AND cashier_id = @cashier_id"
         cm = New MySqlCommand(query, con)
         cm.Parameters.AddWithValue("@trans_date", Date.Now.ToString("yyyy-MM-dd"))
         cm.Parameters.AddWithValue("@cashier_id", _CashierId)
