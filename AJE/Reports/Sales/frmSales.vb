@@ -1,5 +1,6 @@
 ﻿Imports MySql.Data.MySqlClient
 Imports Microsoft.Reporting.WinForms
+
 Public Class frmSales
     Private Sub frmSales_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         dtp_cash_From.Value = DateTime.Now
@@ -78,12 +79,12 @@ Public Class frmSales
 
             If cbo_search_Credit.SelectedIndex = 0 Then
                 ConnectDatabase()
-                da.SelectCommand = New MySqlCommand("SELECT DATE_FORMAT(DateInputed, '%m/%d/%Y') AS DateInputed, DATE_FORMAT(transDate, '%m/%d/%Y') AS transDate, Customers, invoice, Description, Category, Unit, price, qty, line_total, pay_amount, Cashiers FROM vw_credit_sales WHERE branch_id = '" & frmMain.lbl_branch_Id.Text & "' AND transDate BETWEEN '" & dtp_credit_From.Value.ToString("yyyy-MM-dd") & "' AND '" & dtp_credit_To.Value.ToString("yyyy-MM-dd") & "'", con)
+                da.SelectCommand = New MySqlCommand("SELECT DATE_FORMAT(DateInputed, '%m/%d/%Y') AS DateInputed, DATE_FORMAT(transDate, '%m/%d/%Y') AS transDate, Customers, invoice, Description, Category, Unit, price, qty, line_total, Cashiers FROM vw_credit_sales WHERE branch_id = '" & frmMain.lbl_branch_Id.Text & "' AND transDate BETWEEN '" & dtp_credit_From.Value.ToString("yyyy-MM-dd") & "' AND '" & dtp_credit_To.Value.ToString("yyyy-MM-dd") & "'", con)
                 da.Fill(ds.Tables("dt_credit_Sales"))
                 DisconnectDatabase()
             ElseIf cbo_search_Credit.SelectedIndex = 1 Then
                 ConnectDatabase()
-                da.SelectCommand = New MySqlCommand("SELECT DATE_FORMAT(DateInputed, '%m/%d/%Y') AS DateInputed, DATE_FORMAT(transDate, '%m/%d/%Y') AS transDate, Customers, invoice, Description, Category, Unit, price, qty, line_total, pay_amount, Cashiers FROM vw_credit_sales WHERE branch_id = '" & frmMain.lbl_branch_Id.Text & "' AND DateInputed BETWEEN '" & dtp_credit_From.Value.ToString("yyyy-MM-dd") & "' AND '" & dtp_credit_To.Value.ToString("yyyy-MM-dd") & "'", con)
+                da.SelectCommand = New MySqlCommand("SELECT DATE_FORMAT(DateInputed, '%m/%d/%Y') AS DateInputed, DATE_FORMAT(transDate, '%m/%d/%Y') AS transDate, Customers, invoice, Description, Category, Unit, price, qty, line_total, Cashiers FROM vw_credit_sales WHERE branch_id = '" & frmMain.lbl_branch_Id.Text & "' AND DateInputed BETWEEN '" & dtp_credit_From.Value.ToString("yyyy-MM-dd") & "' AND '" & dtp_credit_To.Value.ToString("yyyy-MM-dd") & "'", con)
                 da.Fill(ds.Tables("dt_credit_Sales"))
                 DisconnectDatabase()
             End If
@@ -110,7 +111,7 @@ Public Class frmSales
 
         Try
             With rv_All.LocalReport
-                .ReportEmbeddedResource = "AJE.ReportAllSales.rdlc" '.ReportPath = Application.StartupPath & "\Report\ReportAllSales.rdlc"
+                .ReportEmbeddedResource = "AJE.ReportAllSales.rdlc" '"\Report\ReportAllSales.rdlc"
                 .DataSources.Clear()
             End With
             Me.rv_All.RefreshReport()

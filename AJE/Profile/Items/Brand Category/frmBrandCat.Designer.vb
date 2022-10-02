@@ -112,10 +112,10 @@ Partial Class frmBrandCat
         'tb_brand_Cat
         '
         Me.tb_brand_Cat.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tb_brand_Cat.Location = New System.Drawing.Point(143, 58)
+        Me.tb_brand_Cat.Location = New System.Drawing.Point(131, 58)
         Me.tb_brand_Cat.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.tb_brand_Cat.Name = "tb_brand_Cat"
-        Me.tb_brand_Cat.Size = New System.Drawing.Size(331, 26)
+        Me.tb_brand_Cat.Size = New System.Drawing.Size(343, 26)
         Me.tb_brand_Cat.TabIndex = 16
         '
         'lbl_tag
@@ -142,7 +142,7 @@ Partial Class frmBrandCat
         Me.Controls.Add(Me.tb_brand_Cat)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "frmBrandCat"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "frmBrandCat"

@@ -1,6 +1,6 @@
-﻿ Imports MySql.Data.MySqlClient
+﻿Imports MySql.Data.MySqlClient
 Public Class clsCashierLog
-    Dim cashP, creditS, creditP, voidA, refundA, cashIn, cashOut
+    Dim cashP, creditS, creditP, refundA, cashIn, cashOut
     Private _CashierLogId As Object
     Private _CashierId As Object
     Private _ManagerId As Object
@@ -165,7 +165,7 @@ Public Class clsCashierLog
         End While
         dr.Close()
 
-        Dim total = begbal + (cashP + creditS + creditP - (refundA + voidA)) + cashIn - cashOut
+        Dim total = begbal + (cashP + creditS + creditP - refundA) + cashIn - cashOut
         DisconnectDatabase()
         Return total
     End Function

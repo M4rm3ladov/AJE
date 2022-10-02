@@ -71,6 +71,7 @@
         End With
         Me.Close()
     End Sub
+
     Private Sub frmCreditLimit_Load(sender As Object, e As EventArgs) Handles Me.Load
         tb_credit_Limit.Text = creditLimit.getCreditLimit
     End Sub

@@ -143,13 +143,15 @@
         End If
 
     End Sub
+
     Private Sub frmBrandCat_Load(sender As Object, e As EventArgs) Handles Me.Load
         If lbl_Header.Text = "Brand" Then
             lbl_tag.Text = "Brand Name"
-        ElseIf lbl_Header.Text = "Category" Then
+        ElseIf lbl_Header.Text = "Category"Then
             lbl_tag.Text = "Category Name"
         End If
     End Sub
+
     'Private Sub tb_brand_Cat_KeyPress(sender As Object, e As KeyPressEventArgs) Handles tb_brand_Cat.KeyPress
     '    If Not (Asc(e.KeyChar) = 8) Then
     '        Dim allowedChars As String = "',- .abcdefghijklmnopqrstuvwxyz1234567890"

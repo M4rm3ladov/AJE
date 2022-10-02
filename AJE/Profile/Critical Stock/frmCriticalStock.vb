@@ -21,9 +21,11 @@
         tb_Qty.Clear()
         Me.Close()
     End Sub
+
     Private Sub frmCriticalStock_Load(sender As Object, e As EventArgs) Handles Me.Load
         tb_Qty.Text = criticalStock.getCriticalStock
     End Sub
+
     Private Sub tb_Qty_KeyPress(sender As Object, e As KeyPressEventArgs) Handles tb_Qty.KeyPress
         If IsNumeric(e.KeyChar.ToString()) Or e.KeyChar = ChrW(Keys.Back) Then
             e.Handled = False
