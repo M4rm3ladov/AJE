@@ -71,9 +71,9 @@ Partial Class frmUserList
         Me.Panel1.Controls.Add(Me.Label3)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
-        Me.Panel1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1421, 55)
+        Me.Panel1.Size = New System.Drawing.Size(924, 36)
         Me.Panel1.TabIndex = 19
         '
         'btn_Close
@@ -82,10 +82,10 @@ Partial Class frmUserList
         Me.btn_Close.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_Close.ForeColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(97, Byte), Integer))
         Me.btn_Close.Image = CType(resources.GetObject("btn_Close.Image"), System.Drawing.Image)
-        Me.btn_Close.Location = New System.Drawing.Point(1363, 0)
-        Me.btn_Close.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btn_Close.Location = New System.Drawing.Point(885, 0)
+        Me.btn_Close.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.btn_Close.Name = "btn_Close"
-        Me.btn_Close.Size = New System.Drawing.Size(58, 55)
+        Me.btn_Close.Size = New System.Drawing.Size(39, 36)
         Me.btn_Close.TabIndex = 54
         Me.btn_Close.UseVisualStyleBackColor = True
         '
@@ -94,9 +94,10 @@ Partial Class frmUserList
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.White
-        Me.Label3.Location = New System.Drawing.Point(14, 11)
+        Me.Label3.Location = New System.Drawing.Point(9, 7)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(92, 26)
+        Me.Label3.Size = New System.Drawing.Size(63, 18)
         Me.Label3.TabIndex = 2
         Me.Label3.Text = "UserList"
         '
@@ -107,19 +108,20 @@ Partial Class frmUserList
         Me.pnl_Top.Controls.Add(Me.Label1)
         Me.pnl_Top.Controls.Add(Me.tb_Search)
         Me.pnl_Top.Dock = System.Windows.Forms.DockStyle.Top
-        Me.pnl_Top.Location = New System.Drawing.Point(0, 55)
-        Me.pnl_Top.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.pnl_Top.Location = New System.Drawing.Point(0, 36)
+        Me.pnl_Top.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.pnl_Top.Name = "pnl_Top"
-        Me.pnl_Top.Size = New System.Drawing.Size(1421, 101)
+        Me.pnl_Top.Size = New System.Drawing.Size(924, 66)
         Me.pnl_Top.TabIndex = 20
         '
         'Label4
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(908, 34)
+        Me.Label4.Location = New System.Drawing.Point(605, 22)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(97, 25)
+        Me.Label4.Size = New System.Drawing.Size(63, 17)
         Me.Label4.TabIndex = 12
         Me.Label4.Text = "Filter By:"
         '
@@ -129,67 +131,71 @@ Partial Class frmUserList
         Me.cbo_Filter.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbo_Filter.FormattingEnabled = True
         Me.cbo_Filter.Items.AddRange(New Object() {"Branch", "Name", "Username"})
-        Me.cbo_Filter.Location = New System.Drawing.Point(1015, 30)
-        Me.cbo_Filter.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.cbo_Filter.Location = New System.Drawing.Point(677, 19)
+        Me.cbo_Filter.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.cbo_Filter.Name = "cbo_Filter"
-        Me.cbo_Filter.Size = New System.Drawing.Size(205, 37)
+        Me.cbo_Filter.Size = New System.Drawing.Size(138, 28)
         Me.cbo_Filter.TabIndex = 11
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(33, 34)
+        Me.Label1.Location = New System.Drawing.Point(22, 22)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(86, 25)
+        Me.Label1.Size = New System.Drawing.Size(57, 17)
         Me.Label1.TabIndex = 10
         Me.Label1.Text = "Search:"
         '
         'tb_Search
         '
         Me.tb_Search.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tb_Search.Location = New System.Drawing.Point(129, 30)
-        Me.tb_Search.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.tb_Search.Location = New System.Drawing.Point(86, 19)
+        Me.tb_Search.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.tb_Search.MaxLength = 50
         Me.tb_Search.Name = "tb_Search"
         Me.tb_Search.ShortcutsEnabled = False
-        Me.tb_Search.Size = New System.Drawing.Size(745, 35)
+        Me.tb_Search.Size = New System.Drawing.Size(498, 26)
         Me.tb_Search.TabIndex = 9
         '
         'pnl_Bottom
         '
         Me.pnl_Bottom.Controls.Add(Me.lbl_row_Count)
         Me.pnl_Bottom.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.pnl_Bottom.Location = New System.Drawing.Point(0, 746)
-        Me.pnl_Bottom.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.pnl_Bottom.Location = New System.Drawing.Point(0, 463)
+        Me.pnl_Bottom.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.pnl_Bottom.Name = "pnl_Bottom"
-        Me.pnl_Bottom.Size = New System.Drawing.Size(1421, 75)
+        Me.pnl_Bottom.Size = New System.Drawing.Size(924, 49)
         Me.pnl_Bottom.TabIndex = 23
         '
         'lbl_row_Count
         '
         Me.lbl_row_Count.AutoSize = True
         Me.lbl_row_Count.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_row_Count.Location = New System.Drawing.Point(30, 26)
+        Me.lbl_row_Count.Location = New System.Drawing.Point(20, 17)
+        Me.lbl_row_Count.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lbl_row_Count.Name = "lbl_row_Count"
-        Me.lbl_row_Count.Size = New System.Drawing.Size(117, 25)
+        Me.lbl_row_Count.Size = New System.Drawing.Size(76, 17)
         Me.lbl_row_Count.TabIndex = 9
         Me.lbl_row_Count.Text = "Row Count"
         '
         'pnl_Left
         '
         Me.pnl_Left.Dock = System.Windows.Forms.DockStyle.Left
-        Me.pnl_Left.Location = New System.Drawing.Point(0, 156)
+        Me.pnl_Left.Location = New System.Drawing.Point(0, 102)
+        Me.pnl_Left.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.pnl_Left.Name = "pnl_Left"
-        Me.pnl_Left.Size = New System.Drawing.Size(16, 590)
+        Me.pnl_Left.Size = New System.Drawing.Size(11, 361)
         Me.pnl_Left.TabIndex = 29
         '
         'pnl_Right
         '
         Me.pnl_Right.Dock = System.Windows.Forms.DockStyle.Right
-        Me.pnl_Right.Location = New System.Drawing.Point(1405, 156)
+        Me.pnl_Right.Location = New System.Drawing.Point(913, 102)
+        Me.pnl_Right.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.pnl_Right.Name = "pnl_Right"
-        Me.pnl_Right.Size = New System.Drawing.Size(16, 590)
+        Me.pnl_Right.Size = New System.Drawing.Size(11, 361)
         Me.pnl_Right.TabIndex = 30
         '
         'DataGridView1
@@ -198,8 +204,9 @@ Partial Class frmUserList
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn4, Me.col_Row, Me.col_Branch, Me.col_Name, Me.col_mi, Me.col_Surname, Me.col_Suffix, Me.col_Username, Me.col_Type, Me.col_Active, Me.col_Select})
         Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DataGridView1.Location = New System.Drawing.Point(16, 156)
-        Me.DataGridView1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.DataGridView1.Location = New System.Drawing.Point(11, 102)
+        Me.DataGridView1.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.DataGridView1.MultiSelect = False
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowHeadersVisible = False
         Me.DataGridView1.RowHeadersWidth = 51
@@ -207,7 +214,7 @@ Partial Class frmUserList
         Me.DataGridView1.RowsDefaultCellStyle = DataGridViewCellStyle11
         Me.DataGridView1.RowTemplate.Height = 24
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(1389, 590)
+        Me.DataGridView1.Size = New System.Drawing.Size(902, 361)
         Me.DataGridView1.TabIndex = 31
         '
         'DataGridViewTextBoxColumn4
@@ -228,7 +235,7 @@ Partial Class frmUserList
         Me.col_Row.Name = "col_Row"
         Me.col_Row.ReadOnly = True
         Me.col_Row.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.col_Row.Width = 54
+        Me.col_Row.Width = 39
         '
         'col_Branch
         '
@@ -262,7 +269,7 @@ Partial Class frmUserList
         Me.col_mi.Name = "col_mi"
         Me.col_mi.ReadOnly = True
         Me.col_mi.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.col_mi.Width = 71
+        Me.col_mi.Width = 50
         '
         'col_Surname
         '
@@ -285,7 +292,7 @@ Partial Class frmUserList
         Me.col_Suffix.Name = "col_Suffix"
         Me.col_Suffix.ReadOnly = True
         Me.col_Suffix.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.col_Suffix.Width = 85
+        Me.col_Suffix.Width = 58
         '
         'col_Username
         '
@@ -297,7 +304,7 @@ Partial Class frmUserList
         Me.col_Username.Name = "col_Username"
         Me.col_Username.ReadOnly = True
         Me.col_Username.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.col_Username.Width = 119
+        Me.col_Username.Width = 80
         '
         'col_Type
         '
@@ -309,7 +316,7 @@ Partial Class frmUserList
         Me.col_Type.Name = "col_Type"
         Me.col_Type.ReadOnly = True
         Me.col_Type.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.col_Type.Width = 108
+        Me.col_Type.Width = 81
         '
         'col_Active
         '
@@ -323,7 +330,7 @@ Partial Class frmUserList
         Me.col_Active.Name = "col_Active"
         Me.col_Active.ReadOnly = True
         Me.col_Active.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.col_Active.Width = 58
+        Me.col_Active.Width = 43
         '
         'col_Select
         '
@@ -337,13 +344,13 @@ Partial Class frmUserList
         Me.col_Select.Name = "col_Select"
         Me.col_Select.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.col_Select.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.col_Select.Width = 29
+        Me.col_Select.Width = 19
         '
         'frmUserList
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1421, 821)
+        Me.ClientSize = New System.Drawing.Size(924, 512)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.pnl_Right)
         Me.Controls.Add(Me.pnl_Left)
@@ -351,6 +358,7 @@ Partial Class frmUserList
         Me.Controls.Add(Me.pnl_Top)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Name = "frmUserList"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "frmUserList"

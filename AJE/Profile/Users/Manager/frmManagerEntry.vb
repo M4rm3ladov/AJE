@@ -61,7 +61,7 @@
             Exit Sub
         End If
         Try
-
+            manager.Username = tb_Username.Text
             Dim result = MsgBox("Are you sure you want to save this record?", vbYesNo + vbQuestion)
             If manager.checkManagerDuplicate = True Then
                 MsgBox("Username is already existing.", vbInformation)

@@ -59,7 +59,7 @@ Public Class clsStockAdjustment
         Dim count = cm.ExecuteScalar
         cm.Dispose()
 
-        Dim inventory_id As Int64
+        Dim inventory_id As Integer
         If count = 1 Then
             query = "SELECT inventory_id FROM inventory WHERE item_id = @item_id AND branch_id = @branch_id"
             cm = New MySqlCommand(query, con)
@@ -81,7 +81,7 @@ Public Class clsStockAdjustment
             Exit Sub
         End If
 
-        query = "INSERT INTO inventory_period (period_from, period_to) VALUES (@date_From, @date_To); SELECT LAST_INSERT_ID()"
+        query = "INSERT INTO inventory_period (period_from, period_to) VALUES (@date_From, @date_To); SELECT LAST_INSERT_ID(); "
         cm = New MySqlCommand(query, con)
         cm.Parameters.AddWithValue("@date_From", _DateFrom)
         cm.Parameters.AddWithValue("@date_To", _DateTo)

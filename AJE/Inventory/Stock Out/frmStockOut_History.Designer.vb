@@ -51,6 +51,7 @@ Partial Class frmStockOut_History
         Me.Column14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1.SuspendLayout()
         Me.pnl_Top.SuspendLayout()
         CType(Me.dg_stock_History, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -63,9 +64,9 @@ Partial Class frmStockOut_History
         Me.Panel1.Controls.Add(Me.Label3)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
-        Me.Panel1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1539, 55)
+        Me.Panel1.Size = New System.Drawing.Size(924, 36)
         Me.Panel1.TabIndex = 16
         '
         'btn_Close
@@ -74,10 +75,10 @@ Partial Class frmStockOut_History
         Me.btn_Close.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_Close.ForeColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(97, Byte), Integer))
         Me.btn_Close.Image = CType(resources.GetObject("btn_Close.Image"), System.Drawing.Image)
-        Me.btn_Close.Location = New System.Drawing.Point(1481, 0)
-        Me.btn_Close.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btn_Close.Location = New System.Drawing.Point(885, 0)
+        Me.btn_Close.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.btn_Close.Name = "btn_Close"
-        Me.btn_Close.Size = New System.Drawing.Size(58, 55)
+        Me.btn_Close.Size = New System.Drawing.Size(39, 36)
         Me.btn_Close.TabIndex = 55
         Me.btn_Close.UseVisualStyleBackColor = True
         '
@@ -86,9 +87,10 @@ Partial Class frmStockOut_History
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.White
-        Me.Label3.Location = New System.Drawing.Point(14, 11)
+        Me.Label3.Location = New System.Drawing.Point(9, 7)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(182, 26)
+        Me.Label3.Size = New System.Drawing.Size(126, 18)
         Me.Label3.TabIndex = 2
         Me.Label3.Text = "Stock Out History"
         '
@@ -101,10 +103,10 @@ Partial Class frmStockOut_History
         Me.pnl_Top.Controls.Add(Me.Label19)
         Me.pnl_Top.Controls.Add(Me.dtp_From)
         Me.pnl_Top.Dock = System.Windows.Forms.DockStyle.Top
-        Me.pnl_Top.Location = New System.Drawing.Point(0, 55)
-        Me.pnl_Top.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.pnl_Top.Location = New System.Drawing.Point(0, 36)
+        Me.pnl_Top.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.pnl_Top.Name = "pnl_Top"
-        Me.pnl_Top.Size = New System.Drawing.Size(1539, 112)
+        Me.pnl_Top.Size = New System.Drawing.Size(924, 73)
         Me.pnl_Top.TabIndex = 27
         '
         'btn_Report
@@ -113,10 +115,10 @@ Partial Class frmStockOut_History
         Me.btn_Report.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_Report.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_Report.ForeColor = System.Drawing.Color.White
-        Me.btn_Report.Location = New System.Drawing.Point(1320, 25)
-        Me.btn_Report.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btn_Report.Location = New System.Drawing.Point(880, 16)
+        Me.btn_Report.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.btn_Report.Name = "btn_Report"
-        Me.btn_Report.Size = New System.Drawing.Size(148, 63)
+        Me.btn_Report.Size = New System.Drawing.Size(99, 41)
         Me.btn_Report.TabIndex = 24
         Me.btn_Report.Text = "Report"
         Me.btn_Report.UseVisualStyleBackColor = False
@@ -125,9 +127,10 @@ Partial Class frmStockOut_History
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(612, 41)
+        Me.Label2.Location = New System.Drawing.Point(408, 27)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(105, 29)
+        Me.Label2.Size = New System.Drawing.Size(70, 20)
         Me.Label2.TabIndex = 23
         Me.Label2.Text = "Date To:"
         '
@@ -135,10 +138,10 @@ Partial Class frmStockOut_History
         '
         Me.dtp_To.CustomFormat = "MM/dd/yyyy"
         Me.dtp_To.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtp_To.Location = New System.Drawing.Point(730, 39)
-        Me.dtp_To.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.dtp_To.Location = New System.Drawing.Point(487, 25)
+        Me.dtp_To.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.dtp_To.Name = "dtp_To"
-        Me.dtp_To.Size = New System.Drawing.Size(410, 35)
+        Me.dtp_To.Size = New System.Drawing.Size(275, 26)
         Me.dtp_To.TabIndex = 22
         Me.dtp_To.Value = New Date(2020, 3, 21, 0, 0, 0, 0)
         '
@@ -148,10 +151,10 @@ Partial Class frmStockOut_History
         Me.btn_load_History.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_load_History.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_load_History.ForeColor = System.Drawing.Color.White
-        Me.btn_load_History.Location = New System.Drawing.Point(1166, 25)
-        Me.btn_load_History.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btn_load_History.Location = New System.Drawing.Point(777, 16)
+        Me.btn_load_History.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.btn_load_History.Name = "btn_load_History"
-        Me.btn_load_History.Size = New System.Drawing.Size(148, 63)
+        Me.btn_load_History.Size = New System.Drawing.Size(99, 41)
         Me.btn_load_History.TabIndex = 21
         Me.btn_load_History.Text = "Load History"
         Me.btn_load_History.UseVisualStyleBackColor = False
@@ -160,9 +163,10 @@ Partial Class frmStockOut_History
         '
         Me.Label19.AutoSize = True
         Me.Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label19.Location = New System.Drawing.Point(27, 41)
+        Me.Label19.Location = New System.Drawing.Point(18, 27)
+        Me.Label19.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(132, 29)
+        Me.Label19.Size = New System.Drawing.Size(89, 20)
         Me.Label19.TabIndex = 20
         Me.Label19.Text = "Date From:"
         '
@@ -170,35 +174,38 @@ Partial Class frmStockOut_History
         '
         Me.dtp_From.CustomFormat = "MM/dd/yyyy"
         Me.dtp_From.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtp_From.Location = New System.Drawing.Point(173, 39)
-        Me.dtp_From.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.dtp_From.Location = New System.Drawing.Point(115, 25)
+        Me.dtp_From.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.dtp_From.Name = "dtp_From"
-        Me.dtp_From.Size = New System.Drawing.Size(411, 35)
+        Me.dtp_From.Size = New System.Drawing.Size(275, 26)
         Me.dtp_From.TabIndex = 19
         Me.dtp_From.Value = New Date(2020, 3, 21, 0, 0, 0, 0)
         '
         'pnl_Left
         '
         Me.pnl_Left.Dock = System.Windows.Forms.DockStyle.Left
-        Me.pnl_Left.Location = New System.Drawing.Point(0, 167)
+        Me.pnl_Left.Location = New System.Drawing.Point(0, 109)
+        Me.pnl_Left.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.pnl_Left.Name = "pnl_Left"
-        Me.pnl_Left.Size = New System.Drawing.Size(16, 744)
+        Me.pnl_Left.Size = New System.Drawing.Size(11, 403)
         Me.pnl_Left.TabIndex = 31
         '
         'pnl_Right
         '
         Me.pnl_Right.Dock = System.Windows.Forms.DockStyle.Right
-        Me.pnl_Right.Location = New System.Drawing.Point(1523, 167)
+        Me.pnl_Right.Location = New System.Drawing.Point(913, 109)
+        Me.pnl_Right.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.pnl_Right.Name = "pnl_Right"
-        Me.pnl_Right.Size = New System.Drawing.Size(16, 744)
+        Me.pnl_Right.Size = New System.Drawing.Size(11, 403)
         Me.pnl_Right.TabIndex = 32
         '
         'pnl_Bottom
         '
         Me.pnl_Bottom.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.pnl_Bottom.Location = New System.Drawing.Point(16, 891)
+        Me.pnl_Bottom.Location = New System.Drawing.Point(11, 499)
+        Me.pnl_Bottom.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.pnl_Bottom.Name = "pnl_Bottom"
-        Me.pnl_Bottom.Size = New System.Drawing.Size(1507, 20)
+        Me.pnl_Bottom.Size = New System.Drawing.Size(902, 13)
         Me.pnl_Bottom.TabIndex = 33
         '
         'dg_stock_History
@@ -213,10 +220,10 @@ Partial Class frmStockOut_History
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dg_stock_History.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.dg_stock_History.ColumnHeadersHeight = 29
-        Me.dg_stock_History.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn18, Me.Column11, Me.Column5, Me.Column16, Me.Column4, Me.Column13, Me.Column9, Me.Column12, Me.Column14, Me.Column1, Me.Column10})
+        Me.dg_stock_History.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn18, Me.Column11, Me.Column5, Me.Column16, Me.Column4, Me.Column13, Me.Column9, Me.Column12, Me.Column14, Me.Column1, Me.Column10, Me.Column2})
         Me.dg_stock_History.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.dg_stock_History.Location = New System.Drawing.Point(16, 167)
-        Me.dg_stock_History.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.dg_stock_History.Location = New System.Drawing.Point(11, 109)
+        Me.dg_stock_History.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.dg_stock_History.Name = "dg_stock_History"
         Me.dg_stock_History.RowHeadersVisible = False
         Me.dg_stock_History.RowHeadersWidth = 51
@@ -225,7 +232,7 @@ Partial Class frmStockOut_History
         Me.dg_stock_History.RowsDefaultCellStyle = DataGridViewCellStyle3
         Me.dg_stock_History.RowTemplate.Height = 24
         Me.dg_stock_History.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dg_stock_History.Size = New System.Drawing.Size(1507, 724)
+        Me.dg_stock_History.Size = New System.Drawing.Size(902, 390)
         Me.dg_stock_History.TabIndex = 34
         '
         'DataGridViewTextBoxColumn18
@@ -244,7 +251,7 @@ Partial Class frmStockOut_History
         Me.Column11.Name = "Column11"
         Me.Column11.ReadOnly = True
         Me.Column11.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.Column11.Width = 190
+        Me.Column11.Width = 136
         '
         'Column5
         '
@@ -254,7 +261,7 @@ Partial Class frmStockOut_History
         Me.Column5.Name = "Column5"
         Me.Column5.ReadOnly = True
         Me.Column5.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.Column5.Width = 197
+        Me.Column5.Width = 142
         '
         'Column16
         '
@@ -264,7 +271,7 @@ Partial Class frmStockOut_History
         Me.Column16.Name = "Column16"
         Me.Column16.ReadOnly = True
         Me.Column16.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.Column16.Width = 110
+        Me.Column16.Width = 78
         '
         'Column4
         '
@@ -274,7 +281,7 @@ Partial Class frmStockOut_History
         Me.Column4.Name = "Column4"
         Me.Column4.ReadOnly = True
         Me.Column4.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.Column4.Width = 96
+        Me.Column4.Width = 66
         '
         'Column13
         '
@@ -284,6 +291,7 @@ Partial Class frmStockOut_History
         Me.Column13.Name = "Column13"
         Me.Column13.ReadOnly = True
         Me.Column13.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.Column13.Width = 71
         '
         'Column9
         '
@@ -311,7 +319,7 @@ Partial Class frmStockOut_History
         Me.Column14.Name = "Column14"
         Me.Column14.ReadOnly = True
         Me.Column14.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.Column14.Width = 128
+        Me.Column14.Width = 90
         '
         'Column1
         '
@@ -321,7 +329,7 @@ Partial Class frmStockOut_History
         Me.Column1.Name = "Column1"
         Me.Column1.ReadOnly = True
         Me.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.Column1.Width = 82
+        Me.Column1.Width = 58
         '
         'Column10
         '
@@ -333,13 +341,21 @@ Partial Class frmStockOut_History
         Me.Column10.Name = "Column10"
         Me.Column10.ReadOnly = True
         Me.Column10.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.Column10.Width = 79
+        Me.Column10.Width = 55
+        '
+        'Column2
+        '
+        Me.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
+        Me.Column2.HeaderText = "Remarks"
+        Me.Column2.Name = "Column2"
+        Me.Column2.ReadOnly = True
+        Me.Column2.Width = 89
         '
         'frmStockOut_History
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1539, 911)
+        Me.ClientSize = New System.Drawing.Size(924, 512)
         Me.Controls.Add(Me.dg_stock_History)
         Me.Controls.Add(Me.pnl_Bottom)
         Me.Controls.Add(Me.pnl_Right)
@@ -347,6 +363,7 @@ Partial Class frmStockOut_History
         Me.Controls.Add(Me.pnl_Top)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Name = "frmStockOut_History"
         Me.Text = "frmStockOut_History"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
@@ -367,6 +384,12 @@ Partial Class frmStockOut_History
     Friend WithEvents pnl_Right As Panel
     Friend WithEvents pnl_Bottom As Panel
     Friend WithEvents dg_stock_History As DataGridView
+    Friend WithEvents btn_Report As Button
+    Friend WithEvents Label2 As Label
+    Friend WithEvents dtp_To As DateTimePicker
+    Friend WithEvents btn_load_History As Button
+    Friend WithEvents Label19 As Label
+    Friend WithEvents dtp_From As DateTimePicker
     Friend WithEvents DataGridViewTextBoxColumn18 As DataGridViewTextBoxColumn
     Friend WithEvents Column11 As DataGridViewTextBoxColumn
     Friend WithEvents Column5 As DataGridViewTextBoxColumn
@@ -378,10 +401,5 @@ Partial Class frmStockOut_History
     Friend WithEvents Column14 As DataGridViewTextBoxColumn
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents Column10 As DataGridViewTextBoxColumn
-    Friend WithEvents btn_Report As Button
-    Friend WithEvents Label2 As Label
-    Friend WithEvents dtp_To As DateTimePicker
-    Friend WithEvents btn_load_History As Button
-    Friend WithEvents Label19 As Label
-    Friend WithEvents dtp_From As DateTimePicker
+    Friend WithEvents Column2 As DataGridViewTextBoxColumn
 End Class

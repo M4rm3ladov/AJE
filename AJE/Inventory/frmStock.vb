@@ -68,12 +68,12 @@
         Next
         Dim _refNo = stockIn.getRefNo
         stockIn.RefNo = _refNo
-        Dim refNoLegnth As String = _refNo.ToString
-        Dim zero = ""
-        For i = 0 To 5 - refNoLegnth.Length
-            zero &= "0"
-            i += 1
-        Next
+        'Dim refNoLegnth As String = _refNo.ToString
+        'Dim zero = ""
+        'For i = 0 To 5 - refNoLegnth.Length
+        '    zero &= "0"
+        '    i += 1
+        'Next
         For i = 0 To dg_stock_In.RowCount - 1    'sets the column entries for stock_in table per dg_stock_in row
             stockIn.ItemId = dg_stock_In.Rows(i).Cells(0).Value   'item_id
             stockIn.BranchId = lbl_branch_id_stock_In.Text 'branch_id
@@ -83,7 +83,7 @@
             stockIn.Remarks = tb_remarks_stock_In.Text 'remarks
             stockIn.save()
         Next
-        MsgBox("Reference Code: " & "SI" & dtp_stock_In.Value.ToString("yyyyMMdd") & zero & _refNo, vbInformation) 'generate ref Code
+        MsgBox("Reference Code: " & "SI" & dtp_stock_In.Value.ToString("yyyyMMdd") & _refNo, vbInformation) 'generate ref Code
         clearControls()
         stockList.loadStockList()
     End Sub
@@ -194,12 +194,12 @@
         Next
         Dim _refNo = stockTrans.getRefNo
         stockTrans.RefNo = _refNo
-        Dim refNoLegnth As String = _refNo.ToString
-        Dim zero = ""
-        For i = 0 To 5 - refNoLegnth.Length
-            zero &= "0"
-            i += 1
-        Next
+        'Dim refNoLegnth As String = _refNo.ToString
+        'Dim zero = ""
+        'For i = 0 To 5 - refNoLegnth.Length
+        '    zero &= "0"
+        '    i += 1
+        'Next
         For i = 0 To dg_stock_Transfer.RowCount - 1    'sets the column entries for stock_in table per dg_stock_in row
             stockTrans.ItemId = dg_stock_Transfer.Rows(i).Cells(0).Value   'item_id
             stockTrans.BranchFromId = lbl_branch_from_id_sT.Text 'branch_id
@@ -209,7 +209,7 @@
             stockTrans.Remarks = tb_remarks_sT.Text 'remarks
             stockTrans.save()
         Next
-        MsgBox("Reference Code: " & "SI" & dtp_stock_Transfer.Value.ToString("yyyyMMdd") & zero & _refNo, vbInformation) 'generate ref Code
+        MsgBox("Reference Code: " & "SI" & dtp_stock_Transfer.Value.ToString("yyyyMMdd") & _refNo, vbInformation) 'generate ref Code
         clearControls()
         stockList.loadStockList()
     End Sub
@@ -305,12 +305,12 @@
         Next
         Dim _refNo = stockReturn.getRefNo
         stockReturn.RefNo = _refNo
-        Dim refNoLegnth As String = _refNo.ToString
-        Dim zero = ""
-        For i = 0 To 5 - refNoLegnth.Length
-            zero &= "0"
-            i += 1
-        Next
+        'Dim refNoLegnth As String = _refNo.ToString
+        'Dim zero = ""
+        'For i = 0 To 5 - refNoLegnth.Length
+        '    zero &= "0"
+        '    i += 1
+        'Next
         For i = 0 To dg_stock_Return.RowCount - 1    'sets the column entries for stock_in table per dg_stock_in row
             stockReturn.ItemId = dg_stock_Return.Rows(i).Cells(0).Value   'item_id
             stockReturn.BranchId = lbl_branch_id_sR.Text 'branch_id
@@ -320,7 +320,7 @@
             stockReturn.Remarks = tb_remarks_sR.Text 'remarks
             stockReturn.save()
         Next
-        MsgBox("Reference Code: " & "SR" & dtp_stock_Return.Value.ToString("yyyyMMdd") & zero & _refNo, vbInformation) 'generate ref Code
+        MsgBox("Reference Code: " & "SR" & dtp_stock_Return.Value.ToString("yyyyMMdd") & _refNo, vbInformation) 'generate ref Code
         clearControls()
         stockList.loadStockList()
     End Sub
@@ -404,12 +404,12 @@
         Next
         Dim _refNo = stockOut.getRefNo
         stockOut.RefNo = _refNo
-        Dim refNoLegnth As String = _refNo.ToString
-        Dim zero = ""
-        For i = 0 To 5 - refNoLegnth.Length
-            zero &= "0"
-            i += 1
-        Next
+        'Dim refNoLegnth As String = _refNo.ToString
+        'Dim zero = ""
+        'For i = 0 To 5 - refNoLegnth.Length
+        '    zero &= "0"
+        '    i += 1
+        'Next
         For i = 0 To dg_stock_Out.RowCount - 1    'sets the column entries for stock_in table per dg_stock_in row
             stockOut.ItemId = dg_stock_Out.Rows(i).Cells(0).Value   'item_id
             stockOut.BranchId = lbl_branch_id_stock_Out.Text 'branch_id
@@ -418,7 +418,7 @@
             stockOut.Remarks = tb_remarks_stock_Out.Text 'remarks
             stockOut.save()
         Next
-        MsgBox("Reference Code: " & "SO" & dtp_stock_Out.Value.ToString("yyyyMMdd") & zero & _refNo, vbInformation) 'generate ref Code
+        MsgBox("Reference Code: " & "SO" & dtp_stock_Out.Value.ToString("yyyyMMdd") & _refNo, vbInformation) 'generate ref Code
         clearControls()
         stockList.loadStockList()
     End Sub
@@ -619,12 +619,12 @@
 
         Dim _refNo = stockAdjust.getRefNo()
         stockAdjust.RefNo = _refNo
-        Dim refNoLegnth As String = _refNo.ToString
-        Dim zero = ""
-        For i = 0 To 5 - refNoLegnth.Length
-            zero &= "0"
-            i += 1
-        Next
+        'Dim refNoLegnth As String = _refNo.ToString
+        'Dim zero = ""
+        'For i = 0 To 5 - refNoLegnth.Length
+        '    zero &= "0"
+        '    i += 1
+        'Next
 
         For i = 0 To dg_stock_Adjustment.RowCount - 1    'sets the column entries for stock_in table per dg_stock_in row
             stockAdjust.ItemId = dg_stock_Adjustment.Rows(i).Cells(0).Value   'item_id
@@ -637,7 +637,7 @@
             stockAdjust.save()
         Next
 
-        MsgBox("Reference Code: " & "SA" & dtp_stock_Adjustment.Value.ToString("yyyyMMdd") & zero & _refNo, vbInformation) 'generate ref Code
+        MsgBox("Reference Code: " & "SA" & dtp_stock_Adjustment.Value.ToString("yyyyMMdd") & _refNo, vbInformation) 'generate ref Code
         stockList.loadStockList()
         clearControls()
     End Sub

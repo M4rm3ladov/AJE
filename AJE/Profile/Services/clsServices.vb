@@ -83,7 +83,7 @@ Public Class clsServices
     Public Function checkServiceExists() 'checks if item is already in use in other tables(user, stock)
         Try
             ConnectDatabase()
-            Dim query = "SELECT COUNT(*) FROM service WHERE service_code = @service_code"
+            Dim query = "SELECT COUNT(*) FROM service INNER JOIN order_svc_dtls ON order_svc_dtls.service_id = service.service_id WHERE service.service_code = @service_code"
             cm = New MySqlCommand(query, con)
             cm.Parameters.AddWithValue("@service_code", _ServiceCode)
             Dim count = cm.ExecuteScalar()
@@ -104,6 +104,26 @@ Public Class clsServices
             Dim query = "SELECT service_code FROM service WHERE service_code = @service_code"
             Dim cm = New MySqlCommand(query, con)
             cm.Parameters.AddWithValue("@service_code", _ServiceCode)
+            dr = cm.ExecuteReader
+            If dr.HasRows Then
+                dr.Close()
+                DisconnectDatabase()
+                Return True
+            End If
+        Catch ex As Exception
+            DisconnectDatabase()
+            MsgBox(ex.Message, vbCritical)
+        End Try
+        dr.Close()
+        DisconnectDatabase()
+        Return False
+    End Function
+    Public Function checkItemDuplicate()
+        Try
+            ConnectDatabase()
+            Dim query = "SELECT item_code FROM item WHERE item_code = @item_code"
+            Dim cm = New MySqlCommand(query, con)
+            cm.Parameters.AddWithValue("@item_code", _ServiceCode)
             dr = cm.ExecuteReader
             If dr.HasRows Then
                 dr.Close()

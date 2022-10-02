@@ -163,6 +163,8 @@
                 btn_Balance_Click(sender, e)
             Case Keys.F5
                 btn_Checkout_Click(sender, e)
+            Case Keys.F6
+                btn_Void_Click(sender, e)
             Case Keys.Escape
                 btn_Logout_Click(sender, e)
             Case Keys.F8
@@ -184,10 +186,10 @@
             If dg_Order.RowCount <> 0 Then
                 Dim iSearch As Integer = dg_Search.CurrentRow.Index 'sets the current selected row of dg_Search
                 For i = 0 To dg_Order.RowCount - 1
-                    Dim orderId = dg_Order.Rows(i).Cells(0).Value 'sets service Id or item Id of dg_Order and dg_Search
-                    Dim searchId = dg_Search.Item(0, iSearch).Value
+                    Dim orderCode = dg_Order.Rows(i).Cells(1).Value 'sets service Id or item Id of dg_Order and dg_Search
+                    Dim searchCode = dg_Search.Item(1, iSearch).Value
 
-                    If orderId = searchId Then                     'checks if item or service has already been added to list to prevent entry duplication
+                    If orderCode = searchCode Then                     'checks if item or service has already been added to list to prevent entry duplication
                         MsgBox("Item has already been added.", vbExclamation)
                         Exit Sub
                     End If
@@ -245,4 +247,7 @@
         End If
     End Sub
 
+    Private Sub btn_Void_Click(sender As Object, e As EventArgs) Handles btn_Void.Click
+        frmVoid.ShowDialog()
+    End Sub
 End Class

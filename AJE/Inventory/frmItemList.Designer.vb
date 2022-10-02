@@ -62,9 +62,9 @@ Partial Class frmItemList
         Me.Panel1.Controls.Add(Me.Label3)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
-        Me.Panel1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1421, 55)
+        Me.Panel1.Size = New System.Drawing.Size(924, 36)
         Me.Panel1.TabIndex = 16
         '
         'btn_Close
@@ -73,10 +73,10 @@ Partial Class frmItemList
         Me.btn_Close.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_Close.ForeColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(97, Byte), Integer))
         Me.btn_Close.Image = CType(resources.GetObject("btn_Close.Image"), System.Drawing.Image)
-        Me.btn_Close.Location = New System.Drawing.Point(1363, 0)
-        Me.btn_Close.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btn_Close.Location = New System.Drawing.Point(885, 0)
+        Me.btn_Close.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.btn_Close.Name = "btn_Close"
-        Me.btn_Close.Size = New System.Drawing.Size(58, 55)
+        Me.btn_Close.Size = New System.Drawing.Size(39, 36)
         Me.btn_Close.TabIndex = 55
         Me.btn_Close.UseVisualStyleBackColor = True
         '
@@ -85,9 +85,10 @@ Partial Class frmItemList
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.White
-        Me.Label3.Location = New System.Drawing.Point(14, 11)
+        Me.Label3.Location = New System.Drawing.Point(9, 7)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(95, 26)
+        Me.Label3.Size = New System.Drawing.Size(63, 18)
         Me.Label3.TabIndex = 2
         Me.Label3.Text = "Item List"
         '
@@ -98,19 +99,20 @@ Partial Class frmItemList
         Me.pnl_Top.Controls.Add(Me.Label1)
         Me.pnl_Top.Controls.Add(Me.tb_Search)
         Me.pnl_Top.Dock = System.Windows.Forms.DockStyle.Top
-        Me.pnl_Top.Location = New System.Drawing.Point(0, 55)
-        Me.pnl_Top.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.pnl_Top.Location = New System.Drawing.Point(0, 36)
+        Me.pnl_Top.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.pnl_Top.Name = "pnl_Top"
-        Me.pnl_Top.Size = New System.Drawing.Size(1421, 112)
+        Me.pnl_Top.Size = New System.Drawing.Size(924, 73)
         Me.pnl_Top.TabIndex = 27
         '
         'Label4
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(913, 38)
+        Me.Label4.Location = New System.Drawing.Point(609, 25)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(107, 29)
+        Me.Label4.Size = New System.Drawing.Size(70, 20)
         Me.Label4.TabIndex = 12
         Me.Label4.Text = "Filter By:"
         '
@@ -120,67 +122,71 @@ Partial Class frmItemList
         Me.cbo_Filter.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbo_Filter.FormattingEnabled = True
         Me.cbo_Filter.Items.AddRange(New Object() {"Code", "Description", "Brand", "Category"})
-        Me.cbo_Filter.Location = New System.Drawing.Point(1026, 35)
-        Me.cbo_Filter.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.cbo_Filter.Location = New System.Drawing.Point(684, 23)
+        Me.cbo_Filter.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.cbo_Filter.Name = "cbo_Filter"
-        Me.cbo_Filter.Size = New System.Drawing.Size(205, 37)
+        Me.cbo_Filter.Size = New System.Drawing.Size(138, 28)
         Me.cbo_Filter.TabIndex = 11
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(33, 38)
+        Me.Label1.Location = New System.Drawing.Point(22, 25)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(95, 29)
+        Me.Label1.Size = New System.Drawing.Size(64, 20)
         Me.Label1.TabIndex = 10
         Me.Label1.Text = "Search:"
         '
         'tb_Search
         '
         Me.tb_Search.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tb_Search.Location = New System.Drawing.Point(134, 37)
-        Me.tb_Search.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.tb_Search.Location = New System.Drawing.Point(89, 24)
+        Me.tb_Search.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.tb_Search.MaxLength = 50
         Me.tb_Search.Name = "tb_Search"
         Me.tb_Search.ShortcutsEnabled = False
-        Me.tb_Search.Size = New System.Drawing.Size(745, 35)
+        Me.tb_Search.Size = New System.Drawing.Size(498, 26)
         Me.tb_Search.TabIndex = 9
         '
         'Panel3
         '
         Me.Panel3.Controls.Add(Me.lbl_row_Count)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel3.Location = New System.Drawing.Point(0, 649)
-        Me.Panel3.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.Panel3.Location = New System.Drawing.Point(0, 422)
+        Me.Panel3.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(1421, 97)
+        Me.Panel3.Size = New System.Drawing.Size(924, 63)
         Me.Panel3.TabIndex = 28
         '
         'lbl_row_Count
         '
         Me.lbl_row_Count.AutoSize = True
         Me.lbl_row_Count.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_row_Count.Location = New System.Drawing.Point(30, 31)
+        Me.lbl_row_Count.Location = New System.Drawing.Point(20, 20)
+        Me.lbl_row_Count.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lbl_row_Count.Name = "lbl_row_Count"
-        Me.lbl_row_Count.Size = New System.Drawing.Size(131, 29)
+        Me.lbl_row_Count.Size = New System.Drawing.Size(88, 20)
         Me.lbl_row_Count.TabIndex = 9
         Me.lbl_row_Count.Text = "Row Count"
         '
         'pnl_Left
         '
         Me.pnl_Left.Dock = System.Windows.Forms.DockStyle.Left
-        Me.pnl_Left.Location = New System.Drawing.Point(0, 167)
+        Me.pnl_Left.Location = New System.Drawing.Point(0, 109)
+        Me.pnl_Left.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.pnl_Left.Name = "pnl_Left"
-        Me.pnl_Left.Size = New System.Drawing.Size(16, 482)
+        Me.pnl_Left.Size = New System.Drawing.Size(11, 313)
         Me.pnl_Left.TabIndex = 31
         '
         'pnl_Right
         '
         Me.pnl_Right.Dock = System.Windows.Forms.DockStyle.Right
-        Me.pnl_Right.Location = New System.Drawing.Point(1405, 167)
+        Me.pnl_Right.Location = New System.Drawing.Point(913, 109)
+        Me.pnl_Right.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.pnl_Right.Name = "pnl_Right"
-        Me.pnl_Right.Size = New System.Drawing.Size(16, 482)
+        Me.pnl_Right.Size = New System.Drawing.Size(11, 313)
         Me.pnl_Right.TabIndex = 32
         '
         'dg_Items
@@ -197,8 +203,9 @@ Partial Class frmItemList
         Me.dg_Items.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dg_Items.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.col_Id, Me.Column6, Me.DataGridViewTextBoxColumn2, Me.Column7, Me.Column8, Me.column1, Me.DataGridViewTextBoxColumn3, Me.Column2, Me.col_Select})
         Me.dg_Items.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.dg_Items.Location = New System.Drawing.Point(16, 167)
-        Me.dg_Items.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.dg_Items.Location = New System.Drawing.Point(11, 109)
+        Me.dg_Items.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.dg_Items.MultiSelect = False
         Me.dg_Items.Name = "dg_Items"
         Me.dg_Items.RowHeadersVisible = False
         Me.dg_Items.RowHeadersWidth = 51
@@ -207,7 +214,7 @@ Partial Class frmItemList
         Me.dg_Items.RowsDefaultCellStyle = DataGridViewCellStyle4
         Me.dg_Items.RowTemplate.Height = 24
         Me.dg_Items.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dg_Items.Size = New System.Drawing.Size(1389, 482)
+        Me.dg_Items.Size = New System.Drawing.Size(902, 313)
         Me.dg_Items.TabIndex = 33
         '
         'col_Id
@@ -226,7 +233,7 @@ Partial Class frmItemList
         Me.Column6.Name = "Column6"
         Me.Column6.ReadOnly = True
         Me.Column6.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.Column6.Width = 59
+        Me.Column6.Width = 41
         '
         'DataGridViewTextBoxColumn2
         '
@@ -236,7 +243,7 @@ Partial Class frmItemList
         Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
         Me.DataGridViewTextBoxColumn2.ReadOnly = True
         Me.DataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridViewTextBoxColumn2.Width = 96
+        Me.DataGridViewTextBoxColumn2.Width = 66
         '
         'Column7
         '
@@ -246,6 +253,7 @@ Partial Class frmItemList
         Me.Column7.Name = "Column7"
         Me.Column7.ReadOnly = True
         Me.Column7.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.Column7.Width = 71
         '
         'Column8
         '
@@ -273,7 +281,7 @@ Partial Class frmItemList
         Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
         Me.DataGridViewTextBoxColumn3.ReadOnly = True
         Me.DataGridViewTextBoxColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridViewTextBoxColumn3.Width = 128
+        Me.DataGridViewTextBoxColumn3.Width = 90
         '
         'Column2
         '
@@ -285,7 +293,7 @@ Partial Class frmItemList
         Me.Column2.Name = "Column2"
         Me.Column2.ReadOnly = True
         Me.Column2.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.Column2.Width = 82
+        Me.Column2.Width = 58
         '
         'col_Select
         '
@@ -299,13 +307,13 @@ Partial Class frmItemList
         Me.col_Select.ReadOnly = True
         Me.col_Select.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.col_Select.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.col_Select.Width = 29
+        Me.col_Select.Width = 19
         '
         'frmItemList
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1421, 746)
+        Me.ClientSize = New System.Drawing.Size(924, 485)
         Me.Controls.Add(Me.dg_Items)
         Me.Controls.Add(Me.pnl_Right)
         Me.Controls.Add(Me.pnl_Left)
@@ -313,6 +321,7 @@ Partial Class frmItemList
         Me.Controls.Add(Me.pnl_Top)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Name = "frmItemList"
         Me.Text = "frmItemList"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized

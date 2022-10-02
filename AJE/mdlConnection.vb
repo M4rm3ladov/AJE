@@ -10,12 +10,12 @@ Module mdlConnection
                 con.ConnectionString = "Persist Security Info = False; DATABASE=" & My.Settings.myDb & ";" &
                    "SERVER=" & My.Settings.myServer & ";user id=" & My.Settings.myUsername &
                    ";password=" & My.Settings.myPassword & ";port=" &
-                   My.Settings.myPassword & ";charset=utf8;"
+                   My.Settings.myPort & ";charset=utf8;SslMode=None"
                 con.Open()
             End If
 
         Catch myerror As Exception
-            MsgBox(myerror, MsgBoxStyle.Critical)
+            MsgBox(myerror.ToString(), MsgBoxStyle.Critical)
         End Try
     End Sub
 
@@ -23,7 +23,7 @@ Module mdlConnection
         Try
             con.Close()
         Catch myerror As MySql.Data.MySqlClient.MySqlException
-            MsgBox(myerror, MsgBoxStyle.Critical)
+            MsgBox(myerror.ToString(), MsgBoxStyle.Critical)
         End Try
     End Sub
 

@@ -3,6 +3,7 @@
     Dim cashLog As New clsCashierLog
     Dim credPay As New clsCreditPay
     Dim refund As New clsRefund
+    Dim void As New clsVoid
     Dim auth As New clsAuth
     Dim authKey As Integer
     Public MoveForm As Boolean
@@ -113,7 +114,7 @@
             refund.SetOrderId(frmRefund.lbl_OrderId.Text)
             refund.SetBranchId(frmPos.lbl_branch_Id.Text)
             refund.saveRefund()
-            MsgBox("Transaction saved successfully.")
+            MsgBox("Transaction saved successfully.", vbInformation)
 
             frmRefund.dg_Search.Rows.Clear()
             frmRefund.dg_Refund.Rows.Clear()
@@ -122,8 +123,21 @@
             frmRefund.lbl_due_Total.Text = "0.00"
             frmRefund.tb_Orders.Enabled = False
             frmRefund.cbo_Orders.Enabled = False
+            frmRefund.GroupBox1.Enabled = True
             frmRefund.cbo_Receipt.SelectedIndex = 0
             frmRefund.dtp_Date.Value = Date.Now
+
+        ElseIf lbl_Type.Text = 5 Then
+            void.SetInvoiceNo(frmVoid.dg_Search.Item(3, frmVoid.dg_Search.CurrentRow.Index).Value)
+            void.SetGross(frmVoid.lbl_due_Total.Text)
+            void.SetVoidDate(frmVoidTransdate.dtp_Date.Value.ToString("yyyy-MM-dd"))
+            void.SetCashierId(frmPos.lbl_user_Id.Text)
+            void.SetManagerId(auth.setUserId)
+            void.SetRemarks(frmVoidTransdate.tb_Remarks.Text)
+            void.SetOrderId(frmVoid.lbl_OrderId.Text)
+            void.SetBranchId(frmPos.lbl_branch_Id.Text)
+            void.saveVoid()
+            MsgBox("Transaction saved successfully.", vbInformation)
         End If
 
         Me.Close()

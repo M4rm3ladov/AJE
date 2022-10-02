@@ -11,6 +11,8 @@ Public Class clsRefund
     Private _Remarks As Object
     Private _OrderId As Object
     Private _RefundDate As Object
+    Private _RefundDateFrom As Object
+    Private _RefundDateTo As Object
     Public Sub SetRefundDate(AutoPropertyValue As Object)
         _RefundDate = AutoPropertyValue
     End Sub
@@ -44,9 +46,104 @@ Public Class clsRefund
     Public Sub SetOrderId(AutoPropertyValue As Object)
         _OrderId = AutoPropertyValue
     End Sub
+    Public Sub SetDateFrom(AutoPropertyValue As Object)
+        _RefundDateFrom = AutoPropertyValue
+    End Sub
+    Public Sub SetDateTo(AutoPropertyValue As Object)
+        _RefundDateTo = AutoPropertyValue
+    End Sub
+    Public Function checkVoidExists()
+        ConnectDatabase()
+        Dim query = "SELECT EXISTS(SELECT void.order_id FROM void WHERE void.order_id = @order_id)"
+        cm = New MySqlCommand(query, con)
+        cm.Parameters.AddWithValue("@order_id", _OrderId)
+        Dim count = cm.ExecuteScalar()
+        DisconnectDatabase()
+        If count > 0 Then
+            Return True
+        End If
+        Return False
+    End Function
+    Public Sub loadReceiptItemsServices()
+        frmRefund.dg_Search.Rows.Clear()
+        ConnectDatabase()
+        Dim query = "SELECT item.item_id, item.item_code, CONCAT(brand_name, ' | ', item_desc, ' | ', item_add_desc, ' | ', category_name) AS description, unit_name,order_item_dtls.qty, COALESCE(refund_item_dtls.qty, 0) AS refunded, order_item_dtls.price, order_item_dtls.line_total FROM order_item_dtls 
+                    INNER JOIN orders ON orders.`order_id` = order_item_dtls.`order_id` 
+	                LEFT JOIN refund ON refund.order_id = orders.order_id
+		            LEFT JOIN refund_item_dtls ON refund_item_dtls.refund_id = refund.refund_id
+                    INNER JOIN cash_payment ON cash_payment.order_id = orders.order_id 
+                    INNER JOIN inventory ON inventory.`inventory_id` = order_item_dtls.`inventory_id` 
+                    INNER JOIN item ON item.`item_id` = inventory.`item_id` 
+                    INNER JOIN unit ON unit.unit_id= item.unit_id 
+                    INNER JOIN brand ON brand.`brand_id` = item.`brand_id` 
+                    INNER JOIN category ON category.`category_id` = item.`category_id`
+
+                    WHERE (inventory.branch_id = @branch_id)
+                    AND (receipt = @receipt) AND (cash_payment.trans_date = @trans_date)
+ 
+                    UNION
+
+                    SELECT service.service_id, service_code, service_desc, '', order_svc_dtls.qty, COALESCE(refund_svc_dtls.qty, 0) AS refunded, order_svc_dtls.price, order_svc_dtls.line_total 
+                    FROM order_svc_dtls 
+                    INNER JOIN orders ON orders.order_id = order_svc_dtls.order_id 
+                    LEFT JOIN refund ON refund.order_id = orders.order_id
+		            LEFT JOIN refund_svc_dtls ON refund_svc_dtls.refund_id = refund.refund_id
+		            INNER JOIN cash_payment ON cash_payment.order_id = orders.order_id 
+                    INNER JOIN service ON service.service_id = order_svc_dtls.service_id 
+
+                    WHERE (receipt = @receipt) AND (cash_payment.trans_date = @trans_date)"
+        cm = New MySqlCommand(query, con)
+        cm.Parameters.AddWithValue("@receipt", _ReceiptNo)
+        cm.Parameters.AddWithValue("@trans_date", _TransDate)
+        cm.Parameters.AddWithValue("@branch_id", _BranchId)
+        dr = cm.ExecuteReader()
+        While dr.Read
+            frmRefund.dg_Search.Rows.Add(dr.Item("item_id").ToString, dr.Item("item_code").ToString, dr.Item("description").ToString, dr.Item("unit_name"), dr.Item("price").ToString, dr.Item("qty").ToString, dr.Item("refunded").ToString, dr.Item("line_total").ToString, "ADD")
+        End While
+        dr.Close()
+        DisconnectDatabase()
+    End Sub
+    Public Sub loadInvoiceItemsServices()
+        frmRefund.dg_Search.Rows.Clear()
+        ConnectDatabase()
+        Dim query = "SELECT item.item_id, item_code, CONCAT(brand_name, ' | ', item_desc, ' | ', item_add_desc, ' | ', category_name) AS description, unit_name , COALESCE(refund_item_dtls.qty, 0) AS refunded,order_item_dtls.qty, order_item_dtls.price, order_item_dtls.line_total FROM order_item_dtls 
+                    INNER JOIN orders ON orders.`order_id` = order_item_dtls.`order_id`                   
+                    LEFT JOIN refund ON refund.order_id = orders.order_id
+		            LEFT JOIN refund_item_dtls ON refund_item_dtls.refund_id = refund.refund_id		    
+                    INNER JOIN credit_payment ON credit_payment.order_id = orders.order_id 
+                    INNER JOIN inventory ON inventory.`inventory_id` = order_item_dtls.`inventory_id` 
+                    INNER JOIN item ON item.`item_id` = inventory.`item_id` 
+                    INNER JOIN unit ON unit.unit_id = item.unit_id 
+                    INNER JOIN brand ON brand.`brand_id` = item.`brand_id` 
+                    INNER JOIN category ON category.`category_id` = item.`category_id` 
+                    
+                    WHERE (inventory.branch_id = @branch_id) 
+                    AND (invoice = @invoice) AND (credit_payment.trans_date = @trans_date)
+
+                    UNION
+
+                    SELECT service.service_id, service_code, service_desc, '', COALESCE(refund_svc_dtls.qty, 0) AS refunded , order_svc_dtls.qty, order_svc_dtls.price, order_svc_dtls.line_total FROM order_svc_dtls 
+                    INNER JOIN orders ON orders.order_id = order_svc_dtls.order_id 
+		            LEFT JOIN refund ON refund.order_id = orders.order_id
+                    LEFT JOIN refund_svc_dtls ON refund_svc_dtls.refund_id = refund.refund_id
+                    INNER JOIN credit_payment ON credit_payment.order_id = orders.order_id 
+                    INNER JOIN service ON service.service_id = order_svc_dtls.service_id 
+
+                    WHERE (invoice = @invoice) AND (credit_payment.trans_date = @trans_date)"
+        cm = New MySqlCommand(query, con)
+        cm.Parameters.AddWithValue("@invoice", _InvoiceNo)
+        cm.Parameters.AddWithValue("@trans_date", _TransDate)
+        cm.Parameters.AddWithValue("@branch_id", _BranchId)
+        dr = cm.ExecuteReader()
+        While dr.Read
+            frmRefund.dg_Search.Rows.Add(dr.Item("item_id").ToString, dr.Item("item_code").ToString, dr.Item("description").ToString, dr.Item("unit_name"), dr.Item("price").ToString, dr.Item("qty").ToString, dr.Item("refunded").ToString, dr.Item("line_total").ToString, "ADD")
+        End While
+        dr.Close()
+        DisconnectDatabase()
+    End Sub
     Public Function loadFromReceipt()
         ConnectDatabase()
-        Dim query = "SELECT EXISTS(SELECT receipt FROM cash_payment WHERE receipt = @receipt AND trans_date = @trans_date) "
+        Dim query = "Select EXISTS(Select receipt FROM cash_payment WHERE receipt = @receipt And trans_date = @trans_date) "
         cm = New MySqlCommand(query, con)
         cm.Parameters.AddWithValue("@receipt", _ReceiptNo)
         cm.Parameters.AddWithValue("@trans_date", _TransDate)
@@ -62,7 +159,7 @@ Public Class clsRefund
     End Function
     Public Function loadFromInvoice()
         ConnectDatabase()
-        Dim query = "SELECT EXISTS(SELECT invoice FROM credit_payment WHERE invoice = @invoice AND trans_date = @trans_date) "
+        Dim query = "Select EXISTS(Select invoice FROM credit_payment WHERE invoice = @invoice And trans_date = @trans_date) "
         cm = New MySqlCommand(query, con)
         cm.Parameters.AddWithValue("@invoice", _InvoiceNo)
         cm.Parameters.AddWithValue("@trans_date", _TransDate)
@@ -87,7 +184,7 @@ Public Class clsRefund
         cm.Parameters.AddWithValue("@trans_date", _TransDate)
         dr = cm.ExecuteReader()
         While dr.Read
-            frmRefund.dg_Search.Rows.Add(dr.Item("item_id").ToString, dr.Item("item_code").ToString, dr.Item("description").ToString, dr.Item("unit_name"), dr.Item("price").ToString, dr.Item("qty").ToString, dr.Item("line_total").ToString, "ADD")
+            frmRefund.dg_Search.Rows.Add(dr.Item("item_id").ToString, dr.Item("item_code").ToString, dr.Item("description").ToString, dr.Item("unit_name"), dr.Item("price").ToString, dr.Item("qty").ToString, dr.Item("refunded").ToString, dr.Item("line_total").ToString, "ADD")
         End While
         dr.Close()
         DisconnectDatabase()
@@ -101,7 +198,7 @@ Public Class clsRefund
         cm.Parameters.AddWithValue("@trans_date", _TransDate)
         dr = cm.ExecuteReader()
         While dr.Read
-            frmRefund.dg_Search.Rows.Add(dr.Item("service_id").ToString, dr.Item("service_code"), dr.Item("service_desc").ToString, dr.Item(""), dr.Item("price").ToString, dr.Item("qty").ToString, dr.Item("line_total").ToString, "ADD")
+            frmRefund.dg_Search.Rows.Add(dr.Item("service_id").ToString, dr.Item("service_code"), dr.Item("service_desc").ToString, dr.Item(""), dr.Item("price").ToString, dr.Item("qty").ToString, dr.Item("refunded").ToString, dr.Item("line_total").ToString, "ADD")
         End While
         dr.Close()
         DisconnectDatabase()
@@ -116,7 +213,7 @@ Public Class clsRefund
         cm.Parameters.AddWithValue("@trans_date", _TransDate)
         dr = cm.ExecuteReader()
         While dr.Read
-            frmRefund.dg_Search.Rows.Add(dr.Item("item_id").ToString, dr.Item("item_code").ToString, dr.Item("description"), dr.Item("unit_name"), dr.Item("price").ToString, dr.Item("qty").ToString, dr.Item("line_total").ToString, "ADD")
+            frmRefund.dg_Search.Rows.Add(dr.Item("item_id").ToString, dr.Item("item_code").ToString, dr.Item("description"), dr.Item("unit_name"), dr.Item("price").ToString, dr.Item("qty").ToString, dr.Item("refunded").ToString, dr.Item("line_total").ToString, "ADD")
         End While
         dr.Close()
         DisconnectDatabase()
@@ -130,14 +227,14 @@ Public Class clsRefund
         cm.Parameters.AddWithValue("@trans_date", _TransDate)
         dr = cm.ExecuteReader()
         While dr.Read
-            frmRefund.dg_Search.Rows.Add(dr.Item("service_id").ToString, dr.Item("service_code"), dr.Item("service_desc").ToString, dr.Item("").ToString, dr.Item("price").ToString, dr.Item("qty").ToString, dr.Item("line_total").ToString, "ADD")
+            frmRefund.dg_Search.Rows.Add(dr.Item("service_id").ToString, dr.Item("service_code"), dr.Item("service_desc").ToString, dr.Item("").ToString, dr.Item("price").ToString, dr.Item("qty").ToString, dr.Item("refunded").ToString, dr.Item("line_total").ToString, "ADD")
         End While
         dr.Close()
         DisconnectDatabase()
     End Sub
     Public Sub saveRefund()
         ConnectDatabase()
-        Dim query = "INSERT INTO refund (order_id, cashier_id, manager_id, amount, trans_date, remarks) VALUE(@order_id, @cashier_id, @manager_id, @amount, @trans_date, @remarks); SELECT LAST_INSERT_ID();"
+        Dim query = "INSERT INTO refund (order_id, cashier_id, manager_id, amount, trans_date, remarks) VALUE(@order_id, @cashier_id, @manager_id, @amount, @trans_date, @remarks); Select LAST_INSERT_ID();"
         cm = New MySqlCommand(query, con)
         cm.Parameters.AddWithValue("@order_id", _OrderId)
         cm.Parameters.AddWithValue("@cashier_id", _CashierId)
@@ -154,7 +251,7 @@ Public Class clsRefund
             _qty = frmRefund.dg_Refund.Item(5, i).Value
             _price = frmRefund.dg_Refund.Item(4, i).Value
             _line_total = frmRefund.dg_Refund.Item(6, i).Value
-            query = "SELECT EXISTS(SELECT service_code FROM service WHERE service_code = @service_code)"
+            query = "Select EXISTS(Select service_code FROM service WHERE service_code = @service_code)"
             cm = New MySqlCommand(query, con)
             cm.Parameters.AddWithValue("@service_code", _service_code)
             Dim count = cm.ExecuteScalar()
@@ -171,7 +268,7 @@ Public Class clsRefund
                 cm.Dispose()
 
             Else
-                query = "SELECT inventory_id FROM inventory WHERE item_id = @item_id AND branch_id = @branch_id"
+                query = "Select inventory_id FROM inventory WHERE item_id = @item_id And branch_id = @branch_id"
                 cm = New MySqlCommand(query, con)
                 cm.Parameters.AddWithValue("@item_id", _id)
                 cm.Parameters.AddWithValue("@branch_id", _BranchId)
@@ -188,14 +285,14 @@ Public Class clsRefund
                 cm.ExecuteScalar()
                 cm.Dispose()
 
-                query = "SELECT qty FROM inventory WHERE inventory_id = @inventory_id"
+                query = "Select qty FROM inventory WHERE inventory_id = @inventory_id"
                 cm = New MySqlCommand(query, con)
                 cm.Parameters.AddWithValue("@inventory_id", _inventoryId)
                 Dim prevQty = cm.ExecuteScalar()
 
                 Dim newQty = prevQty + _qty
 
-                query = "UPDATE inventory SET qty = @qty WHERE inventory_id = @inventory_id"
+                query = "UPDATE inventory Set qty = @qty WHERE inventory_id = @inventory_id"
                 cm = New MySqlCommand(query, con)
                 cm.Parameters.AddWithValue("@inventory_id", _inventoryId)
                 cm.Parameters.AddWithValue("@qty", newQty)
@@ -205,6 +302,7 @@ Public Class clsRefund
         If frmRefund.cbo_Receipt.SelectedIndex = 1 Then
             Dim cust_bal As Decimal
             Dim cust_id
+
             query = "SELECT customer.balance FROM customer 
                     INNER JOIN credit_payment ON credit_payment.customer_id = customer.customer_id 
                     WHERE credit_payment.trans_date = @trans_date AND credit_payment.invoice = @invoice_no"
@@ -224,14 +322,15 @@ Public Class clsRefund
             cm.Dispose()
 
             Dim new_cust_bal As Decimal
+
             new_cust_bal = cust_bal - _Amount
 
             query = "UPDATE customer SET customer.balance = '" & new_cust_bal & "' WHERE customer.customer_id = '" & cust_id & "'"
-            cm = New MySqlCommand(query, con)
-            cm.ExecuteScalar()
-            cm.Dispose()
-        End If
-        DisconnectDatabase()
+                cm = New MySqlCommand(query, con)
+                cm.ExecuteScalar()
+                cm.Dispose()
+            End If
+            DisconnectDatabase()
     End Sub
     Public Function loadOrderIdReceipt()
         ConnectDatabase()
@@ -251,6 +350,52 @@ Public Class clsRefund
         DisconnectDatabase()
         Return ordId
     End Function
+    Public Sub loadCreditHistory()
+        Dim transDate As String
+        frmRefund.dg_History.Rows.Clear()
+        ConnectDatabase()
+        Dim query = "SELECT invoice, trans_date, Description, Category, Unit, price, qty, sub_total, Cashiers, remarks FROM vw_refund_credit
+                    WHERE trans_date BETWEEN @date_from AND @date_to AND branch_id = '" & frmMain.lbl_branch_Id.Text & "' ORDER BY trans_date"
+        cm = New MySqlCommand(query, con)
+        cm.Parameters.AddWithValue("@date_from", _RefundDateFrom)
+        cm.Parameters.AddWithValue("@date_to", _RefundDateTo)
+
+        dr = cm.ExecuteReader()
+        If dr.HasRows Then
+            While dr.Read()
+                transDate = Format(dr.Item("trans_date"), "MM/dd/yyyy")
+                frmRefund.dg_History.Rows.Add(dr.Item("invoice").ToString, transDate, dr.Item("Description").ToString, dr.Item("Category").ToString, dr.Item("Unit").ToString, dr.Item("price").ToString,
+                                               dr.Item("qty").ToString, dr.Item("sub_total").ToString, dr.Item("Cashiers").ToString, dr.Item("remarks").ToString)
+            End While
+        Else
+            MsgBox("No data available on given parameters.", vbInformation)
+        End If
+        dr.Close()
+        DisconnectDatabase()
+    End Sub
+    Public Sub loadCashHistory()
+        Dim transDate As String
+        frmRefund.dg_History.Rows.Clear()
+        ConnectDatabase()
+        Dim query = "SELECT receipt, trans_date, Description, Category, Unit, price, qty, sub_total, Cashiers, remarks FROM vw_refund_cash
+                    WHERE trans_date BETWEEN @date_from AND @date_to AND branch_id = '" & frmMain.lbl_branch_Id.Text & "' ORDER BY trans_date"
+        cm = New MySqlCommand(query, con)
+        cm.Parameters.AddWithValue("@date_from", _RefundDateFrom)
+        cm.Parameters.AddWithValue("@date_to", _RefundDateTo)
+
+        dr = cm.ExecuteReader()
+        If dr.HasRows Then
+            While dr.Read()
+                transDate = Format(dr.Item("trans_date"), "MM/dd/yyyy")
+                frmRefund.dg_History.Rows.Add(dr.Item("receipt").ToString, transDate, dr.Item("Description").ToString, dr.Item("Category").ToString, dr.Item("Unit").ToString, dr.Item("price").ToString,
+                                              dr.Item("qty").ToString, dr.Item("sub_total").ToString, dr.Item("Cashiers").ToString, dr.Item("remarks").ToString)
+            End While
+        Else
+            MsgBox("No data available on given parameters.", vbInformation)
+        End If
+        dr.Close()
+        DisconnectDatabase()
+    End Sub
     'Public Function checkRefundExists()
     '    ConnectDatabase()
     '    Dim query = "SELECT EXISTS(SELECT order_id FROM refund WHERE order_id = @order_id)"

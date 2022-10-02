@@ -19,6 +19,10 @@
     End Sub
 
     Private Sub btn_Report_Click(sender As Object, e As EventArgs) Handles btn_Report.Click
-        frmStockAdjustReport.ShowDialog()
+        Try
+            frmStockAdjustReport.ShowDialog()
+        Catch ex As Exception
+            MsgBox("Could not load Report with exception: " & ex.ToString, vbCritical)
+        End Try
     End Sub
 End Class

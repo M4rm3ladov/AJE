@@ -1,6 +1,9 @@
 ﻿Public Class frmCreditPay
     Dim creditPay As New clsCreditPay
     Private Sub btn_Back_Click(sender As Object, e As EventArgs) Handles btn_Back.Click
+        If MsgBox("Transaction will be cleared, Do you wish to exit?", vbYesNo + vbInformation) = vbNo Then
+            Exit Sub
+        End If
         dg_Transactions.Rows.Clear()
         tb_Name.Clear()
         lbl_customer_Id.Text = vbNullString

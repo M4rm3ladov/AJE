@@ -61,6 +61,7 @@
             Exit Sub
         End If
         Try
+            cashier.Username = tb_Username.Text
             Dim result = MsgBox("Are you sure you want to save this record?", vbYesNo + vbQuestion)
             If cashier.checkCashierDuplicate = True Then
                 MsgBox("Username is already existing.", vbInformation)
