@@ -63,14 +63,14 @@
         End If
         Dim b = frmPos.dg_Search.CurrentRow.Index
         order.SetItemCode(frmPos.dg_Search.Item(1, b).Value)
-        If order.checkItemQty < tb_Qty.Text Then
-            If MsgBox("The virtual item stocked exceeds the current order. Do you wish to Continue?", vbYesNo + vbQuestion) = vbNo Then
-                tb_Qty.Clear()
-                tb_Price.Clear()
-                Me.Close()
-                Exit Sub
-            End If
-        End If
+        'If order.checkItemQty < tb_Qty.Text Then
+        '    If MsgBox("The virtual item stocked exceeds the current order. Do you wish to Continue?", vbYesNo + vbQuestion) = vbNo Then
+        '        tb_Qty.Clear()
+        '        tb_Price.Clear()
+        '        Me.Close()
+        '        Exit Sub
+        '    End If
+        'End If
 
         If lbl_Type.Text = 1 Then
             Dim i As Integer = frmPos.dg_Search.CurrentRow.Index      'sets price range price A and priceB

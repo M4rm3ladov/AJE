@@ -7,12 +7,13 @@ Public Class frmCustomerTransacs
             Exit Sub
         End If
         Dim rptDs As ReportDataSource
-        rv_Transac.RefreshReport()
+
         Try
             With rv_Transac.LocalReport
-                .ReportPath = Application.StartupPath & "\Report\Report3.rdlc"
+                .ReportEmbeddedResource = "AJE.Report3.rdlc" '.ReportPath = Application.StartupPath & "\Report\Report3.rdlc"
                 .DataSources.Clear()
             End With
+            rv_Transac.RefreshReport()
 
             Dim ds As New DataSet1
             Dim da As New MySqlDataAdapter
@@ -70,12 +71,13 @@ Public Class frmCustomerTransacs
 
     Private Sub btn_history_load_Report_Click(sender As Object, e As EventArgs) Handles btn_history_load_Report.Click
         Dim rptDs As ReportDataSource
-        rv_History.RefreshReport()
+
         Try
             With rv_History.LocalReport
-                .ReportPath = Application.StartupPath & "\Report\Report4.rdlc"
+                .ReportEmbeddedResource = "AJE.Report4.rdlc" '.ReportPath = Application.StartupPath & "\Report\Report4.rdlc"
                 .DataSources.Clear()
             End With
+            rv_History.RefreshReport()
 
             Dim ds As New DataSet1
             Dim da As New MySqlDataAdapter
@@ -104,12 +106,13 @@ Public Class frmCustomerTransacs
 
     Private Sub btn_load_Bal_Click(sender As Object, e As EventArgs) Handles btn_load_Bal.Click
         Dim rptDs As ReportDataSource
-        rv_Balance.RefreshReport()
+
         Try
             With rv_Balance.LocalReport
-                .ReportPath = Application.StartupPath & "\Report\ReportBalance.rdlc"
+                .ReportEmbeddedResource = "AJE.ReportBalance.rdlc" '.ReportPath = Application.StartupPath & "\Report\ReportBalance.rdlc"
                 .DataSources.Clear()
             End With
+            rv_Balance.RefreshReport()
 
             Dim ds As New DataSet1
             Dim da As New MySqlDataAdapter

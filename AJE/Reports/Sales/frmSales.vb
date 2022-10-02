@@ -1,5 +1,6 @@
 ﻿Imports MySql.Data.MySqlClient
 Imports Microsoft.Reporting.WinForms
+
 Public Class frmSales
     Private Sub frmSales_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         dtp_cash_From.Value = DateTime.Now
@@ -22,12 +23,13 @@ Public Class frmSales
 
     Private Sub btn_load_cash_Report_Click_1(sender As Object, e As EventArgs) Handles btn_load_cash_Report.Click
         Dim rptDs As ReportDataSource
-        Me.rv_Cash.RefreshReport()
+
         Try
             With rv_Cash.LocalReport
-                .ReportPath = Application.StartupPath & "\Report\Report1.rdlc"
+                .ReportEmbeddedResource = "AJE.Report1.rdlc" '.ReportPath = Application.StartupPath & "\Report\Report1.rdlc"
                 .DataSources.Clear()
             End With
+            Me.rv_Cash.RefreshReport()
 
             Dim ds As New DataSet1
             Dim da As New MySqlDataAdapter
@@ -64,12 +66,13 @@ Public Class frmSales
 
     Private Sub btn_credit_load_Report_Click(sender As Object, e As EventArgs) Handles btn_credit_load_Report.Click
         Dim rptDs As ReportDataSource
-        Me.rv_Credit.RefreshReport()
+
         Try
             With rv_Credit.LocalReport
-                .ReportPath = Application.StartupPath & "\Report\Report2.rdlc"
+                .ReportEmbeddedResource = "AJE.Report2.rdlc" '.ReportPath = Application.StartupPath & "\Report\Report2.rdlc"
                 .DataSources.Clear()
             End With
+            Me.rv_Credit.RefreshReport()
 
             Dim ds As New DataSet1
             Dim da As New MySqlDataAdapter
@@ -105,12 +108,13 @@ Public Class frmSales
 
     Private Sub btn_all_load_Report_Click(sender As Object, e As EventArgs) Handles btn_all_load_Report.Click
         Dim rptDs As ReportDataSource
-        Me.rv_All.RefreshReport()
+
         Try
             With rv_All.LocalReport
-                .ReportPath = Application.StartupPath & "\Report\ReportAllSales.rdlc"
+                .ReportEmbeddedResource = "AJE.ReportAllSales.rdlc" '"\Report\ReportAllSales.rdlc"
                 .DataSources.Clear()
             End With
+            Me.rv_All.RefreshReport()
 
             Dim ds As New DataSet1
             Dim da As New MySqlDataAdapter
