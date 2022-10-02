@@ -61,4 +61,4 @@ A desktop point of sale and inventory system for a local retailer
 ### Report
 
 #### Sales
-![Sales](https://github.com/M4rm3ladov/AJE/blob/master/ScreenShots/Sales%20Report.PNG?raw=true)Sql
+![Sales](https://github.com/M4rm3ladov/AJE/blob/master/ScreenShots/Sales%20Report.PNG?raw=true)
