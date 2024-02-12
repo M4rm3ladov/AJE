@@ -13,6 +13,17 @@ A desktop point of sale and inventory system for a local retailer
 - Winforms
 
 - Report Viewer
+
+## I. Authentication
+  ### A. Admin
+  - Profiling
+  ### B. Manager
+  - Inventory
+  - Customers
+  - Reports
+  ### C. Cashier
+  - Point of Sale
+
 ## Screenshots
 
 ### Login
