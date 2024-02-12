@@ -27,30 +27,36 @@ A desktop point of sale and inventory system for a local retailer
 ## II. Profiling
   ### A. Items
   #### Items
-  - CRUD items with filtered search by item code, description, brand, and category
+  CRUD store items with filtered search by item code, description, brand, and category
   #### Category
-  - CRUD items' categories
+  CRUD items' categories
   #### Brand
-  - CRUD item's brands
+  CRUD item's brands
   #### Unit
-  - CRUD item's units of measurement
+  CRUD item's units of measurement
 
   ### B. Users
-  
-  
   #### System Accounts
+  CRUD system accounts with filtered search by name, username, and branch 
   #### Cashier
+  CRUD cashier accounts which is connected to a system account with filtered search by name and username
   #### Manager
+  CRUD manager accounts which is connected to a system account with filtered search by name and username
   
   ### C. Services
+  CRUD store services with filtered search by service code and description
   
   ### D. Branch
+  CRUD store branches/locations
   
   ### E. Supplier
+  CRUD inventory suppliers with filtered search by name and address
   
   ### F. Credit Limit Adjust
+  Create or update the maximum credit limit allotment for each users
   
   ### G. Critical Stock Adjust
+  Create or update the minimum critical stock for each inventory items
 
 ## Screenshots
 
