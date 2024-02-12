@@ -24,6 +24,28 @@ A desktop point of sale and inventory system for a local retailer
   ### C. Cashier
   - Point of Sale
 
+## II. Profiling
+  ### A. Items
+  #### Items
+  #### Category
+  #### Brand
+  #### Unit
+
+  ### B. Users
+  #### System Accounts
+  #### Cashier
+  #### Manager
+  
+  ### C. Services
+  
+  ### D. Branch
+  
+  ### E. Supplier
+  
+  ### F. Credit Limit Adjust
+  
+  ### G. Critical Stock Adjust
+
 ## Screenshots
 
 ### Login
