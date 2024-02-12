@@ -27,11 +27,17 @@ A desktop point of sale and inventory system for a local retailer
 ## II. Profiling
   ### A. Items
   #### Items
+  - CRUD items with filtered search by item code, description, brand, and category
   #### Category
+  - CRUD items' categories
   #### Brand
+  - CRUD item's brands
   #### Unit
+  - CRUD item's units of measurement
 
   ### B. Users
+  
+  
   #### System Accounts
   #### Cashier
   #### Manager
