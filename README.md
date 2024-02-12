@@ -83,7 +83,8 @@ A desktop point of sale and inventory system for a local retailer
 - CRUD quantity adjusted stock items
 - Read and print history report of all adjusted stock items by date range
 
-
+## IV. Customers
+CRUD customers information and credit limit with filtered search by customer code and name
 
 ## Screenshots
 
