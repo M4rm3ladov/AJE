@@ -1,5 +1,5 @@
 
-# Point of Sale and Inventory in VB.Net
+# Point of Sale and Inventory System
 
 A desktop point of sale and inventory system for a local retailer
 
@@ -57,6 +57,33 @@ A desktop point of sale and inventory system for a local retailer
   
   ### G. Critical Stock Adjust
   Create or update the minimum critical stock for each inventory items
+
+## III. Inventory
+### A. Stock List
+- Read all items with filtered search by item code, description, categories, brands, and item stock status
+- Read and print history report of all items in stock filtered by date range  
+
+### B. Stock In
+- CRUD stocked in items
+- Read and print history report of all stocked in items by date range  
+
+### C. Stock Transfer
+- CRUD transferred stock items to different branches
+- Read and print history report of all transfered stock items by date range  
+
+### E. Stock Return
+- CRUD returned stock items to a supplier
+- Read and print history report of all returned stock items by date range  
+
+### F. Stock Out
+- CRUD stocked out items 
+- Read and print history report of all stocked out items by date range  
+
+### G. Periodic Stock Adjustment
+- CRUD quantity adjusted stock items
+- Read and print history report of all adjusted stock items by date range
+
+
 
 ## Screenshots
 
