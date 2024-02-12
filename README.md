@@ -27,7 +27,7 @@ A desktop point of sale and inventory system for a local retailer
 ## II. Profiling
   ### A. Items
   #### Items
-  CRUD store items with filtered search by item code, description, brand, and category
+  CRUD store items with filtered search by item code, description, brand, or category
   #### Category
   CRUD items' categories
   #### Brand
@@ -37,20 +37,20 @@ A desktop point of sale and inventory system for a local retailer
 
   ### B. Users
   #### System Accounts
-  CRUD system accounts with filtered search by name, username, and branch 
+  CRUD system accounts with filtered search by name, username, or branch 
   #### Cashier
-  CRUD cashier accounts which is connected to a system account with filtered search by name and username
+  CRUD cashier accounts which is connected to a system account with filtered search by name or username
   #### Manager
-  CRUD manager accounts which is connected to a system account with filtered search by name and username
+  CRUD manager accounts which is connected to a system account with filtered search by name or username
   
   ### C. Services
-  CRUD store services with filtered search by service code and description
+  CRUD store services with filtered search by service code or description
   
   ### D. Branch
   CRUD store branches/locations
   
   ### E. Supplier
-  CRUD inventory suppliers with filtered search by name and address
+  CRUD inventory suppliers with filtered search by name or address
   
   ### F. Credit Limit Adjust
   Create or update the maximum credit limit allotment for each users
@@ -60,7 +60,7 @@ A desktop point of sale and inventory system for a local retailer
 
 ## III. Inventory
   ### A. Stock List
-  - Read all items with filtered search by item code, description, categories, brands, and item stock status
+  - Read all items with filtered search by item code, description, categories, brands, or item stock status
   - Read and print history report of all items in stock filtered by date range  
   
   ### B. Stock In
@@ -84,7 +84,7 @@ A desktop point of sale and inventory system for a local retailer
   - Read and print history report of all adjusted stock items by date range
   
 ## IV. Customers
-CRUD customers information and credit limit with filtered search by customer code and name
+CRUD customers information and credit limit with filtered search by customer code or name
 
 ## V. Reports
   ### A. Sales Report
@@ -131,6 +131,59 @@ CRUD customers information and credit limit with filtered search by customer cod
   #### Voided Credit Sales
   Read and print history report of all voided credit sales by date range
 
+## VI. Point of Sale
+  ### A. Initial Balance
+  Create initial cash balance of a cashier with manage authentication approval 
+
+  ### B. Items and Services Search
+  Read all items or services filtered by code or description
+
+  ### C. New Transaction
+  #### Cash
+  Create new cash transaction
+  #### Credit
+  - Create new credit transaction
+  - Select a customer from customer list
+
+  ### E. Add to Cart
+  CRUD items or services to cart with price specified by range
+
+  ### F. Check Out
+  Create new check out transaction with invoice or receipt
+
+  ### G. Cash In
+  Create new cash in log details
+  
+  ### H. Cash Out
+  Create new cash out log details
+
+  ### I. Refund
+  #### Refund Items and Services
+  CRUD refund cash or credit transactions by receipt or invoice
+  
+  #### Refund History
+  Read all refunded cash or credit transactions by invoice or receipt
+
+  ### J. Customer Balance
+  #### Settle Credit Balance
+  CRUD credit balance payment of a specific customer filtered by input date or sale date 
+  
+  #### Payment History
+  Read all payments history of a specific customer filtered by transaction date
+
+  ### K. Void Transactions
+  #### Orders
+  CRUD void order transaction filtered by sale date or input date
+  
+  #### Void History
+  Read all voided order transactions filtered by date range
+
+  #### Logout
+  Logs out cashier saving cashier log
+
+## VII. Logout
+Logs out system account user 
+  
 ## Screenshots
 
 ### Login
