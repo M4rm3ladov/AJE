@@ -3,8 +3,10 @@
 
 A desktop point of sale and inventory system for a local retailer
 
+## I. Video Demo
+<a href="https://youtu.be/oMGHR3QiAMg"><img src="https://img.youtube.com/vi/oMGHR3QiAMg/hqdefault.jpg" width="50%" heigth="50%"></a>
 
-## Technologies
+## II. Technologies
 
 - Vb.Net
 
@@ -14,7 +16,7 @@ A desktop point of sale and inventory system for a local retailer
 
 - Report Viewer
 
-## I. Authentication
+## III. Authentication
   ### A. Admin
   - Profiling
   ### B. Manager
@@ -24,7 +26,7 @@ A desktop point of sale and inventory system for a local retailer
   ### C. Cashier
   - Point of Sale
 
-## II. Profiling
+## IV. Profiling
   ### A. Items
   #### Items
   CRUD store items with filtered search by item code, description, brand, or category
@@ -58,7 +60,7 @@ A desktop point of sale and inventory system for a local retailer
   ### G. Critical Stock Adjust
   Create or update the minimum critical stock for each inventory items
 
-## III. Inventory
+## V. Inventory
   ### A. Stock List
   - Read all items with filtered search by item code, description, categories, brands, or item stock status
   - Read and print history report of all items in stock filtered by date range  
@@ -83,10 +85,10 @@ A desktop point of sale and inventory system for a local retailer
   - CRUD quantity adjusted stock items
   - Read and print history report of all adjusted stock items by date range
   
-## IV. Customers
+## VI. Customers
 CRUD customers information and credit limit with filtered search by customer code or name
 
-## V. Reports
+## VII. Reports
   ### A. Sales Report
   #### All Sales
   Read and print history report of all sales by date range
@@ -131,7 +133,7 @@ CRUD customers information and credit limit with filtered search by customer cod
   #### Voided Credit Sales
   Read and print history report of all voided credit sales by date range
 
-## VI. Point of Sale
+## VIII. Point of Sale
   ### A. Initial Balance
   Create initial cash balance of a cashier with manage authentication approval 
 
@@ -181,7 +183,7 @@ CRUD customers information and credit limit with filtered search by customer cod
   #### Logout
   Logs out cashier saving cashier log
 
-## VII. Logout
+## IX. Logout
 Logs out system account user 
   
 ## Screenshots
